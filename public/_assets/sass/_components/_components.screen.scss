@@ -1,0 +1,154 @@
+/*------------------------------------*\
+    #SCREENS
+\*------------------------------------*/
+
+$screen-1--offset: 20%;
+$screen-1--height: 112%;
+$screen-1-5--height: 25%;
+$screen-2--height: 119%;
+//$screen-3--height: 100%;
+
+.screen{
+    width: 100%;
+    position: absolute;
+
+    @include media-query(portable) {
+        position: static;
+    }
+}
+
+.screen-1{
+    height: $screen-1--height;
+    top: $screen-1--offset;
+}
+
+.screen-1-5{
+    height: $screen-1-5--height;
+    top: $screen-1--height + $screen-1--offset;
+}
+
+.screen-2{
+    height: $screen-2--height;
+    top: $screen-1--height + $screen-1-5--height + $screen-1--offset;
+}
+
+.screen-3{
+    //height: $screen-3--height;
+    top: $screen-1--height + $screen-1-5--height + $screen-2--height + $screen-1--offset;
+}
+
+.screen-1,
+.screen-1-5,
+.screen-2,
+.screen-3{
+    @include media-query(portable) {
+        height: auto;
+        top: auto;
+    }
+}
+
+.screen-1-5,
+.screen-3{
+    width: 92%;
+    left: 4%;
+}
+
+.screen-1{
+    @include media-query(portable) {
+        position: relative;
+    }
+}
+
+/* Alignment */
+.screen-alignment{
+    position: absolute;
+    height: 100%;
+
+    padding: 16px;
+
+    @include media-query(portable) {
+        height: auto;
+        position: static;
+    }
+}
+
+//.screen-1
+.screen-alignment--left{
+    left: 0;
+    top: 0;
+    width: 67.5%;
+
+    padding-bottom: 0;
+
+    .layout, .layout__item{
+        height: 100%;
+    }
+
+    @include media-query(portable) {
+        width: 100%;
+        padding-top: 300px;
+    }
+}
+
+//.screen-1
+.screen-alignment--right{
+    right: 0;
+    top: 0;
+
+    width: 30%;
+    
+    padding-right: 50px;
+    padding-bottom: 12%;
+
+    @include media-query(portable) {
+        top: 0;
+        left: 0;        
+        position: absolute;
+        width: 100%;
+        height: 300px;
+        padding: 16px;
+    }
+
+}
+
+.screen-2
+.screen-alignment--full{
+    width: 100%;
+    position: relative;
+
+    .layout, .layout__item{
+        height: 100%;
+    }
+
+}
+
+.screen-3
+.screen-alignment--full{
+    width: 100%;
+    position: relative;
+    margin-bottom: 50px;
+
+    .layout, .layout__item{
+        height: 100%;
+    }
+}
+
+.alignment-center{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 50%;
+    @include transform(translateY(-50%));
+    margin-top: -50%/9;
+}
+
+.screen-1-5{
+    .alignment-center{
+        padding-top: 6%;
+        @include media-query(portable) {
+            padding: 20px 0;
+            top: auto;
+            @include transform(translateY(0));
+        }
+    }
+}

@@ -1,0 +1,75 @@
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+.button{
+    border: 1px solid #979797;
+    position: relative;
+    text-decoration: none;
+    text-align: left;
+    line-height: 55px;
+    height: 58px;
+    display: inline-block;
+    padding: 0 35px;
+    width: 180px;
+    @include border-radius(3px);
+    font-size: 16px;
+    font-weight: 700;
+
+    color: $yom-black;
+    @include transition(background-color, 0.3s, cubic-bezier(0.250, 0.460, 0.450, 0.940));
+
+    &:hover{    
+        background: rgba(200,200,200,0.6);
+    }
+
+}
+
+.button--arrow{
+    i{
+        position: absolute;
+        top: 17px;
+        right: 25px;
+    }
+
+    i:after, i:before {
+        width: 6px;
+        height: 11px;
+        border-left: 2px solid #979797;
+        content: "";
+        position: absolute;
+        pointer-events: none;
+    }
+
+    i:after {
+        -webkit-transform: skew(-135deg);
+    }
+    i:before {
+        -webkit-transform: skew(135deg);
+        top: 11px;
+    }
+}
+
+.button--black{
+    border-color: $yom-black;
+    background: $yom-black;
+    color: #FFF;
+
+    &:hover{
+        color: $yom-black;
+        background: #FFF;
+    }
+}
+
+.button--dia{
+    color: #FFF;
+    width: auto;
+}
+
+.button--social{
+    width: auto;
+    width: 58px;
+    padding: 0;
+    text-align: center;
+    font-size: 20px;
+}
