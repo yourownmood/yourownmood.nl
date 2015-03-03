@@ -198,17 +198,21 @@ $card-br: 44%;
 
 .card__project--gj{
     height: $card-br;
-    background-color: #6cbc88;
+    background-color: #fdfdfd;
     
-    background-size: cover;
-    background-position: center;
+        
     //background-image: url('../images/project/allerhande.jpg');
 
-    img{max-width: 58%;}
+    img{max-width: 64%;}
+
+    .card__background{
+        background-position: center;
+        background-size: cover;
+    }
 }
 
 .card__project--1{
-    height: 50%;
+    height: 33%;
     background-color: #FF0;
 
     .card__background{
@@ -218,7 +222,7 @@ $card-br: 44%;
 
 .card__project--2{
     //height: 50%;
-    height: 36%;
+    height: 33%;
     background-color: #811d7d;
 
     .card__background{
@@ -228,10 +232,19 @@ $card-br: 44%;
     img{max-width: 38%;}
 }
 
+.card__project--8{
+    height: 34%;
+    background-color: #6cbc88;
+
+    .card__background{
+        background-position: center right;
+    }
+}
+
 /* == 100% */
 
 .card__project--3{
-    height: 58%;
+    height: 37%;
     background-color: #85C300;
     
     img{
@@ -241,17 +254,38 @@ $card-br: 44%;
 }
 
 .card__project--4{
-    height: 42%;
+    height: 26%;
     background-color: #E01E3A;
 
+    .overlay__name{
+        
+        @include media-query (desk) {
+            margin-top: -30px;
+        }
+
+        b{
+            font-size: 27px;
+            @include media-query (phone) {
+                font-size: 21px;
+            }
+        }
+    }
+
     img{max-width: 48%;}
+}
+
+.card__project--9{
+    height: 37%;
+    background-color: #f1f1f1;
+
+    img{max-width: 62%;}
 }
 
 /* == 100% */
 
 .card__project--5{
     //height: 50%;
-    height: 32%;
+    height: 30%;
 
     padding: 8%;
     background-color: #171717;
@@ -269,7 +303,7 @@ $card-br: 44%;
 }
 
 .card__project--6{
-    height: 50%;
+    height: 40%;
     //padding: 3%;
     background-color: #2EB5E7;
 
@@ -279,7 +313,7 @@ $card-br: 44%;
 }
 
 .card__project--7{
-    height: 32%;
+    height: 30%;
     background-color: #f0ece8;
 
     .overlay__name{
@@ -302,7 +336,9 @@ $card-br: 44%;
     }
 }
 
-.card__project--2,
+
+//.card__project--2,
+.card__project--6,
 .card__project--7{
     @include media-query (portable) {
         float: left;
@@ -322,7 +358,9 @@ $card-br: 44%;
 .card__project--3,
 .card__project--4,
 .card__project--6,
-.card__project--7{
+.card__project--7,
+.card__project--8,
+.card__project--9{
     &:hover{
         cursor: pointer;
         .project__overlay{
