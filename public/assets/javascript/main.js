@@ -32,9 +32,11 @@
 
         $scope.pageClass = 'page-home';
 
-        $(".page .lazy").lazyload({
-            effect : "fadeIn"
-        });
+        setTimeout(function(){
+            $(".page .lazy").lazyload({
+                effect : "fadeIn"
+            });
+        }, 50);
 
         new WOW().init();
 
@@ -56,9 +58,11 @@
         
         $scope.pageClass = 'page-project';
 
-        $(".page .lazy").lazyload({
-            effect : "fadeIn"
-        });
+        setTimeout(function(){
+            $(".page .lazy").lazyload({
+                effect : "fadeIn"
+            });
+        }, 50);
 
         new WOW().init();
 
