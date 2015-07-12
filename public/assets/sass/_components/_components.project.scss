@@ -1,0 +1,56 @@
+/*------------------------------------*\
+    #PROJECT
+\*------------------------------------*/
+
+.project__hero{
+
+    .project__hero--intro{
+        position: absolute;
+        bottom: 30px;
+
+        padding: 0 9%;
+
+        b{
+            color: #FFF;
+        }
+    }
+}
+
+.project__hero--slogan{
+    font-size: 108px;
+    line-height: 96px;
+    padding: 135px 9% 0 9%;
+    color: #FFF;
+}
+
+.project__bio{
+    padding-top: 260px;
+    margin-left: 18%;
+    margin-right: 10%;
+
+    .project__bio--header{
+        font-size: 42px;
+        margin-bottom: 75px;
+    }
+
+    .project__bio--paragraph{
+        font-size: 16px;
+        color: $yom-grey;
+        margin-bottom: 50px;
+    }
+
+    .project__bio--label{
+        font-size: 20px;
+        line-height: 25px;
+        font-weight: 700;
+        color: $yom-black;
+        margin-bottom: 35px;
+
+        span{
+            display: block;
+            font-size: 17px;
+            font-weight: 300;
+            color: $yom-grey;
+        } 
+    }
+}

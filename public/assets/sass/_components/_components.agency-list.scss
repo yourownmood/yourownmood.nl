@@ -1,0 +1,40 @@
+/*------------------------------------*\
+    #AGENCY LIST
+\*------------------------------------*/
+
+.agency-list{
+
+    padding: 0 5%;
+
+    margin-top: 0px;
+    margin-bottom: 50px;
+
+    a{
+        padding-right: 25%;
+        padding-bottom: 25px;
+        margin-right: 30px;
+        display: block;
+
+        height: 80px;
+
+        border-bottom: 1px solid $yom-black;
+
+        img{
+            max-width: 100%;
+            max-height: 50px;
+            
+        }
+
+        @include media-query (portable) {
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.agency-3 img{
+    margin-top: 3px;
+}
+
+.agency-4 img{
+    margin-top: 25px;
+}
