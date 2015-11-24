@@ -1,10 +1,9 @@
 (function() {
     'use strict';
-
-    // TODO:
-    // - 
     
     var gulp = require('gulp'),
+        browserSync = require('browser-sync').create(),
+        reload = browserSync.reload,
         del = require('del'),
         rename = require('gulp-rename'),
         path = require('path'),
@@ -24,8 +23,6 @@
 
         iconfont = require('gulp-iconfont'),
         iconfontCss = require('gulp-iconfont-css'),
-
-        livereload = require('gulp-livereload'),
         styledocco = require('gulp-styledocco');
 
 
@@ -44,16 +41,30 @@
         runSequence('pre-clean', ['compress', 'sass', 'copy-assets'], 'parker', callback);
     });
 
-    // Watch Process:
-    gulp.task('watch', function() {
-        gulp.watch([config.src_dir + '/assets/sass/**/*.scss'], ['sass']);
-        gulp.watch([config.src_dir + '/assets/javascript/**/*.js'], ['compress']);
 
-        livereload.listen();
-    });
+    function startDevServer(dir){
+        browserSync({
+            xip: true,
+            open: true,
+            port: 3001,
+            notify: true
+        });
+    }
 
     // Default task:
-    gulp.task('default', ['build', 'watch']);
+    gulp.task('default', ['serve']);
+
+    gulp.task('serve', ['build'], function () {
+           
+        browserSync.init({
+            server: config.src_dir
+        });
+
+        gulp.watch("public/assets/sass/**/*.scss", ['sass']);
+        gulp.watch("public/assets/javascript/**/*.js", ['compress']).on('change', browserSync.reload);
+        gulp.watch(config.src_dir + "/**/*.html").on('change', browserSync.reload);
+
+    });
 
     // SASS task:
     gulp.task('sass', function() {
@@ -76,7 +87,8 @@
             .pipe(minifyCSS())
             .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest(config.build_dir + '/css/'))
-            .pipe(livereload());
+            
+            .pipe(browserSync.stream());
     });
 
     // Move node_modules
@@ -126,7 +138,11 @@
         //.pipe(uglify())
         .pipe(gulp.dest(config.build_dir + '/javascript/'))
 
-        .pipe(livereload());
+       // .pipe(livereload());
+       .pipe(reload({
+            stream: true
+        }));
+
     });
 
     // Parker CSS reporting:

@@ -18,6 +18,7 @@
 
 .scherm-2{
     height: 120vh;
+    position: relative;
 
     @include media-query(portable) {
         height: auto;
@@ -30,7 +31,28 @@
 }
 
 .scherm-project{
-    height: 95vh;
+    min-height: 95vh;
+
+    .layout{
+        display: table;
+    }
+
+    @include media-query(palm) {
+        min-height: 400px;
+
+        .card{
+            height: 400px;
+        }
+
+        .layout{
+            display: inline-block;
+        }
+
+        .project__bio{
+            padding-top: 50px;
+            margin-left: 9%;
+        }
+    }
 
     @include media-query(phone) {
         height: auto;

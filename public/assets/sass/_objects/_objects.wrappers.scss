@@ -2,3 +2,15 @@
     #WRAPPERS
 \*------------------------------------*/
 
+.wrapper{
+    max-width: 100%;
+    margin: 0 auto;
+
+    padding-left: 10%;
+    padding-right: 10%;
+
+    @include media-query(palm) {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}

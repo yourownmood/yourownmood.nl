@@ -1,0 +1,32 @@
+[
+    {
+        "url" : "yourownmood",
+        "name": "Yourownmood",
+        
+        "profileThumb": "/build/images/profile_gertjandegoede.jpg",
+        "profileThumbPosition": "cc",
+        
+        "function": "Creative web solutions",
+        "description": "Front-end development of the multi-language & multi-country website. ac semper lectus. Nulla ornare eros bibendum, finibus turpis egestas, vulputate enim. Sed elementum auctor rutrum. Nulla fermentum molestie nunc non cursus."
+    },
+    {
+        "url" : "steven-bax",
+        "name": "Steven Bax",
+        
+        "profileThumb": "/build/images/profile_stevenbax.jpg",
+        "profileThumbPosition": "cc",
+        
+        "function": "Front-end developer",
+        "description": "Front-end development of the multi-language & multi-country website. ac semper lectus. Nulla ornare eros bibendum, finibus turpis egestas, vulputate enim. Sed elementum auctor rutrum. Nulla fermentum molestie nunc non cursus."
+    },
+    {
+        "url" : "gert-jan-de-goede",
+        "name": "Gert-Jan de Goede",
+
+        "profileThumb": "/build/images/profile_gertjandegoede.jpg",
+        "profileThumbPosition": "cc",
+
+        "function": "Visual designer",
+        "description": "Front-end development of the multi-language & multi-country website. ac semper lectus. Nulla ornare eros bibendum, finibus turpis egestas, vulputate enim. Sed elementum auctor rutrum. Nulla fermentum molestie nunc non cursus."
+    }
+]

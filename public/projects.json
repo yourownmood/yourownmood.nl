@@ -1,0 +1,70 @@
+[
+    {
+        "url" : "tnt",
+        "heroTitle" : "TNT",
+        "heroImg" : "",
+        "heroImgPosition" : "",
+        "projectTitle" : "Web development responsive website TNT",
+        "projectSubLine": "Front-end development of the multi-language & multi-country website",
+        "projectDescription" : "Front-end development of the multi-language & multi-country website. tincidunt purus, ac semper lectus. Nulla ornare eros bibendum, finibus turpis egestas, vulputate enim. Sed elementum auctor rutrum. Nulla fermentum molestie nunc non cursus.",
+        "projectClient": "TNT",
+        "projectAgency": "Jungleminds",
+        "projectUrlLabel": "tnt.com",
+        "projectUrlHref": "http://tnt.com",
+        "projectColor": "#FF6600",
+        "projectLogo": "/build/images/logo/tnt.svg",
+        "projectThumb": "",
+        "projectThumbPosition": "",
+
+        "projectWorkImg1":"/build/images/profile_gertjandegoede.jpg",
+        "projectWorkCaption1":"Building templates CSS & HTML styling of each element",
+        "projectWorkImg2":"/build/images/profile_gertjandegoede.jpg",
+        "projectWorkCaption2":"Working in a Scrum-team of designers & developers"
+    },
+
+    {
+        "url" : "sunweb",
+        "heroTitle" : "Sunweb",
+        "heroImg" : "/build/images/project/sunweb.jpg",
+        "heroImgPosition" : "cr",
+        "projectTitle" : "Web development responsive website Sunweb",
+        "projectSubLine": "A global financial institution of Dutch origin",
+        "projectDescription" : "Front-end development of the multi-language & multi-country website. tincidunt purus, ac semper lectus. Nulla ornare eros bibendum, finibus turpis egestas, vulputate enim. Sed elementum auctor rutrum. Nulla fermentum molestie nunc non cursus.",
+        "projectClient": "Sunweb",
+        "projectAgency": "Fabrique",
+        "projectUrlLabel": "sunweb.nl",
+        "projectUrlHref": "http://sunweb.nl",
+        "projectColor": "#FFFF00",
+        "projectLogo": "/build/images/logo/sunweb.png",
+        "projectThumb": "/build/images/project/sunweb.jpg",
+        "projectThumbPosition": "cr",
+
+        "projectWorkImg1":"/build/images/profile_gertjandegoede.jpg",
+        "projectWorkCaption1":"Building templates CSS & HTML styling of each element",
+        "projectWorkImg2":"/build/images/profile_gertjandegoede.jpg",
+        "projectWorkCaption2":"Working in a Scrum-team of designers & developers"
+    },
+
+    {
+        "url" : "ing",
+        "heroTitle" : "ING",
+        "heroImg" : "/build/images/project/ing.jpg",
+        "heroImgPosition" : "cc",
+        "projectTitle" : "Web development responsive website ING",
+        "projectSubLine": "A global financial institution of Dutch origin",
+        "projectDescription" : "Front-end development of the multi-language & multi-country website. tincidunt purus, ac semper lectus. Nulla ornare eros bibendum, finibus turpis egestas, vulputate enim. Sed elementum auctor rutrum. Nulla fermentum molestie nunc non cursus.",
+        "projectClient": "ING",
+        "projectAgency": "Fabrique",
+        "projectUrlLabel": "ing.nl",
+        "projectUrlHref": "http://ing.nl",
+        "projectColor": "#FF6600",
+        "projectLogo": "/build/images/logo/ING.svg",
+        "projectThumb": "/build/images/project/ing.jpg",
+        "projectThumbPosition": "cc",
+
+        "projectWorkImg1":"/build/images/profile_gertjandegoede.jpg",
+        "projectWorkCaption1":"Building templates CSS & HTML styling of each element",
+        "projectWorkImg2":"/build/images/profile_gertjandegoede.jpg",
+        "projectWorkCaption2":"Working in a Scrum-team of designers & developers"
+    }
+]

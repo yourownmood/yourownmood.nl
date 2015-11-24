@@ -15,33 +15,46 @@
             controller: 'homeCtrl'
         })
 
-        // about page
-        .when('/project/steven-bax', {
+        // project page
+        .when('/project/:name*', {
             templateUrl: 'partials/project.html'
         })
-        .when('/project/gert-jan-de-goede', {
-            templateUrl: 'partials/project.html'
-        });
 
+        // about page
+        .when('/about', {
+            templateUrl: 'partials/about.html'
+        })
+
+        // about page
+        // .when('/profile/steven-bax', {
+        //     templateUrl: 'partials/profile.html'
+        // })
+        // .when('/profile/gert-jan-de-goede', {
+        //     templateUrl: 'partials/project.html'
+        // });
 
 
     }]);
 
 
-    app.controller('homeCtrl', function ( $scope ) {
+    app.controller('homeCtrl', ['$scope', function($scope){
 
+        $scope.visibleProjects = false;
         $scope.pageClass = 'page-home';
 
         setTimeout(function(){
             $(".page .lazy").lazyload({
-                effect : "fadeIn"
+                effect : "fadeIn",
+                threshold : 50
             });
-        }, 50);
+            $("html,body").trigger("scroll");
+            //$(window).scrollTop($(window).scrollTop()+20);
+        }, 100);
 
         new WOW().init();
 
         $('.card__profile, .card__project').on("touchstart", function (e) {});
-    });
+    }]);
     
 
     app.controller('projectCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
@@ -51,18 +64,44 @@
 
         var project = this;
 
-        project.projects =
-        $http.get('/products.json').success(function(data){
-            project.projects = data;
+        $http.get('/projects.json').success(function(data, status, headers, config) {
+            $scope.posts = data;
         });
-        
+
         $scope.pageClass = 'page-project';
 
         setTimeout(function(){
             $(".page .lazy").lazyload({
-                effect : "fadeIn"
+                effect : "fadeIn",
+                threshold : 50
             });
-        }, 50);
+            $("html,body").trigger("scroll");
+        }, 100);
+
+        new WOW().init();
+
+    }]);
+
+    app.controller('profileCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
+
+        var get_url = $location;
+        $scope.lastPart = get_url.$$url.split("/").pop();
+
+        var profile = this;
+
+        $http.get('/profiles.json').success(function(data, status, headers, config) {
+            $scope.posts = data;
+        });
+        
+        $scope.pageClass = 'page-profile';
+
+        setTimeout(function(){
+            $(".page .lazy").lazyload({
+                effect : "fadeIn",
+                threshold : 50
+            });
+            $("html,body").trigger("scroll");
+        }, 100);
 
         new WOW().init();
 
@@ -72,7 +111,7 @@
         return {
             restrict: 'E',
             templateUrl: 'partials/navigation.html',
-            controller:function($scope){
+            controller:function($scope, $http){
 
                 new WOW().init();
 
@@ -81,13 +120,21 @@
 
                 var loaded = false;
 
+                // Dynamic load
+                $http.get('/projects.json').success(function(data, status, headers, config) {
+                    $scope.posts = data;
+                });
+
                 $scope.toggle = function(trigger) {
                     
                     if(trigger == 'projects'){
+                        
                         $scope.visibleProjects = !$scope.visibleProjects;
 
+                        console.log($scope.visibleNavigation);
+
                         if($scope.visibleProjects === true){
-                            $( "#js-scrollbox" ).scrollLeft( 10000 );
+                            $( "#js-scrollboxProjects" ).scrollLeft( 10000 );
 
                             if(loaded === false){
 
@@ -99,7 +146,7 @@
 
                             loaded = true;
 
-                            $('#js-scrollbox').animate( { scrollLeft: '0' }, 750);
+                            $('#js-scrollboxProjects').animate( { scrollLeft: '0' }, 750);
                         }
 
                     }else if (trigger == 'navigation') {
@@ -110,6 +157,7 @@
                         }
 
                     };
+
                 };
 
             }

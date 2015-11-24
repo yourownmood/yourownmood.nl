@@ -54,3 +54,21 @@
         } 
     }
 }
+
+
+.project__image{
+    padding: 0 10%;
+
+    img{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    span{
+        display: block;
+    }
+
+    @include media-query(palm) {
+        margin-bottom: 30px;
+    }
+}
