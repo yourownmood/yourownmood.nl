@@ -32,15 +32,6 @@
             controller: 'profileCtrl'
         })
 
-        // about page
-        // .when('/profile/steven-bax', {
-        //     templateUrl: 'partials/profile.html'
-        // })
-        // .when('/profile/gert-jan-de-goede', {
-        //     templateUrl: 'partials/project.html'
-        // });
-
-
     }]);
 
 
@@ -49,68 +40,82 @@
         $scope.visibleProjects = false;
         $scope.pageClass = 'page-home';
 
-        setTimeout(function(){
-            $(".page .lazy").lazyload({
-                effect : "fadeIn",
-                threshold : 50
-            });
-            $("html,body").trigger("scroll");
-            //$(window).scrollTop($(window).scrollTop()+20);
-        }, 100);
+        $scope.loaded = function() {
+            console.log('View loaded');
 
-        new WOW().init();
+            setTimeout(function(){
+                $(".page .lazy").lazyload({
+                    effect : "fadeIn",
+                    threshold : 50
+                });
+
+                new WOW().init();
+
+                $("html,body").trigger("scroll");
+
+            }, 750);
+
+        };
 
         $('.card__profile, .card__project').on("touchstart", function (e) {});
     }]);
 
 
-    app.controller('projectCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
+    app.controller('projectCtrl', ['$location', '$scope', '$http', '$filter', '$window', function($location, $scope, $http, $filter, $window){
 
         var get_url = $location;
-        $scope.lastPart = get_url.$$url.split("/").pop();
-
         var project = this;
 
-        // $http.get('/projects.json').success(function(data, status, headers, config) {
-        //     $scope.posts = data;
-        // });
-
+        $scope.lastPart = get_url.$$url.split("/").pop();
         $scope.pageClass = 'page-project';
 
-        setTimeout(function(){
-            $(".page .lazy").lazyload({
-                effect : "fadeIn",
-                threshold : 50
-            });
-            $("html,body").trigger("scroll");
-        }, 100);
+        $http.get('/projects.json').success(function(data, status, headers, config) {
+            $scope.posts = data;
+        });
 
-        new WOW().init();
+        $scope.loaded = function() {
+            console.log('View loaded');
+
+            setTimeout(function(){
+                $(".page .lazy").lazyload({
+                    effect : "fadeIn",
+                    threshold : 50
+                });
+
+                new WOW().init();
+
+                $("html,body").trigger("scroll");
+            }, 200);
+        };
 
     }]);
 
     app.controller('profileCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
 
         var get_url = $location;
-        $scope.lastPart = get_url.$$url.split("/").pop();
-
         var profile = this;
 
-        // $http.get('/profiles.json').success(function(data, status, headers, config) {
-        //     $scope.posts = data;
-        // });
-
+        $scope.lastPart = get_url.$$url.split("/").pop();
         $scope.pageClass = 'page-profile';
 
-        setTimeout(function(){
-            $(".page .lazy").lazyload({
-                effect : "fadeIn",
-                threshold : 50
-            });
-            $("html,body").trigger("scroll");
-        }, 100);
+        $http.get('/profiles.json').success(function(data, status, headers, config) {
+            $scope.posts = data;
+        });
 
-        new WOW().init();
+        $scope.loaded = function() {
+            console.log('View loaded');
+
+            setTimeout(function(){
+                $(".page .lazy").lazyload({
+                    effect : "fadeIn",
+                    threshold : 50
+                });
+
+                new WOW().init();
+
+                $("html,body").trigger("scroll");
+            }, 200);
+        };
 
     }]);
 

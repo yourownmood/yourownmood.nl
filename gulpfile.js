@@ -53,9 +53,9 @@
     // JS task:
     gulp.task('js', function(callback) {
       return gulp.src([
-        config.src_dir + '/assets/javascript/libs/jquery.min.js',
-        config.src_dir + '/assets/javascript/libs/jquery.lazyload.min.js',
-        config.src_dir + '/assets/javascript/libs/wow.js',
+        config.src_dir  + '/assets/javascript/libs/jquery.min.js',
+        config.node_dir + '/jquery-lazyload/jquery.lazyload.js',
+        config.src_dir  + '/assets/javascript/libs/wow.js',
 
         config.node_dir + '/angular/angular.min.js',
         config.node_dir + '/angular-route/angular-route.min.js',

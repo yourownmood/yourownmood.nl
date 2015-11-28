@@ -40,6 +40,7 @@
     "inuit-responsive-widths": "^0.2.2",
     "inuit-spacing": "^0.7.0",
     "inuit-tools-widths": "^0.1.4",
-    "inuit-widths": "^0.4.2"
+    "inuit-widths": "^0.4.2",
+    "jquery-lazyload": "^1.9.7"
   }
 }
