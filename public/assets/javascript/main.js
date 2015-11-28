@@ -17,12 +17,19 @@
 
         // project page
         .when('/project/:name*', {
-            templateUrl: 'partials/project.html'
+            templateUrl: 'partials/project.html',
+            controller: 'projectCtrl'
         })
 
         // about page
         .when('/about', {
-            templateUrl: 'partials/about.html'
+            templateUrl: 'partials/about.html',
+        })
+
+        // profile page
+        .when('/profile/:name*', {
+            templateUrl: 'partials/profile.html',
+            controller: 'profileCtrl'
         })
 
         // about page
@@ -55,7 +62,7 @@
 
         $('.card__profile, .card__project').on("touchstart", function (e) {});
     }]);
-    
+
 
     app.controller('projectCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
 
@@ -64,9 +71,9 @@
 
         var project = this;
 
-        $http.get('/projects.json').success(function(data, status, headers, config) {
-            $scope.posts = data;
-        });
+        // $http.get('/projects.json').success(function(data, status, headers, config) {
+        //     $scope.posts = data;
+        // });
 
         $scope.pageClass = 'page-project';
 
@@ -89,10 +96,10 @@
 
         var profile = this;
 
-        $http.get('/profiles.json').success(function(data, status, headers, config) {
-            $scope.posts = data;
-        });
-        
+        // $http.get('/profiles.json').success(function(data, status, headers, config) {
+        //     $scope.posts = data;
+        // });
+
         $scope.pageClass = 'page-profile';
 
         setTimeout(function(){
@@ -126,9 +133,9 @@
                 });
 
                 $scope.toggle = function(trigger) {
-                    
+
                     if(trigger == 'projects'){
-                        
+
                         $scope.visibleProjects = !$scope.visibleProjects;
 
                         console.log($scope.visibleNavigation);

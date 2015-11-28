@@ -2,5 +2,7 @@
 /bower_components/
 /node_modules/
 /public/build/
+/build/
 /_assets/css/
+/old/
 /_assets/javascript/build/
