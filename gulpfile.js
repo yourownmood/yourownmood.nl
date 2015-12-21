@@ -79,12 +79,12 @@
       return gulp.src(config.src_dir + '/assets/sass/*.scss')
             .pipe(sourcemaps.init())
             .pipe(sass().on('error', sass.logError))
-            .pipe(header(config.header))
             .pipe(gulp.dest(config.src_dir + '/assets/css/'))
 
             //Minified CSS
             .pipe(rename('main.min.css'))
             .pipe(minifyCSS())
+            .pipe(header(config.header))
             .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest(config.build_dir + '/css/'))
 
