@@ -1,299 +1,114 @@
-.scherm{
-    width: 100%;
-    padding: 0 16px;
+.scherm {
+  width: 100%;
+  padding: 0 16px;
 }
 
-.scherm-1{
-    height: 104vh;
+.scherm-1 {
+  height: 104vh;
 
-    @include media-query(phone) {
-        height: auto;
-    }
+  @include media-query(phone) {
+    height: auto;
+  }
 
-    .layout,
-    .layout .layout__item{
-        height: 100%;
-    }
+  .layout,
+  .layout .layout__item {
+    height: 100%;
+  }
 }
 
-.scherm-2{
-    height: 120vh;
-    position: relative;
+.scherm-2 {
+  position: relative;
 
-    @include media-query(portable) {
-        height: auto;
-    }
+  height: 120vh;
 
-    .layout,
-    .layout .layout__item{
-        height: 100%;
-    }
+  @include media-query(portable) {
+    height: auto;
+  }
+
+  .layout,
+  .layout .layout__item {
+    height: 100%;
+  }
 }
 
-.scherm-project{
-    min-height: 95vh;
+.scherm-project {
+  min-height: 95vh;
 
-    .layout{
-        display: table;
+  @include media-query(palm) {
+    min-height: 400px;
+
+    .card {
+      height: 400px;
     }
 
-    @include media-query(palm) {
-        min-height: 400px;
-
-        .card{
-            height: 400px;
-        }
-
-        .layout{
-            display: inline-block;
-        }
-
-        .project__bio{
-            padding-top: 50px;
-            margin-left: 9%;
-        }
+    .layout {
+      display: inline-block;
     }
 
-    @include media-query(phone) {
-        height: auto;
+    .project__bio {
+      margin-left: 9%;
+      padding-top: 50px;
     }
+  }
 
-    .layout,
-    .layout .layout__item{
-        height: 100%;
-    }  
+  @include media-query(phone) {
+    height: auto;
+  }
+
+  .layout {
+    display: table;
+  }
+
+  .layout,
+  .layout .layout__item {
+    height: 100%;
+  }
 }
 
 /* --- HELPERS --- */
-.v-align{
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: 50%;
-    @include transform(translateY(-50%));
-    margin-top: -50%/9;
+.v-align {
+  @include transform(translateY(-50%));
+
+  position: relative;
+  top: 50%;
+
+  margin: 0;
+  margin-top: -50%/9;
+  padding: 0;
 }
 
-.vh-align--img{
-    max-width: 50%;
-    width: 100%;
-    max-height: 50%;
-    height: auto;
+.vh-align--img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 
-    position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+  width: 100%;
+  max-width: 50%;
+  height: auto;
+  max-height: 50%;
+  margin: auto;
 
-    @include media-query(portable) {
-        min-height: 275px;
-    }
+  @include media-query(portable) {
+    min-height: 275px;
+  }
 }
 
-.worked-at{
-    padding: 60px 25% 60px 5%;
+.worked-at {
+  padding: 60px 25% 60px 5%;
 
-    font-size: 20px;
-    color: #999;
+  color: #999;
+  font-size: 20px;
 
-    @include media-query(phone) {
-        padding-right: 5%;
-    }
+  @include media-query(phone) {
+    padding-right: 5%;
+  }
 
-    b{
-          display: block;
-          color: #171717;
-          margin-bottom: 5px;
-    }
+  b {
+    display: block;
+    margin-bottom: 5px;
+
+    color: #171717;
+  }
 }
-
-// /*------------------------------------*\
-//     #SCREENS
-// \*------------------------------------*/
-
-// $screen-1--offset: 235px;// 20%
-// $screen-1--height: 112%;
-// $screen-project--height: 150%;
-// $screen-1-5--height: 25%;
-// //$screen-2--height: 119%;
-// $screen-2--height: 125%;
-// //$screen-3--height: 100%;
-
-// $screen-margin: 135px;
-// $screen-padding: 16px;
-
-// .screen{
-//     width: 100%;
-//     position: absolute;
-
-//     @include media-query(portable) {
-//         position: static;
-//     }
-// }
-
-// .screen-1{
-//     height: $screen-1--height;
-//     //top: $screen-1--offset;
-// }
-
-// .screen-project{
-//     height: $screen-project--height;
-//     top: $screen-1--offset;
-// }
-
-// .screen__offset--project{
-//     top:  $screen-project--height;
-//     @include media-query(desk) {
-//         margin-top: $screen-1--offset;
-//     }
-//     padding: $screen-margin $screen-padding 0 $screen-padding;
-// }
-
-// .screen-1-5{
-//     height: $screen-1-5--height;
-//     top: $screen-1--height;
-//     @include media-query(desk) {
-//         margin-top: $screen-1--offset;
-//     }
-// }
-
-// .screen-2{
-//     height: $screen-2--height;
-//     top: $screen-1--height + $screen-1-5--height;
-
-//     @include media-query(desk) {
-//         margin-top: $screen-1--offset;
-//     }
-// }
-
-// .screen-3{
-//     //height: $screen-3--height;
-//     top: $screen-1--height + $screen-1-5--height + $screen-2--height;
-//     @include media-query(desk) {
-//         margin-top: $screen-1--offset;
-//     }
-// }
-
-// .screen-plus{
-//     @include media-query(desk) {
-//         margin-top: $screen-1--offset + 320px;
-//     }
-// }
-
-// .screen-1,
-// .screen-1-5,
-// .screen-2,
-// .screen-3{
-//     @include media-query(portable) {
-//         height: auto;
-//         top: auto;
-//     }
-// }
-
-// .screen-1-5,
-// .screen-3{
-//     width: 92%;
-//     left: 4%;
-// }
-
-// .screen-1{
-//     @include media-query(portable) {
-//         position: relative;
-//     }
-// }
-
-// /* Alignment */
-// .screen-alignment{
-//     position: absolute;
-//     height: 100%;
-
-//     padding: $screen-padding;
-
-//     @include media-query(portable) {
-//         height: auto;
-//         position: static;
-//     }
-// }
-
-// //.screen-1
-// .screen-alignment--left{
-//     left: 0;
-//     top: 0;
-//     width: 67.5%;
-
-//     padding-bottom: 0;
-
-//     .layout, .layout__item{
-//         height: 100%;
-//     }
-
-//     @include media-query(portable) {
-//         width: 100%;
-//         padding-top: 300px;
-//     }
-// }
-
-// //.screen-1
-// .screen-alignment--right{
-//     right: 0;
-//     top: 0;
-
-//     width: 30%;
-    
-//     padding-right: 50px;
-//     padding-bottom: 12%;
-
-//     @include media-query(portable) {
-//         top: 0;
-//         left: 0;        
-//         position: absolute;
-//         width: 100%;
-//         height: 300px;
-//         padding: $screen-padding;
-//     }
-
-// }
-
-// .screen-2
-// .screen-alignment--full{
-//     width: 100%;
-//     position: relative;
-
-//     .layout, .layout__item{
-//         height: 100%;
-//     }
-
-// }
-
-// .screen-3
-// .screen-alignment--full{
-//     width: 100%;
-//     position: relative;
-//     margin-bottom: 50px;
-
-//     .layout, .layout__item{
-//         height: 100%;
-//     }
-// }
-
-// .alignment-center{
-//     margin: 0;
-//     padding: 0;
-//     position: relative;
-//     top: 50%;
-//     @include transform(translateY(-50%));
-//     margin-top: -50%/9;
-// }
-
-// .screen-1-5{
-//     .alignment-center{
-//         padding-top: 6%;
-//         @include media-query(portable) {
-//             padding: 20px 0;
-//             top: auto;
-//             @include transform(translateY(0));
-//         }
-//     }
-// }

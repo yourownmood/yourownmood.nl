@@ -1,43 +1,44 @@
 /*------------------------------------*\
-    #SHOW/HIDE HELPER
+  #SHOW/HIDE HELPER
 \*------------------------------------*/
 
 @mixin hide() {
-    // Breaks responsive
-    position: absolute !important;
+  position: absolute !important;
 
-    height: 1px; width: 1px !important;
-    overflow: hidden;
-    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
+  height: 1px; width: 1px !important;
+  overflow: hidden;
+
+  // scss-lint:disable DuplicateProperty
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .hide { @include hide(); }
 
 @include media-query(phone) {
-    .hide-phone { @include hide(); }
+  .hide-phone { @include hide(); }
 }
 
 @include media-query(phone-plus) {
-    .hide-phone-plus { @include hide(); }
+  .hide-phone-plus { @include hide(); }
 }
 
 @include media-query(palm) {
-    .hide-palm { @include hide(); }
+  .hide-palm { @include hide(); }
 }
 
 @include media-query(lap) {
-    .hide-lap { @include hide(); }
+  .hide-lap { @include hide(); }
 }
 
 @include media-query(lap-and-up) {
-    .hide-lap-and-up { @include hide(); }
+  .hide-lap-and-up { @include hide(); }
 }
 
 @include media-query(portable) {
-    .hide-portable { @include hide(); }
+  .hide-portable { @include hide(); }
 }
 
 @include media-query(desk) {
-    .hide-desk { @include hide(); }
+  .hide-desk { @include hide(); }
 }

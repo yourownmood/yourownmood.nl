@@ -1,6 +1,8 @@
 /*------------------------------------*\
     #MIXINS EXTENDED
 \*------------------------------------*/
+// scss-lint:disable VendorPrefix
+
 
 @mixin hidpi($ratio: 1.3) {
   @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
@@ -14,15 +16,15 @@
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
 }
 
 @mixin opacity($opacity) {
   opacity: $opacity;
   $opacity-ie: $opacity * 100;
-  filter: alpha(opacity=$opacity-ie); //IE8
+  filter: alpha('opacity=$opacity-ie'); //IE8
 }
 
 @mixin transform($type) {
@@ -34,9 +36,9 @@
 }
 
 @mixin transition($transition-property, $transition-time, $method) {
-    -webkit-transition: $transition-property $transition-time $method;
-    -moz-transition: $transition-property $transition-time $method;
-    -ms-transition: $transition-property $transition-time $method;
-    -o-transition: $transition-property $transition-time $method;
-    transition: $transition-property $transition-time $method;
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
 }

@@ -1,27 +1,26 @@
 /*------------------------------------*\
-    #FOOTER
+  #FOOTER
 \*------------------------------------*/
 
-footer{
-    width: 100%;
-    padding: 20px 5%;
-    margin-top: 100px;
+footer {
+  width: 100%;
+  margin-top: 100px;
+  padding: 20px 5%;
+  border-top: 1px solid $yom-border;
 
-    border-top: 1px solid $yom-border;
+  color: $yom-grey;
 
+  a {
     color: $yom-grey;
+    text-decoration: none;
 
-    a{
-        color: $yom-grey;
-        text-decoration: none;
-
-        &:hover{
-            color: $yom-black;
-            text-decoration: underline;
-        }
+    &:hover {
+      color: $yom-black;
+      text-decoration: underline;
     }
+  }
 
-    b{
-        color: $yom-black;
-    }
+  b {
+    color: $yom-black;
+  }
 }

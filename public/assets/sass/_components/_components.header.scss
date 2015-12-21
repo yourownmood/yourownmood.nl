@@ -1,159 +1,157 @@
 /*------------------------------------*\
-    #HEADER
+  #HEADER
 \*------------------------------------*/
 
-header, .header{
-    position: relative;
+header,
+.header {
+  position: relative;
 
+  width: 100%;
+  min-height: 235px;
+}
+
+.site-navigation {
+  margin-left: 67.5%;
+  padding-top: 20px;
+  padding-bottom: 33px;
+  padding-left: 4.5%;
+
+  @include media-query(portable) {
     width: 100%;
-    min-height: 235px;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 32px;
+    padding-left: 0;
+
+    text-align: right;
+  }
+
+  @include media-query(phone) {
+    padding-right: 0;
+
+    text-align: left;
+  }
 }
 
-.site-navigation{
-    margin-left: 67.5%;
-    padding-top: 20px;
-    padding-bottom: 33px;
-    padding-left: 4.5%;
+.yom {
+  color: $yom-black;
+  font-size: 53px;
+  font-weight: 700;
+  line-height: 53px;
+  letter-spacing: -1.6px;
+  text-decoration: none;
 
-    @include media-query(portable) {
-        width: 100%;
-        margin-left: 0;
-        padding-top: 0;
-        padding-right: 32px;
-        padding-left: 0;
+  @include media-query(phone) {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 0 16px;
 
-        text-align: right;
-    }
-
-    @include media-query(phone) {
-        padding-right: 0;
-        text-align: left;
-    }
+    text-align: left;
+  }
 }
 
-.yom{
-    font-weight: 700;
-    font-size: 53px;
-    line-height: 53px;
-    letter-spacing: -1.6px;
+.yom-slogan {
+  display: none;
+
+  @include media-query(portable) {
+    display: block;
+    width: 100%;
+    padding: 0 0 0 50%;
+
+    color: $yom-grey;
+    font-size: 20px;
+    line-height: 31px;
+  }
+
+  @include media-query(phone) {
+    margin: 20px 0 30px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+.yom-social {
+  display: none;
+
+  @include media-query(portable) {
+    display: block;
+    float: left;
+    margin-top: -86px;
+    padding: 0 16px;
+  }
+
+  @include media-query(phone) {
+    float: none;
+    margin-top: 0;
+  }
+}
+
+.nav-list {
+  margin-top: 50px;
+  margin-bottom: 51px;
+
+  @include media-query(portable) {
+    margin-top: 25px;
+  }
+
+  @include media-query(phone) {
+    display: none;
+  }
+
+  li a {
+    padding: 0 13px;
+
+    color: $yom-grey;
+    font-size: 18px;
+    font-weight: 500;
     text-decoration: none;
+
+    &:hover {
+      color: $yom-black;
+      text-decoration: underline;
+    }
+  }
+
+  li {
+    &:first-child {
+      a {
+        padding-left: 0;
+      }
+    }
+
+    &:last-child {
+      a {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+.nav-list--phone {
+  @include media-query(phone) {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $yom-grey;
+
+    background-color: lighten($yom-grey, 25%);
+    text-align: center;
+  }
+}
+
+.nav-list--trigger {
+  display: none;
+
+  @include media-query(phone) {
+    position: absolute;
+    right: 16px;
+
+    display: block;
+    margin-top: 32px;
+
     color: $yom-black;
-
-    @include media-query(phone) {
-        padding: 0 16px;
-        margin-top: 32px;
-        display: inline-block;
-        text-align: left;
-    }
-}
-
-.yom-slogan{
-    display: none;
-
-    @include media-query(portable) {
-        display: block;
-
-        width: 100%;
-        padding: 0 0 0 50%;
-
-        font-size: 20px;
-        line-height: 31px;
-    
-        color: $yom-grey;
-    }
-
-    @include media-query(phone) {
-        padding-left: 16px;
-        padding-right: 16px;
-        margin: 20px 0 30px 0;
-    }
-}
-
-.yom-social{
-    display: none;
-
-    @include media-query(portable) {
-        display: block;
-        padding: 0 16px;
-        //position: absolute;
-        
-        float: left;
-        margin-top: -86px;
-    }
-
-    @include media-query(phone) {
-        float: none;
-        margin-top: 0;
-    }
-}
-
-.nav-list{
-    margin-top: 50px;
-    margin-bottom: 51px;
-
-    li a{
-        font-size: 18px;
-        font-weight: 500;
-        color: $yom-grey;
-        text-decoration: none;
-        padding: 0 13px;
-
-        &:hover{
-            color: $yom-black;
-            text-decoration: underline;
-        }
-    }
-
-    li{
-        &:first-child{
-            a{
-                padding-left: 0;
-            }
-        }
-
-        &:last-child{
-            a{
-                padding-right: 0;
-            }
-        }
-    }
-
-    @include media-query(portable) {
-        margin-top: 25px;
-    }
-
-    @include media-query(phone) {
-        display: none;
-    }
-}
-
-.nav-list--phone{
-    @include media-query(phone) {
-        width: 100%;
-
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-        background-color: lighten($yom-grey, 25%);
-        border-bottom: 1px solid $yom-grey;
-
-        text-align: center;
-    }
-}
-
-.nav-list--trigger{
-    display: none;
-
-    @include media-query(phone) {
-        display: block;
-
-        position: absolute;
-        right: 16px;
-        margin-top: 32px;
-
-        font-size: 32px;
-        color: $yom-black;
-    }
+    font-size: 32px;
+  }
 }

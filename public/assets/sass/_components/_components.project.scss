@@ -1,74 +1,78 @@
 /*------------------------------------*\
-    #PROJECT
+  #PROJECT
 \*------------------------------------*/
 
-.project__hero{
+.project__hero {
 
-    .project__hero--intro{
-        position: absolute;
-        bottom: 30px;
+  .project__hero--intro {
+    position: absolute;
+    bottom: 30px;
 
-        padding: 0 9%;
+    padding: 0 9%;
 
-        b{
-            color: #FFF;
-        }
+    b {
+      color: #fff;
     }
+  }
 }
 
-.project__hero--slogan{
-    font-size: 108px;
-    line-height: 96px;
-    padding: 135px 9% 0 9%;
-    color: #FFF;
+.project__hero--slogan {
+  padding: 135px 9% 0;
+
+  color: #fff;
+  font-size: 108px;
+  line-height: 96px;
 }
 
-.project__bio{
-    padding-top: 260px;
-    margin-left: 18%;
-    margin-right: 10%;
+.project__bio {
+  margin-right: 10%;
+  margin-left: 18%;
+  padding-top: 260px;
 
-    .project__bio--header{
-        font-size: 42px;
-        margin-bottom: 75px;
+  .project__bio--header {
+    margin-bottom: 75px;
+
+    font-size: 42px;
+  }
+
+  .project__bio--paragraph {
+    margin-bottom: 50px;
+
+    color: $yom-grey;
+    font-size: 16px;
+  }
+
+  .project__bio--label {
+    margin-bottom: 35px;
+
+    color: $yom-black;
+    font-size: 20px;
+    line-height: 25px;
+    font-weight: 700;
+
+    span {
+      display: block;
+
+      color: $yom-grey;
+      font-size: 17px;
+      font-weight: 300;
     }
-
-    .project__bio--paragraph{
-        font-size: 16px;
-        color: $yom-grey;
-        margin-bottom: 50px;
-    }
-
-    .project__bio--label{
-        font-size: 20px;
-        line-height: 25px;
-        font-weight: 700;
-        color: $yom-black;
-        margin-bottom: 35px;
-
-        span{
-            display: block;
-            font-size: 17px;
-            font-weight: 300;
-            color: $yom-grey;
-        } 
-    }
+  }
 }
 
+.project__image {
+  padding: 0 10%;
 
-.project__image{
-    padding: 0 10%;
+  @include media-query(palm) {
+    margin-bottom: 30px;
+  }
 
-    img{
-        width: 100%;
-        margin-bottom: 15px;
-    }
+  img {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 
-    span{
-        display: block;
-    }
-
-    @include media-query(palm) {
-        margin-bottom: 30px;
-    }
+  span {
+    display: block;
+  }
 }

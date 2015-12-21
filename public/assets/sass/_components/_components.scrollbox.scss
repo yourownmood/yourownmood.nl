@@ -1,63 +1,67 @@
 /*------------------------------------*\
-    #SCROLLBOX
+  #SCROLLBOX
 \*------------------------------------*/
 
-.scrollbox{
-    width: 100%;
-    
-    overflow-x: scroll;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    width: auto;
+.scrollbox {
+  overflow-y: hidden;
+  overflow-x: scroll;
+  width: 100%;
+
+  -webkit-overflow-scrolling: touch;
+  //width: auto;
 }
 
-.scrollbox__projects{
-    height: 320px;
-    background-color: $yom-grey;
+.scrollbox__projects {
+  height: 320px;
+
+  background-color: $yom-grey;
 }
 
-.scrollbox__cards{
-    width: 1800px;
-    height: 100%;
+.scrollbox__cards {
+  width: 1800px;
+  height: 100%;
 
-    &:after{
-        overflow: auto;
-        zoom: 1;
-    }
+  &:after {
+    overflow: auto;
+    zoom: 1;
+  }
 }
 
-.scrollbox__card{
-    position: relative;
-    float: left;
-    width: 600px;
-    height: 100%;
-    min-width: 33.333%;
+.scrollbox__card {
+  position: relative;
 
-    img{
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
+  float: left;
+  width: 600px;
+  min-width: 33.333%;
+  height: 100%;
 
-        width: 40%;
-    }
-
-    &:hover{
-        .card--info{
-            opacity: 0;
-        }
-    }
-}
-
-.card--info{
-    background-color: rgba(0,0,0,0.4);
-    width: 100%;
-    height: 100%;
+  img {
     position: absolute;
-    z-index: 2;
-    color: #FFF;
-    padding: 30px 35px;
-    font-size: 17px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 40%;
+    margin: auto;
+  }
+
+  &:hover {
+    .card--info {
+      opacity: 0;
+    }
+  }
+}
+
+.card--info {
+  position: absolute;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+  padding: 30px 35px;
+
+  background-color: rgba(0, 0, 0, .4);
+  color: #fff;
+  font-size: 17px;
 }

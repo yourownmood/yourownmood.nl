@@ -49,6 +49,8 @@
  *
  * github.com/inuitcss | inuitcss.com
  */
+/*------------------------------------*  #SETTINGS RESPONSIVE BREAKPOINTS
+\*------------------------------------*/
 /*------------------------------------*    #SETTINGS COLORS
 \*------------------------------------*/
 /**
@@ -2004,7 +2006,7 @@ html {
   -webkit-font-smoothing: antialiased;
   /* [5] */ }
 
-/*------------------------------------*    #PAGE EXTENDED
+/*------------------------------------*  #PAGE EXTENDED
 \*------------------------------------*/
 html {
   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
@@ -2096,12 +2098,12 @@ img[height] {
 .wrapper {
   max-width: 100%;
   margin: 0 auto;
-  padding-left: 10%;
-  padding-right: 10%; }
+  padding-right: 10%;
+  padding-left: 10%; }
   @media screen and (max-width: 719px) {
     .wrapper {
-      padding-left: 5%;
-      padding-right: 5%; } }
+      padding-right: 5%;
+      padding-left: 5%; } }
 
 /*------------------------------------*    #LAYOUT
 \*------------------------------------*/
@@ -2228,8 +2230,8 @@ img[height] {
     height: 100%; }
 
 .scherm-2 {
-  height: 120vh;
-  position: relative; }
+  position: relative;
+  height: 120vh; }
   @media screen and (max-width: 1023px) {
     .scherm-2 {
       height: auto; } }
@@ -2239,8 +2241,6 @@ img[height] {
 
 .scherm-project {
   min-height: 95vh; }
-  .scherm-project .layout {
-    display: table; }
   @media screen and (max-width: 719px) {
     .scherm-project {
       min-height: 400px; }
@@ -2249,58 +2249,61 @@ img[height] {
       .scherm-project .layout {
         display: inline-block; }
       .scherm-project .project__bio {
-        padding-top: 50px;
-        margin-left: 9%; } }
+        margin-left: 9%;
+        padding-top: 50px; } }
   @media screen and (max-width: 480px) {
     .scherm-project {
       height: auto; } }
+  .scherm-project .layout {
+    display: table; }
   .scherm-project .layout,
   .scherm-project .layout .layout__item {
     height: 100%; }
 
 /* --- HELPERS --- */
 .v-align {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 50%;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  margin-top: -50%/9; }
+  position: relative;
+  top: 50%;
+  margin: 0;
+  margin-top: -50%/9;
+  padding: 0; }
 
 .vh-align--img {
-  max-width: 50%;
-  width: 100%;
-  max-height: 50%;
-  height: auto;
   position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
   top: 0;
-  bottom: 0; }
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 50%;
+  height: auto;
+  max-height: 50%;
+  margin: auto; }
   @media screen and (max-width: 1023px) {
     .vh-align--img {
       min-height: 275px; } }
 
 .worked-at {
   padding: 60px 25% 60px 5%;
-  font-size: 20px;
-  color: #999; }
+  color: #999;
+  font-size: 20px; }
   @media screen and (max-width: 480px) {
     .worked-at {
       padding-right: 5%; } }
   .worked-at b {
     display: block;
-    color: #171717;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    color: #171717; }
 
-/*------------------------------------*    #HEADER
+/*------------------------------------*  #HEADER
 \*------------------------------------*/
-header, .header {
+header,
+.header {
   position: relative;
   width: 100%;
   min-height: 235px; }
@@ -2324,17 +2327,17 @@ header, .header {
       text-align: left; } }
 
 .yom {
-  font-weight: 700;
+  color: #171717;
   font-size: 53px;
+  font-weight: 700;
   line-height: 53px;
   letter-spacing: -1.6px;
-  text-decoration: none;
-  color: #171717; }
+  text-decoration: none; }
   @media screen and (max-width: 480px) {
     .yom {
-      padding: 0 16px;
-      margin-top: 32px;
       display: inline-block;
+      margin-top: 32px;
+      padding: 0 16px;
       text-align: left; } }
 
 .yom-slogan {
@@ -2344,23 +2347,23 @@ header, .header {
       display: block;
       width: 100%;
       padding: 0 0 0 50%;
+      color: #999;
       font-size: 20px;
-      line-height: 31px;
-      color: #999; } }
+      line-height: 31px; } }
   @media screen and (max-width: 480px) {
     .yom-slogan {
-      padding-left: 16px;
+      margin: 20px 0 30px;
       padding-right: 16px;
-      margin: 20px 0 30px 0; } }
+      padding-left: 16px; } }
 
 .yom-social {
   display: none; }
   @media screen and (max-width: 1023px) {
     .yom-social {
       display: block;
-      padding: 0 16px;
       float: left;
-      margin-top: -86px; } }
+      margin-top: -86px;
+      padding: 0 16px; } }
   @media screen and (max-width: 480px) {
     .yom-social {
       float: none;
@@ -2369,12 +2372,18 @@ header, .header {
 .nav-list {
   margin-top: 50px;
   margin-bottom: 51px; }
+  @media screen and (max-width: 1023px) {
+    .nav-list {
+      margin-top: 25px; } }
+  @media screen and (max-width: 480px) {
+    .nav-list {
+      display: none; } }
   .nav-list li a {
+    padding: 0 13px;
+    color: #999;
     font-size: 18px;
     font-weight: 500;
-    color: #999;
-    text-decoration: none;
-    padding: 0 13px; }
+    text-decoration: none; }
     .nav-list li a:hover {
       color: #171717;
       text-decoration: underline; }
@@ -2382,12 +2391,6 @@ header, .header {
     padding-left: 0; }
   .nav-list li:last-child a {
     padding-right: 0; }
-  @media screen and (max-width: 1023px) {
-    .nav-list {
-      margin-top: 25px; } }
-  @media screen and (max-width: 480px) {
-    .nav-list {
-      display: none; } }
 
 @media screen and (max-width: 480px) {
   .nav-list--phone {
@@ -2396,27 +2399,27 @@ header, .header {
     margin-bottom: 0;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: #d9d9d9;
     border-bottom: 1px solid #999;
+    background-color: #d9d9d9;
     text-align: center; } }
 
 .nav-list--trigger {
   display: none; }
   @media screen and (max-width: 480px) {
     .nav-list--trigger {
-      display: block;
       position: absolute;
       right: 16px;
+      display: block;
       margin-top: 32px;
-      font-size: 32px;
-      color: #171717; } }
+      color: #171717;
+      font-size: 32px; } }
 
-/*------------------------------------*    #FOOTER
+/*------------------------------------*  #FOOTER
 \*------------------------------------*/
 footer {
   width: 100%;
-  padding: 20px 5%;
   margin-top: 100px;
+  padding: 20px 5%;
   border-top: 1px solid #979797;
   color: #999; }
   footer a {
@@ -2428,15 +2431,15 @@ footer {
   footer b {
     color: #171717; }
 
-/*------------------------------------*    #CARDS
+/*------------------------------------*  #CARDS
 \*------------------------------------*/
 /* CARD BASIC */
 .card {
   position: relative;
-  width: 100%;
-  height: 100%;
   display: block;
   overflow: hidden;
+  width: 100%;
+  height: 100%;
   background-color: #999; }
 
 .card__animate {
@@ -2452,9 +2455,9 @@ footer {
     .card__bg {
       position: absolute;
       top: 0;
-      left: 0;
       right: 0;
-      bottom: 0; } }
+      bottom: 0;
+      left: 0; } }
 
 .card__bg--c {
   background-position: center; }
@@ -2484,15 +2487,15 @@ footer {
 
 .card--sb-project {
   height: 37%;
-  background-color: #FF6600; }
-  .card--sb-project img {
-    max-width: 40%; }
+  background-color: #f60; }
   @media screen and (max-width: 1023px) {
     .card--sb-project {
       min-height: 265px; } }
   @media screen and (max-width: 480px) {
     .card--sb-project {
       min-height: 325px; } }
+  .card--sb-project img {
+    max-width: 40%; }
 
 .card--gj .card__bg {
   background-position: 60% 15%; }
@@ -2500,14 +2503,14 @@ footer {
 .card--gj-project {
   height: 44%;
   background-color: #fdfdfd; }
-  .card--gj-project img {
-    max-width: 64%; }
   @media screen and (max-width: 1023px) {
     .card--gj-project {
       min-height: 265px; } }
   @media screen and (max-width: 480px) {
     .card--gj-project {
       min-height: 325px; } }
+  .card--gj-project img {
+    max-width: 64%; }
 
 @media screen and (max-width: 480px) {
   .card--sb,
@@ -2516,63 +2519,71 @@ footer {
 
 /* --- PROFILE --- */
 .profile__name {
-  color: #909090;
+  position: absolute;
+  bottom: 45px;
+  left: 45px;
   margin: 0;
   padding: 0 30px 0 0;
-  left: 45px;
-  bottom: 45px;
-  position: absolute; }
+  color: #909090; }
   .profile__name b {
-    color: #FFF;
-    display: block; }
+    display: block;
+    color: #fff; }
 
-.profile__overlay, .card__overlay {
+.profile__overlay,
+.card__overlay {
   opacity: 0; }
-  .profile__overlay:hover, .card__overlay:hover {
+  .profile__overlay:hover,
+  .card__overlay:hover {
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.85); }
 
-.profile__name--overlay, .project__name--overlay {
+.profile__name--overlay,
+.project__name--overlay {
   left: 35px;
-  padding: 0 35px 0 0;
   margin: 0 35px 0 0;
+  padding: 0 35px 0 0;
+  color: #909090;
   font-size: 23px;
-  line-height: 36px;
-  color: #909090; }
+  line-height: 36px; }
   @media screen and (max-width: 1023px) {
-    .profile__name--overlay, .project__name--overlay {
-      font-size: 22px;
-      line-height: 28px;
-      top: 35px;
+    .profile__name--overlay,
+    .project__name--overlay {
       -webkit-transform: translateY(0);
       -moz-transform: translateY(0);
       -ms-transform: translateY(0);
       -o-transform: translateY(0);
       transform: translateY(0);
-      margin-top: 0/9; } }
-  .profile__name--overlay b, .project__name--overlay b {
+      top: 35px;
+      margin-top: 0/9;
+      font-size: 22px;
+      line-height: 28px; } }
+  .profile__name--overlay b,
+  .project__name--overlay b {
     display: block;
-    font-size: 32px;
-    color: #171717; }
+    color: #171717;
+    font-size: 32px; }
     @media screen and (max-width: 1023px) {
-      .profile__name--overlay b, .project__name--overlay b {
+      .profile__name--overlay b,
+      .project__name--overlay b {
         font-size: 28px;
         line-height: 32px; } }
 
-.profile__btns, .project__btns {
+.profile__btns,
+.project__btns {
   position: absolute;
-  left: 35px;
-  bottom: 45px; }
-  .profile__btns .profile__social, .project__btns .profile__social {
+  bottom: 45px;
+  left: 35px; }
+  .profile__btns .profile__social,
+  .project__btns .profile__social {
     margin-bottom: 10px; }
 
 /*  --- PROJECT --- */
 .project__name {
-  margin: 0;
-  padding: 0;
   position: absolute;
   top: 35px;
   left: 45px;
+  margin: 0;
+  padding: 0;
   color: #171717;
   font-weight: 700; }
 
@@ -2581,16 +2592,16 @@ footer {
     height: 300px !important; } }
 
 .card__project img {
-  max-width: 50%;
-  width: 100%;
-  max-height: 50%;
-  height: auto;
   position: absolute;
-  margin: auto;
-  left: 0;
-  right: 0;
   top: 0;
-  bottom: 0; }
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 50%;
+  height: auto;
+  max-height: 50%;
+  margin: auto; }
 
 .card--allerhande {
   height: 34%;
@@ -2600,7 +2611,7 @@ footer {
 
 .card--sunweb {
   height: 33%;
-  background-color: #FF0; }
+  background-color: #ff0; }
   .card--sunweb .card__bg {
     background-position: center right; }
 
@@ -2614,14 +2625,14 @@ footer {
 
 .card--ecover {
   height: 37%;
-  background-color: #85C300; }
+  background-color: #85c300; }
   .card--ecover img {
     max-width: 40%;
     max-height: 100%; }
 
 .card--sdc {
   height: 26%;
-  background-color: #E01E3A; }
+  background-color: #e01e3a; }
   @media screen and (min-width: 1024px) {
     .card--sdc .overlay__name {
       margin-top: -30px; } }
@@ -2656,7 +2667,7 @@ footer {
 
 .card--ultimaker {
   height: 40%;
-  background-color: #2EB5E7; }
+  background-color: #2eb5e7; }
   .card--ultimaker .card__background {
     background-position: center right; }
 
@@ -2668,45 +2679,44 @@ footer {
     .card--tags {
       padding: 5%; } }
   .card--tags p {
-    color: #FFF;
-    font-size: 24px;
     margin-top: 0;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 24px; }
 
 @media screen and (min-width: 481px) and (max-width: 1023px) {
   .card--ldd,
   .card--ultimaker {
-    width: 50%;
-    float: left; } }
+    float: left;
+    width: 50%; } }
 
 .card__bg--tnt {
-  background-color: #FF6600; }
+  background-color: #f60; }
 
-/* Profile card */
-/*------------------------------------*    #BUTTONS
+/*------------------------------------*  #BUTTONS
 \*------------------------------------*/
 .button {
-  border: 1px solid #979797;
-  position: relative;
-  text-decoration: none;
-  text-align: left;
-  line-height: 55px;
-  height: 58px;
-  display: inline-block;
-  padding: 0 35px;
-  width: 180px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #171717;
   -webkit-transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -moz-transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -ms-transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -o-transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  transition: background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  border-radius: 3px;
+  position: relative;
+  display: inline-block;
+  width: 180px;
+  height: 58px;
+  padding: 0 35px;
+  border: 1px solid #979797;
+  color: #171717;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: left;
+  line-height: 55px;
+  font-weight: 700; }
   .button:hover {
     background: rgba(200, 200, 200, 0.6); }
 
@@ -2715,59 +2725,54 @@ footer {
   top: 17px;
   right: 25px; }
 
-.button--arrow i:after, .button--arrow i:before {
+.button--arrow i:after,
+.button--arrow i:before {
+  position: absolute;
   width: 6px;
   height: 11px;
   border-left: 2px solid #979797;
-  content: "";
-  position: absolute;
+  content: '';
   pointer-events: none; }
 
 .button--arrow i:after {
   -webkit-transform: skew(-135deg); }
 
 .button--arrow i:before {
-  -webkit-transform: skew(135deg);
-  top: 11px; }
+  top: 11px;
+  -webkit-transform: skew(135deg); }
 
 .button--black {
   border-color: #171717;
   background: #171717;
-  color: #FFF; }
+  color: #fff; }
   .button--black:hover {
-    color: #171717;
-    background: #FFF; }
+    background: #fff;
+    color: #171717; }
 
 .button--dia {
-  color: #FFF;
-  width: auto; }
+  width: auto;
+  color: #fff; }
 
 .button--social {
-  width: auto;
   width: 58px;
   padding: 0;
-  text-align: center;
-  font-size: 20px; }
+  font-size: 20px;
+  text-align: center; }
 
-/*------------------------------------*    #PAGE SLOGAN
+/*------------------------------------*  #PAGE SLOGAN
 \*------------------------------------*/
 .card__slogan {
   position: absolute;
-  left: 35px;
-  top: 40px;
   z-index: 1;
-  color: #FFF;
+  top: 40px;
+  left: 35px;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 34px;
   font-weight: 700;
   line-height: 40px;
-  font-size: 34px;
-  letter-spacing: -1.08px;
-  margin: 0;
-  padding: 0; }
-  .card__slogan span {
-    display: block;
-    font-size: 28px;
-    font-weight: 300;
-    color: #909090; }
+  letter-spacing: -1.08px; }
   @media screen and (max-width: 1023px) {
     .card__slogan {
       top: 25px; } }
@@ -2777,50 +2782,55 @@ footer {
       line-height: 30px; }
       .card__slogan span {
         font-size: 22px; } }
+  .card__slogan span {
+    display: block;
+    color: #909090;
+    font-size: 28px;
+    font-weight: 300; }
 
-/*------------------------------------*    #PAGE-INTRO
+/*------------------------------------*  #PAGE-INTRO
 \*------------------------------------*/
 .intro {
-  margin-left: 18%;
-  height: 100%; }
+  height: 100%;
+  margin-left: 18%; }
   .intro .intro__header {
     max-width: 270px;
     height: 100%;
-    margin: -31px 0 55px 0;
+    margin: -31px 0 55px;
     padding: 0;
+    color: #999;
     font-size: 24px;
-    line-height: 36px;
-    color: #999; }
+    line-height: 36px; }
     .intro .intro__header p {
       margin-bottom: 50px; }
   .intro .phone {
     display: block;
     margin-top: 20px;
-    font-size: 20px;
-    color: #999; }
+    color: #999;
+    font-size: 20px; }
   .intro .alignment-bottom {
     position: absolute;
     bottom: 10%; }
 
-/*------------------------------------*    #AGENCY LIST
+/*------------------------------------*  #AGENCY LIST
 \*------------------------------------*/
 .agency-list {
-  padding: 0 5%;
-  margin-top: 0px;
-  margin-bottom: 50px; }
+  margin-top: 0;
+  margin-bottom: 50px;
+  padding: 0 5%; }
   .agency-list a {
-    padding-right: 25%;
-    padding-bottom: 25px;
-    margin-right: 30px;
     display: block;
     height: 80px;
+    margin-right: 30px;
+    padding-right: 25%;
+    padding-bottom: 25px;
     border-bottom: 1px solid #171717; }
-    .agency-list a img {
-      max-width: 100%;
-      max-height: 50px; }
     @media screen and (max-width: 1023px) {
       .agency-list a {
         margin-bottom: 25px; } }
+    .agency-list a img {
+      max-width: 100%;
+      max-height: 50px; }
 
 .agency-3 img {
   margin-top: 3px; }
@@ -2831,19 +2841,18 @@ footer {
 /*------------------------------------*    #TAG LIST
 \*------------------------------------*/
 .tag-list li {
-  margin-bottom: 10px;
-  margin-right: 3px; }
+  margin-right: 3px;
+  margin-bottom: 10px; }
   .tag-list li .button--dia {
     padding: 0 13px; }
 
-/*------------------------------------*    #SCROLLBOX
+/*------------------------------------*  #SCROLLBOX
 \*------------------------------------*/
 .scrollbox {
-  width: 100%;
-  overflow-x: scroll;
   overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-  width: auto; }
+  overflow-x: scroll;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; }
 
 .scrollbox__projects {
   height: 320px;
@@ -2860,77 +2869,77 @@ footer {
   position: relative;
   float: left;
   width: 600px;
-  height: 100%;
-  min-width: 33.333%; }
+  min-width: 33.333%;
+  height: 100%; }
   .scrollbox__card img {
     position: absolute;
-    left: 0;
-    right: 0;
     top: 0;
+    right: 0;
     bottom: 0;
-    margin: auto;
-    width: 40%; }
+    left: 0;
+    width: 40%;
+    margin: auto; }
   .scrollbox__card:hover .card--info {
     opacity: 0; }
 
 .card--info {
-  background-color: rgba(0, 0, 0, 0.4);
-  width: 100%;
-  height: 100%;
   position: absolute;
   z-index: 2;
-  color: #FFF;
+  width: 100%;
+  height: 100%;
   padding: 30px 35px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
   font-size: 17px; }
 
-/*------------------------------------*    #PROJECT
+/*------------------------------------*  #PROJECT
 \*------------------------------------*/
 .project__hero .project__hero--intro {
   position: absolute;
   bottom: 30px;
   padding: 0 9%; }
   .project__hero .project__hero--intro b {
-    color: #FFF; }
+    color: #fff; }
 
 .project__hero--slogan {
+  padding: 135px 9% 0;
+  color: #fff;
   font-size: 108px;
-  line-height: 96px;
-  padding: 135px 9% 0 9%;
-  color: #FFF; }
+  line-height: 96px; }
 
 .project__bio {
-  padding-top: 260px;
+  margin-right: 10%;
   margin-left: 18%;
-  margin-right: 10%; }
+  padding-top: 260px; }
   .project__bio .project__bio--header {
-    font-size: 42px;
-    margin-bottom: 75px; }
+    margin-bottom: 75px;
+    font-size: 42px; }
   .project__bio .project__bio--paragraph {
-    font-size: 16px;
+    margin-bottom: 50px;
     color: #999;
-    margin-bottom: 50px; }
+    font-size: 16px; }
   .project__bio .project__bio--label {
+    margin-bottom: 35px;
+    color: #171717;
     font-size: 20px;
     line-height: 25px;
-    font-weight: 700;
-    color: #171717;
-    margin-bottom: 35px; }
+    font-weight: 700; }
     .project__bio .project__bio--label span {
       display: block;
+      color: #999;
       font-size: 17px;
-      font-weight: 300;
-      color: #999; }
+      font-weight: 300; }
 
 .project__image {
   padding: 0 10%; }
+  @media screen and (max-width: 719px) {
+    .project__image {
+      margin-bottom: 30px; } }
   .project__image img {
     width: 100%;
     margin-bottom: 15px; }
   .project__image span {
     display: block; }
-  @media screen and (max-width: 719px) {
-    .project__image {
-      margin-bottom: 30px; } }
 
 /**
  * #TRUMPS
@@ -3681,9 +3690,9 @@ footer {
   /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
   -moz-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
-  -webkit-animation-duration: 0.5s;
-  -moz-animation-duration: 0.5s;
-  animation-duration: 0.5s; }
+  -webkit-animation-duration: .5s;
+  -moz-animation-duration: .5s;
+  animation-duration: .5s; }
 
 @-webkit-keyframes fadeIn {
   0% {
@@ -3841,941 +3850,18 @@ footer {
 
 .slideInOut.ng-hide-add.ng-hide-add-active,
 .slideInOut.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out; }
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out; }
 
 .slideInOut.ng-hide {
-  max-height: 20px;
-  overflow-y: hidden; }
-
-.slideInOut.ng-hide {
-  display: block !important;
-  visibility: hidden; }
-
-/**
- * #SHAME
- */
-/**
- * #TRUMPS
- */
-/*------------------------------------*    #CLEARFIX
-\*------------------------------------*/
-/**
- * Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php
- * Extend the clearfix class with Sass to avoid the `.clearfix` class appearing
- * over and over in your markup.
- */
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both; }
-
-/*------------------------------------*    #WIDTHS
-\*------------------------------------*/
-/**
- * A series of width helper classes that you can use to size things like grid
- * systems. Classes can take a fraction-like format (e.g. `.u-2/3`) or a spoken-
- * word format (e.g. `.u-2-of-3`). Use these in your markup:
- *
- * <div class="u-7/12">
- */
-.u-1\/1 {
-  width: 100% !important; }
-
-.u-1\/2 {
-  width: 50% !important; }
-
-.u-1\/3 {
-  width: 33.33333% !important; }
-
-.u-2\/3 {
-  width: 66.66667% !important; }
-
-.u-1\/4 {
-  width: 25% !important; }
-
-.u-2\/4 {
-  width: 50% !important; }
-
-.u-3\/4 {
-  width: 75% !important; }
-
-.u-1\/5 {
-  width: 20% !important; }
-
-.u-2\/5 {
-  width: 40% !important; }
-
-.u-3\/5 {
-  width: 60% !important; }
-
-.u-4\/5 {
-  width: 80% !important; }
-
-/*------------------------------------*    #WIDTHS-RESPONSIVE
-\*------------------------------------*/
-/**
- * Responsive width classes based on your responsive settings.
- */
-@media screen and (max-width: 480px) {
-  .u-1\/1-phone {
-    width: 100% !important; }
-  .u-1\/2-phone {
-    width: 50% !important; }
-  .u-1\/3-phone {
-    width: 33.33333% !important; }
-  .u-2\/3-phone {
-    width: 66.66667% !important; }
-  .u-1\/4-phone {
-    width: 25% !important; }
-  .u-2\/4-phone {
-    width: 50% !important; }
-  .u-3\/4-phone {
-    width: 75% !important; }
-  .u-1\/5-phone {
-    width: 20% !important; }
-  .u-2\/5-phone {
-    width: 40% !important; }
-  .u-3\/5-phone {
-    width: 60% !important; }
-  .u-4\/5-phone {
-    width: 80% !important; } }
-
-@media screen and (min-width: 481px) {
-  .u-1\/1-phone-plus {
-    width: 100% !important; }
-  .u-1\/2-phone-plus {
-    width: 50% !important; }
-  .u-1\/3-phone-plus {
-    width: 33.33333% !important; }
-  .u-2\/3-phone-plus {
-    width: 66.66667% !important; }
-  .u-1\/4-phone-plus {
-    width: 25% !important; }
-  .u-2\/4-phone-plus {
-    width: 50% !important; }
-  .u-3\/4-phone-plus {
-    width: 75% !important; }
-  .u-1\/5-phone-plus {
-    width: 20% !important; }
-  .u-2\/5-phone-plus {
-    width: 40% !important; }
-  .u-3\/5-phone-plus {
-    width: 60% !important; }
-  .u-4\/5-phone-plus {
-    width: 80% !important; } }
-
-@media screen and (min-width: 481px) and (max-width: 1023px) {
-  .u-1\/1-phone-to-desk {
-    width: 100% !important; }
-  .u-1\/2-phone-to-desk {
-    width: 50% !important; }
-  .u-1\/3-phone-to-desk {
-    width: 33.33333% !important; }
-  .u-2\/3-phone-to-desk {
-    width: 66.66667% !important; }
-  .u-1\/4-phone-to-desk {
-    width: 25% !important; }
-  .u-2\/4-phone-to-desk {
-    width: 50% !important; }
-  .u-3\/4-phone-to-desk {
-    width: 75% !important; }
-  .u-1\/5-phone-to-desk {
-    width: 20% !important; }
-  .u-2\/5-phone-to-desk {
-    width: 40% !important; }
-  .u-3\/5-phone-to-desk {
-    width: 60% !important; }
-  .u-4\/5-phone-to-desk {
-    width: 80% !important; } }
-
-@media screen and (min-width: 480px) and (max-width: 719px) {
-  .u-1\/1-phone-and-up {
-    width: 100% !important; }
-  .u-1\/2-phone-and-up {
-    width: 50% !important; }
-  .u-1\/3-phone-and-up {
-    width: 33.33333% !important; }
-  .u-2\/3-phone-and-up {
-    width: 66.66667% !important; }
-  .u-1\/4-phone-and-up {
-    width: 25% !important; }
-  .u-2\/4-phone-and-up {
-    width: 50% !important; }
-  .u-3\/4-phone-and-up {
-    width: 75% !important; }
-  .u-1\/5-phone-and-up {
-    width: 20% !important; }
-  .u-2\/5-phone-and-up {
-    width: 40% !important; }
-  .u-3\/5-phone-and-up {
-    width: 60% !important; }
-  .u-4\/5-phone-and-up {
-    width: 80% !important; } }
-
-@media screen and (max-width: 719px) {
-  .u-1\/1-palm {
-    width: 100% !important; }
-  .u-1\/2-palm {
-    width: 50% !important; }
-  .u-1\/3-palm {
-    width: 33.33333% !important; }
-  .u-2\/3-palm {
-    width: 66.66667% !important; }
-  .u-1\/4-palm {
-    width: 25% !important; }
-  .u-2\/4-palm {
-    width: 50% !important; }
-  .u-3\/4-palm {
-    width: 75% !important; }
-  .u-1\/5-palm {
-    width: 20% !important; }
-  .u-2\/5-palm {
-    width: 40% !important; }
-  .u-3\/5-palm {
-    width: 60% !important; }
-  .u-4\/5-palm {
-    width: 80% !important; } }
-
-@media screen and (min-width: 720px) and (max-width: 1023px) {
-  .u-1\/1-lap {
-    width: 100% !important; }
-  .u-1\/2-lap {
-    width: 50% !important; }
-  .u-1\/3-lap {
-    width: 33.33333% !important; }
-  .u-2\/3-lap {
-    width: 66.66667% !important; }
-  .u-1\/4-lap {
-    width: 25% !important; }
-  .u-2\/4-lap {
-    width: 50% !important; }
-  .u-3\/4-lap {
-    width: 75% !important; }
-  .u-1\/5-lap {
-    width: 20% !important; }
-  .u-2\/5-lap {
-    width: 40% !important; }
-  .u-3\/5-lap {
-    width: 60% !important; }
-  .u-4\/5-lap {
-    width: 80% !important; } }
-
-@media screen and (min-width: 720px) {
-  .u-1\/1-lap-and-up {
-    width: 100% !important; }
-  .u-1\/2-lap-and-up {
-    width: 50% !important; }
-  .u-1\/3-lap-and-up {
-    width: 33.33333% !important; }
-  .u-2\/3-lap-and-up {
-    width: 66.66667% !important; }
-  .u-1\/4-lap-and-up {
-    width: 25% !important; }
-  .u-2\/4-lap-and-up {
-    width: 50% !important; }
-  .u-3\/4-lap-and-up {
-    width: 75% !important; }
-  .u-1\/5-lap-and-up {
-    width: 20% !important; }
-  .u-2\/5-lap-and-up {
-    width: 40% !important; }
-  .u-3\/5-lap-and-up {
-    width: 60% !important; }
-  .u-4\/5-lap-and-up {
-    width: 80% !important; } }
-
-@media screen and (max-width: 1023px) {
-  .u-1\/1-portable {
-    width: 100% !important; }
-  .u-1\/2-portable {
-    width: 50% !important; }
-  .u-1\/3-portable {
-    width: 33.33333% !important; }
-  .u-2\/3-portable {
-    width: 66.66667% !important; }
-  .u-1\/4-portable {
-    width: 25% !important; }
-  .u-2\/4-portable {
-    width: 50% !important; }
-  .u-3\/4-portable {
-    width: 75% !important; }
-  .u-1\/5-portable {
-    width: 20% !important; }
-  .u-2\/5-portable {
-    width: 40% !important; }
-  .u-3\/5-portable {
-    width: 60% !important; }
-  .u-4\/5-portable {
-    width: 80% !important; } }
-
-@media screen and (min-width: 1024px) {
-  .u-1\/1-desk {
-    width: 100% !important; }
-  .u-1\/2-desk {
-    width: 50% !important; }
-  .u-1\/3-desk {
-    width: 33.33333% !important; }
-  .u-2\/3-desk {
-    width: 66.66667% !important; }
-  .u-1\/4-desk {
-    width: 25% !important; }
-  .u-2\/4-desk {
-    width: 50% !important; }
-  .u-3\/4-desk {
-    width: 75% !important; }
-  .u-1\/5-desk {
-    width: 20% !important; }
-  .u-2\/5-desk {
-    width: 40% !important; }
-  .u-3\/5-desk {
-    width: 60% !important; }
-  .u-4\/5-desk {
-    width: 80% !important; } }
-
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .u-1\/1-retina {
-    width: 100% !important; }
-  .u-1\/2-retina {
-    width: 50% !important; }
-  .u-1\/3-retina {
-    width: 33.33333% !important; }
-  .u-2\/3-retina {
-    width: 66.66667% !important; }
-  .u-1\/4-retina {
-    width: 25% !important; }
-  .u-2\/4-retina {
-    width: 50% !important; }
-  .u-3\/4-retina {
-    width: 75% !important; }
-  .u-1\/5-retina {
-    width: 20% !important; }
-  .u-2\/5-retina {
-    width: 40% !important; }
-  .u-3\/5-retina {
-    width: 60% !important; }
-  .u-4\/5-retina {
-    width: 80% !important; } }
-
-/*------------------------------------*    #SPACING
-\*------------------------------------*/
-/**
- * Margin and padding helper classes. Use these to tweak layout on a micro
- * level.
- *
- * `.(m|p)(t|r|b|l|h|v)(-|+|0) {}` = margin/padding top/right/bottom/left/horizontal/vertical less/more/none
- */
-/**
-     * Margin helper classes.
-     *
-     * Add margins.
-     */
-.u-m {
-  margin: 24px !important; }
-
-.u-mt {
-  margin-top: 24px !important; }
-
-.u-mr {
-  margin-right: 24px !important; }
-
-.u-mb {
-  margin-bottom: 24px !important; }
-
-.u-ml {
-  margin-left: 24px !important; }
-
-.u-mh {
-  margin-right: 24px !important;
-  margin-left: 24px !important; }
-
-.u-mv {
-  margin-top: 24px !important;
-  margin-bottom: 24px !important; }
-
-/**
-     * Padding helper classes.
-     *
-     * Add paddings.
-     */
-.u-p {
-  padding: 24px !important; }
-
-.u-pt {
-  padding-top: 24px !important; }
-
-.u-pr {
-  padding-right: 24px !important; }
-
-.u-pb {
-  padding-bottom: 24px !important; }
-
-.u-pl {
-  padding-left: 24px !important; }
-
-.u-ph {
-  padding-right: 24px !important;
-  padding-left: 24px !important; }
-
-.u-pv {
-  padding-top: 24px !important;
-  padding-bottom: 24px !important; }
-
-/**
-     * Add large paddings.
-     */
-.u-p\+ {
-  padding: 48px !important; }
-
-.u-pt\+ {
-  padding-top: 48px !important; }
-
-.u-pr\+ {
-  padding-right: 48px !important; }
-
-.u-pb\+ {
-  padding-bottom: 48px !important; }
-
-.u-pl\+ {
-  padding-left: 48px !important; }
-
-.u-ph\+ {
-  padding-right: 48px !important;
-  padding-left: 48px !important; }
-
-.u-pv\+ {
-  padding-top: 48px !important;
-  padding-bottom: 48px !important; }
-
-/*------------------------------------*    #SPACING-RESPONSIVE
-\*------------------------------------*/
-/**
- * Margin and padding helper classes. Use these to tweak layout on a micro
- * level.
- *
- * `.(m|p)(t|r|b|l|h|v)(-|+|0) {}` = margin/padding top/right/bottom/left/horizontal/vertical less/more/none
- */
-/**
-     * Margin helper classes.
-     *
-     * Add margins.
-     */
-@media screen and (max-width: 480px) {
-  .u-m-phone {
-    margin: 24px !important; }
-  .u-mt-phone {
-    margin-top: 24px !important; }
-  .u-mr-phone {
-    margin-right: 24px !important; }
-  .u-mb-phone {
-    margin-bottom: 24px !important; }
-  .u-ml-phone {
-    margin-left: 24px !important; }
-  .u-mh-phone {
-    margin-right: 24px !important;
-    margin-left: 24px !important; }
-  .u-mv-phone {
-    margin-top: 24px !important;
-    margin-bottom: 24px !important; } }
-
-@media screen and (min-width: 481px) {
-  .u-m-phone-plus {
-    margin: 24px !important; }
-  .u-mt-phone-plus {
-    margin-top: 24px !important; }
-  .u-mr-phone-plus {
-    margin-right: 24px !important; }
-  .u-mb-phone-plus {
-    margin-bottom: 24px !important; }
-  .u-ml-phone-plus {
-    margin-left: 24px !important; }
-  .u-mh-phone-plus {
-    margin-right: 24px !important;
-    margin-left: 24px !important; }
-  .u-mv-phone-plus {
-    margin-top: 24px !important;
-    margin-bottom: 24px !important; } }
-
-@media screen and (min-width: 481px) and (max-width: 1023px) {
-  .u-m-phone-to-desk {
-    margin: 24px !important; }
-  .u-mt-phone-to-desk {
-    margin-top: 24px !important; }
-  .u-mr-phone-to-desk {
-    margin-right: 24px !important; }
-  .u-mb-phone-to-desk {
-    margin-bottom: 24px !important; }
-  .u-ml-phone-to-desk {
-    margin-left: 24px !important; }
-  .u-mh-phone-to-desk {
-    margin-right: 24px !important;
-    margin-left: 24px !important; }
-  .u-mv-phone-to-desk {
-    margin-top: 24px !important;
-    margin-bottom: 24px !important; } }
-
-@media screen and (min-width: 480px) and (max-width: 719px) {
-  .u-m-phone-and-up {
-    margin: 24px !important; }
-  .u-mt-phone-and-up {
-    margin-top: 24px !important; }
-  .u-mr-phone-and-up {
-    margin-right: 24px !important; }
-  .u-mb-phone-and-up {
-    margin-bottom: 24px !important; }
-  .u-ml-phone-and-up {
-    margin-left: 24px !important; }
-  .u-mh-phone-and-up {
-    margin-right: 24px !important;
-    margin-left: 24px !important; }
-  .u-mv-phone-and-up {
-    margin-top: 24px !important;
-    margin-bottom: 24px !important; } }
-
-@media screen and (max-width: 719px) {
-  .u-m-palm {
-    margin: 24px !important; }
-  .u-mt-palm {
-    margin-top: 24px !important; }
-  .u-mr-palm {
-    margin-right: 24px !important; }
-  .u-mb-palm {
-    margin-bottom: 24px !important; }
-  .u-ml-palm {
-    margin-left: 24px !important; }
-  .u-mh-palm {
-    margin-right: 24px !important;
-    margin-left: 24px !important; }
-  .u-mv-palm {
-    margin-top: 24px !important;
-    margin-bottom: 24px !important; } }
-
-@media screen and (min-width: 720px) and (max-width: 1023px) {
-  .u-m-lap {
-    margin: 24px !important; }
-  .u-mt-lap {
-    margin-top: 24px !important; }
-  .u-mr-lap {
-    margin-right: 24px !important; }
-  .u-mb-lap {
-    margin-bottom: 24px !important; }
-  .u-ml-lap {
-    margin-left: 24px !important; }
-  .u-mh-lap {
-    margin-right: 24px !important;
-    margin-left: 24px !important; }
-  .u-mv-lap {
-    margin-top: 24px !important;
-    margin-bottom: 24px !important; } }
-
-@media screen and (min-width: 720px) {
-  .u-m-lap-and-up {
-    margin: 24px !important; }
-  .u-mt-lap-and-up {
-    margin-top: 24px !important; }
-  .u-mr-lap-and-up {
-    margin-right: 24px !important; }
-  .u-mb-lap-and-up {
-    margin-bottom: 24px !important; }
-  .u-ml-lap-and-up {
-    margin-left: 24px !important; }
-  .u-mh-lap-and-up {
-    margin-right: 24px !important;
-    margin-left: 24px !important; }
-  .u-mv-lap-and-up {
-    margin-top: 24px !important;
-    margin-bottom: 24px !important; } }
-
-@media screen and (max-width: 1023px) {
-  .u-m-portable {
-    margin: 24px !important; }
-  .u-mt-portable {
-    margin-top: 24px !important; }
-  .u-mr-portable {
-    margin-right: 24px !important; }
-  .u-mb-portable {
-    margin-bottom: 24px !important; }
-  .u-ml-portable {
-    margin-left: 24px !important; }
-  .u-mh-portable {
-    margin-right: 24px !important;
-    margin-left: 24px !important; }
-  .u-mv-portable {
-    margin-top: 24px !important;
-    margin-bottom: 24px !important; } }
-
-@media screen and (min-width: 1024px) {
-  .u-m-desk {
-    margin: 24px !important; }
-  .u-mt-desk {
-    margin-top: 24px !important; }
-  .u-mr-desk {
-    margin-right: 24px !important; }
-  .u-mb-desk {
-    margin-bottom: 24px !important; }
-  .u-ml-desk {
-    margin-left: 24px !important; }
-  .u-mh-desk {
-    margin-right: 24px !important;
-    margin-left: 24px !important; }
-  .u-mv-desk {
-    margin-top: 24px !important;
-    margin-bottom: 24px !important; } }
-
-/**
-     * Padding helper classes.
-     *
-     * Add paddings.
-     */
-@media screen and (max-width: 480px) {
-  .u-phone-p {
-    padding: 24px !important; }
-  .u-phone-pt {
-    padding-top: 24px !important; }
-  .u-phone-pr {
-    padding-right: 24px !important; }
-  .u-phone-pb {
-    padding-bottom: 24px !important; }
-  .u-phone-pl {
-    padding-left: 24px !important; }
-  .u-phone-ph {
-    padding-right: 24px !important;
-    padding-left: 24px !important; }
-  .u-phone-pv {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important; } }
-
-@media screen and (min-width: 481px) {
-  .u-phone-plus-p {
-    padding: 24px !important; }
-  .u-phone-plus-pt {
-    padding-top: 24px !important; }
-  .u-phone-plus-pr {
-    padding-right: 24px !important; }
-  .u-phone-plus-pb {
-    padding-bottom: 24px !important; }
-  .u-phone-plus-pl {
-    padding-left: 24px !important; }
-  .u-phone-plus-ph {
-    padding-right: 24px !important;
-    padding-left: 24px !important; }
-  .u-phone-plus-pv {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important; } }
-
-@media screen and (min-width: 481px) and (max-width: 1023px) {
-  .u-phone-to-desk-p {
-    padding: 24px !important; }
-  .u-phone-to-desk-pt {
-    padding-top: 24px !important; }
-  .u-phone-to-desk-pr {
-    padding-right: 24px !important; }
-  .u-phone-to-desk-pb {
-    padding-bottom: 24px !important; }
-  .u-phone-to-desk-pl {
-    padding-left: 24px !important; }
-  .u-phone-to-desk-ph {
-    padding-right: 24px !important;
-    padding-left: 24px !important; }
-  .u-phone-to-desk-pv {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important; } }
-
-@media screen and (min-width: 480px) and (max-width: 719px) {
-  .u-phone-and-up-p {
-    padding: 24px !important; }
-  .u-phone-and-up-pt {
-    padding-top: 24px !important; }
-  .u-phone-and-up-pr {
-    padding-right: 24px !important; }
-  .u-phone-and-up-pb {
-    padding-bottom: 24px !important; }
-  .u-phone-and-up-pl {
-    padding-left: 24px !important; }
-  .u-phone-and-up-ph {
-    padding-right: 24px !important;
-    padding-left: 24px !important; }
-  .u-phone-and-up-pv {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important; } }
-
-@media screen and (max-width: 719px) {
-  .u-palm-p {
-    padding: 24px !important; }
-  .u-palm-pt {
-    padding-top: 24px !important; }
-  .u-palm-pr {
-    padding-right: 24px !important; }
-  .u-palm-pb {
-    padding-bottom: 24px !important; }
-  .u-palm-pl {
-    padding-left: 24px !important; }
-  .u-palm-ph {
-    padding-right: 24px !important;
-    padding-left: 24px !important; }
-  .u-palm-pv {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important; } }
-
-@media screen and (min-width: 720px) and (max-width: 1023px) {
-  .u-lap-p {
-    padding: 24px !important; }
-  .u-lap-pt {
-    padding-top: 24px !important; }
-  .u-lap-pr {
-    padding-right: 24px !important; }
-  .u-lap-pb {
-    padding-bottom: 24px !important; }
-  .u-lap-pl {
-    padding-left: 24px !important; }
-  .u-lap-ph {
-    padding-right: 24px !important;
-    padding-left: 24px !important; }
-  .u-lap-pv {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important; } }
-
-@media screen and (min-width: 720px) {
-  .u-lap-and-up-p {
-    padding: 24px !important; }
-  .u-lap-and-up-pt {
-    padding-top: 24px !important; }
-  .u-lap-and-up-pr {
-    padding-right: 24px !important; }
-  .u-lap-and-up-pb {
-    padding-bottom: 24px !important; }
-  .u-lap-and-up-pl {
-    padding-left: 24px !important; }
-  .u-lap-and-up-ph {
-    padding-right: 24px !important;
-    padding-left: 24px !important; }
-  .u-lap-and-up-pv {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important; } }
-
-@media screen and (max-width: 1023px) {
-  .u-portable-p {
-    padding: 24px !important; }
-  .u-portable-pt {
-    padding-top: 24px !important; }
-  .u-portable-pr {
-    padding-right: 24px !important; }
-  .u-portable-pb {
-    padding-bottom: 24px !important; }
-  .u-portable-pl {
-    padding-left: 24px !important; }
-  .u-portable-ph {
-    padding-right: 24px !important;
-    padding-left: 24px !important; }
-  .u-portable-pv {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important; } }
-
-@media screen and (min-width: 1024px) {
-  .u-desk-p {
-    padding: 24px !important; }
-  .u-desk-pt {
-    padding-top: 24px !important; }
-  .u-desk-pr {
-    padding-right: 24px !important; }
-  .u-desk-pb {
-    padding-bottom: 24px !important; }
-  .u-desk-pl {
-    padding-left: 24px !important; }
-  .u-desk-ph {
-    padding-right: 24px !important;
-    padding-left: 24px !important; }
-  .u-desk-pv {
-    padding-top: 24px !important;
-    padding-bottom: 24px !important; } }
-
-/*------------------------------------*    #ANIMATIONS
-\*------------------------------------*/
-/* On enter fade in */
-.enter-fade-in {
-  opacity: 0;
-  /* make things invisible upon start */
-  -webkit-animation: fadeIn ease-in 1;
-  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
-  -moz-animation: fadeIn ease-in 1;
-  -o-animation: fadeIn ease-in 1;
-  animation: fadeIn ease-in 1;
-  -webkit-animation-fill-mode: forwards;
-  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-duration: 0.5s;
-  -moz-animation-duration: 0.5s;
-  animation-duration: 0.5s; }
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both; }
-
-.animated.infinite {
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite; }
-
-.animated.hinge {
-  -webkit-animation-duration: 2s;
-  animation-duration: 2s; }
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
-
-.fadeIn {
-  -webkit-animation-name: fadeIn;
-  animation-name: fadeIn; }
-
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-.fadeInDown {
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown; }
-
-@-webkit-keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-@keyframes fadeInLeft {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-.fadeInLeft {
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft; }
-
-@-webkit-keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-.fadeInRight {
-  -webkit-animation-name: fadeInRight;
-  animation-name: fadeInRight; }
-
-@-webkit-keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 25%, 0);
-    transform: translate3d(0, 25%, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 25%, 0);
-    transform: translate3d(0, 25%, 0); }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none; } }
-
-.fadeInUp {
-  -webkit-animation-name: fadeInUp;
-  animation-name: fadeInUp; }
-
-.slideInOut {
-  max-height: 320px;
-  visibility: visible; }
-
-.slideInOut.ng-hide-add.ng-hide-add-active,
-.slideInOut.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out; }
-
-.slideInOut.ng-hide {
-  max-height: 20px;
-  overflow-y: hidden; }
+  overflow-y: hidden;
+  max-height: 20px; }
 
 .slideInOut.ng-hide {
   display: block !important;
   visibility: hidden; }
 
-/*------------------------------------*    #SHOW/HIDE HELPER
+/*------------------------------------*  #SHOW/HIDE HELPER
 \*------------------------------------*/
 .hide {
   position: absolute !important;

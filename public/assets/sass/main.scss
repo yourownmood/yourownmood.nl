@@ -45,125 +45,93 @@
 /**
  * #SETTINGS
  */
-@import "node_modules/inuit-defaults/settings.defaults";
-$breakpoints: (
-    "phone"         "screen and (max-width: 480px)",
-    "phone-plus"    "screen and (min-width: 481px)",
-    "phone-to-desk" "screen and (min-width: 481px) and (max-width: 1023px)",
-    "phone-and-up"  "screen and (min-width: 480px) and (max-width: 719px)",
-    "palm"          "screen and (max-width: 719px)",
-    "lap"           "screen and (min-width: 720px) and (max-width: 1023px)",
-    "lap-and-up"    "screen and (min-width: 720px)",
-    "portable"      "screen and (max-width: 1023px)",
-    "desk"          "screen and (min-width: 1024px)",
-    "retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
-) !default;
-@import "node_modules/inuit-responsive-settings/settings.responsive";
-@import "_settings/settings.colors";
+@import 'node_modules/inuit-defaults/settings.defaults';
+@import '_settings/settings.responsive';
+@import 'node_modules/inuit-responsive-settings/settings.responsive';
+@import '_settings/settings.colors';
 
 
 /**
  * #SETTINGS
  */
-@import "_font-awesome/font-awesome";
+@import '_font-awesome/font-awesome';
 
 
 /**
  * #TOOLS
  */
-@import "node_modules/inuit-functions/tools.functions";
-@import "node_modules/inuit-mixins/tools.mixins";
-@import "node_modules/inuit-tools-widths/tools.widths";
-@import "_tools/tools.mixins";
-@import "node_modules/inuit-responsive-tools/tools.responsive";
+@import 'node_modules/inuit-functions/tools.functions';
+@import 'node_modules/inuit-mixins/tools.mixins';
+@import 'node_modules/inuit-tools-widths/tools.widths';
+@import '_tools/tools.mixins';
+@import 'node_modules/inuit-responsive-tools/tools.responsive';
 
 
 /**
  * #GENERIC
  */
-@import "node_modules/inuit-normalize/generic.normalize";
-@import "node_modules/inuit-box-sizing/generic.box-sizing";
+@import 'node_modules/inuit-normalize/generic.normalize';
+@import 'node_modules/inuit-box-sizing/generic.box-sizing';
 
 
 /**
  * #BASE
  */
-@import "node_modules/inuit-page/base.page";
-@import "_base/base.page";
-@import "node_modules/inuit-headings/base.headings";
-@import "node_modules/inuit-lists/base.lists";
-@import "node_modules/inuit-images/base.images";
+@import 'node_modules/inuit-page/base.page';
+@import '_base/base.page';
+@import 'node_modules/inuit-headings/base.headings';
+@import 'node_modules/inuit-lists/base.lists';
+@import 'node_modules/inuit-images/base.images';
 
 
 /**
  * #OBJECTS
  */
-@import "_objects/objects.wrappers";
+@import '_objects/objects.wrappers';
 $inuit-enable-layout--flush: true;
 $inuit-enable-layout--middle: true;
 $inuit-enable-layout--center: true;
-@import "node_modules/inuit-layout/objects.layout";
-@import "node_modules/inuit-list-bare/objects.list-bare";
-@import "node_modules/inuit-list-inline/objects.list-inline";
-@import "_objects/objects.bg-position";
+@import 'node_modules/inuit-layout/objects.layout';
+@import 'node_modules/inuit-list-bare/objects.list-bare';
+@import 'node_modules/inuit-list-inline/objects.list-inline';
+@import '_objects/objects.bg-position';
 
 
 /**
  * #COMPONENTS
  */
-
 /* Needs to be added to index */
-@import "_components/components.screen";
-@import "_components/components.header";
-@import "_components/components.footer";
-@import "_components/components.cards";
-@import "_components/components.buttons";
-@import "_components/components.page-slogan";
-@import "_components/components.page-intro";
-@import "_components/components.agency-list";
-@import "_components/components.tag-list";
-@import "_components/components.scrollbox";
-@import "_components/components.project";
+@import '_components/components.screen';
+@import '_components/components.header';
+@import '_components/components.footer';
+@import '_components/components.cards';
+@import '_components/components.buttons';
+@import '_components/components.page-slogan';
+@import '_components/components.page-intro';
+@import '_components/components.agency-list';
+@import '_components/components.tag-list';
+@import '_components/components.scrollbox';
+@import '_components/components.project';
 
 
 /**
  * #TRUMPS
  */
-@import "node_modules/inuit-clearfix/trumps.clearfix";
-@import "node_modules/inuit-widths/trumps.widths";
-@import "node_modules/inuit-responsive-widths/trumps.widths-responsive";
+@import 'node_modules/inuit-clearfix/trumps.clearfix';
+@import 'node_modules/inuit-widths/trumps.widths';
+@import 'node_modules/inuit-responsive-widths/trumps.widths-responsive';
 $inuit-enable-paddings: true;
 $inuit-enable-paddings--large: true;
 $inuit-enable-margins: true;
-@import "node_modules/inuit-spacing/trumps.spacing";
+@import 'node_modules/inuit-spacing/trumps.spacing';
 $inuit-enable-responsive-paddings: true;
 $inuit-enable-responsive-margins: true;
-@import "node_modules/inuit-responsive-spacing/trumps.spacing-responsive";
-@import "_trumps/trumps.animation";
+@import 'node_modules/inuit-responsive-spacing/trumps.spacing-responsive';
+@import '_trumps/trumps.animation';
+@import '_trumps/trumps.show-hide';
+
 
 /**
  * #SHAME
  */
-
-
-
-/**
- * #TRUMPS
- */
-@import "node_modules/inuit-clearfix/trumps.clearfix";
-@import "node_modules/inuit-widths/trumps.widths";
-@import "node_modules/inuit-responsive-widths/trumps.widths-responsive";
-$inuit-enable-paddings: true;
-$inuit-enable-paddings--large: true;
-$inuit-enable-margins: true;
-@import "node_modules/inuit-spacing/trumps.spacing";
-$inuit-enable-responsive-paddings: true;
-$inuit-enable-responsive-margins: true;
-@import "node_modules/inuit-responsive-spacing/trumps.spacing-responsive";
-@import "_trumps/trumps.animation";
-@import "_trumps/trumps.show-hide";
-
-/**
- * #SHAME
- */
-@import "_shame/shame.scss";
+@import '_shame/shame';

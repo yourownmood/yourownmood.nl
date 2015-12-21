@@ -13,6 +13,7 @@
       sourcemaps = require('gulp-sourcemaps'),
       minifyCSS = require('gulp-minify-css'),
       uglify = require('gulp-uglify'),
+      scsslint = require('gulp-scss-lint'),
 
       imagemin = require('gulp-imagemin'),
       pngquant = require('imagemin-pngquant');
@@ -108,6 +109,14 @@
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
           }));
+    });
+
+    // SCSS-lint task:
+    gulp.task('scss-lint', function() {
+      return gulp.src(config.src_dir + '/assets/sass/**/*.scss')
+        .pipe(scsslint({
+          'config': 'scss-lint.yml'
+        }));
     });
 
 })();
