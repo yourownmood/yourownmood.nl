@@ -35,10 +35,12 @@
     }]);
 
 
-    app.controller('homeCtrl', ['$scope', function($scope){
+    app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', '$window', function($location, $scope, $http, $filter, $window){
 
         $scope.visibleProjects = false;
         $scope.pageClass = 'page-home';
+
+        new WOW().init();
 
         $scope.loaded = function() {
             console.log('View loaded');
@@ -49,8 +51,6 @@
                     threshold : 50
                 });
 
-                new WOW().init();
-
                 $("html,body").trigger("scroll");
 
             }, 750);
@@ -58,6 +58,7 @@
         };
 
         $('.card__profile, .card__project').on("touchstart", function (e) {});
+
     }]);
 
 

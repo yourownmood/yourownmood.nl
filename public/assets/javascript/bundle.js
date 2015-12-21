@@ -1108,10 +1108,12 @@ this.$get=["$$animateJs","$$AnimateRunner",function(a,c){function d(c){return a(
     }]);
 
 
-    app.controller('homeCtrl', ['$scope', function($scope){
+    app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', '$window', function($location, $scope, $http, $filter, $window){
 
         $scope.visibleProjects = false;
         $scope.pageClass = 'page-home';
+
+        new WOW().init();
 
         $scope.loaded = function() {
             console.log('View loaded');
@@ -1122,8 +1124,6 @@ this.$get=["$$animateJs","$$AnimateRunner",function(a,c){function d(c){return a(
                     threshold : 50
                 });
 
-                new WOW().init();
-
                 $("html,body").trigger("scroll");
 
             }, 750);
@@ -1131,6 +1131,7 @@ this.$get=["$$animateJs","$$AnimateRunner",function(a,c){function d(c){return a(
         };
 
         $('.card__profile, .card__project').on("touchstart", function (e) {});
+
     }]);
 
 
