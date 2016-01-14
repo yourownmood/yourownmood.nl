@@ -23,6 +23,7 @@
       src_dir: './public',
       build_dir: './build',
       node_dir: './node_modules',
+      bower_dir: './bower_components',
       header: '/*! Build: ' + new Date().toString() + ' */\n'
   };
 
@@ -55,12 +56,14 @@
     gulp.task('js', function(callback) {
       return gulp.src([
         config.src_dir  + '/assets/javascript/libs/jquery.min.js',
-        config.node_dir + '/jquery-lazyload/jquery.lazyload.js',
         config.src_dir  + '/assets/javascript/libs/wow.js',
+        //config.node_dir  + '/scrollreveal/scrollreveal.js',
 
         config.node_dir + '/angular/angular.min.js',
         config.node_dir + '/angular-route/angular-route.min.js',
         config.node_dir + '/angular-animate/angular-animate.min.js',
+        // config.node_dir + '/angular-lazy-image/release/lazy-image.js',
+        config.bower_dir + '/angular-lazy-img/release/angular-lazy-img.js',
         config.src_dir  + '/assets/javascript/main.js',
       ])
       .pipe(concat('bundle.js'))

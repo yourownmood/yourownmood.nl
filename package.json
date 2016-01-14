@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "Yom angular website",
   "devDependencies": {
+    "angular-lazy-image": "^0.2.3",
     "browser-sync": "^2.10.0",
     "del": "^2.1.0",
     "gulp": "^3.9.0",
@@ -41,7 +42,6 @@
     "inuit-responsive-widths": "^0.2.2",
     "inuit-spacing": "^0.7.0",
     "inuit-tools-widths": "^0.1.4",
-    "inuit-widths": "^0.4.2",
-    "jquery-lazyload": "^1.9.7"
+    "inuit-widths": "^0.4.2"
   }
 }

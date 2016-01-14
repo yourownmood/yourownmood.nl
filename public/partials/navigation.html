@@ -2,11 +2,11 @@
 
     <nav id="js-scrollboxProjects" class="scrollbox scrollbox__projects overrule slideInOut" ng-show="visibleProjects">
         <div class="scrollbox__cards">
-            
+
             <div class="scrollbox__card" ng-repeat="post in posts">
                 <div class="card">
 
-                    <a href="#/project/{{post.url}}" ng-click="toggle('projects')" class=" [ card card__bg bg-{{post.projectThumbPosition}} ] lazy" style="background-color: {{post.projectColor}};" data-original="{{post.projectThumb}}">
+                    <a href="#/project/{{post.url}}" ng-click="toggle('projects')" class=" [ card card__bg bg-{{post.projectThumbPosition}} ] afkl-lazy-wrapper" afkl-lazy-image="{{post.projectThumb}} 480w, {{post.projectThumb}} 768w, {{post.projectThumb}}" afkl-lazy-image-options='{"background": true}'> <!-- style="background-color: {{post.projectColor}};" -->
 
                         <span class="card--info card__animate">
                             <b>{{post.projectTitle}}</b>
@@ -14,10 +14,10 @@
                             {{post.projectClient}}
                         </span>
 
-                        <img ng-if="post.projectLogo" alt="{{post.heroTitle}}" class="lazy" data-original="{{post.projectLogo}}" src="assets/images/transparant.png">
-                        
+                        <img ng-if="post.projectLogo" alt="{{post.heroTitle}}" class="afkl-lazy-wrapper" afkl-lazy-image="{{post.projectLogo}} 480w, {{post.projectLogo}} 768w, {{post.projectLogo}}">
+
                     </a>
-                    
+
                 </div>
             </div>
 
