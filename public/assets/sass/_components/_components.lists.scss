@@ -1,0 +1,34 @@
+/*------------------------------------*\
+  #LISTS
+\*------------------------------------*/
+
+.list-arrow {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  li {
+    position: relative;
+
+    margin: 15px 0;
+    padding: 0 0 0 30px;
+
+    font-size: 17px;
+    font-weight: 500;
+    color: $yom-black;
+
+    &:before {
+      position: absolute;
+      top: 3px;
+      left: 0;
+
+      display: block;
+      width: 18px;
+      height: 20px;
+
+      content: '';
+      background-image: url('../images/list-arrow.png');
+    }
+  }
+}
