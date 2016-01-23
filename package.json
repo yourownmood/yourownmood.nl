@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "Yom angular website",
   "devDependencies": {
-    "angular-lazy-image": "^0.2.3",
     "browser-sync": "^2.10.0",
     "del": "^2.1.0",
     "gulp": "^3.9.0",
@@ -22,6 +21,7 @@
   "dependencies": {
     "angular": "^1.4.8",
     "angular-animate": "^1.4.8",
+    "angular-lazy-image": "^0.2.4",
     "angular-route": "^1.4.8",
     "inuit-box-sizing": "^0.2.0",
     "inuit-clearfix": "^0.2.2",
