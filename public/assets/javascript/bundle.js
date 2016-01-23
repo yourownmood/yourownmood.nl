@@ -885,267 +885,593 @@ b.substr(1),f=b);"enter"!==b&&"move"!==b&&(y=C(a,b,r,l,I));w=C(a,b,r,l,f)}if(y||
 this.$get=["$$animateJs","$$AnimateRunner",function(a,c){function d(c){return a(c.element,c.event,c.classes,c.options)}return function(a){if(a.from&&a.to){var b=d(a.from),h=d(a.to);if(b||h)return{start:function(){function a(){return function(){q(d,function(a){a.end()})}}var d=[];b&&d.push(b.start());h&&d.push(h.start());c.all(d,function(a){e.complete(a)});var e=new c({end:a(),cancel:a()});return e}}}else return d(a)}}]}])})(window,window.angular);
 //# sourceMappingURL=angular-animate.min.js.map
 
-/*
- * angular-lazy-load
- *
- * Copyright(c) 2014 Paweł Wszoła <wszola.p@gmail.com>
- * MIT Licensed
- *
- */
+/* global angular */
+angular.module('afkl.lazyImage', []);
+/* global angular */
+angular.module('afkl.lazyImage')
+    .service('afklSrcSetService', ['$window', function($window) {
+        'use strict';
 
-/**
- * @author Paweł Wszoła (wszola.p@gmail.com)
- *
- */
+        /**
+         * For other applications wanting the srccset/best image approach it is possible to use this module only
+         * Loosely based on https://raw.github.com/borismus/srcset-polyfill/master/js/srcset-info.js
+         */
+        var INT_REGEXP = /^[0-9]+$/;
 
-angular.module('angularLazyImg', []);
-
-angular.module('angularLazyImg').factory('LazyImgMagic', [
-  '$window', '$rootScope', 'lazyImgConfig', 'lazyImgHelpers',
-  function($window, $rootScope, lazyImgConfig, lazyImgHelpers){
-    'use strict';
-
-    var winDimensions, $win, images, isListening, options;
-    var checkImagesT, saveWinOffsetT, containers;
-
-    images = [];
-    isListening = false;
-    options = lazyImgConfig.getOptions();
-    $win = angular.element($window);
-    winDimensions = lazyImgHelpers.getWinDimensions();
-    saveWinOffsetT = lazyImgHelpers.throttle(function(){
-      winDimensions = lazyImgHelpers.getWinDimensions();
-    }, 60);
-    containers = [options.container || $win];
-
-    function checkImages(){
-      for(var i = images.length - 1; i >= 0; i--){
-        var image = images[i];
-        if(image && lazyImgHelpers.isElementInView(image.$elem[0], options.offset, winDimensions)){
-          loadImage(image);
-          images.splice(i, 1);
+        // SRCSET IMG OBJECT
+        function ImageInfo(options) {
+            this.src = options.src;
+            this.w = options.w || Infinity;
+            this.h = options.h || Infinity;
+            this.x = options.x || 1;
         }
-      }
-      if(images.length === 0){ stopListening(); }
-    }
 
-    checkImagesT = lazyImgHelpers.throttle(checkImages, 30);
+        /**
+         * Parse srcset rules
+         * @param  {string} descString Containing all srcset rules
+         * @return {object}            Srcset rules
+         */
+        var _parseDescriptors = function (descString) {
 
-    function listen(param){
-      containers.forEach(function (container) {
-        container[param]('scroll', checkImagesT);
-        container[param]('touchmove', checkImagesT);
-      });
-      $win[param]('resize', checkImagesT);
-      $win[param]('resize', saveWinOffsetT);
-    }
+            var descriptors = descString.split(/\s/);
+            var out = {};
 
-    function startListening(){
-      isListening = true;
-      setTimeout(function(){
-        checkImages();
-        listen('on');
-      }, 1);
-    }
+            for (var i = 0, l = descriptors.length; i < l; i++) {
 
-    function stopListening(){
-      isListening = false;
-      listen('off');
-    }
+                var desc = descriptors[i];
 
-    function removeImage(image){
-      var index = images.indexOf(image);
-      if(index !== -1) {
-        images.splice(index, 1);
-      }
-    }
+                if (desc.length > 0) {
 
-    function loadImage(photo){
-      var img = new Image();
-      img.onerror = function(){
-        if(options.errorClass){
-          photo.$elem.addClass(options.errorClass);
-        }
-        $rootScope.$emit('lazyImg:error', photo);
-        options.onError(photo);
-      };
-      img.onload = function(){
-        setPhotoSrc(photo.$elem, photo.src);
-        if(options.successClass){
-          photo.$elem.addClass(options.successClass);
-        }
-        $rootScope.$emit('lazyImg:success', photo);
-        options.onSuccess(photo);
-      };
-      img.src = photo.src;
-    }
+                    var lastChar = desc.slice(-1);
+                    var value = desc.substring(0, desc.length - 1);
+                    var intVal = parseInt(value, 10);
+                    var floatVal = parseFloat(value);
 
-    function setPhotoSrc($elem, src){
-      if ($elem[0].nodeName.toLowerCase() === 'img') {
-        $elem[0].src = src;
-      } else {
-        $elem.css('background-image', 'url("' + src + '")');
-      }
-    }
+                    if (value.match(INT_REGEXP) && lastChar === 'w') {
+                        out[lastChar] = intVal;
+                    } else if (value.match(INT_REGEXP) && lastChar === 'h') {
+                        out[lastChar] = intVal;
+                    } else if (!isNaN(floatVal) && lastChar === 'x') {
+                        out[lastChar] = floatVal;
+                    } 
 
-    // PHOTO
-    function Photo($elem){
-      this.$elem = $elem;
-    }
+                }
+            }
 
-    Photo.prototype.setSource = function(source){
-      this.src = source;
-      images.unshift(this);
-      if (!isListening){ startListening(); }
-    };
+            return out;
 
-    Photo.prototype.removeImage = function(){
-      removeImage(this);
-      if(images.length === 0){ stopListening(); }
-    };
+        };
 
-    Photo.prototype.checkImages = function(){
-      checkImages();
-    };
+        /**
+         * Returns best candidate under given circumstances
+         * @param  {object} images     Candidate image
+         * @param  {function} criteriaFn Rule
+         * @return {object}            Returns best candidate under given criteria
+         */
+        var _getBestCandidateIf = function (images, criteriaFn) {
 
-    Photo.addContainer = function (container) {
-      stopListening();
-      containers.push(container);
-      startListening();
-    };
+            var bestCandidate = images[0];
 
-    Photo.removeContainer = function (container) {
-      stopListening();
-      containers.splice(containers.indexOf(container), 1);
-      startListening();
-    };
+            for (var i = 0, l = images.length; i < l; i++) {
+                var candidate = images[i];
+                if (criteriaFn(candidate, bestCandidate)) {
+                    bestCandidate = candidate;
+                }
+            }
 
-    return Photo;
+            return bestCandidate;
 
-  }
-]);
+        };
 
-angular.module('angularLazyImg').provider('lazyImgConfig', function() {
-  'use strict';
+        /**
+         * Remove candidate under given circumstances
+         * @param  {object} images     Candidate image
+         * @param  {function} criteriaFn Rule
+         * @return {object}            Removes images from global image collection (candidates)
+         */
+        var _removeCandidatesIf = function (images, criteriaFn) {
 
-  this.options = {
-    offset       : 100,
-    errorClass   : null,
-    successClass : null,
-    onError      : function(){},
-    onSuccess    : function(){}
-  };
+            for (var i = images.length - 1; i >= 0; i--) {
+                var candidate = images[i];
+                if (criteriaFn(candidate)) {
+                    images.splice(i, 1); // remove it
+                }
+            }
 
-  this.$get = function() {
-    var options = this.options;
-    return {
-      getOptions: function() {
-        return options;
-      }
-    };
-  };
+            return images;
 
-  this.setOptions = function(options) {
-    angular.extend(this.options, options);
-  };
-});
-angular.module('angularLazyImg').factory('lazyImgHelpers', [
-  '$window', function($window){
-    'use strict';
+        };
+      
+        /**
+        * Direct implementation of "processing the image candidates":
+        * http://www.whatwg.org/specs/web-apps/current-work/multipage/embedded-content-1.html#processing-the-image-candidates
+        *
+        * @param  {array} imageCandidates (required)
+        * @param  {object} view (optional)
+        * @returns {ImageInfo} The best image of the possible candidates.
+        */
+        var getBestImage = function (imageCandidates, view) {
 
-    function getWinDimensions(){
-      return {
-        height: $window.innerHeight,
-        width: $window.innerWidth
-      };
-    }
+            if (!imageCandidates) { return; }
+            if (!view) {
+                view = {
+                    'w' : $window.innerWidth || document.documentElement.clientWidth,
+                    'h' : $window.innerHeight || document.documentElement.clientHeight,
+                    'x' : $window.devicePixelRatio || 1
+                };
+            }
 
-    function isElementInView(elem, offset, winDimensions) {
-      var rect = elem.getBoundingClientRect();
-      var bottomline = winDimensions.height + offset;
-      return (
-       rect.left >= 0 && rect.right <= winDimensions.width + offset && (
-         rect.top >= 0 && rect.top <= bottomline ||
-         rect.bottom <= bottomline && rect.bottom >= 0 - offset
-        )
-      );
-    }
+            var images = imageCandidates.slice(0);
 
-    // http://remysharp.com/2010/07/21/throttling-function-calls/
-    function throttle(fn, threshhold, scope) {
-      var last, deferTimer;
-      return function () {
-        var context = scope || this;
-        var now = +new Date(),
-            args = arguments;
-        if (last && now < last + threshhold) {
-          clearTimeout(deferTimer);
-          deferTimer = setTimeout(function () {
-            last = now;
-            fn.apply(context, args);
-          }, threshhold);
-        } else {
-          last = now;
-          fn.apply(context, args);
-        }
-      };
-    }
+            /* LARGEST */
+            // Width
+            var largestWidth = _getBestCandidateIf(images, function (a, b) { return a.w > b.w; });
+            // Less than client width.
+            _removeCandidatesIf(images, (function () { return function (a) { return a.w < view.w; }; })(this));
+            // If none are left, keep the one with largest width.
+            if (images.length === 0) { images = [largestWidth]; }
 
-    return {
-      isElementInView: isElementInView,
-      getWinDimensions: getWinDimensions,
-      throttle: throttle
-    };
 
-  }
-]);
-angular.module('angularLazyImg')
-  .directive('lazyImg', [
-    '$rootScope', 'LazyImgMagic', function ($rootScope, LazyImgMagic) {
-      'use strict';
+            // Height
+            var largestHeight = _getBestCandidateIf(images, function (a, b) { return a.h > b.h; });
+            // Less than client height.
+            _removeCandidatesIf(images, (function () { return function (a) { return a.h < view.h; }; })(this));
+            // If none are left, keep one with largest height.
+            if (images.length === 0) { images = [largestHeight]; }
 
-      function link(scope, element, attributes) {
-        var lazyImage = new LazyImgMagic(element);
-        attributes.$observe('lazyImg', function (newSource) {
-          if (newSource) {
-            // in angular 1.3 it might be nice to remove observer here
-            lazyImage.setSource(newSource);
-          }
-        });
-        scope.$on('$destroy', function () {
-          lazyImage.removeImage();
-        });
-        $rootScope.$on('lazyImg.runCheck', function () {
-          lazyImage.checkImages();
-        });
-        $rootScope.$on('lazyImg:refresh', function () {
-          lazyImage.checkImages();
-        });
-      }
+            // Pixel density.
+            var largestPxDensity = _getBestCandidateIf(images, function (a, b) { return a.x > b.x; });
+            // Remove all candidates with pxdensity less than client pxdensity.
+            _removeCandidatesIf(images, (function () { return function (a) { return a.x < view.x; }; })(this));
+            // If none are left, keep one with largest pixel density.
+            if (images.length === 0) { images = [largestPxDensity]; }
 
-      return {
-        link: link,
-        restrict: 'A'
-      };
-    }
-  ])
-  .directive('lazyImgContainer', [
-    'LazyImgMagic', function (LazyImgMagic) {
-      'use strict';
 
-      function link(scope, element) {
-        LazyImgMagic.addContainer(element);
-        scope.$on('$destroy', function () {
-          LazyImgMagic.removeContainer(element);
-        });
-      }
+            /* SMALLEST */
+            // Width
+            var smallestWidth = _getBestCandidateIf(images, function (a, b) { return a.w < b.w; });
+            // Remove all candidates with width greater than it.
+            _removeCandidatesIf(images, function (a) { return a.w > smallestWidth.w; });
 
-      return {
-        link: link,
-        restrict: 'A'
-      };
-    }
-  ]);
+            // Height
+            var smallestHeight = _getBestCandidateIf(images, function (a, b) { return a.h < b.h; });
+            // Remove all candidates with height greater than it.
+            _removeCandidatesIf(images, function (a) { return a.h > smallestHeight.h; });
+
+            // Pixel density
+            var smallestPxDensity = _getBestCandidateIf(images, function (a, b) { return a.x < b.x; });
+            // Remove all candidates with pixel density less than smallest px density.
+            _removeCandidatesIf(images, function (a) { return a.x > smallestPxDensity.x; });
+
+            return images[0];
+
+        };
+
+
+
+        // options {src: null/string, srcset: string}
+        // options.src    normal url or null
+        // options.srcset 997-s.jpg 480w, 997-m.jpg 768w, 997-xl.jpg 1x
+        var getSrcset = function (options) {
+
+            var imageCandidates = [];
+
+            var srcValue = options.src;
+            var srcsetValue = options.srcset;
+
+            if (!srcsetValue) { return; }
+
+            /* PUSH CANDIDATE [{src: _, x: _, w: _, h:_}, ...] */
+            var _addCandidate = function (img) {
+
+                for (var j = 0, ln = imageCandidates.length; j < ln; j++) {
+                    var existingCandidate = imageCandidates[j];
+
+                    // DUPLICATE
+                    if (existingCandidate.x === img.x &&
+                        existingCandidate.w === img.w &&
+                        existingCandidate.h === img.h) { return; }
+                }
+
+                imageCandidates.push(img);
+
+            };
+
+
+            var _parse = function () {
+
+                var input = srcsetValue,
+                position = 0,
+                rawCandidates = [],
+                url,
+                descriptors;
+
+                while (input !== '') {
+
+                    while (input.charAt(0) === ' ') {
+                        input = input.slice(1);
+                    }
+
+                    position = input.indexOf(' ');
+
+                    if (position !== -1) {
+
+                        url = input.slice(0, position);
+
+                        // if (url === '') { break; }
+
+                        input = input.slice(position + 1);
+
+                        position = input.indexOf(',');
+
+                        if (position === -1) {
+                            descriptors = input;
+                            input = '';
+                        } else {
+                            descriptors =  input.slice(0, position);
+                            input = input.slice(position + 1);
+                        }
+
+                        rawCandidates.push({
+                            url: url,
+                            descriptors: descriptors
+                        });
+
+                    } else {
+
+                        rawCandidates.push({
+                            url: input,
+                            descriptors: ''
+                        });
+                        input = '';
+                    }
+
+                }
+
+                // FROM RAW CANDIDATES PUSH IMAGES TO COMPLETE SET
+                for (var i = 0, l = rawCandidates.length; i < l; i++) {
+
+                    var candidate = rawCandidates[i],
+                    desc = _parseDescriptors(candidate.descriptors);
+
+                    _addCandidate(new ImageInfo({
+                        src: candidate.url,
+                        x: desc.x,
+                        w: desc.w,
+                        h: desc.h
+                    }));
+
+                }
+
+                if (srcValue) {
+                    _addCandidate(new ImageInfo({src: srcValue}));
+                }
+
+            };
+
+            _parse();
+
+
+            // Return best available image for current view based on our list of candidates
+            var bestImage = getBestImage(imageCandidates);
+
+            /**
+             * Object returning best match at moment, and total collection of candidates (so 'image' API can be used by consumer)
+             * @type {Object}
+             */
+            var object = {
+                'best': bestImage,              // IMAGE INFORMATION WHICH FITS BEST WHEN API IS REQUESTED
+                'candidates': imageCandidates   // ALL IMAGE CANDIDATES BY GIVEN SRCSET ATTRIBUTES
+            };
+
+            // empty collection
+            imageCandidates = null;
+
+            // pass best match and candidates
+            return object;
+
+        };
+
+
+        /**
+         * PUBLIC API
+         */
+        return {
+            get: getSrcset,        // RETURNS BEST IMAGE AND IMAGE CANDIDATES
+            image: getBestImage    // RETURNS BEST IMAGE WITH GIVEN CANDIDATES
+        };
+
+
+    }]);
+
+/* global angular */
+angular.module('afkl.lazyImage')
+    .directive('afklImageContainer', function () {
+        'use strict';
+
+        return {
+            restrict: 'A',
+            // We have to use controller instead of link here so that it will always run earlier than nested afklLazyImage directives
+            controller: ['$scope', '$element', function ($scope, $element) {
+                $element.data('afklImageContainer', $element);
+            }]
+        };
+    })
+    .directive('afklLazyImage', ['$rootScope', '$window', '$timeout', 'afklSrcSetService', '$parse', function ($rootScope, $window, $timeout, srcSetService, $parse) {
+        'use strict';
+
+        // Use srcSetService to find out our best available image
+        var bestImage = function (images) {
+            var image = srcSetService.get({srcset: images});
+            var sourceUrl;
+            if (image) {
+                sourceUrl = image.best.src;
+            }
+            return sourceUrl;
+        };
+
+        return {
+            restrict: 'A',
+            link: function (scope, element, attrs) {
+
+                // CONFIGURATION VARS
+                var $container = element.inheritedData('afklImageContainer');
+                if (!$container) {
+                    $container = angular.element(attrs.afklLazyImageContainer || $window);
+                }
+
+                var loaded = false;
+                var timeout;
+
+                var images = attrs.afklLazyImage; // srcset attributes
+                var options = attrs.afklLazyImageOptions ? $parse(attrs.afklLazyImageOptions)(scope) : {}; // options (background, offset)
+
+                var img; // Angular element to image which will be placed
+                var currentImage = null; // current image url
+                var offset = options.offset ? options.offset : 50; // default offset
+                var alt = options.alt ? 'alt="' + options.alt + '"' : 'alt=""';
+
+                var LOADING = 'afkl-lazy-image-loading';
+
+                var IMAGECLASSNAME = 'afkl-lazy-image';
+                
+                if (options.className) {
+                    IMAGECLASSNAME = IMAGECLASSNAME + ' ' + options.className;
+                }
+
+                attrs.afklLazyImageLoaded = false;
+
+                var _containerScrollTop = function () {
+                    // See if we can use jQuery, with extra check
+                    // TODO: check if number is returned
+                    if ($container.scrollTop) {
+                        var scrollTopPosition = $container.scrollTop();
+                        if (scrollTopPosition) {
+                            return scrollTopPosition;
+                        }
+                    }
+
+                    var c = $container[0];
+                    if (c.pageYOffset !== undefined) {
+                        return c.pageYOffset;
+                    }
+                    else if (c.scrollTop !== undefined) {
+                        return c.scrollTop;
+                    }
+
+                    return document.documentElement.scrollTop || 0;
+                };
+
+                var _containerInnerHeight = function () {
+                    if ($container.innerHeight) {
+                        return $container.innerHeight();
+                    }
+
+                    var c = $container[0];
+                    if (c.innerHeight !== undefined) {
+                        return c.innerHeight;
+                    } else if (c.clientHeight !== undefined) {
+                        return c.clientHeight;
+                    }
+
+                    return document.documentElement.clientHeight || 0;
+                };
+
+                // Begin with offset and update on resize
+                var _elementOffset = function () {
+                    if (element.offset) {
+                        return element.offset().top;
+                    }
+                    var box = element[0].getBoundingClientRect();
+                    return box.top + _containerScrollTop() - document.documentElement.clientTop;
+                };
+
+
+                var _elementOffsetContainer = function () {
+                    if (element.offset) {
+                        return element.offset().top - $container.offset().top;
+                    }
+                    return element[0].getBoundingClientRect().top - $container[0].getBoundingClientRect().top;
+                };
+
+                // Update url of our image
+                var _setImage = function () {
+                    if (options.background) {
+                        element[0].style.backgroundImage = 'url("' + currentImage +'")';
+                    } else {
+                        img[0].src = currentImage;
+                    }
+                };
+
+                // Append image to DOM
+                var _placeImage = function () {
+
+                    loaded = true;
+                    // What is my best image available
+                    var hasImage = bestImage(images);
+
+                    if (hasImage) {
+                        // we have to make an image if background is false (default)
+                        if (!options.background) {
+                            
+                            if (!img) {
+                                // element.addClass(LOADING);
+                                img = angular.element('<img ' + alt + ' class="' + IMAGECLASSNAME + '"/>');
+                                // img.one('load', _loaded);
+                                // remove loading class when image is acually loaded
+                                element.append(img);
+                            }
+
+                        }
+
+                        // set correct src/url
+                        _checkIfNewImage();
+                    }
+
+                    // Element is added to dom, no need to listen to scroll anymore
+                    $container.off('scroll', _onViewChange);
+
+                };
+
+                // Check on resize if actually a new image is best fit, if so then apply it
+                var _checkIfNewImage = function () {
+                    if (loaded) {
+                        var newImage = bestImage(images);
+                        if (newImage !== currentImage) {
+                            // update current url
+                            currentImage = newImage;
+
+                            if (!options.background) {
+                                element.addClass(LOADING);
+                                img.one('load', _loaded);
+                                img.one('error', _error);
+                            }
+                            
+                            // update image url
+                            _setImage();
+                        }
+                    }
+                };
+
+                // First update our begin offset
+                _checkIfNewImage();
+
+                var _loaded = function () {
+
+                    attrs.$set('afklLazyImageLoaded', 'done');
+
+                    element.removeClass(LOADING);
+
+                };
+
+                var _error = function () {
+
+                    attrs.$set('afklLazyImageLoaded', 'fail');
+
+                };
+
+                // Check if the container is in view for the first time. Utilized by the scroll and resize events.
+                var _onViewChange = function () {
+                    // only do stuff when not set already
+                    if (!loaded) {
+
+                        // Config vars
+                        var remaining, shouldLoad, windowBottom;
+
+                        var height = _containerInnerHeight();
+                        var scroll = _containerScrollTop();
+
+                        var elOffset = $container[0] === $window ? _elementOffset() : _elementOffsetContainer();
+                        windowBottom = $container[0] === $window ? height + scroll : height;
+
+                        remaining = elOffset - windowBottom;
+
+                        // Is our top of our image container in bottom of our viewport?
+                        //console.log($container[0].className, _elementOffset(), _elementPosition(), height, scroll, remaining, elOffset);
+                        shouldLoad = remaining <= offset;
+
+
+                        // Append image first time when it comes into our view, after that only resizing can have influence
+                        if (shouldLoad) {
+
+                            _placeImage();
+
+                        }
+
+                    }
+
+                };
+
+
+                // EVENT: RESIZE THROTTLED
+                var _onResize = function () {
+                    $timeout.cancel(timeout);
+                    timeout = $timeout(function() {
+                        _checkIfNewImage();
+                        _onViewChange();
+                    }, 300);
+                };
+
+
+                // Remove events for total destroy
+                var _eventsOff = function() {
+
+                    $timeout.cancel(timeout);
+
+                    $container.off('scroll', _onViewChange);
+                    angular.element($window).off('resize', _onResize);
+                    if ($container[0] !== $window) {
+                        $container.off('resize', _onResize);
+                    }
+
+                    // remove image being placed
+                    if (img) {
+                        img.remove();
+                    }
+
+                    img = timeout = currentImage = undefined;
+                };
+
+
+
+                // Set events for scrolling and resizing
+                $container.on('scroll', _onViewChange);
+                angular.element($window).on('resize', _onResize);
+
+                if ($container[0] !== $window) {
+                    $container.on('resize', _onResize);
+                }
+
+                // events for image change
+                attrs.$observe('afklLazyImage', function () {
+                    images = attrs.afklLazyImage;
+                    if (loaded) {
+                        _placeImage();
+                    }
+                });
+
+                // Image should be directly placed
+                if (options.nolazy) {
+                    _placeImage();
+                }
+
+
+                scope.$on('afkl.lazyImage.destroyed', _onResize);
+
+                // Remove all events when destroy takes place
+                scope.$on('$destroy', function () {
+                    // tell our other kids, i got removed
+                    $rootScope.$broadcast('afkl.lazyImage.destroyed');
+                    // remove our events and image
+                    return _eventsOff();
+                });
+
+                return _onViewChange();
+
+            }
+        };
+
+}]);
 
 (function() {
   'use strict';
@@ -1153,13 +1479,8 @@ angular.module('angularLazyImg')
   var app = angular.module('yomApp', [
     'ngRoute',
     'ngAnimate',
-    'angularLazyImg'
-    //'afkl.lazyImage'
+    'afkl.lazyImage'
   ]);
-  // ]).config(function() {
-  //   new WOW().init();
-  // });
-
 
   app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -1190,34 +1511,26 @@ angular.module('angularLazyImg')
   }]);
 
 
-  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', '$window', function($location, $scope, $http, $filter, $window){
+  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
 
     $scope.visibleProjects = false;
     $scope.pageClass = 'page-home';
 
-    // $scope.loaded = function() {
-    //   // setTimeout(function(){
-    //   //   $(".page .lazy").lazyload({
-    //   //     effect : "fadeIn",
-    //   //     threshold : 50
-    //   //   });
+    $scope.loaded = function() {
+      setTimeout(function(){
+        var wow = new WOW();
+        wow.init();
 
-    //   //   $("html,body").trigger("scroll");
-
-    //   // }, 750);
-    //   setTimeout(function(){
-    //     new WOW().sync();
-    //     $("html,body").trigger("scroll");
-    //     $("html,body").trigger("resize");
-    //   }, 750);
-    // };
+        window.dispatchEvent(new Event('resize'));
+      }, 0);
+    };
 
     $('.card__profile, .card__project').on("touchstart", function (e) {});
 
   }]);
 
 
-  app.controller('projectCtrl', ['$rootScope', '$location', '$scope', '$http', '$filter', '$window', function($rootScope, $location, $scope, $http, $filter, $window){
+  app.controller('projectCtrl', ['$rootScope', '$location', '$scope', '$http', '$filter', function($rootScope, $location, $scope, $http, $filter){
 
     var get_url = $location;
     var project = this;
@@ -1225,17 +1538,18 @@ angular.module('angularLazyImg')
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-project';
 
-    $http.get('/projects.json').success(function(data, status, headers, config) {
+    $http.get('/projects.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
     });
 
-    // $scope.loaded = function() {
-    //   setTimeout(function(){
-    //     //new WOW().sync();
-    //     $("html,body").trigger("scroll");
-    //     $("html,body").trigger("resize");
-    //   }, 750);
-    // };
+    $scope.loaded = function() {
+      setTimeout(function(){
+        var wow = new WOW();
+        wow.init();
+
+        window.dispatchEvent(new Event('resize'));
+      }, 0);
+    };
 
   }]);
 
@@ -1247,17 +1561,18 @@ angular.module('angularLazyImg')
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-profile';
 
-    $http.get('/profiles.json').success(function(data, status, headers, config) {
+    $http.get('/profiles.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
     });
 
-    // $scope.loaded = function() {
-    //   setTimeout(function(){
-    //     new WOW().sync();
-    //     $("html,body").trigger("scroll");
-    //     $("html,body").trigger("resize");
-    //   }, 750);
-    // };
+    $scope.loaded = function() {
+      setTimeout(function(){
+        var wow = new WOW();
+        wow.init();
+
+        window.dispatchEvent(new Event('resize'));
+      }, 0);
+    };
 
   }]);
 
@@ -1271,7 +1586,7 @@ angular.module('angularLazyImg')
         $scope.visibleNavigation = false;
 
         // Dynamic load
-        $http.get('/projects.json').success(function(data, status, headers, config) {
+        $http.get('/projects.json', { cache: true}).success(function(data, status, headers, config) {
           $scope.posts = data;
         });
 
@@ -1280,8 +1595,6 @@ angular.module('angularLazyImg')
           if(trigger == 'projects'){
 
             $scope.visibleProjects = !$scope.visibleProjects;
-
-            //console.log($scope.visibleNavigation);
 
             if($scope.visibleProjects === true){
               $( "#js-scrollboxProjects" ).scrollLeft( 10000 );
@@ -1304,22 +1617,30 @@ angular.module('angularLazyImg')
     };
   });
 
+  app.directive('lazy', function($timeout) {
+    return {
+      restrict: 'C',
+      link: function (scope, elm) {
+        $timeout(function() {
+          $(elm).lazyload({
+            effect: 'fadeIn',
+            effectspeed: 500,
+            skip_invisible: false
+          });
+        }, 0);
+      }
+    };
+  });
+
   app.run(['$rootScope', function ($rootScope) {
+    //create a new instance
+    var wow = new WOW();
+    wow.init();
 
-         //create a new instance
-         //new WOW().init();
-         $("html,body").trigger("scroll");
-          $("html,body").trigger("resize");
-
-      $rootScope.$on('$routeChangeSuccess', function (next, current) {
-          //when the view changes sync wow
-          //new WOW().sync();
-
-          $("html,body").trigger("scroll");
-          $("html,body").trigger("resize");
-      });
+    $rootScope.$on('$routeChangeSuccess', function (next, current) {
+      //when the view changes sync wow
+      wow.sync();
+    });
   }]);
-
-
 
 })();

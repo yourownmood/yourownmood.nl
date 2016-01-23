@@ -57,13 +57,12 @@
       return gulp.src([
         config.src_dir  + '/assets/javascript/libs/jquery.min.js',
         config.src_dir  + '/assets/javascript/libs/wow.js',
-        //config.node_dir  + '/scrollreveal/scrollreveal.js',
 
+        // Angular
         config.node_dir + '/angular/angular.min.js',
         config.node_dir + '/angular-route/angular-route.min.js',
         config.node_dir + '/angular-animate/angular-animate.min.js',
-        // config.node_dir + '/angular-lazy-image/release/lazy-image.js',
-        config.bower_dir + '/angular-lazy-img/release/angular-lazy-img.js',
+        config.node_dir + '/angular-lazy-image/release/lazy-image.js',
         config.src_dir  + '/assets/javascript/main.js',
       ])
       .pipe(concat('bundle.js'))

@@ -5,9 +5,13 @@
       <div class="layout layout--flush">
         <div class="layout__item u-2/3-desk u-1/2 u-1/1-palm">
 
-          <div class=" [ card ] " data-wow-duration="0.7s">
-            <!-- <div ng-if="post.heroImg !== ''" afkl-lazy-image="{{post.heroImg}} 480w, {{post.heroImg}} 768w, {{post.heroImg}}" class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper" afkl-lazy-image-options='{"background": true,"nolazy":true}'> -->
-            <div ng-if="post.heroImg !== ''" lazy-img='{{post.heroImg}}' class=" [ card card__bg bg-{{post.heroImgPosition}} ] ">
+          <div class=" [ card ] wow fadeInUp" data-wow-du ration="0.7s">
+            <!-- <img class="lazy" ng-src="/images/loader-circle-image.gif" data-original="{{ post.heroImg }}"> -->
+
+            <div ng-if="post.heroImg !== ''" afkl-lazy-image="{{post.heroImg}} 480w, {{post.heroImg}} 768w, {{post.heroImg}}" class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper" afkl-lazy-image-options="{'background': true,'nolazy':true}">
+
+            <!-- <div ng-if="post.heroImg !== ''" lazy-img='{{post.heroImg}}' class=" [ card card__bg bg-{{post.heroImgPosition}} ] "> -->
+
               <h1 class="project__hero--slogan">
                 {{post.heroTitle}}
               </h1>
@@ -59,8 +63,7 @@
         <div class="layout__item u-1/2 u-1/1-palm">
 
           <div class="project__image wow fadeInUp">
-            <!-- <div afkl-lazy-image="{{post.projectWorkImg1}} 480w, {{post.projectWorkImg1}} 768w, {{post.projectWorkImg1}}" class="afkl-lazy-wrapper"></div> -->
-            <img lazy-img='{{post.projectWorkImg1}}'>
+            <div afkl-lazy-image="{{post.projectWorkImg1}} 480w, {{post.projectWorkImg1}} 768w, {{post.projectWorkImg1}}" class="afkl-lazy-wrapper"></div>
             <span>
               {{post.projectWorkCaption1}}
             </span>
@@ -69,8 +72,7 @@
         </div><div class="layout__item u-1/2 u-1/1-palm">
 
           <div class="project__image wow fadeInUp" data-wow-delay="0.2s">
-            <!-- <div afkl-lazy-image="{{post.projectWorkImg2}} 480w, {{post.projectWorkImg2}} 768w, {{post.projectWorkImg2}}" class="afkl-lazy-wrapper"></div> -->
-            <img lazy-img='{{post.projectWorkImg1}}'>
+            <div afkl-lazy-image="{{post.projectWorkImg2}} 480w, {{post.projectWorkImg2}} 768w, {{post.projectWorkImg2}}" class="afkl-lazy-wrapper"></div>
             <span>
               {{post.projectWorkCaption2}}
             </span>

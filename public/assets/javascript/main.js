@@ -4,13 +4,8 @@
   var app = angular.module('yomApp', [
     'ngRoute',
     'ngAnimate',
-    'angularLazyImg'
-    //'afkl.lazyImage'
+    'afkl.lazyImage'
   ]);
-  // ]).config(function() {
-  //   new WOW().init();
-  // });
-
 
   app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -41,34 +36,26 @@
   }]);
 
 
-  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', '$window', function($location, $scope, $http, $filter, $window){
+  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
 
     $scope.visibleProjects = false;
     $scope.pageClass = 'page-home';
 
-    // $scope.loaded = function() {
-    //   // setTimeout(function(){
-    //   //   $(".page .lazy").lazyload({
-    //   //     effect : "fadeIn",
-    //   //     threshold : 50
-    //   //   });
+    $scope.loaded = function() {
+      setTimeout(function(){
+        var wow = new WOW();
+        wow.init();
 
-    //   //   $("html,body").trigger("scroll");
-
-    //   // }, 750);
-    //   setTimeout(function(){
-    //     new WOW().sync();
-    //     $("html,body").trigger("scroll");
-    //     $("html,body").trigger("resize");
-    //   }, 750);
-    // };
+        window.dispatchEvent(new Event('resize'));
+      }, 0);
+    };
 
     $('.card__profile, .card__project').on("touchstart", function (e) {});
 
   }]);
 
 
-  app.controller('projectCtrl', ['$rootScope', '$location', '$scope', '$http', '$filter', '$window', function($rootScope, $location, $scope, $http, $filter, $window){
+  app.controller('projectCtrl', ['$rootScope', '$location', '$scope', '$http', '$filter', function($rootScope, $location, $scope, $http, $filter){
 
     var get_url = $location;
     var project = this;
@@ -76,17 +63,18 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-project';
 
-    $http.get('/projects.json').success(function(data, status, headers, config) {
+    $http.get('/projects.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
     });
 
-    // $scope.loaded = function() {
-    //   setTimeout(function(){
-    //     //new WOW().sync();
-    //     $("html,body").trigger("scroll");
-    //     $("html,body").trigger("resize");
-    //   }, 750);
-    // };
+    $scope.loaded = function() {
+      setTimeout(function(){
+        var wow = new WOW();
+        wow.init();
+
+        window.dispatchEvent(new Event('resize'));
+      }, 0);
+    };
 
   }]);
 
@@ -98,17 +86,18 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-profile';
 
-    $http.get('/profiles.json').success(function(data, status, headers, config) {
+    $http.get('/profiles.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
     });
 
-    // $scope.loaded = function() {
-    //   setTimeout(function(){
-    //     new WOW().sync();
-    //     $("html,body").trigger("scroll");
-    //     $("html,body").trigger("resize");
-    //   }, 750);
-    // };
+    $scope.loaded = function() {
+      setTimeout(function(){
+        var wow = new WOW();
+        wow.init();
+
+        window.dispatchEvent(new Event('resize'));
+      }, 0);
+    };
 
   }]);
 
@@ -122,7 +111,7 @@
         $scope.visibleNavigation = false;
 
         // Dynamic load
-        $http.get('/projects.json').success(function(data, status, headers, config) {
+        $http.get('/projects.json', { cache: true}).success(function(data, status, headers, config) {
           $scope.posts = data;
         });
 
@@ -131,8 +120,6 @@
           if(trigger == 'projects'){
 
             $scope.visibleProjects = !$scope.visibleProjects;
-
-            //console.log($scope.visibleNavigation);
 
             if($scope.visibleProjects === true){
               $( "#js-scrollboxProjects" ).scrollLeft( 10000 );
@@ -155,22 +142,30 @@
     };
   });
 
+  app.directive('lazy', function($timeout) {
+    return {
+      restrict: 'C',
+      link: function (scope, elm) {
+        $timeout(function() {
+          $(elm).lazyload({
+            effect: 'fadeIn',
+            effectspeed: 500,
+            skip_invisible: false
+          });
+        }, 0);
+      }
+    };
+  });
+
   app.run(['$rootScope', function ($rootScope) {
+    //create a new instance
+    var wow = new WOW();
+    wow.init();
 
-         //create a new instance
-         //new WOW().init();
-         $("html,body").trigger("scroll");
-          $("html,body").trigger("resize");
-
-      $rootScope.$on('$routeChangeSuccess', function (next, current) {
-          //when the view changes sync wow
-          //new WOW().sync();
-
-          $("html,body").trigger("scroll");
-          $("html,body").trigger("resize");
-      });
+    $rootScope.$on('$routeChangeSuccess', function (next, current) {
+      //when the view changes sync wow
+      wow.sync();
+    });
   }]);
-
-
 
 })();
