@@ -6,7 +6,7 @@
             <div class="scrollbox__card" ng-repeat="post in posts">
                 <div class="card">
 
-                    <a href="#/project/{{post.url}}" ng-click="toggle('projects')" class=" [ card card__bg bg-{{post.projectThumbPosition}} ] afkl-lazy-wrapper" afkl-lazy-image="{{post.projectThumb}} 480w, {{post.projectThumb}} 768w, {{post.projectThumb}}" afkl-lazy-image-options='{"background": true}'> <!-- style="background-color: {{post.projectColor}};" -->
+                    <a ng-if="post.projectThumb" href="#/project/{{post.url}}" ng-click="toggle('projects')" class=" [ card card__bg bg-{{post.projectThumbPosition}} ] afkl-lazy-wrapper" afkl-lazy-image="{{post.projectThumb}} 480w, {{post.projectThumb}} 768w, {{post.projectThumb}}" afkl-lazy-image-options='{"background": true}'>
 
                         <span class="card--info card__animate">
                             <b>{{post.projectTitle}}</b>
@@ -14,7 +14,19 @@
                             {{post.projectClient}}
                         </span>
 
-                        <div ng-if="post.projectLogo" alt="{{post.heroTitle}}" class="afkl-lazy-wrapper" afkl-lazy-image="{{post.projectLogo}} 480w, {{post.projectLogo}} 768w, {{post.projectLogo}}"></div>
+                        <div ng-if="post.projectLogo" alt="{{post.heroTitle}}" class="scrollbox__logo" afkl-lazy-image="{{post.projectLogo}} 480w, {{post.projectLogo}} 768w, {{post.projectLogo}}"></div>
+
+                    </a>
+
+                    <a ng-if="!post.projectThumb" style="background-color: {{post.projectColor}};" href="#/project/{{post.url}}" ng-click="toggle('projects')" class=" [ card card__bg bg-{{post.projectThumbPosition}} ] ">
+
+                        <span class="card--info card__animate">
+                            <b>{{post.projectTitle}}</b>
+                            <br>
+                            {{post.projectClient}}
+                        </span>
+
+                        <div ng-if="post.projectLogo" alt="{{post.heroTitle}}" class="scrollbox__logo" afkl-lazy-image="{{post.projectLogo}} 480w, {{post.projectLogo}} 768w, {{post.projectLogo}}"></div>
 
                     </a>
 
