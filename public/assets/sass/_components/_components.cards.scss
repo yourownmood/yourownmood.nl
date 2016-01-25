@@ -96,9 +96,6 @@ $card-br: 44%;
   @include media-query(phone) {
     min-height: 325px;
   }
-
-  img { max-width: 40%; }
-
 }
 
 .card--gj {
@@ -119,8 +116,6 @@ $card-br: 44%;
   @include media-query(phone) {
     min-height: 325px;
   }
-
-  img { max-width: 64%; }
 }
 
 .card--sb,

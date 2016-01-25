@@ -1,26 +1,25 @@
 <div ng-controller="projectCtrl as project" ng-init="loaded()">
   <div ng-repeat="post in posts" ng-show="post.url === lastPart">
+
     <div class="scherm scherm-project">
 
       <div class="layout layout--flush">
         <div class="layout__item u-2/3-desk u-1/2 u-1/1-palm">
 
           <div class=" [ card ] wow fadeInUp" data-wow-du ration="0.7s">
-            <!-- <img class="lazy" ng-src="/images/loader-circle-image.gif" data-original="{{ post.heroImg }}"> -->
 
             <div ng-if="post.heroImg !== ''" afkl-lazy-image="{{post.heroImg}} 480w, {{post.heroImg}} 768w, {{post.heroImg}}" class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper" afkl-lazy-image-options="{'background': true,'nolazy':true}">
-
-            <!-- <div ng-if="post.heroImg !== ''" lazy-img='{{post.heroImg}}' class=" [ card card__bg bg-{{post.heroImgPosition}} ] "> -->
-
               <h1 class="project__hero--slogan">
                 {{post.heroTitle}}
               </h1>
             </div>
+
             <div ng-if="post.heroImg === ''" class=" [ card card__bg ]" style="background-color: {{post.projectColor}};">
               <h1 class="project__hero--slogan">
                 {{post.heroTitle}}
               </h1>
             </div>
+
           </div>
 
         </div><div class="layout__item u-1/3-desk u-1/2 u-1/1-palm">
@@ -53,7 +52,6 @@
       </div>
 
     </div>
-
 
     <section class="screen screen__offset--project" ng-if="post.projectWorkImg1 && post.projectWorkImg2">
 
