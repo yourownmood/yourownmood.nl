@@ -21,6 +21,10 @@
   width: 1800px;
   height: 100%;
 
+  @include media-query(phone) {
+    width: 300%;
+  }
+
   &:after {
     overflow: auto;
     zoom: 1;
@@ -34,6 +38,10 @@
   width: 600px;
   min-width: 33.333%;
   height: 100%;
+
+  @include media-query(phone) {
+    width: 33.333%;
+  }
 
   &:hover {
     .card--info {

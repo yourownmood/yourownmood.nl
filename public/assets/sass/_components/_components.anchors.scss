@@ -1,0 +1,23 @@
+/*------------------------------------*\
+  #ANCHORS
+\*------------------------------------*/
+
+.anchor__arrow {
+  padding-right: 30px;
+
+  text-decoration: none;
+  color: $yom-black;
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: $yom-black;
+
+  background-image: url('../images/list-arrow.png');
+  background-repeat: no-repeat;
+  background-position: right 8px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

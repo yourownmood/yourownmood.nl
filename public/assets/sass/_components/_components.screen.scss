@@ -33,12 +33,14 @@
 
 .scherm-project {
   min-height: 95vh;
+  margin-bottom: 120px;
 
   @include media-query(palm) {
     min-height: 400px;
+    margin-bottom: 60px;
 
     .card {
-      height: 400px;
+      height: 480px;
     }
 
     .layout {
@@ -59,9 +61,11 @@
     display: table;
   }
 
-  .layout,
-  .layout .layout__item {
-    height: 100%;
+  @include media-query(lap-and-up) {
+    .layout,
+    .layout .layout__item {
+      height: 100vh;
+    }
   }
 }
 
