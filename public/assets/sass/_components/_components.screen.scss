@@ -64,7 +64,7 @@
   @include media-query(lap-and-up) {
     .layout,
     .layout .layout__item {
-      height: 100vh;
+      height: 100%;
     }
   }
 }

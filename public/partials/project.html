@@ -1,9 +1,5 @@
 <div ng-controller="projectCtrl as project" ng-init="loaded()" class="project">
 
-  <!-- TODO
-    - margin-bottom layout row
-    - Title work class + repsonsive
-  -->
   <div ng-repeat="post in posts" ng-show="post.url === lastPart">
 
     <section class="scherm scherm-project">
@@ -11,15 +7,15 @@
       <div class="layout layout--flush">
         <div class="layout__item u-2/3-desk u-1/2 u-1/1-palm">
 
-          <div class=" [ card ] wow fadeInUp" data-wow-du ration="0.7s">
+          <div class=" [ card ] wow fadeInUp" data-wow-duration="0.7s">
 
-            <div ng-if="post.heroImg !== ''" afkl-lazy-image="{{post.heroImg}} 480w, {{post.heroImg}} 768w, {{post.heroImg}}" class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper" afkl-lazy-image-options="{'background': true,'nolazy':true}">
+            <div ng-if="post.heroImgFull && post.heroImgPalm && post.heroImgPhone" afkl-lazy-image="{{post.heroImgPhone}} 480w, {{post.heroImgPalm}} 768w, {{post.heroImgFull}}" class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper" afkl-lazy-image-options="{'background': true,'nolazy':true}">
               <h1 class="project-hero__title">
                 {{post.heroTitle}}
               </h1>
             </div>
 
-            <div ng-if="post.heroImg === ''" class=" [ card card__bg ]" style="background-color: {{post.projectColor}};">
+            <div ng-if="!post.heroImgFull" class=" [ card card__bg ]" style="background-color: {{post.projectColor}};">
               <h1 class="project-hero__title">
                 {{post.heroTitle}}
               </h1>
@@ -62,77 +58,101 @@
 
     </section>
 
-    <section class="scherm" ng-if="post.projectWorkImg1 && post.projectWorkImg2">
+    <section class="scherm">
 
-      <div class="layout">
+      <div class="layout [ wow fadeInUp ]" ng-if="post.projectWorkTitle" data-wow-duration="0.7s">
         <div class="layout__item u-1/1">
-          <div class="" style="margin: 0 55px 70px 55px;">
-            <span class="project-intro__label">Lead design</span>
-            <strong class="project-intro__title">Track &amp; Trace application</strong>
+
+          <div class="project-graphic__title">
+            <span class="project-intro__label" ng-if="post.projectWorkTitleLabel">{{post.projectWorkTitleLabel}}</span>
+            <strong class="project-intro__title">{{post.projectWorkTitle}}</strong>
           </div>
+
         </div>
       </div>
 
-      <div class="layout">
+      <div class="layout u-mb [ wow fadeIn ]"
+           data-wow-duration="0.7s"
+           ng-if="post.projectWorkImg1Full && post.projectWorkImg1Palm && post.projectWorkImg1Phone">
         <div class="layout__item u-1/1">
-          <div class="project-graphic">
-            <p class="project-graphic__caption">Caption</p>
-            <img src="#" class="project-graphic__image" alt="">
+
+          <div class="project-graphic"
+               ng-class="post.projectWorkImg1Options">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg1Caption">{{post.projectWorkImg1Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg1Phone}} 480w, {{post.projectWorkImg1Palm}} 768w, {{post.projectWorkImg1Full}}" class="afkl-lazy-wrapper project-graphic__image"></div>
           </div>
+
         </div>
       </div>
 
-      <br>
-
-      <div class="layout">
+      <div class="layout u-mb [ wow fadeIn ]"
+           data-wow-duration="0.7s"
+           ng-if="post.projectWorkImg2Full && post.projectWorkImg2Palm && post.projectWorkImg2Phone">
         <div class="layout__item u-1/1">
-          <div class="project-graphic">
-            <p class="project-graphic__caption">Caption</p>
-            <img src="#" class="project-graphic__image" alt="">
+
+          <div class="project-graphic"
+                ng-class="post.projectWorkImg2Options">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg2Caption">{{post.projectWorkImg2Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg2Phone}} 480w, {{post.projectWorkImg2Palm}} 768w, {{post.projectWorkImg2Full}}" class="afkl-lazy-wrapper project-graphic__image"></div>
           </div>
+
         </div>
       </div>
 
-      <br>
+      <div class="layout u-mb [ wow fadeIn ]"
+           data-wow-duration="0.7s"
+           ng-if="post.projectWorkImg3Full && post.projectWorkImg3Palm && post.projectWorkImg3Phone && post.projectWorkImg4Full && post.projectWorkImg4Palm && post.projectWorkImg4Phone">
+        <div class="layout__item u-1/2 u-1/1-palm u-mb-palm">
 
-      <div class="layout">
-        <div class="layout__item u-1/2 u-1/1-palm">
-          <div class="project-graphic project-graphic--fill">
-            <p class="project-graphic__caption">Caption</p>
-            <img src="{{post.projectWorkImg1}}" class="project-graphic__image" alt="">
+          <div class="project-graphic"
+               data-wow-duration="0.7s"
+               ng-class="post.projectWorkImg3Options">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg3Caption">{{post.projectWorkImg3Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg3Phone}} 480w, {{post.projectWorkImg3Palm}} 768w, {{post.projectWorkImg3Full}}" class="afkl-lazy-wrapper project-graphic__image"></div>
           </div>
+
         </div><div class="layout__item u-1/2 u-1/1-palm">
-          <div class="project-graphic project-graphic--fill">
-            <p class="project-graphic__caption">Caption</p>
-            <img src="{{post.projectWorkImg1}}" class="project-graphic__image" alt="">
+
+          <div class="project-graphic"
+               data-wow-duration="0.7s"
+               ng-class="post.projectWorkImg4Options">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg4Caption">{{post.projectWorkImg4Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg4Phone}} 480w, {{post.projectWorkImg4Palm}} 768w, {{post.projectWorkImg4Full}}" class="afkl-lazy-wrapper project-graphic__image"></div>
           </div>
+
         </div>
       </div>
 
-      <br>
-
-      <div class="layout">
+      <div class="layout u-mb [ wow fadeIn ]"
+           data-wow-duration="0.7s"
+           ng-if="post.projectWorkImg5Full && post.projectWorkImg5Palm && post.projectWorkImg5Phone">
         <div class="layout__item u-1/1">
-          <div class="project-graphic project-graphic--center project-graphic--shadow">
-            <p class="project-graphic__caption">Caption</p>
-            <img src="{{post.projectWorkImg1}}" class="project-graphic__image" alt="">
+
+          <div class="project-graphic" data-wow-duration="0.7s" ng-class="post.projectWorkImg5Options">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg5Caption">{{post.projectWorkImg5Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg5Phone}} 480w, {{post.projectWorkImg5Palm}} 768w, {{post.projectWorkImg5Full}}" class="afkl-lazy-wrapper project-graphic__image"></div>
           </div>
+
         </div>
       </div>
 
-      <br>
+      <div class="layout u-mb [ wow fadeIn ]"
+           data-wow-duration="0.7s"
+           ng-if="post.projectWorkImg6Full && post.projectWorkImg6Palm && post.projectWorkImg6Phone && post.projectWorkImg7Full && post.projectWorkImg7Palm && post.projectWorkImg7Phone">
+        <div class="layout__item u-1/2 u-1/1-palm u-mb-palm">
 
-      <div class="layout">
-        <div class="layout__item u-1/2 u-1/1-palm">
-          <div class="project-graphic project-graphic--center">
-            <p class="project-graphic__caption">Caption</p>
-            <img src="{{post.projectWorkImg1}}" class="project-graphic__image" alt="">
+          <div class="project-graphic" ng-class="post.projectWorkImg6Options" data-wow-duration="0.7s">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg6Caption">{{post.projectWorkImg6Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg6Phone}} 480w, {{post.projectWorkImg6Palm}} 768w, {{post.projectWorkImg6Full}}" class="afkl-lazy-wrapper project-graphic__image"></div>
           </div>
+
         </div><div class="layout__item u-1/2 u-1/1-palm">
-          <div class="project-graphic project-graphic--center">
-            <p class="project-graphic__caption">Caption</p>
-            <img src="{{post.projectWorkImg1}}" class="project-graphic__image" alt="">
+
+          <div class="project-graphic" ng-class="post.projectWorkImg7Options" data-wow-duration="0.7s">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg7Caption">{{post.projectWorkImg7Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg7Phone}} 480w, {{post.projectWorkImg7Palm}} 768w, {{post.projectWorkImg7Full}}" class="afkl-lazy-wrapper project-graphic__image"></div>
           </div>
+
         </div>
       </div>
 

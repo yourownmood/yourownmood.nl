@@ -49,6 +49,10 @@
 
 .project-intro__label {
   display: block;
+
+  font-size: 17px;
+  line-height: 30px;
+  color: $yom-grey;
 }
 
 .project-intro__title {
@@ -83,6 +87,13 @@
   padding: 0;
 }
 
+.project-graphic__title {
+  margin: 0 55px 70px 55px;
+
+  @include media-query(palm) {
+    margin: 0 16px 50px 16px;
+  }
+}
 
 /* OPTIONS */
 
@@ -94,14 +105,14 @@
 }
 
 .project-graphic--shadow {
-  .project-graphic__image {
+  .project-graphic__image img {
     //box-shadow: 0px 0px 46px 0px rgba(207,205,205,.5);
     box-shadow: 0 0 46px 0 rgba(107, 107, 107, .75);
   }
 }
 
 .project-graphic--center {
-  .project-graphic__image {
+  .project-graphic__image img {
     max-width: 80%;
 
     margin: 80px 0;
