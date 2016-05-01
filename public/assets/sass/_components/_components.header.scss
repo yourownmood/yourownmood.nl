@@ -97,32 +97,32 @@ header,
   @include media-query(phone) {
     display: none;
   }
+}
 
-  li a {
-    padding: 0 13px;
+.nav-list__link {
+  padding: 0 13px;
 
-    color: $yom-grey;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: none;
+  color: $yom-grey;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
 
-    &:hover {
-      color: $yom-black;
-      text-decoration: underline;
+  &:hover {
+    color: $yom-black;
+    text-decoration: underline;
+  }
+}
+
+.nav-list__item {
+  &:first-child {
+    .nav-list__link {
+      padding-left: 0;
     }
   }
 
-  li {
-    &:first-child {
-      a {
-        padding-left: 0;
-      }
-    }
-
-    &:last-child {
-      a {
-        padding-right: 0;
-      }
+  &:last-child {
+    .nav-list__link {
+      padding-right: 0;
     }
   }
 }

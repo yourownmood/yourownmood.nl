@@ -4,23 +4,23 @@
 
 /* PROJECT */
 
-.project {
+// .project {
 
-}
+// }
 
 
 /* PROJECT-HERO */
 
-.project-hero {
+// .project-hero {
 
-}
+// }
 
 .project-hero__title {
   padding: 135px 25px 0 7.5%;
 
+  color: #fff;
   font-size: 100px;
   line-height: 96px;
-  color: #fff;
 }
 
 
@@ -42,26 +42,26 @@
 .project-intro__body {
   margin-bottom: 50px;
 
+  color: $yom-grey;
   font-size: 17px;
   line-height: 30px;
-  color: $yom-grey;
 }
 
 .project-intro__label {
   display: block;
 
+  color: $yom-grey;
   font-size: 17px;
   line-height: 30px;
-  color: $yom-grey;
 }
 
 .project-intro__title {
   display: block;
 
+  color: $yom-black;
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
-  color: $yom-black;
 }
 
 
@@ -73,9 +73,9 @@
   width: 100%;
   min-height: 80px;
 
-  text-align: center;
-
   background-color: #f8f8fa;
+
+  text-align: center;
 }
 
 .project-graphic__caption {
@@ -88,10 +88,10 @@
 }
 
 .project-graphic__title {
-  margin: 0 55px 70px 55px;
+  margin: 0 55px 70px;
 
   @include media-query(palm) {
-    margin: 0 16px 50px 16px;
+    margin: 0 16px 50px;
   }
 }
 

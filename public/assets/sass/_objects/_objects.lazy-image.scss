@@ -1,10 +1,12 @@
 /* preventing reflow lazy image setup */
 .js .afkl-lazy-wrapper {
   position: relative;
-  height: 0;
-  overflow: hidden;
+
   display: block;
+  overflow: hidden;
+  height: 0;
 }
+
 /* auto size our image */
 .afkl-lazy-wrapper .afkl-lazy-image {
   width: 100%;
@@ -21,18 +23,23 @@
 .afkl-img-ratio-2-1 {
   padding-bottom: 50%; /* (2/4)*100 */
 }
+
 .afkl-img-ratio-16-9 {
   padding-bottom: 56.25%; /* (9/16)*100 */
 }
+
 .afkl-img-ratio-3-2 {
   padding-bottom: 66.67%; /* now calculation is clear, right :) */;
 }
+
 .afkl-img-ratio-1-1 {
   padding-bottom: 100%;
 }
+
 .afkl-img-ratio-4-3 {
   padding-bottom: 75%;
 }
+
 .afkl-img-ratio-3-4 {
   padding-bottom: 133%;
 }

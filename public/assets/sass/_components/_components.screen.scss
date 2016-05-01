@@ -57,15 +57,15 @@
     height: auto;
   }
 
-  .layout {
-    display: table;
-  }
-
   @include media-query(lap-and-up) {
     .layout,
     .layout .layout__item {
       height: 100%;
     }
+  }
+
+  .layout {
+    display: table;
   }
 }
 

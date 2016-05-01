@@ -48,6 +48,11 @@
     gulp.watch(config.src_dir + "/**/*.html").on('change', browserSync.reload);
   });
 
+  // SCSS-lint watch task:
+  gulp.task('scss-lint:watch', 'Watches the .scss files and starts linting', function() {
+    gulp.watch("public/assets/sass/**/*.scss", ['scss-lint']);
+  });
+
   // SCSS-lint task:
   gulp.task('scss-lint', 'Lints all the .scss files', function() {
     return gulp.src(config.src_dir + '/assets/sass/**/*.scss')
