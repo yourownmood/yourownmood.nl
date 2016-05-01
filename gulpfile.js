@@ -1,23 +1,25 @@
 (function() {
   'use strict';
 
-  var gulp = require('gulp'),
-      runSequence = require('run-sequence'),
+  /* Config */
+
+  // Load plugins
+  var gulp = require('gulp-help')(require('gulp')),
       browserSync = require('browser-sync').create(),
+      concat = require('gulp-concat'),
       del = require('del'),
       header = require('gulp-header'),
-      rename = require('gulp-rename'),
-      concat = require('gulp-concat'),
-
-      sass = require('gulp-sass'),
-      sourcemaps = require('gulp-sourcemaps'),
+      imagemin = require('gulp-imagemin'),
+      pngquant = require('imagemin-pngquant'),
       minifyCSS = require('gulp-minify-css'),
       uglify = require('gulp-uglify'),
+      rename = require('gulp-rename'),
+      runSequence = require('run-sequence'),
+      sass = require('gulp-sass'),
       scsslint = require('gulp-scss-lint'),
+      sourcemaps = require('gulp-sourcemaps');
 
-      imagemin = require('gulp-imagemin'),
-      pngquant = require('imagemin-pngquant');
-
+  // Config variables
   var config = {
       root_dir: './',
       src_dir: './public',
@@ -28,14 +30,15 @@
   };
 
 
+  /* Main tasks */
+
   // Build
-  gulp.task('build', function(callback) {
+  gulp.task('build', 'Standard build taks', function(callback) {
     runSequence('clean', ['sass', 'js', 'copy-assets'], 'image-minify', callback);
   });
 
   // Serve
-  gulp.task('serve', ['build'], function(callback) {
-
+  gulp.task('serve', 'Serves the application', ['build'], function(callback) {
     browserSync.init({
       server: config.src_dir
     });
@@ -43,82 +46,83 @@
     gulp.watch("public/assets/sass/**/*.scss", ['sass']);
     gulp.watch("public/assets/javascript/**/*.js", ['js']).on('change', browserSync.reload);
     gulp.watch(config.src_dir + "/**/*.html").on('change', browserSync.reload);
+  });
 
+  // SCSS-lint task:
+  gulp.task('scss-lint', 'Lints all the .scss files', function() {
+    return gulp.src(config.src_dir + '/assets/sass/**/*.scss')
+      .pipe(scsslint({
+        'config': 'scss-lint.yml'
+      }));
   });
 
 
-    // Clean build task:
-    gulp.task('clean', function(callback) {
-      return del([config.build_dir], callback);
-    });
+  /* Sub tasks */
 
-    // JS task:
-    gulp.task('js', function(callback) {
-      return gulp.src([
-        config.src_dir  + '/assets/javascript/libs/jquery.min.js',
-        config.src_dir  + '/assets/javascript/libs/wow.js',
+  // Clean build task:
+  gulp.task('clean', 'Removes old build artifects', function(callback) {
+    return del([config.build_dir], callback);
+  });
 
-        // Angular
-        config.node_dir + '/angular/angular.min.js',
-        config.node_dir + '/angular-route/angular-route.min.js',
-        config.node_dir + '/angular-animate/angular-animate.min.js',
-        config.node_dir + '/angular-lazy-image/release/lazy-image.js',
-        config.src_dir  + '/assets/javascript/main.js',
-      ])
-      .pipe(concat('bundle.js'))
-      .pipe(header(config.banner))
-      .pipe(gulp.dest(config.src_dir + '/assets/javascript/'))
+  // JS task:
+  gulp.task('js', 'Concats and minify js files', function(callback) {
+    return gulp.src([
+      config.src_dir  + '/assets/javascript/libs/jquery.min.js',
+      config.src_dir  + '/assets/javascript/libs/wow.js',
 
-      // Minify
-      .pipe(rename('bundle.min.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest(config.build_dir + '/javascript/'))
+      // Angular
+      config.node_dir + '/angular/angular.min.js',
+      config.node_dir + '/angular-route/angular-route.min.js',
+      config.node_dir + '/angular-animate/angular-animate.min.js',
+      config.node_dir + '/angular-lazy-image/release/lazy-image.js',
+      config.src_dir  + '/assets/javascript/main.js',
+    ])
+    .pipe(concat('bundle.js'))
+    .pipe(header(config.banner))
+    .pipe(gulp.dest(config.src_dir + '/assets/javascript/'))
 
-      .pipe(browserSync.stream());
-    });
+    // Minify
+    .pipe(rename('bundle.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(config.build_dir + '/javascript/'))
 
-    // Sass task:
-    gulp.task('sass', function(callback) {
-      return gulp.src(config.src_dir + '/assets/sass/*.scss')
-            .pipe(sourcemaps.init())
-            .pipe(sass().on('error', sass.logError))
-            .pipe(gulp.dest(config.src_dir + '/assets/css/'))
+    .pipe(browserSync.stream());
+  });
 
-            //Minified CSS
-            .pipe(rename('main.min.css'))
-            .pipe(minifyCSS())
-            .pipe(header(config.header))
-            .pipe(sourcemaps.write('./'))
-            .pipe(gulp.dest(config.build_dir + '/css/'))
+  // Sass task:
+  gulp.task('sass', 'Concats and minify scss files', function(callback) {
+    return gulp.src(config.src_dir + '/assets/sass/*.scss')
+          .pipe(sourcemaps.init())
+          .pipe(sass().on('error', sass.logError))
+          .pipe(gulp.dest(config.src_dir + '/assets/css/'))
 
-            .pipe(browserSync.stream());
-    });
+          //Minified CSS
+          .pipe(rename('main.min.css'))
+          .pipe(minifyCSS())
+          .pipe(header(config.header))
+          .pipe(sourcemaps.write('./'))
+          .pipe(gulp.dest(config.build_dir + '/css/'))
 
-    // Copy assets task:
-    gulp.task('copy-assets', function() {
-      gulp.src(config.src_dir + '/assets/images/**/*')
-          .pipe(gulp.dest(config.build_dir + '/images/'));
+          .pipe(browserSync.stream());
+  });
 
-      gulp.src(config.src_dir + '/assets/fonts/**/*')
-          .pipe(gulp.dest(config.build_dir + '/fonts/'));
-    });
+  // Copy assets task:
+  gulp.task('copy-assets', 'Copys assets files to the build folder', function() {
+    gulp.src(config.src_dir + '/assets/images/**/*')
+        .pipe(gulp.dest(config.build_dir + '/images/'));
 
-    // Image minify task:
-    gulp.task('image-minify', function() {
-      gulp.src(config.build_dir + '/images/')
-          .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngquant()]
-          }));
-    });
+    gulp.src(config.src_dir + '/assets/fonts/**/*')
+        .pipe(gulp.dest(config.build_dir + '/fonts/'));
+  });
 
-    // SCSS-lint task:
-    gulp.task('scss-lint', function() {
-      return gulp.src(config.src_dir + '/assets/sass/**/*.scss')
-        .pipe(scsslint({
-          'config': 'scss-lint.yml'
+  // Image minify task:
+  gulp.task('image-minify', 'Image minification', function() {
+    gulp.src(config.build_dir + '/images/')
+        .pipe(imagemin({
+          progressive: true,
+          svgoPlugins: [{removeViewBox: false}],
+          use: [pngquant()]
         }));
-    });
+  });
 
 })();
