@@ -1,9 +1,11 @@
+'use strict';
+
 module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        concat: {   
+        concat: {
             dist: {
                 src: [
                     'public/_assets/javascript/libs/jquery.min.js',

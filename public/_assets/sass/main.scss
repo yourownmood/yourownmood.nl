@@ -45,7 +45,7 @@
 /**
  * #SETTINGS
  */
-@import "bower_components/inuit-defaults/settings.defaults";
+@import "../../../bower_components/inuit-defaults/settings.defaults";
 $breakpoints: (
     "phone"         "screen and (max-width: 480px)",
     "phone-and-up"  "screen and (min-width: 480px) and (max-width: 719px)",
@@ -56,7 +56,7 @@ $breakpoints: (
     "desk"          "screen and (min-width: 1024px)",
     "retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
 ) !default;
-@import "bower_components/inuit-responsive-settings/settings.responsive";
+@import "../../../bower_components/inuit-responsive-settings/settings.responsive";
 @import "_settings/settings.colors";
 
 
@@ -69,27 +69,27 @@ $breakpoints: (
 /**
  * #TOOLS
  */
-@import "bower_components/inuit-functions/tools.functions";
-@import "bower_components/inuit-mixins/tools.mixins";
+@import "../../../bower_components/inuit-functions/tools.functions";
+@import "../../../bower_components/inuit-mixins/tools.mixins";
 @import "_tools/tools.mixins";
-@import "bower_components/inuit-responsive-tools/tools.responsive";
+@import "../../../bower_components/inuit-responsive-tools/tools.responsive";
 
 
 /**
  * #GENERIC
  */
-@import "bower_components/inuit-normalize/generic.normalize";
-@import "bower_components/inuit-box-sizing/generic.box-sizing";
+@import "../../../bower_components/inuit-normalize/generic.normalize";
+@import "../../../bower_components/inuit-box-sizing/generic.box-sizing";
 
 
 /**
  * #BASE
  */
-@import "bower_components/inuit-page/base.page";
+@import "../../../bower_components/inuit-page/base.page";
 @import "_base/base.page";
-@import "bower_components/inuit-headings/base.headings";
-@import "bower_components/inuit-lists/base.lists";
-@import "bower_components/inuit-images/base.images";
+@import "../../../bower_components/inuit-headings/base.headings";
+@import "../../../bower_components/inuit-lists/base.lists";
+@import "../../../bower_components/inuit-images/base.images";
 
 
 /**
@@ -98,9 +98,9 @@ $breakpoints: (
 @import "_objects/objects.wrappers";
 $inuit-enable-layout--flush: true;
 $inuit-enable-layout--middle: true;
-@import "bower_components/inuit-layout/objects.layout";
-@import "bower_components/inuit-list-bare/objects.list-bare";
-@import "bower_components/inuit-list-inline/objects.list-inline";
+@import "../../../bower_components/inuit-layout/objects.layout";
+@import "../../../bower_components/inuit-list-bare/objects.list-bare";
+@import "../../../bower_components/inuit-list-inline/objects.list-inline";
 
 /**
  * #COMPONENTS
@@ -119,9 +119,9 @@ $inuit-enable-layout--middle: true;
 /**
  * #TRUMPS
  */
-@import "bower_components/inuit-clearfix/trumps.clearfix";
-@import "bower_components/inuit-widths/trumps.widths";
-@import "bower_components/inuit-widths-responsive/trumps.widths-responsive";
+@import "../../../bower_components/inuit-clearfix/trumps.clearfix";
+@import "../../../bower_components/inuit-widths/trumps.widths";
+@import "../../../bower_components/inuit-widths-responsive/trumps.widths-responsive";
 @import "_trumps/trumps.animation";
 
 /**

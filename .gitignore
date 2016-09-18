@@ -2,8 +2,8 @@
 /bower_components/
 /node_modules/
 
-/_assets/css/
-/_assets/javascript/build/
+/public/_assets/css/
+/public/_assets/javascript/build/
 
 /build
 
