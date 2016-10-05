@@ -143,14 +143,8 @@ $card-br: 44%;
 
         .button{
             display: block;
-            margin-top: 40px;
+            margin-top: 20px;
         }
-    }
-
-    .button--black{
-        position: absolute;
-        left: 35px;
-        bottom: 45px;
     }
 }
 
@@ -255,11 +249,6 @@ $card-br: 44%;
     background-color: #E01E3A;
 
     .overlay__name{
-
-        @include media-query (desk) {
-            margin-top: -30px;
-        }
-
         b{
             font-size: 27px;
             @include media-query (phone) {
@@ -282,7 +271,7 @@ $card-br: 44%;
 
 .card__project--5{
     //height: 50%;
-    height: 20%;
+    height: 25%;
 
     padding: 8%;
     background-color: #171717;
@@ -300,7 +289,7 @@ $card-br: 44%;
 }
 
 .card__project--6{
-    height: 30%;
+    height: 25%;
     //padding: 3%;
     background-color: #2EB5E7;
 
@@ -314,11 +303,6 @@ $card-br: 44%;
     background-color: #f0ece8;
 
     .overlay__name{
-
-        @include media-query (desk) {
-            margin-top: -30px;
-        }
-
         b{
             font-size: 27px;
             @include media-query (phone) {
@@ -342,11 +326,6 @@ $card-br: 44%;
     }
 
     .overlay__name{
-
-        @include media-query (desk) {
-            margin-top: -30px;
-        }
-
         b{
             font-size: 27px;
             @include media-query (phone) {
