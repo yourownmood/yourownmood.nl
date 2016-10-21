@@ -121,8 +121,10 @@
 
             $scope.visibleProjects = !$scope.visibleProjects;
 
+            $('body').animate( {scrollTop: '0'}, 150);
+
             if($scope.visibleProjects === true){
-              $( "#js-scrollboxProjects" ).scrollLeft( 10000 );
+              $('#js-scrollboxProjects').scrollLeft( 10000 );
               $('#js-scrollboxProjects').animate( { scrollLeft: '0' }, 750);
             }
 
@@ -158,13 +160,16 @@
   });
 
   app.run(['$rootScope', function ($rootScope) {
-    //create a new instance
+    // Create a new instance
     var wow = new WOW();
     wow.init();
 
     $rootScope.$on('$routeChangeSuccess', function (next, current) {
-      //when the view changes sync wow
+      // When the view changes sync wow
       wow.sync();
+
+      // And scroll to the top of the page
+      $('body').animate( {scrollTop: '0'}, 150);
     });
   }]);
 
