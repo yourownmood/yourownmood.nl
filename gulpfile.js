@@ -23,6 +23,7 @@
   var config = {
       root_dir: './',
       src_dir: './public',
+      dist_dir: './public/dist',
       build_dir: './build',
       node_dir: './node_modules',
       bower_dir: './bower_components',
@@ -33,8 +34,8 @@
   /* Main tasks */
 
   // Build
-  gulp.task('build', 'Standard build taks', function(callback) {
-    runSequence('clean', ['sass', 'js', 'copy-assets'], 'image-minify', callback);
+  gulp.task('build', 'Standard build task', function(callback) {
+    runSequence('clean', ['sass', 'js', 'copy-assets', 'app-html'], 'image-minify', callback);
   });
 
   // Serve
@@ -118,6 +119,12 @@
 
     gulp.src(config.src_dir + '/assets/fonts/**/*')
         .pipe(gulp.dest(config.build_dir + '/fonts/'));
+  });
+
+  // app HTML task:
+  gulp.task('app-html', 'Copy app html files to the build folder', function() {
+    gulp.src(config.dist_dir + '/index.html')
+        .pipe(gulp.dest(config.build_dir));
   });
 
   // Image minify task:
