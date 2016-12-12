@@ -107,7 +107,7 @@ $card-br: 44%;
 .card--gj-project {
   height: $card-br;
 
-  background-color: #fdfdfd;
+  background-color: #4D148C;
 
   @include media-query(portable) {
     min-height: 265px;
@@ -195,12 +195,12 @@ $card-br: 44%;
   .button {
     margin-right: 10px;
     float: left;
+  }
 
-    &:after {
-      content: '';
-      display: table;
-      clear: both;
-    }
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
   }
 }
 
@@ -311,8 +311,18 @@ $card-br: 44%;
   img { max-width: 62%; }
 }
 
+.card--ing {
+  height: 25%;
+
+  background-color: #999;
+
+  .card__bg {
+    background-position: center center;
+  }
+}
+
 .card--ldd {
-  height: 30%;
+  height: 20%;
 
   background-color: #f0ece8;
 
@@ -337,7 +347,7 @@ $card-br: 44%;
 }
 
 .card--ultimaker {
-  height: 40%;
+  height: 30%;
 
   background-color: #2eb5e7;
 
@@ -347,7 +357,7 @@ $card-br: 44%;
 }
 
 .card--tags {
-  height: 30%;
+  height: 25%;
   padding: 8%;
 
   background-color: #171717;
