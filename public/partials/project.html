@@ -9,7 +9,10 @@
 
           <div class=" [ card ] wow fadeInUp" data-wow-duration="0.7s">
 
-            <div ng-if="post.heroImgFull && post.heroImgPalm && post.heroImgPhone" afkl-lazy-image="{{post.heroImgPhone}} 480w, {{post.heroImgPalm}} 768w, {{post.heroImgFull}}" class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper" afkl-lazy-image-options="{'background': true,'nolazy':true}">
+            <div ng-if="post.heroImgFull && post.heroImgPalm && post.heroImgPhone"
+                 afkl-lazy-image="{{post.heroImgPhone}} 480w, {{post.heroImgPalm}} 768w, {{post.heroImgFull}}"
+                 class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper"
+                 afkl-lazy-image-options="{'background': true,'nolazy':true}">
               <h1 class="project-hero__title">
                 {{post.heroTitle}}
               </h1>
@@ -79,7 +82,8 @@
           <div class="project-graphic"
                ng-class="post.projectWorkImg1Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg1Caption">{{post.projectWorkImg1Caption}}</p>
-            <div afkl-lazy-image="{{post.projectWorkImg1Phone}} 480w, {{post.projectWorkImg1Palm}} 768w, {{post.projectWorkImg1Full}}" class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+            <div afkl-lazy-image="{{post.projectWorkImg1Phone}} 480w, {{post.projectWorkImg1Palm}} 768w, {{post.projectWorkImg1Full}}"
+                 class="afkl-lazy-wrapper [ project-graphic__image ]"></div>
           </div>
 
         </div>

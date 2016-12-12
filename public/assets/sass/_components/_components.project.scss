@@ -4,16 +4,8 @@
 
 /* PROJECT */
 
-// .project {
-
-// }
-
 
 /* PROJECT-HERO */
-
-// .project-hero {
-
-// }
 
 .project-hero__title {
   padding: 135px 25px 0 7.5%;
@@ -92,6 +84,13 @@
 
   @include media-query(palm) {
     margin: 0 16px 50px;
+  }
+}
+
+.project-graphic__image {
+  img {
+    width: 100%;
+    height: auto;
   }
 }
 
