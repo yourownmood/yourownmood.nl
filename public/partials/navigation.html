@@ -1,7 +1,6 @@
 <header>
   <nav id="js-scrollboxProjects" class="scrollbox scrollbox__projects overrule slideInOut" ng-show="visibleProjects">
     <div class="scrollbox__cards">
-
       <div class="scrollbox__card" ng-repeat="post in posts">
         <div class="card">
 
@@ -31,11 +30,15 @@
 
         </div>
       </div>
-
     </div>
   </nav>
 
-    <nav class="site-navigation wow fadeIn" data-wow-duration="2s">
+  <nav class="site-navigation wow fadeIn" data-wow-duration="2s">
+    <a href="#/" class="site-navigation__back" ng-if="$location.path() != '/'">
+      Back
+    </a>
+
+    <div class="site-navigation__push">
       <ul class="nav-list-phone list-inline" ng-show="visibleNavigation">
           <li><a href="#/about" ng-click="visibleProjects = false">About</a></li>
           <li><a href ng-click="toggle('projects')">Projects</a></li>
@@ -57,5 +60,6 @@
       <p class="yom-slogan">
           Guiding digital strategy into online experiences of today's standards
       </p>
-    </nav>
+    </div>
+  </nav>
 </header>
