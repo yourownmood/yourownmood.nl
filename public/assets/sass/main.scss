@@ -31,6 +31,7 @@
  * COMPONENTS
  * Screens
  * Cards
+ * Nav-list
  *
  * TRUMPS
  * Clearfix.............I can’t believe we still need this in 2014.
@@ -116,6 +117,7 @@ $inuit-enable-layout--center: true;
 @import '_components/components.scrollbox';
 @import '_components/components.project';
 @import '_components/components.lists';
+@import '_components/components.nav-list';
 
 
 /**
