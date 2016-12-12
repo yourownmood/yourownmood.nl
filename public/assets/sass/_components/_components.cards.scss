@@ -189,9 +189,8 @@ $card-br: 44%;
 
 .profile__btns,
 .project__btns {
-  position: absolute;
-  bottom: 45px;
-  left: 35px;
+  display: block;
+  margin-top: 20px;
 
   .button {
     margin-right: 10px;
