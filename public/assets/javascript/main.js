@@ -33,6 +33,12 @@
       controller: 'profileCtrl'
     })
 
+    // contact page
+    .when('/contact', {
+      templateUrl: 'partials/contact.html',
+      controller: 'contactCtrl'
+    })
+
   }]);
 
 
@@ -99,6 +105,15 @@
       }, 0);
     };
 
+  }]);
+
+  app.controller('contactCtrl', ['$scope', function($scope){
+
+    $scope.pageClass = 'page-contact';
+
+    this.mailInfo = "info@yourownmood.nl";
+    this.mailS = "sbax@yourownmood.nl";
+    this.mailGJ = "gjdegoede@yourownmood.nl";
   }]);
 
   app.directive('navigation', function() {

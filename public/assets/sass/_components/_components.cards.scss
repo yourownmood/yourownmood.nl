@@ -193,8 +193,15 @@ $card-br: 44%;
   bottom: 45px;
   left: 35px;
 
-  .profile__social {
-    margin-bottom: 10px;
+  .button {
+    margin-right: 10px;
+    float: left;
+
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
   }
 }
 
