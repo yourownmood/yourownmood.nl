@@ -2,9 +2,7 @@
   #ANCHORS
 \*------------------------------------*/
 
-.anchor__arrow {
-  padding-right: 30px;
-
+.anchor {
   text-decoration: none;
   color: $yom-black;
 
@@ -12,11 +10,15 @@
   font-weight: 700;
   line-height: 30px;
 
-  background-image: url('../images/list-arrow.png');
-  background-repeat: no-repeat;
-  background-position: right 8px;
-
   &:hover {
     text-decoration: underline;
   }
+}
+
+.anchor--arrow {
+  padding-right: 30px;
+
+  background-image: url('../images/list-arrow.png');
+  background-repeat: no-repeat;
+  background-position: right 8px;
 }
