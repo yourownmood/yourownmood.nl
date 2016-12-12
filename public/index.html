@@ -21,14 +21,12 @@
     </script>
 </head>
 <body ng-app="yomApp">
-
+  <div ng-controller="mainController">
     <navigation></navigation>
-
     <div ng-view class="{{ pageClass }} page"></div>
-
     <div ng-include="'templates/footer.html'"></div>
+  </div>
 
-    <script src="assets/javascript/bundle.js"></script>
-
+  <script src="assets/javascript/bundle.js"></script>
 </body>
 </html>

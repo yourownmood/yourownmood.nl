@@ -41,6 +41,11 @@
 
   }]);
 
+  app.controller('mainController', ['$scope', '$route', '$routeParams', '$location', function($scope, $route, $routeParams, $location) {
+    $scope.$route = $route;
+    $scope.$location = $location;
+    $scope.$routeParams = $routeParams;
+  }]);
 
   app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
 
