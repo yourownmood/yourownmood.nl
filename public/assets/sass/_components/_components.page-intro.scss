@@ -1,36 +1,78 @@
-/*------------------------------------*\
-  #PAGE-INTRO
-\*------------------------------------*/
+// ---------------------------------------------------
+// +++ COMPONENT INTRO +++
+// --------------------------------------------------
+
+// === BASE ===
+// --------------------------------------------------
+
+// INTRO
+
+// === PARTS ===
+// --------------------------------------------------
+
+// HEADER
+// SLOGAN
+// PHONE-NUMBER
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === BASE ===
+// --------------------------------------------------
+
+// INTRO
 
 .intro {
   height: 100%;
   margin-left: 18%;
-
-  .intro__header {
-    max-width: 270px;
-    height: 100%;
-    margin: -31px 0 55px;
-    padding: 0;
-
-    color: $yom-grey;
-    font-size: 24px;
-    line-height: 36px;
-
-    p {
-      margin-bottom: 50px;
-    }
-  }
-
-  .phone {
-    display: block;
-    margin-top: 20px;
-
-    color: $yom-grey;
-    font-size: 20px;
-  }
-
-  .alignment-bottom {
-    position: absolute;
-    bottom: 10%;
-  }
 }
+
+// === PARTS ===
+// --------------------------------------------------
+
+// HEADER
+
+.intro__header {
+  max-width: 270px;
+  height: 100%;
+  margin: -31px 0 55px;
+  padding: 0;
+
+  color: $yom-grey;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+// SLOGAN
+
+.intro__slogan {
+  margin-bottom: 50px;
+}
+
+// PHONE-NUMBER
+
+.intro__phone-number {
+  display: block;
+  margin-top: 20px;
+
+  color: $yom-grey;
+  font-size: 20px;
+}
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+/*
+
+Coming soon...
+
+*/
