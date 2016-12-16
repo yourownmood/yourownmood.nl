@@ -4,10 +4,14 @@
  * SETTINGS
  * Default..............inuitcss’ default settings.
  * Responsive...........Set up and name our breakpoints.
+ * Settings responsive..inuitcss’ responsive settings.
+ * Colors...............Color variables and naming.
  *
  * TOOLS
  * Functions............inuitcss’ default functions.
  * Mixins...............inuitcss’ default mixins.
+ * Widths...............Simple width classes.
+ * Mixins extend........Yourownmood mixins.
  * Responsive...........Responsive tooling (requires responsive settings).
  *
  * GENERIC
@@ -16,15 +20,18 @@
  *
  * BASE
  * Page.................Page-level styles (HTML element).
+ * Document.............Document level styling
  * Headings.............H1 - H6 styles (HTML element).
  * Lists................Basic styling for regular ordered and unordered lists.
  * Images...............Provides very basic styling for images (img).
+ * Horizontal-line......
  *
  * OBJECTS
  * Wrappers.............Max-width wrappers.
  * Layout...............inuitcss’ layout tool.
  * List-bare............A simple object to remove bullets and indents from lists.
  * List-inline..........Displays a list as one horizontal row.
+ * Lazy-image...........Lazy image tool classes.
  *
  * COMPONENTS
  * Screens
@@ -36,6 +43,7 @@
  * Clearfix.............I can’t believe we still need this in 2014.
  * Widths...............Simple width helper classes.
  * Widths-responsive....Polyfill for responsive width classes.
+ * Bg-position..........Background position helper classes. (Needs to be trump)
  *
  * SHAME
  * Shame................Quick fixes and hacks.
@@ -72,10 +80,11 @@
  * #BASE
  */
 @import 'node_modules/inuit-page/base.page';
-@import '_base/base.page';
+@import '_base/base.document';
 @import 'node_modules/inuit-headings/base.headings';
 @import 'node_modules/inuit-lists/base.lists';
-@import '_base/base.images';
+@import 'node_modules/inuit-images/base.images';
+@import '_base/base.horizontal-line';
 
 
 /**
@@ -88,7 +97,6 @@ $inuit-enable-layout--center: true;
 @import 'node_modules/inuit-layout/objects.layout';
 @import 'node_modules/inuit-list-bare/objects.list-bare';
 @import 'node_modules/inuit-list-inline/objects.list-inline';
-@import '_objects/objects.bg-position';
 @import '_objects/objects.lazy-image';
 
 
@@ -129,6 +137,7 @@ $inuit-enable-responsive-margins: true;
 @import 'node_modules/inuit-responsive-spacing/trumps.spacing-responsive';
 @import '_trumps/trumps.animation';
 @import '_trumps/trumps.show-hide';
+@import '_trumps/trumps.bg-position';
 
 
 /**

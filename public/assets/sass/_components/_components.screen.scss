@@ -109,7 +109,7 @@ img.vh-align--img {
 .worked-at {
   padding: 60px 25% 60px 5%;
 
-  color: #999;
+  color: $yom-dusty;
   font-size: 20px;
 
   @include media-query(phone) {
@@ -120,6 +120,6 @@ img.vh-align--img {
     display: block;
     margin-bottom: 5px;
 
-    color: #171717;
+    color: $yom-cod;
   }
 }
