@@ -74,7 +74,7 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-project';
 
-    $http.get('/projects.json', { cache: true}).success(function(data, status, headers, config) {
+    $http.get('projects.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
     });
 
@@ -97,7 +97,7 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-profile';
 
-    $http.get('/profiles.json', { cache: true}).success(function(data, status, headers, config) {
+    $http.get('profiles.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
     });
 
@@ -131,7 +131,7 @@
         $scope.visibleNavigation = false;
 
         // Dynamic load
-        $http.get('/projects.json', { cache: true}).success(function(data, status, headers, config) {
+        $http.get('projects.json', { cache: true}).success(function(data, status, headers, config) {
           $scope.posts = data;
         });
 
