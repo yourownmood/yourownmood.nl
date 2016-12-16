@@ -9,9 +9,8 @@
       concat = require('gulp-concat'),
       del = require('del'),
       header = require('gulp-header'),
-      imagemin = require('gulp-imagemin'),
-      pngquant = require('imagemin-pngquant'),
       minifyCSS = require('gulp-minify-css'),
+      ngAnnotate = require('gulp-ng-annotate'),
       uglify = require('gulp-uglify'),
       rename = require('gulp-rename'),
       runSequence = require('run-sequence'),
@@ -35,7 +34,7 @@
 
   // Build
   gulp.task('build', 'Standard build task', function(callback) {
-    runSequence('clean', ['sass', 'js', 'copy-assets', 'app-html'], 'image-minify', callback);
+    runSequence('clean', ['sass', 'js', 'copy-assets', 'app-html', 'app-json'], callback);
   });
 
   // Serve
@@ -83,6 +82,7 @@
       config.node_dir + '/angular-lazy-image/release/lazy-image.js',
       config.src_dir  + '/assets/javascript/main.js',
     ])
+    .pipe(ngAnnotate())
     .pipe(concat('bundle.js'))
     .pipe(header(config.banner))
     .pipe(gulp.dest(config.src_dir + '/assets/javascript/'))
@@ -115,26 +115,25 @@
   // Copy assets task:
   gulp.task('copy-assets', 'Copys assets files to the build folder', function() {
     gulp.src(config.src_dir + '/assets/images/**/*')
-        .pipe(gulp.dest(config.build_dir + '/images/'));
-
-    gulp.src(config.src_dir + '/assets/fonts/**/*')
-        .pipe(gulp.dest(config.build_dir + '/fonts/'));
+        .pipe(gulp.dest(config.build_dir + '/assets/images/'));
   });
 
   // app HTML task:
-  gulp.task('app-html', 'Copy app html files to the build folder', function() {
+  gulp.task('app-html', 'Copy app .html files to the build folder', function() {
     gulp.src(config.dist_dir + '/index.html')
         .pipe(gulp.dest(config.build_dir));
+
+    gulp.src(config.src_dir + '/partials/*.html')
+        .pipe(gulp.dest(config.build_dir + '/partials/'));
+
+    gulp.src(config.src_dir + '/templates/*.html')
+        .pipe(gulp.dest(config.build_dir + '/templates/'));
   });
 
-  // Image minify task:
-  gulp.task('image-minify', 'Image minification', function() {
-    gulp.src(config.build_dir + '/images/')
-        .pipe(imagemin({
-          progressive: true,
-          svgoPlugins: [{removeViewBox: false}],
-          use: [pngquant()]
-        }));
+  // app JSON task:
+  gulp.task('app-json', 'Copy app .json files to the build folder', function() {
+    gulp.src(config.src_dir + '/*.json')
+        .pipe(gulp.dest(config.build_dir));
   });
 
 })();
