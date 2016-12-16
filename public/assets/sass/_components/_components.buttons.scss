@@ -11,9 +11,9 @@
   width: 180px;
   height: 58px;
   padding: 0 35px;
-  border: 1px solid #979797;
+  border: 1px solid $yom-dusty;
 
-  color: $yom-black;
+  color: $yom-cod;
   font-size: 16px;
   text-decoration: none;
   text-align: left;
@@ -38,7 +38,7 @@
 
     width: 6px;
     height: 11px;
-    border-left: 2px solid #979797;
+    border-left: 2px solid $yom-dusty;
 
     content: '';
     pointer-events: none;
@@ -55,20 +55,20 @@
 }
 
 .button--black {
-  border-color: $yom-black;
-  background: $yom-black;
-  color: #fff;
+  border-color: $yom-cod;
+  background: $yom-cod;
+  color: $yom-white;
 
   &:hover {
-    background: #fff;
-    color: $yom-black;
+    background: $yom-white;
+    color: $yom-cod;
   }
 }
 
 .button--dia {
   width: auto;
 
-  color: #fff;
+  color: $yom-white;
 }
 
 .button--social {

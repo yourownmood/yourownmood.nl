@@ -1,17 +1,11 @@
-// ---------------------------------------------------
-// +++ COMPONENT INTRO +++
+// --------------------------------------------------
+// +++ BASE HR (HORIZONTAL-LINE) +++
 // --------------------------------------------------
 
 // === BASE ===
 // --------------------------------------------------
 
-// INTRO
-
-// === PARTS ===
-// --------------------------------------------------
-
-// HEADER
-// SLOGAN
+// HORIZONTAL-LINE
 
 // === DOCS ===
 // --------------------------------------------------
@@ -26,33 +20,13 @@
 // === BASE ===
 // --------------------------------------------------
 
-// INTRO
+// HORIZONTAL-LINE
 
-.intro {
-  height: 100%;
-  margin-left: 18%;
-}
+hr {
+  height: 1px;
+  border: 0;
 
-// === PARTS ===
-// --------------------------------------------------
-
-// HEADER
-
-.intro__header {
-  max-width: 270px;
-  height: 100%;
-  margin: -31px 0 55px;
-  padding: 0;
-
-  color: $yom-dusty;
-  font-size: 24px;
-  line-height: 36px;
-}
-
-// SLOGAN
-
-.intro__slogan {
-  margin-bottom: 50px;
+  background: $yom-dusty;
 }
 
 // === DOCS ===
@@ -61,7 +35,10 @@
 // DOCS
 
 /*
+Horizontal-line
 
-Coming soon...
+Markup:
+<hr>
 
+Style guide: Base - Horizontal-line
 */

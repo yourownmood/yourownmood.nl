@@ -1,19 +1,26 @@
-/*------------------------------------*\
-    #MIXINS EXTENDED
-\*------------------------------------*/
+// --------------------------------------------------
+// +++ MIXINS +++
+// --------------------------------------------------
+
+// === MIXINS ===
+// --------------------------------------------------
+
+// BORDER-RADIUS
+// TRANSFORM
+// TRANSITION
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+// BORDER-RADIUS
+
 // scss-lint:disable VendorPrefix
-
-
-@mixin hidpi($ratio: 1.3) {
-  @media only screen and (-webkit-min-device-pixel-ratio: $ratio),
-  only screen and (min--moz-device-pixel-ratio: $ratio),
-  only screen and (-o-min-device-pixel-ratio: #{$ratio}/1),
-  only screen and (min-resolution: #{round($ratio*96)}dpi),
-  only screen and (min-resolution: #{$ratio}dppx) {
-    @content;
-  }
-}
-
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -21,11 +28,7 @@
   border-radius: $radius;
 }
 
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: $opacity * 100;
-  filter: alpha('opacity=$opacity-ie'); //IE8
-}
+// TRANSFORM
 
 @mixin transform($type) {
   -webkit-transform: $type;
@@ -35,6 +38,8 @@
   transform: $type;
 }
 
+// TRANSITION
+
 @mixin transition($transition-property, $transition-time, $method) {
   -webkit-transition: $transition-property $transition-time $method;
   -moz-transition: $transition-property $transition-time $method;
@@ -42,3 +47,83 @@
   -o-transition: $transition-property $transition-time $method;
   transition: $transition-property $transition-time $method;
 }
+// scss-lint:enable
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+/*
+Mixins
+
+**When to use a mixin?**
+
+Hideexample: true
+
+Markuplanguage: sass
+
+Markup:
+.class {
+  @include mixin(property);
+}
+
+Style guide: Tools - Mixins
+*/
+
+/*
+Border-radius
+
+For including backwards-compatible border-radius.
+
+**How to use:**
+
+Hideexample: true
+
+Markuplanguage: sass
+
+Markup:
+.class {
+  @include border-radius(5px);
+}
+
+Style guide: Tools - Mixins - Border-radius
+*/
+
+/*
+Transform
+
+Standardized use of the transform property.
+
+**How to use:**
+
+Hideexample: true
+
+Markuplanguage: sass
+
+Markup:
+.class {
+  @include transform($type);
+}
+
+Style guide: Tools - Mixins - Transform
+*/
+
+/*
+Transition
+
+Standardized use of transition animation.
+
+**How to use:**
+
+Hideexample: true
+
+Markuplanguage: sass
+
+Markup:
+.class {
+  @include transition($transition-property, $transition-time, $method);
+}
+
+Style guide: Tools - Mixins - Transition
+*/

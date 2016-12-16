@@ -45,7 +45,7 @@ header,
   bottom: 33px;
 
   font-size: 18px;
-  color: #999;
+  color: $yom-dusty;
   text-decoration: none;
 
   padding-top: 28px;
@@ -70,7 +70,7 @@ header,
 }
 
 .yom {
-  color: $yom-black;
+  color: $yom-cod;
   font-size: 53px;
   font-weight: 700;
   line-height: 53px;
@@ -94,7 +94,7 @@ header,
     width: 100%;
     padding: 0 0 0 50%;
 
-    color: $yom-grey;
+    color: $yom-dusty;
     font-size: 20px;
     line-height: 31px;
   }
