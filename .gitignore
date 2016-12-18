@@ -1,10 +1,10 @@
 /.sass-cache/
 /bower_components/
 /node_modules/
-/public/build/
+/src/build/
 /build/
 /_assets/css/
 /old/
 /_assets/javascript/build/
-/public/assets/javascript/bundle.js
-/public/assets/css
+/src/assets/javascript/bundle.js
+/src/assets/css
