@@ -49,7 +49,15 @@
         "projectColor": "#4d148c",
         "projectLogo": "assets/images/project/fedex/fedex-logo@2x.png",
         "projectThumb": "",
-        "projectThumbPosition": "br"
+        "projectThumbPosition": "br",
+
+        "projectWorkTitleLabel": "Visual design & Front-end development",
+        "projectWorkTitle": "FedEx booking tool",
+        "projectWorkImg1Options": "project-graphic--center",
+        "projectWorkImg1Full":"assets/images/project/fedex/fedex-screens-full.png",
+        "projectWorkImg1Palm":"assets/images/project/fedex/fedex-screens-768.png",
+        "projectWorkImg1Phone":"assets/images/project/fedex/fedex-screens-480.png",
+        "projectWorkImg1Caption":"Mobile view"
     },
 
     {
