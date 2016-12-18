@@ -21,8 +21,8 @@
   // Config variables
   var config = {
       root_dir: './',
-      src_dir: './public',
-      dist_dir: './public/dist',
+      src_dir: './src',
+      dist_dir: './src/dist',
       build_dir: './build',
       node_dir: './node_modules',
       bower_dir: './bower_components',
@@ -43,14 +43,14 @@
       server: config.src_dir
     });
 
-    gulp.watch("public/assets/sass/**/*.scss", ['sass']);
-    gulp.watch("public/assets/javascript/**/*.js", ['js']).on('change', browserSync.reload);
+    gulp.watch("src/assets/sass/**/*.scss", ['sass']);
+    gulp.watch("src/assets/javascript/**/*.js", ['js']).on('change', browserSync.reload);
     gulp.watch(config.src_dir + "/**/*.html").on('change', browserSync.reload);
   });
 
   // SCSS-lint watch task:
   gulp.task('scss-lint:watch', 'Watches the .scss files and starts linting', function() {
-    gulp.watch("public/assets/sass/**/*.scss", ['scss-lint']);
+    gulp.watch("src/assets/sass/**/*.scss", ['scss-lint']);
   });
 
   // SCSS-lint task:
