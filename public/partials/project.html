@@ -11,8 +11,8 @@
 
             <div ng-if="post.heroImgFull && post.heroImgPalm && post.heroImgPhone"
                  afkl-lazy-image="{{post.heroImgPhone}} 480w, {{post.heroImgPalm}} 768w, {{post.heroImgFull}}"
-                 class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper"
-                 afkl-lazy-image-options="{'background': true,'nolazy':true}">
+                 afkl-lazy-image-options="{'background': true, 'offset': 250}"
+                 class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper">
               <h1 class="project-hero__title">
                 {{post.heroTitle}}
               </h1>
@@ -83,6 +83,7 @@
                ng-class="post.projectWorkImg1Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg1Caption">{{post.projectWorkImg1Caption}}</p>
             <div afkl-lazy-image="{{post.projectWorkImg1Phone}} 480w, {{post.projectWorkImg1Palm}} 768w, {{post.projectWorkImg1Full}}"
+                 afkl-lazy-image-options="{'offset': 250}"
                  class="afkl-lazy-wrapper [ project-graphic__image ]"></div>
           </div>
 
@@ -97,7 +98,9 @@
           <div class="project-graphic"
                 ng-class="post.projectWorkImg2Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg2Caption">{{post.projectWorkImg2Caption}}</p>
-            <div afkl-lazy-image="{{post.projectWorkImg2Phone}} 480w, {{post.projectWorkImg2Palm}} 768w, {{post.projectWorkImg2Full}}" class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+            <div afkl-lazy-image="{{post.projectWorkImg2Phone}} 480w, {{post.projectWorkImg2Palm}} 768w, {{post.projectWorkImg2Full}}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "
+                 afkl-lazy-image-options="{'offset': 250}"></div>
           </div>
 
         </div>
@@ -112,7 +115,9 @@
                data-wow-duration="0.7s"
                ng-class="post.projectWorkImg3Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg3Caption">{{post.projectWorkImg3Caption}}</p>
-            <div afkl-lazy-image="{{post.projectWorkImg3Phone}} 480w, {{post.projectWorkImg3Palm}} 768w, {{post.projectWorkImg3Full}}" class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+            <div afkl-lazy-image="{{post.projectWorkImg3Phone}} 480w, {{post.projectWorkImg3Palm}} 768w, {{post.projectWorkImg3Full}}"
+                 afkl-lazy-image-options="{'offset': 250}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
           </div>
 
         </div><div class="layout__item u-1/2 u-1/1-palm">
@@ -121,7 +126,9 @@
                data-wow-duration="0.7s"
                ng-class="post.projectWorkImg4Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg4Caption">{{post.projectWorkImg4Caption}}</p>
-            <div afkl-lazy-image="{{post.projectWorkImg4Phone}} 480w, {{post.projectWorkImg4Palm}} 768w, {{post.projectWorkImg4Full}}" class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+            <div afkl-lazy-image="{{post.projectWorkImg4Phone}} 480w, {{post.projectWorkImg4Palm}} 768w, {{post.projectWorkImg4Full}}"
+                 afkl-lazy-image-options="{'offset': 250}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
           </div>
 
         </div>
@@ -134,7 +141,9 @@
 
           <div class="project-graphic" data-wow-duration="0.7s" ng-class="post.projectWorkImg5Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg5Caption">{{post.projectWorkImg5Caption}}</p>
-            <div afkl-lazy-image="{{post.projectWorkImg5Phone}} 480w, {{post.projectWorkImg5Palm}} 768w, {{post.projectWorkImg5Full}}" class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+            <div afkl-lazy-image="{{post.projectWorkImg5Phone}} 480w, {{post.projectWorkImg5Palm}} 768w, {{post.projectWorkImg5Full}}"
+                 afkl-lazy-image-options="{'offset': 250}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
           </div>
 
         </div>
@@ -147,14 +156,18 @@
 
           <div class="project-graphic" ng-class="post.projectWorkImg6Options" data-wow-duration="0.7s">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg6Caption">{{post.projectWorkImg6Caption}}</p>
-            <div afkl-lazy-image="{{post.projectWorkImg6Phone}} 480w, {{post.projectWorkImg6Palm}} 768w, {{post.projectWorkImg6Full}}" class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+            <div afkl-lazy-image="{{post.projectWorkImg6Phone}} 480w, {{post.projectWorkImg6Palm}} 768w, {{post.projectWorkImg6Full}}"
+                 afkl-lazy-image-options="{'offset': 250}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
           </div>
 
         </div><div class="layout__item u-1/2 u-1/1-palm">
 
           <div class="project-graphic" ng-class="post.projectWorkImg7Options" data-wow-duration="0.7s">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg7Caption">{{post.projectWorkImg7Caption}}</p>
-            <div afkl-lazy-image="{{post.projectWorkImg7Phone}} 480w, {{post.projectWorkImg7Palm}} 768w, {{post.projectWorkImg7Full}}" class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+            <div afkl-lazy-image="{{post.projectWorkImg7Phone}} 480w, {{post.projectWorkImg7Palm}} 768w, {{post.projectWorkImg7Full}}"
+                 afkl-lazy-image-options="{'offset': 250}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
           </div>
 
         </div>
