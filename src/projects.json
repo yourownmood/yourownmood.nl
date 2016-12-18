@@ -16,6 +16,7 @@
         "projectLogo": "assets/images/project/tnt/tnt.svg",
         "projectThumb": "",
         "projectThumbPosition": "",
+
         "projectWorkTitleLabel": "Lead design",
         "projectWorkTitle": "Track & Trace application",
 
@@ -67,6 +68,14 @@
         "projectColor": "#FFFF00",
         "projectLogo": "assets/images/project/sunweb/sunweb.png",
         "projectThumb": "assets/images/project/sunweb/sunweb-nav.jpg",
-        "projectThumbPosition": "cc"
+        "projectThumbPosition": "cc",
+
+        "projectWorkTitleLabel": "Visual design",
+        "projectWorkTitle": "Sunweb summer website",
+        "projectWorkImg1Options": "project-graphic--center project-graphic--shadow",
+        "projectWorkImg1Full":"assets/images/project/sunweb/sunweb-screen-full.jpg",
+        "projectWorkImg1Palm":"assets/images/project/sunweb/sunweb-screen-768.jpg",
+        "projectWorkImg1Phone":"assets/images/project/sunweb/sunweb-screen-480.jpg",
+        "projectWorkImg1Caption":"Sunweb summer website"
     }
 ]
