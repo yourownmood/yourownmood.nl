@@ -8,10 +8,13 @@
       browserSync = require('browser-sync').create(),
       bump = require('gulp-bump'),
       concat = require('gulp-concat'),
+      cred = require('./cred.json'),
       del = require('del'),
       filter = require('gulp-filter'),
       fs = require('fs'),
+      ftp = require('gulp-ftp'),
       git = require('gulp-git'),
+      gutil = require('gulp-util'),
       header = require('gulp-header'),
       minifyCSS = require('gulp-minify-css'),
       ngAnnotate = require('gulp-ng-annotate'),
@@ -169,27 +172,27 @@
   /* Versioning and publishing */
 
   // Publish-patch
-  gulp.task('publish-patch', 'Create patch release', function(callback) {
+  gulp.task('create-patch', 'Create patch release', function(callback) {
     runSequence('patch', 'build', 'commit', callback);
   });
 
   // Publish-minor
-  gulp.task('publish-minor', 'Create minor release', function(callback) {
-    runSequence('build', 'minor', 'commit', callback);
+  gulp.task('create-minor', 'Create minor release', function(callback) {
+    runSequence('minor', 'build', 'commit', callback);
   });
 
   // Publish-major
-  gulp.task('publish-major', 'Create major release', function(callback) {
-    runSequence('build', 'major', 'commit', callback);
+  gulp.task('create-major', 'Create major release', function(callback) {
+    runSequence('major', 'build', 'commit', callback);
   });
 
-  // gulp patch     # makes v0.1.0 → v0.1.1
+  // gulp patch # makes v0.1.0 → v0.1.1
   gulp.task('patch', function() { return inc('patch'); })
 
-  // gulp minor   # makes v0.1.1 → v0.2.0
+  // gulp minor # makes v0.1.1 → v0.2.0
   gulp.task('minor', function() { return inc('minor'); })
 
-  // gulp major   # makes v0.2.1 → v1.0.0
+  // gulp major # makes v0.2.1 → v1.0.0
   gulp.task('major', function() { return inc('major'); })
 
   function inc(importance) {
@@ -209,6 +212,30 @@
       .pipe(filter('package.json'))
       // tag it in the repository
       .pipe(tag_version());
+  });
+
+  // Pubish test task
+  gulp.task('publish-test', ['build'], function () {
+    return gulp.src(config.build_dir + '/**/*')
+      .pipe(ftp({
+        host: cred.host,
+        user: cred.user,
+        pass: cred.pass,
+        remotePath: cred.test
+      }))
+      .pipe(gutil.noop());
+  });
+
+  // Pubish prod task
+  gulp.task('publish-prod', ['build'], function () {
+    return gulp.src(config.build_dir + '/**/*')
+      .pipe(ftp({
+        host: cred.host,
+        user: cred.user,
+        pass: cred.pass,
+        remotePath: cred.prod
+      }))
+      .pipe(gutil.noop());
   });
 
 })();
