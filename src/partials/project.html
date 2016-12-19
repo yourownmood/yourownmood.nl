@@ -74,7 +74,7 @@
         </div>
       </div>
 
-      <div class="layout u-mb [ wow fadeIn ]"
+      <div class="layout u-mb [ wow fadeInUp ]"
            data-wow-duration="0.7s"
            ng-if="post.projectWorkImg1Full && post.projectWorkImg1Palm && post.projectWorkImg1Phone">
         <div class="layout__item u-1/1">
@@ -90,7 +90,7 @@
         </div>
       </div>
 
-      <div class="layout u-mb [ wow fadeIn ]"
+      <div class="layout u-mb [ wow fadeInUp ]"
            data-wow-duration="0.7s"
            ng-if="post.projectWorkImg2Full && post.projectWorkImg2Palm && post.projectWorkImg2Phone">
         <div class="layout__item u-1/1">
@@ -106,7 +106,7 @@
         </div>
       </div>
 
-      <div class="layout u-mb [ wow fadeIn ]"
+      <div class="layout u-mb [ wow fadeInUp ]"
            data-wow-duration="0.7s"
            ng-if="post.projectWorkImg3Full && post.projectWorkImg3Palm && post.projectWorkImg3Phone && post.projectWorkImg4Full && post.projectWorkImg4Palm && post.projectWorkImg4Phone">
         <div class="layout__item u-1/2 u-1/1-palm u-mb-palm">
@@ -134,7 +134,7 @@
         </div>
       </div>
 
-      <div class="layout u-mb [ wow fadeIn ]"
+      <div class="layout u-mb [ wow fadeInUp ]"
            data-wow-duration="0.7s"
            ng-if="post.projectWorkImg5Full && post.projectWorkImg5Palm && post.projectWorkImg5Phone">
         <div class="layout__item u-1/1">
@@ -149,7 +149,7 @@
         </div>
       </div>
 
-      <div class="layout u-mb [ wow fadeIn ]"
+      <div class="layout u-mb [ wow fadeInUp ]"
            data-wow-duration="0.7s"
            ng-if="post.projectWorkImg6Full && post.projectWorkImg6Palm && post.projectWorkImg6Phone && post.projectWorkImg7Full && post.projectWorkImg7Palm && post.projectWorkImg7Phone">
         <div class="layout__item u-1/2 u-1/1-palm u-mb-palm">
@@ -168,6 +168,22 @@
             <div afkl-lazy-image="{{post.projectWorkImg7Phone}} 480w, {{post.projectWorkImg7Palm}} 768w, {{post.projectWorkImg7Full}}"
                  afkl-lazy-image-options="{'offset': 250}"
                  class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="layout u-mb [ wow fadeInUp ]"
+           data-wow-duration="0.7s"
+           ng-if="post.projectWorkImg8Full && post.projectWorkImg8Palm && post.projectWorkImg8Phone">
+        <div class="layout__item u-1/1">
+
+          <div class="project-graphic"
+                ng-class="post.projectWorkImg8Options">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg8Caption">{{post.projectWorkImg8Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg8Phone}} 480w, {{post.projectWorkImg8Palm}} 768w, {{post.projectWorkImg8Full}}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "
+                 afkl-lazy-image-options="{'offset': 250}"></div>
           </div>
 
         </div>
