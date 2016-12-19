@@ -17,8 +17,8 @@
         "projectThumb": "",
         "projectThumbPosition": "",
 
-        "projectWorkTitleLabel": "Lead design",
-        "projectWorkTitle": "Track & Trace application",
+        "projectWorkTitleLabel": "Lead design & Front-end development",
+        "projectWorkTitle": "Multiple applications, public website, and guild leads",
 
         "projectWorkImg1Options": "project-graphic--center",
         "projectWorkImg1Full":"assets/images/project/tnt/tnt-track-full.png",
@@ -30,7 +30,43 @@
         "projectWorkImg2Full":"assets/images/project/tnt/tnt-photo-phone-full.jpg",
         "projectWorkImg2Palm":"assets/images/project/tnt/tnt-photo-phone-768.jpg",
         "projectWorkImg2Phone":"assets/images/project/tnt/tnt-photo-phone-480.jpg",
-        "projectWorkImg2Caption":"A wild application appeared"
+        "projectWorkImg2Caption":"",
+
+        "projectWorkImg3Options": "project-graphic--fill",
+        "projectWorkImg3Full":"assets/images/project/tnt/tnt-photo-left-full.jpg",
+        "projectWorkImg3Palm":"assets/images/project/tnt/tnt-photo-left-palm.jpg",
+        "projectWorkImg3Phone":"assets/images/project/tnt/tnt-photo-left-palm.jpg",
+        "projectWorkImg3Caption":"",
+
+        "projectWorkImg4Options": "project-graphic--fill",
+        "projectWorkImg4Full":"assets/images/project/tnt/tnt-photo-right-full.jpg",
+        "projectWorkImg4Palm":"assets/images/project/tnt/tnt-photo-right-palm.jpg",
+        "projectWorkImg4Phone":"assets/images/project/tnt/tnt-photo-right-palm.jpg",
+        "projectWorkImg4Caption":"",
+
+        "projectWorkImg5Options": "project-graphic--center project-graphic--shadow",
+        "projectWorkImg5Full":"assets/images/project/tnt/tnt-screen-shipment-full.jpg",
+        "projectWorkImg5Palm":"assets/images/project/tnt/tnt-screen-shipment-768.jpg",
+        "projectWorkImg5Phone":"assets/images/project/tnt/tnt-screen-shipment-480.jpg",
+        "projectWorkImg5Caption":"myTNT 'Create Shipment'",
+
+        "projectWorkImg6Options": "project-graphic--center project-graphic--shadow",
+        "projectWorkImg6Full":"assets/images/project/tnt/tnt-screen-left-full.jpg",
+        "projectWorkImg6Palm":"assets/images/project/tnt/tnt-screen-left-full.jpg",
+        "projectWorkImg6Phone":"assets/images/project/tnt/tnt-screen-left-full.jpg",
+        "projectWorkImg6Caption":"Choosing your package type",
+
+        "projectWorkImg7Options": "project-graphic--center project-graphic--shadow",
+        "projectWorkImg7Full":"assets/images/project/tnt/tnt-screen-right-full.jpg",
+        "projectWorkImg7Palm":"assets/images/project/tnt/tnt-screen-right-full.jpg",
+        "projectWorkImg7Phone":"assets/images/project/tnt/tnt-screen-right-full.jpg",
+        "projectWorkImg7Caption":"Shipment confirmation screen",
+
+        "projectWorkImg8Options": "project-graphic--fill",
+        "projectWorkImg8Full":"assets/images/project/tnt/tnt-photo-scrum-full.jpg",
+        "projectWorkImg8Palm":"assets/images/project/tnt/tnt-photo-scrum-768.jpg",
+        "projectWorkImg8Phone":"assets/images/project/tnt/tnt-photo-scrum-480.jpg",
+        "projectWorkImg8Caption":""
     },
 
     {
