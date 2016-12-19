@@ -107,7 +107,7 @@
           .pipe(minifyCSS())
           .pipe(header(config.header))
           .pipe(sourcemaps.write('./'))
-          .pipe(gulp.dest(config.build_dir + '/css/'))
+          .pipe(gulp.dest(config.build_dir + '/assets/css/'))
 
           .pipe(browserSync.stream());
   });
