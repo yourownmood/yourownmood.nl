@@ -6,17 +6,22 @@
   // Load plugins
   var gulp = require('gulp-help')(require('gulp')),
       browserSync = require('browser-sync').create(),
+      bump = require('gulp-bump'),
       concat = require('gulp-concat'),
       del = require('del'),
+      filter = require('gulp-filter'),
+      fs = require('fs'),
+      git = require('gulp-git'),
       header = require('gulp-header'),
       minifyCSS = require('gulp-minify-css'),
       ngAnnotate = require('gulp-ng-annotate'),
-      uglify = require('gulp-uglify'),
       rename = require('gulp-rename'),
       runSequence = require('run-sequence'),
       sass = require('gulp-sass'),
       scsslint = require('gulp-scss-lint'),
-      sourcemaps = require('gulp-sourcemaps');
+      sourcemaps = require('gulp-sourcemaps'),
+      tag_version = require('gulp-tag-version'),
+      uglify = require('gulp-uglify');
 
   // Config variables
   var config = {
@@ -25,20 +30,23 @@
       dist_dir: './src/dist',
       build_dir: './build',
       node_dir: './node_modules',
-      bower_dir: './bower_components',
-      header: '/*! Build: ' + new Date().toString() + ' */\n'
+      bower_dir: './bower_components'
   };
+
+  // Set the banner var
+  var packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+  var banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n';
 
 
   /* Main tasks */
 
   // Build
   gulp.task('build', 'Standard build task', function(callback) {
-    runSequence('clean', ['sass', 'js', 'copy-assets', 'app-html', 'app-json'], callback);
+    runSequence('clean', ['sass', 'js:build', 'copy-assets', 'app-html', 'app-json'], callback);
   });
 
   // Serve
-  gulp.task('serve', 'Serves the application', ['build'], function(callback) {
+  gulp.task('serve', 'Serves the application', ['sass', 'js'], function(callback) {
     browserSync.init({
       server: config.src_dir
     });
@@ -84,19 +92,40 @@
     ])
     .pipe(ngAnnotate())
     .pipe(concat('bundle.js'))
-    .pipe(header(config.banner))
     .pipe(gulp.dest(config.src_dir + '/assets/javascript/'))
-
-    // Minify
-    .pipe(rename('bundle.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest(config.build_dir + '/javascript/'))
-
     .pipe(browserSync.stream());
+  });
+
+  // JS build task:
+  gulp.task('js:build', 'Concats and minify js files', function(callback) {
+    // Update the banner var
+    var packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+    var banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n';
+
+    return gulp.src([
+      config.src_dir  + '/assets/javascript/libs/jquery.min.js',
+      config.src_dir  + '/assets/javascript/libs/wow.js',
+
+      // Angular
+      config.node_dir + '/angular/angular.min.js',
+      config.node_dir + '/angular-route/angular-route.min.js',
+      config.node_dir + '/angular-animate/angular-animate.min.js',
+      config.node_dir + '/angular-lazy-image/release/lazy-image.js',
+      config.src_dir  + '/assets/javascript/main.js',
+    ])
+    .pipe(ngAnnotate())
+    .pipe(concat('bundle.min.js'))
+    .pipe(uglify())
+    .pipe(header(banner))
+    .pipe(gulp.dest(config.build_dir + '/javascript/'));
   });
 
   // Sass task:
   gulp.task('sass', 'Concats and minify scss files', function(callback) {
+    // Update the banner var
+    var packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+    var banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n';
+
     return gulp.src(config.src_dir + '/assets/sass/*.scss')
           .pipe(sourcemaps.init())
           .pipe(sass().on('error', sass.logError))
@@ -105,7 +134,7 @@
           //Minified CSS
           .pipe(rename('main.min.css'))
           .pipe(minifyCSS())
-          .pipe(header(config.header))
+          .pipe(header(banner))
           .pipe(sourcemaps.write('./'))
           .pipe(gulp.dest(config.build_dir + '/assets/css/'))
 
@@ -134,6 +163,52 @@
   gulp.task('app-json', 'Copy app .json files to the build folder', function() {
     gulp.src(config.src_dir + '/*.json')
         .pipe(gulp.dest(config.build_dir));
+  });
+
+
+  /* Versioning and publishing */
+
+  // Publish-patch
+  gulp.task('publish-patch', 'Create patch release', function(callback) {
+    runSequence('patch', 'build', 'commit', callback);
+  });
+
+  // Publish-minor
+  gulp.task('publish-minor', 'Create minor release', function(callback) {
+    runSequence('build', 'minor', 'commit', callback);
+  });
+
+  // Publish-major
+  gulp.task('publish-major', 'Create major release', function(callback) {
+    runSequence('build', 'major', 'commit', callback);
+  });
+
+  // gulp patch     # makes v0.1.0 → v0.1.1
+  gulp.task('patch', function() { return inc('patch'); })
+
+  // gulp minor   # makes v0.1.1 → v0.2.0
+  gulp.task('minor', function() { return inc('minor'); })
+
+  // gulp major   # makes v0.2.1 → v1.0.0
+  gulp.task('major', function() { return inc('major'); })
+
+  function inc(importance) {
+    // get all the files to bump version in
+    return gulp.src(['./package.json'])
+      // bump the version number in those files
+      .pipe(bump({type: importance}))
+      // save it back to filesystem
+      .pipe(gulp.dest('./'));
+  }
+
+  // Commit task
+  gulp.task('commit', function() {
+    return gulp.src(['./package.json'])
+      .pipe(git.commit('bumps package version'))
+      // read only one file to get the version number
+      .pipe(filter('package.json'))
+      // tag it in the repository
+      .pipe(tag_version());
   });
 
 })();
