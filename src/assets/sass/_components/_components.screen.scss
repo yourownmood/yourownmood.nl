@@ -67,7 +67,9 @@ $scherm-project-height: 110vh;
   }
 
   .layout {
-    display: table;
+    display: inline-block;
+
+    width: 100%;
     height: $scherm-project-height;
   }
 }
