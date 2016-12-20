@@ -37,24 +37,6 @@ $scherm-project-height: 110vh;
   min-height: $scherm-project-height;
   margin-bottom: 120px;
 
-  @include media-query(palm) {
-    min-height: 400px;
-    margin-bottom: 60px;
-
-    .card {
-      height: 480px;
-    }
-
-    .layout {
-      display: inline-block;
-    }
-
-    .project__bio {
-      margin-left: 9%;
-      padding-top: 50px;
-    }
-  }
-
   @include media-query(phone) {
     height: auto;
   }
@@ -71,6 +53,25 @@ $scherm-project-height: 110vh;
 
     width: 100%;
     height: $scherm-project-height;
+  }
+
+  @include media-query(palm) {
+    min-height: 400px;
+    margin-bottom: 60px;
+
+    .card {
+      height: 480px;
+    }
+
+    .layout {
+      display: inline-block;
+      height: auto;
+    }
+
+    .project__bio {
+      margin-left: 9%;
+      padding-top: 50px;
+    }
   }
 }
 
