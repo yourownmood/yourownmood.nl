@@ -12,6 +12,7 @@
 // --------------------------------------------------
 
 // LINK
+// LINK-PHONE
 // ITEM
 // TRIGGER
 
@@ -46,15 +47,17 @@
 // NAV-LIST-PHONE
 
 .nav-list-phone {
+  display: none;
+
   @include media-query(phone) {
+    display: block;
     width: 100%;
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 28px;
     border-bottom: 1px solid $yom-dusty;
 
-    background-color: lighten($yom-dusty, 25%);
     text-align: center;
   }
 }
@@ -67,6 +70,22 @@
 .nav-list__link {
   color: $yom-dusty;
   font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: $yom-cod;
+    text-decoration: underline;
+  }
+}
+
+// LINK-PHONE
+
+.nav-list__link-phone {
+  margin: 0 4px;
+
+  color: $yom-dusty;
+  font-size: 16px;
   font-weight: 500;
   text-decoration: none;
 
@@ -97,10 +116,10 @@
 
   @include media-query(phone) {
     position: absolute;
-    right: 16px;
+    left: 12px;
 
     display: block;
-    margin-top: 32px;
+    margin-top: 37px;
   }
 }
 
