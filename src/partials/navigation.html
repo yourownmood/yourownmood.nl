@@ -6,7 +6,7 @@
 
           <a ng-if="post.projectThumb"
              href="#/project/{{post.url}}"
-             ng-click="toggle('projects')"
+             ng-click="toggle('projects'); toggle('navigation')"
              class=" [ card card__bg bg-{{post.projectThumbPosition}} ] afkl-lazy-wrapper"
              afkl-lazy-image="{{post.projectThumb}} 480w, {{post.projectThumb}} 768w, {{post.projectThumb}}"
              afkl-lazy-image-options="{'background': true, 'offset': 250}">
@@ -24,7 +24,11 @@
                  afkl-lazy-image-options="{'offset': 250}"></div>
           </a>
 
-          <a ng-if="!post.projectThumb" style="background-color: {{post.projectColor}};" href="#/project/{{post.url}}" ng-click="toggle('projects')" class=" [ card card__bg bg-{{post.projectThumbPosition}} ] ">
+          <a ng-if="!post.projectThumb"
+             href="#/project/{{post.url}}"
+             ng-click="toggle('projects'); toggle('navigation')"
+             class=" [ card card__bg bg-{{post.projectThumbPosition}} ] "
+             style="background-color: {{post.projectColor}};">
             <span class="card--info card__animate">
                 <b>{{post.projectTitle}}</b>
                 <br>
@@ -50,9 +54,9 @@
 
     <div class="site-navigation__push">
       <ul class="nav-list-phone list-inline" ng-show="visibleNavigation">
-          <li><a href="#/about" ng-click="visibleProjects = false">About</a></li>
-          <li><a href ng-click="toggle('projects')">Projects</a></li>
-          <li><a href="#/contact" ng-click="visibleProjects = false">Contact</a></li>
+          <li><a class="nav-list__link-phone" href="#/about" ng-click="visibleProjects = false; toggle('navigation')">About</a></li>
+          <li><a class="nav-list__link-phone" href ng-click="toggle('projects');">Projects</a></li>
+          <li><a class="nav-list__link-phone" href="#/contact" ng-click="visibleProjects = false; toggle('navigation')">Contact</a></li>
       </ul>
 
       <ul class="nav-list list-inline">
