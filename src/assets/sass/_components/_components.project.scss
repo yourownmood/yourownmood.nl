@@ -14,6 +14,13 @@
   text-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
   font-size: 100px;
   line-height: 96px;
+
+  word-wrap:break-word;
+
+  @include media-query(phone) {
+    font-size: 55px;
+    line-height: 51px;
+  }
 }
 
 
