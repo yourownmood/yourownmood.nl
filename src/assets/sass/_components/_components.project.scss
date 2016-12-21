@@ -15,7 +15,7 @@
   font-size: 100px;
   line-height: 96px;
 
-  word-wrap:break-word;
+  word-wrap: break-word;
 
   @include media-query(phone) {
     font-size: 55px;
