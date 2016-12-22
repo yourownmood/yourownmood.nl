@@ -45,12 +45,16 @@
   }
 
   i:after {
+    -ms-transform: skew(-135deg);
     -webkit-transform: skew(-135deg);
+    transform: skew(-135deg);
   }
 
   i:before {
     top: 11px;
+    -ms-transform: skew(135deg);
     -webkit-transform: skew(135deg);
+    transform: skew(135deg);
   }
 }
 
