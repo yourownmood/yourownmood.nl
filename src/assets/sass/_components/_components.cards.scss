@@ -33,14 +33,6 @@ $card-br: 44%;
 /* CARD BACKGROUND */
 .card__bg {
   background-size: cover;
-
-  @include media-query(phone) {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
 }
 
 .card__bg--c {
@@ -58,14 +50,6 @@ $card-br: 44%;
   height: 100%;
 }
 
-.card__overlay--grey {
-  background-color: rgba(64, 64, 64, .5);
-
-  &:hover {
-    background-color: rgba(64, 64, 64, .25);
-  }
-}
-
 .scherm-1 {
   .card--sb {
     height: $card-tl;
@@ -76,10 +60,20 @@ $card-br: 44%;
   }
 }
 
-.card--sb {
-  .card__bg {
-    background-position: 40% 15%;
+.scherm-1 {
+  .card--sb,
+  .card--gj,
+  .card--sb-project,
+  .card--gj-project {
+
+    @include media-query(phone) {
+      min-height: 325px;
+    }
   }
+}
+
+.card--sb {
+  background-position: right;
 }
 
 .card--sb-project {
@@ -87,29 +81,19 @@ $card-br: 44%;
 
   background-color: #f60;
 
-  @include media-query(portable) {
-    min-height: 265px;
-  }
-
   @include media-query(phone) {
     min-height: 325px;
   }
 }
 
 .card--gj {
-  .card__bg {
-    background-position: 60% 15%;
-  }
+  background-position: 60% 15%;
 }
 
 .card--gj-project {
   height: $card-br;
 
   background-color: #4D148C;
-
-  @include media-query(portable) {
-    min-height: 265px;
-  }
 
   @include media-query(phone) {
     min-height: 325px;
@@ -141,8 +125,8 @@ $card-br: 44%;
   }
 }
 
-.profile__overlay,
-.card__overlay {
+.card__overlay,
+.profile__overlay {
   opacity: 0;
 
   &:hover,
