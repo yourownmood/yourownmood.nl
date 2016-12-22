@@ -28,7 +28,7 @@
              href="#/project/{{post.url}}"
              ng-click="toggle('projects'); toggle('navigation')"
              class=" [ card card__bg bg-{{post.projectThumbPosition}} ] "
-             style="background-color: {{post.projectColor}};">
+             ng-style="{'background-color': post.projectColor}">
             <span class="card--info card__animate">
                 <b>{{post.projectTitle}}</b>
                 <br>
