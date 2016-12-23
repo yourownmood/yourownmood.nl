@@ -203,7 +203,9 @@ $card-br: 44%;
 .card__project {
 
   @include media-query(portable) {
-    height: 300px !important;
+    &:not(.card--gj-project, .card--sb-project) {
+      height: 300px !important;
+    }
   }
 
   img {
