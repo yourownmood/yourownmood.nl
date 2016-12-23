@@ -18,7 +18,9 @@
               </h1>
             </div>
 
-            <div ng-if="!post.heroImgFull" class=" [ card card__bg ]" style="background-color: {{post.projectColor}};">
+            <div ng-if="!post.heroImgFull"
+                 class=" [ card card__bg ]"
+                 ng-style="{'background-color': post.projectColor}">
               <h1 class="project-hero__title">
                 {{post.heroTitle}}
               </h1>

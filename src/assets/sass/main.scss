@@ -25,6 +25,7 @@
  * Lists................Basic styling for regular ordered and unordered lists.
  * Images...............Provides very basic styling for images (img).
  * Horizontal-line......
+ * Headings.............
  *
  * OBJECTS
  * Wrappers.............Max-width wrappers.
@@ -43,7 +44,8 @@
  * Clearfix.............I can’t believe we still need this in 2014.
  * Widths...............Simple width helper classes.
  * Widths-responsive....Polyfill for responsive width classes.
- * Bg-position..........Background position helper classes. (Needs to be trump)
+ * Bg-position..........Background position helper classes.
+ * Text.................Text adjustment helper classes.
  *
  * SHAME
  * Shame................Quick fixes and hacks.
@@ -85,6 +87,7 @@
 @import 'node_modules/inuit-lists/base.lists';
 @import 'node_modules/inuit-images/base.images';
 @import '_base/base.horizontal-line';
+@import '_base/base.headings';
 
 
 /**
@@ -138,6 +141,7 @@ $inuit-enable-responsive-margins: true;
 @import '_trumps/trumps.animation';
 @import '_trumps/trumps.show-hide';
 @import '_trumps/trumps.bg-position';
+@import '_trumps/trumps.text';
 
 
 /**

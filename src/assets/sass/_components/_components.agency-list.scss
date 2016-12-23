@@ -1,35 +1,87 @@
-/*------------------------------------*\
-  #AGENCY LIST
-\*------------------------------------*/
+// --------------------------------------------------
+// +++ COMPONENT AGENCY-LIST +++
+// --------------------------------------------------
+
+// === BASE ===
+// --------------------------------------------------
+
+// AGENCY-LIST
+
+// === PARTS ===
+// --------------------------------------------------
+
+// LINK
+// AGENCY-1
+// AGENCY-2
+// AGENCY-3
+// AGENCY-4
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === BASE ===
+// --------------------------------------------------
+
+// AGENCY-LIST
 
 .agency-list {
   margin-top: 0;
   margin-bottom: 50px;
   padding: 0 5%;
+}
 
-  a {
-    display: block;
-    height: 80px;
-    margin-right: 30px;
-    padding-right: 25%;
-    padding-bottom: 25px;
-    border-bottom: 1px solid $yom-cod;
+// === PARTS ===
+// --------------------------------------------------
 
-    @include media-query (portable) {
-      margin-bottom: 25px;
-    }
+// LINK
 
-    img {
-      max-width: 100%;
-      max-height: 50px;
-    }
+.agency-list__link {
+  display: block;
+  height: 80px;
+  margin-right: 30px;
+  padding-right: 25%;
+  padding-bottom: 25px;
+  border-bottom: 1px solid $yom-cod;
+
+  @include media-query (portable) {
+    margin-bottom: 25px;
   }
 }
 
-.agency-3 img {
-  margin-top: 3px;
+// AGENCY-1
+
+.agency-1 img {
+  height: auto;
+  width: 90%;
+
+  max-width: none;
 }
 
+// AGENCY-2
+
+.agency-2 img {
+  height: auto;
+  width: 60%;
+
+  max-width: none;
+}
+
+// AGENCY-3
+
+.agency-3 img {
+  height: auto;
+  width: 65%;
+
+  max-width: none;
+}
+
+// AGENCY-4
+
 .agency-4 img {
-  margin-top: 25px;
+  width: 90%;
+  height: auto;
+
+  max-width: none;
 }
