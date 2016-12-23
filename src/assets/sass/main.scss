@@ -25,6 +25,7 @@
  * Lists................Basic styling for regular ordered and unordered lists.
  * Images...............Provides very basic styling for images (img).
  * Horizontal-line......
+ * Headings.............
  *
  * OBJECTS
  * Wrappers.............Max-width wrappers.
@@ -86,6 +87,7 @@
 @import 'node_modules/inuit-lists/base.lists';
 @import 'node_modules/inuit-images/base.images';
 @import '_base/base.horizontal-line';
+@import '_base/base.headings';
 
 
 /**
