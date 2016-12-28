@@ -61,7 +61,9 @@
       }, 0);
     };
 
-    $('.card__profile, .card__project').on("touchstart", function (e) {});
+    // Disable touchstart for cards
+    var cards = document.querySelectorAll('.card__project, .card__profile');
+    angular.element(cards).on("touchstart", function (e) {});
 
   }]);
 
@@ -125,7 +127,7 @@
     return {
       restrict: 'E',
       templateUrl: 'partials/navigation.html',
-      controller:function($scope, $http){
+      controller:function($scope, $http, $anchorScroll){
 
         $scope.visibleProjects = false;
         $scope.visibleNavigation = false;
@@ -141,11 +143,25 @@
 
             $scope.visibleProjects = !$scope.visibleProjects;
 
-            $('body').animate( {scrollTop: '0'}, 150);
+            $anchorScroll();
 
             if($scope.visibleProjects === true){
-              $('#js-scrollboxProjects').scrollLeft( 10000 );
-              $('#js-scrollboxProjects').animate( { scrollLeft: '0' }, 750);
+              var scrollBox = document.getElementById('js-scrollboxProjects');
+
+              // Scroll to the horizontal end of the element
+              scrollBox.scrollLeft = scrollBox.scrollWidth;
+
+              function scrollElementToLeft(scrollDuration, element) {
+                var scrollStep = -element.scrollLeft / (scrollDuration / 15),
+                  scrollInterval = setInterval(function(){
+                  if ( element.scrollLeft != 0 ) {
+                    element.scrollLeft += scrollStep;
+                  }
+                  else clearInterval(scrollInterval);
+                },15);
+              }
+
+              scrollElementToLeft(750, scrollBox);
             }
 
           }else if (trigger == 'navigation') {
@@ -179,7 +195,7 @@
     };
   });
 
-  app.run(['$rootScope', function ($rootScope) {
+  app.run(['$rootScope', '$anchorScroll', function ($rootScope, $anchorScroll) {
     // Create a new instance
     var wow = new WOW();
     wow.init();
@@ -189,7 +205,7 @@
       wow.sync();
 
       // And scroll to the top of the page
-      $('body').animate( {scrollTop: '0'}, 150);
+      $anchorScroll();
     });
   }]);
 
