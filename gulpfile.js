@@ -152,6 +152,9 @@
     gulp.src(config.dist_dir + '/index.html')
         .pipe(gulp.dest(config.build_dir));
 
+    gulp.src(config.dist_dir + '/.htaccess')
+        .pipe(gulp.dest(config.build_dir));
+
     gulp.src(config.src_dir + '/partials/*.html')
         .pipe(gulp.dest(config.build_dir + '/partials/'));
 
