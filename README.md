@@ -36,4 +36,4 @@ Despite being open sourced, all yourownmood.nl code and content remain copyright
   ```
   gulp publish-prod
   ```
-* Verify the release on [yourownmood.nl](http://yourownmood.nl)
+* Verify the release on [yourownmood.nl](https://yourownmood.nl)
