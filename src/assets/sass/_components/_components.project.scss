@@ -1,0 +1,148 @@
+/*------------------------------------*\
+  #PROJECT
+\*------------------------------------*/
+
+/* PROJECT */
+
+
+/* PROJECT-HERO */
+
+.project-hero__title {
+  padding: 135px 25px 0 7.5%;
+
+  color: $yom-white;
+  text-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+  font-size: 100px;
+  line-height: 96px;
+
+  word-wrap: break-word;
+
+  @include media-query(phone) {
+    font-size: 55px;
+    line-height: 51px;
+  }
+}
+
+
+/* PROJECT-INTRO */
+
+.project-intro {
+  margin-right: 10%;
+  margin-left: 18%;
+
+  padding-top: 260px;
+
+  @include media-query(palm) {
+    margin: 0 16px;
+
+    padding-top: 65px;
+  }
+}
+
+.project-intro__body {
+  margin-bottom: 50px;
+
+  color: $yom-dusty;
+  font-size: 17px;
+  line-height: 30px;
+}
+
+.project-intro__label {
+  display: block;
+
+  color: $yom-dusty;
+  font-size: 17px;
+  line-height: 30px;
+}
+
+.project-intro__title {
+  display: block;
+
+  color: $yom-cod;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+
+/* PROJECT-GRAPHIC */
+
+.project-graphic {
+  position: relative;
+
+  width: 100%;
+  min-height: 80px;
+
+  background-color: $yom-athens;
+
+  text-align: center;
+}
+
+.project-graphic__caption {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+
+  margin: 0;
+  padding: 0;
+}
+
+.project-graphic__title {
+  margin: 0 55px 70px;
+
+  @include media-query(palm) {
+    margin: 0 16px 50px;
+  }
+}
+
+.project-graphic__image {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* OPTIONS */
+
+.project-graphic--fill {
+  .project-graphic__image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.project-graphic--shadow {
+  .project-graphic__image img {
+    //box-shadow: 0px 0px 46px 0px rgba(207,205,205,.5);
+    box-shadow: 0 0 46px 0 rgba(107, 107, 107, .75);
+  }
+}
+
+.project-graphic--center {
+  .project-graphic__image img {
+    max-width: 80%;
+
+    margin: 80px 0;
+
+    text-align: center;
+  }
+}
+
+/* OLD */
+
+.project__image {
+  padding: 0 10%;
+
+  @include media-query(palm) {
+    margin-bottom: 30px;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  span {
+    display: block;
+  }
+}

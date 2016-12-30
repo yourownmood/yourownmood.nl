@@ -1,0 +1,81 @@
+// --------------------------------------------------
+// +++ WRAPPER +++
+// --------------------------------------------------
+
+// === BASE ===
+// --------------------------------------------------
+
+// WRAPPER
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// WRAPPER SCREEN
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === BASE ===
+// --------------------------------------------------
+
+// WRAPPER
+
+.wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+
+  padding-right: 10%;
+  padding-left: 10%;
+
+  @include media-query(palm) {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+}
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// WRAPPER SCREEN
+
+.wrapper--screen {
+  max-width: 100%;
+  margin: 0 auto;
+
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+/*
+Wrapper
+
+Style guide Objects - Wrapper
+*/
+
+/*
+Base
+
+`.wrapper` centers the wrapper in the page.
+
+Style guide Objects - Wrapper - Base
+*/
+
+/*
+Options
+
+`.wrapper--screen`: adds a fixed padding of `16px`.
+
+Style guide Objects - Wrapper - Options
+*/

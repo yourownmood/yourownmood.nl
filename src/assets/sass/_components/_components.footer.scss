@@ -1,0 +1,26 @@
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
+
+footer {
+  width: 100%;
+  margin-top: 100px;
+  padding: 20px 5%;
+  border-top: 1px solid $yom-dusty;
+
+  color: $yom-dusty;
+
+  a {
+    color: $yom-dusty;
+    text-decoration: none;
+
+    &:hover {
+      color: $yom-cod;
+      text-decoration: underline;
+    }
+  }
+
+  b {
+    color: $yom-cod;
+  }
+}

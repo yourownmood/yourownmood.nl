@@ -1,0 +1,24 @@
+/*------------------------------------*\
+  #ANCHORS
+\*------------------------------------*/
+
+.anchor {
+  text-decoration: none;
+  color: $yom-cod;
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.anchor--arrow {
+  padding-right: 30px;
+
+  background-image: url('../images/list-arrow-right.png');
+  background-repeat: no-repeat;
+  background-position: right 8px;
+}

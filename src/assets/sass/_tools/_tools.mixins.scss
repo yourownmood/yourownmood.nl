@@ -1,0 +1,129 @@
+// --------------------------------------------------
+// +++ MIXINS +++
+// --------------------------------------------------
+
+// === MIXINS ===
+// --------------------------------------------------
+
+// BORDER-RADIUS
+// TRANSFORM
+// TRANSITION
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+// BORDER-RADIUS
+
+// scss-lint:disable VendorPrefix
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+// TRANSFORM
+
+@mixin transform($type) {
+  -webkit-transform: $type;
+  -moz-transform: $type;
+  -ms-transform: $type;
+  -o-transform: $type;
+  transform: $type;
+}
+
+// TRANSITION
+
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+// scss-lint:enable
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+/*
+Mixins
+
+**When to use a mixin?**
+
+Hideexample: true
+
+Markuplanguage: sass
+
+Markup:
+.class {
+  @include mixin(property);
+}
+
+Style guide: Tools - Mixins
+*/
+
+/*
+Border-radius
+
+For including backwards-compatible border-radius.
+
+**How to use:**
+
+Hideexample: true
+
+Markuplanguage: sass
+
+Markup:
+.class {
+  @include border-radius(5px);
+}
+
+Style guide: Tools - Mixins - Border-radius
+*/
+
+/*
+Transform
+
+Standardized use of the transform property.
+
+**How to use:**
+
+Hideexample: true
+
+Markuplanguage: sass
+
+Markup:
+.class {
+  @include transform($type);
+}
+
+Style guide: Tools - Mixins - Transform
+*/
+
+/*
+Transition
+
+Standardized use of transition animation.
+
+**How to use:**
+
+Hideexample: true
+
+Markuplanguage: sass
+
+Markup:
+.class {
+  @include transition($transition-property, $transition-time, $method);
+}
+
+Style guide: Tools - Mixins - Transition
+*/

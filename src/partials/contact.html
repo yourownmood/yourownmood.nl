@@ -1,0 +1,38 @@
+<section ng-controller="contactCtrl as contact">
+  <div class="wrapper">
+    <div class="layout">
+      <div class="layout__item u-1/1">
+        <h1 class="wow fadeInUp" data-wow-duration="0.7s">Contact</h1>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div class="layout__item u-3/5 u-1/1-palm">
+        <p class="project-intro__body [ wow fadeInUp ]" data-wow-duration="0.7s" data-wow-delay="0.2s">
+          <span class="project-intro__label">Yourownmood</span>
+          <a href="mailto:{{contact.mailInfo}}" class="anchor anchor--arrow" target="_blank">
+            <strong class="txt--break-word">{{contact.mailInfo}}</strong>
+          </a>
+          <br>
+          <a href="tel:+31108208866" class="anchor" target="_blank">
+            <strong class="txt--break-word">+31 10 820 88 66</strong>
+          </a>
+        </p>
+
+        <p class="project-intro__body [ wow fadeInUp ]" data-wow-duration="0.7s" data-wow-delay="0.2s">
+          <span class="project-intro__label">Steven Bax</span>
+          <a href="mailto:{{contact.mailS}}" class="anchor anchor--arrow" target="_blank">
+            <strong class="txt--break-word">{{contact.mailS}}</strong>
+          </a>
+        </p>
+
+        <p class="project-intro__body [ wow fadeInUp ]" data-wow-duration="0.7s" data-wow-delay="0.2s">
+          <span class="project-intro__label">Gert-Jan de Goede</span>
+          <a href="mailto:{{contact.mailGJ}}" class="anchor anchor--arrow" target="_blank">
+            <strong class="txt--break-word">{{contact.mailGJ}}</strong>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

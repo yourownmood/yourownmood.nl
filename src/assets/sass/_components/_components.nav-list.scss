@@ -1,0 +1,135 @@
+// ---------------------------------------------------
+// +++ COMPONENT NAV-LIST +++
+// --------------------------------------------------
+
+// === BASE ===
+// --------------------------------------------------
+
+// NAV-LIST
+// NAV-LIST-PHONE
+
+// === PARTS ===
+// --------------------------------------------------
+
+// LINK
+// LINK-PHONE
+// ITEM
+// TRIGGER
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === BASE ===
+// --------------------------------------------------
+
+// NAV-LIST
+
+.nav-list {
+  margin-top: 50px;
+  margin-bottom: 51px;
+
+  @include media-query(portable) {
+    margin-top: 25px;
+  }
+
+  @include media-query(phone) {
+    display: none;
+  }
+}
+
+// NAV-LIST-PHONE
+
+.nav-list-phone {
+  display: none;
+
+  @include media-query(phone) {
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid $yom-dusty;
+
+    text-align: center;
+  }
+}
+
+// === PARTS ===
+// --------------------------------------------------
+
+// LINK
+
+.nav-list__link {
+  color: $yom-dusty;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: $yom-cod;
+    text-decoration: underline;
+  }
+}
+
+// LINK-PHONE
+
+.nav-list__link-phone {
+  margin: 0 4px;
+
+  color: $yom-dusty;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+
+  &:hover {
+    color: $yom-cod;
+    text-decoration: underline;
+  }
+}
+
+// ITEM
+
+.nav-list__item {
+  padding: 0 13px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+// TRIGGER
+
+.nav-list__trigger {
+  display: none;
+
+  @include media-query(phone) {
+    position: absolute;
+    left: 12px;
+
+    display: block;
+    margin-top: 37px;
+  }
+}
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+/*
+
+Coming soon...
+
+*/

@@ -1,0 +1,84 @@
+/*------------------------------------*\
+  #BUTTONS
+\*------------------------------------*/
+
+.button {
+  @include transition(background-color, .3s, cubic-bezier(.250, .460, .450, .940));
+  @include border-radius(3px);
+  position: relative;
+
+  display: inline-block;
+  width: 180px;
+  height: 58px;
+  padding: 0 35px;
+  border: 1px solid $yom-dusty;
+
+  color: $yom-cod;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: left;
+  line-height: 55px;
+  font-weight: 700;
+
+  &:hover {
+    background: rgba(200, 200, 200, .6);
+  }
+}
+
+.button--arrow {
+  i {
+    position: absolute;
+    top: 17px;
+    right: 25px;
+  }
+
+  i:after,
+  i:before {
+    position: absolute;
+
+    width: 6px;
+    height: 11px;
+    border-left: 2px solid $yom-dusty;
+
+    content: '';
+    pointer-events: none;
+  }
+
+  i:after {
+    -ms-transform: skew(-135deg);
+    -webkit-transform: skew(-135deg);
+    transform: skew(-135deg);
+  }
+
+  i:before {
+    top: 11px;
+    -ms-transform: skew(135deg);
+    -webkit-transform: skew(135deg);
+    transform: skew(135deg);
+  }
+}
+
+.button--black {
+  border-color: $yom-cod;
+  background: $yom-cod;
+  color: $yom-white;
+
+  &:hover {
+    background: $yom-white;
+    color: $yom-cod;
+  }
+}
+
+.button--dia {
+  width: auto;
+
+  color: $yom-white;
+}
+
+.button--social {
+  width: 58px;
+  padding: 0;
+
+  font-size: 20px;
+  text-align: center;
+}

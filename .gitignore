@@ -1,9 +1,11 @@
 /.sass-cache/
 /bower_components/
 /node_modules/
-
-/public/_assets/css/
-/public/_assets/javascript/build/
-
-/build
-
+/src/build/
+/build/
+/_assets/css/
+/old/
+/_assets/javascript/build/
+/src/assets/javascript/bundle.js
+/src/assets/css
+/cred.json

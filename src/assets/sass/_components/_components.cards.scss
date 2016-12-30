@@ -1,0 +1,372 @@
+/*------------------------------------*\
+  #CARDS
+\*------------------------------------*/
+
+$card-tl: 63%;
+$card-bl: 37%;
+//$card-tl + $card-bl == 100%
+
+$card-tr: 56%;
+$card-br: 44%;
+//$card-tr + $card-br == 100%
+
+
+/* CARD BASIC */
+.card {
+  position: relative;
+
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+  background-color: $yom-dusty;
+}
+
+.card__animate {
+  -webkit-transition: all .3s cubic-bezier(.250, .460, .450, .940);
+  -moz-transition: all .3s cubic-bezier(.250, .460, .450, .940);
+  -o-transition: all .3s cubic-bezier(.250, .460, .450, .940);
+  transition: all .3s cubic-bezier(.250, .460, .450, .940);
+}
+
+/* CARD BACKGROUND */
+.card__bg {
+  background-size: cover;
+}
+
+.card__bg--c {
+  background-position: center;
+}
+
+/* CARD OVERLAY */
+.card__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 100%;
+}
+
+.scherm-1 {
+  .card--sb {
+    height: $card-tl;
+  }
+
+  .card--gj {
+    height: $card-tr;
+  }
+}
+
+.scherm-1 {
+  .card--sb,
+  .card--gj,
+  .card--sb-project,
+  .card--gj-project {
+
+    @include media-query(phone) {
+      min-height: 325px;
+    }
+  }
+}
+
+.card--sb {
+  background-position: right;
+}
+
+.card--sb-project {
+  height: $card-bl;
+
+  background-color: #f60;
+
+  @include media-query(phone) {
+    min-height: 325px;
+  }
+}
+
+.card--gj {
+  background-position: 60% 15%;
+}
+
+.card--gj-project {
+  height: $card-br;
+
+  background-color: #4D148C;
+
+  @include media-query(phone) {
+    min-height: 325px;
+  }
+}
+
+.card--sb,
+.card--gj {
+  @include media-query(phone) {
+    height: 525px;
+  }
+}
+
+/* --- PROFILE --- */
+.profile__name {
+  position: absolute;
+  bottom: 45px;
+  left: 45px;
+
+  margin: 0;
+  padding: 0 30px 0 0;
+
+  color: $yom-dusty;
+
+  b {
+    display: block;
+
+    color: $yom-white;
+  }
+}
+
+.card__overlay,
+.profile__overlay {
+  opacity: 0;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .85);
+  }
+}
+
+.profile__name--overlay,
+.project__name--overlay {
+  left: 35px;
+
+  margin: 0 35px 0 0;
+  padding: 0 35px 0 0;
+
+  color: $yom-dusty;
+  font-size: 23px;
+  line-height: 36px;
+
+  @include media-query(portable) {
+    @include transform(translateY(0));
+    top: 35px;
+
+    margin-top: 0/9;
+
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  b {
+    display: block;
+
+    color: $yom-cod;
+    font-size: 32px;
+
+    @include media-query(portable) {
+      font-size: 28px;
+      line-height: 32px;
+    }
+  }
+}
+
+.profile__btns,
+.project__btns {
+  display: block;
+  margin-top: 20px;
+
+  .button {
+    margin-right: 10px;
+    float: left;
+  }
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/*  --- PROJECT --- */
+.project__name {
+  position: absolute;
+  top: 35px;
+  left: 45px;
+
+  margin: 0;
+  padding: 0;
+
+  color: $yom-cod;
+  font-weight: 700;
+}
+
+.card__project {
+  img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    max-width: 50%;
+    height: auto;
+    max-height: 50%;
+    margin: auto;
+  }
+}
+
+.scherm-2 .card__project {
+  @include media-query(portable) {
+    height: 300px;
+  }
+}
+
+.card--allerhande {
+  height: 34%;
+
+  background-color: #6cbc88;
+
+  .card__bg {
+    background-position: center right;
+  }
+}
+
+.card--sunweb {
+  height: 33%;
+
+  background-color: #ff0;
+
+  .card__bg {
+    background-position: center right;
+  }
+}
+
+.card--liander {
+  height: 33%;
+
+  background-color: #811d7d;
+
+  .card__bg {
+    background-position: top right;
+  }
+
+  img { max-width: 38%; }
+}
+
+.card--ecover {
+  height: 37%;
+
+  background-color: #85c300;
+
+  img {
+    max-width: 40%;
+    max-height: 100%;
+  }
+}
+
+.card--sdc {
+  height: 26%;
+
+  background-color: #e01e3a;
+
+  .overlay__name {
+    @include media-query (desk) {
+      margin-top: -30px;
+    }
+
+    b {
+      font-size: 27px;
+
+      @include media-query (phone) {
+        font-size: 21px;
+      }
+    }
+  }
+
+  img { max-width: 48%; }
+}
+
+.card--be {
+  height: 37%;
+
+  background-color: #f1f1f1;
+
+  img { max-width: 62%; }
+}
+
+.card--ing {
+  height: 25%;
+
+  background-color: #999;
+
+  .card__bg {
+    background-position: center center;
+  }
+}
+
+.card--ldd {
+  height: 20%;
+
+  background-color: #f0ece8;
+
+  .overlay__name {
+    @include media-query (desk) {
+      margin-top: -30px;
+    }
+
+    b {
+      font-size: 27px;
+
+      @include media-query (phone) {
+        font-size: 21px;
+      }
+    }
+  }
+
+  img {
+    max-width: 74%;
+    max-height: 100%;
+  }
+}
+
+.card--ultimaker {
+  height: 30%;
+
+  background-color: #2eb5e7;
+
+  .card__background {
+    background-position: center right;
+  }
+}
+
+.card--tags {
+  height: 25%;
+  padding: 8%;
+
+  background-color: $yom-cod;
+
+  @include media-query (portable) {
+    padding: 5%;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 10px;
+
+    color: $yom-white;
+    font-size: 24px;
+  }
+}
+
+.card--ldd,
+.card--ultimaker {
+  @include media-query(phone-to-desk) {
+    float: left;
+    width: 50%;
+  }
+}
+
+.card__bg--tnt {
+  background-color: #f60;
+}

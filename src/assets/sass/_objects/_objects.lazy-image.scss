@@ -1,0 +1,84 @@
+// --------------------------------------------------
+// +++ LAZY-IMAGE +++
+// --------------------------------------------------
+
+// === BASE ===
+// --------------------------------------------------
+
+// LAZY-IMAGE WRAPPER
+// LAZY-IMAGE IMAGE
+// LAZY-IMAGE LOADING
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// 2:1
+// 16:9
+// 3:2
+// 1:1
+// 4:3
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === BASE ===
+// --------------------------------------------------
+
+// LAZY-IMAGE WRAPPER
+
+/* preventing reflow lazy image setup */
+.js .afkl-lazy-wrapper {
+  position: relative;
+
+  display: block;
+  overflow: hidden;
+}
+
+// LAZY-IMAGE IMAGE
+
+/* auto size our image */
+.afkl-lazy-wrapper .afkl-lazy-image {
+  width: 100%;
+}
+
+// LAZY-IMAGE LOADING
+
+/* default loading state */
+.afkl-lazy-image-loading {
+  background-color: transparent;
+}
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// 2:1
+
+.afkl-img-ratio-2-1 {
+  padding-bottom: 50%;
+}
+
+// 16:9
+
+.afkl-img-ratio-16-9 {
+  padding-bottom: 56.25%;
+}
+
+// 3:2
+
+.afkl-img-ratio-3-2 {
+  padding-bottom: 66.67%;
+}
+
+// 1:1
+
+.afkl-img-ratio-1-1 {
+  padding-bottom: 100%;
+}
+
+// 4:3
+
+.afkl-img-ratio-4-3 {
+  padding-bottom: 75%;
+}

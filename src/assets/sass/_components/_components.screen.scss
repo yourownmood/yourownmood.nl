@@ -1,0 +1,128 @@
+.scherm {
+  width: 100%;
+  padding: 0 16px;
+}
+
+.scherm-1 {
+  height: 104vh;
+
+  @include media-query(phone) {
+    height: auto;
+  }
+
+  .layout,
+  .layout .layout__item {
+    height: 100%;
+  }
+}
+
+.scherm-2 {
+  position: relative;
+
+  height: 120vh;
+
+  @include media-query(portable) {
+    height: auto;
+  }
+
+  .layout,
+  .layout .layout__item {
+    height: 100%;
+  }
+}
+
+$scherm-project-height: 110vh;
+
+.scherm-project {
+  min-height: $scherm-project-height;
+  margin-bottom: 120px;
+
+  @include media-query(phone) {
+    height: auto;
+  }
+
+  @include media-query(lap-and-up) {
+    .layout,
+    .layout .layout__item {
+      height: 100%;
+    }
+  }
+
+  .layout {
+    display: inline-block;
+
+    width: 100%;
+    height: $scherm-project-height;
+  }
+
+  @include media-query(palm) {
+    min-height: 400px;
+    margin-bottom: 60px;
+
+    .card {
+      height: 480px;
+    }
+
+    .layout {
+      display: inline-block;
+      height: auto;
+    }
+
+    .project__bio {
+      margin-left: 9%;
+      padding-top: 50px;
+    }
+  }
+}
+
+/* --- HELPERS --- */
+.v-align {
+  @include transform(translateY(-50%));
+
+  position: relative;
+  top: 50%;
+
+  margin: 0;
+  margin-top: -50%/9;
+  padding: 0;
+}
+
+.vh-align--img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  max-width: 50%;
+  height: auto;
+  max-height: 50%;
+  margin: auto;
+
+  @include media-query(portable) {
+    min-height: 275px;
+  }
+}
+
+img.vh-align--img {
+  min-height: auto !important;
+}
+
+.worked-at {
+  padding: 60px 25% 60px 5%;
+
+  color: $yom-dusty;
+  font-size: 20px;
+
+  @include media-query(phone) {
+    padding-right: 5%;
+  }
+
+  b {
+    display: block;
+    margin-bottom: 5px;
+
+    color: $yom-cod;
+  }
+}
