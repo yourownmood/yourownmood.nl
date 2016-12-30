@@ -215,8 +215,8 @@
   });
 
   // Pubish test task
-  gulp.task('publish-test', ['build'], function () {
-    return gulp.src(config.build_dir + '/**/*')
+  gulp.task('publish-test', function () {
+    return gulp.src(config.build_dir + '/**/**/*')
       .pipe(ftp({
         host: cred.host,
         user: cred.user,
@@ -228,7 +228,9 @@
 
   // Pubish prod task
   gulp.task('publish-prod', ['build'], function () {
-    return gulp.src(config.build_dir + '/**/*')
+    return gulp.src([config.build_dir + '/**/**/*', config.build_dir + '/.htaccess'], {
+        dot: true
+      })
       .pipe(ftp({
         host: cred.host,
         user: cred.user,
