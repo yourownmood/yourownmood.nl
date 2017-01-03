@@ -48,6 +48,11 @@ $card-br: 44%;
   left: 0;
 
   height: 100%;
+
+  padding-top: 50px;
+  padding-right: 60px;
+  padding-bottom: 50px;
+  padding-left: 60px;
 }
 
 .scherm-1 {
@@ -116,13 +121,9 @@ $card-br: 44%;
   margin: 0;
   padding: 0 30px 0 0;
 
-  color: $yom-dusty;
-
-  b {
-    display: block;
-
-    color: $yom-white;
-  }
+  color: $yom-white;
+  font-size: 17px;
+  line-height: 20px;
 }
 
 .card__overlay,
@@ -132,50 +133,35 @@ $card-br: 44%;
   &:hover,
   &:focus {
     opacity: 1;
-    background-color: rgba(255, 255, 255, .85);
+    background-color: rgba(255, 255, 255, .93);
   }
 }
 
 .profile__name--overlay,
 .project__name--overlay {
-  left: 35px;
-
-  margin: 0 35px 0 0;
-  padding: 0 35px 0 0;
+  margin: 0;
+  padding: 0;
 
   color: $yom-dusty;
-  font-size: 23px;
-  line-height: 36px;
-
-  @include media-query(portable) {
-    @include transform(translateY(0));
-    top: 35px;
-
-    margin-top: 0/9;
-
-    font-size: 22px;
-    line-height: 28px;
-  }
+  font-size: 17px;
+  line-height: 26px;
 
   b {
     display: block;
 
     color: $yom-cod;
-    font-size: 32px;
-
-    @include media-query(portable) {
-      font-size: 28px;
-      line-height: 32px;
-    }
+    font-size: 26px;
+    margin-bottom: 8px;
   }
 }
 
 .profile__btns,
 .project__btns {
   display: block;
-  margin-top: 20px;
+  position: absolute;
+  bottom: 50px;
 
-  .button {
+  .btn {
     margin-right: 10px;
     float: left;
   }
@@ -198,6 +184,7 @@ $card-br: 44%;
 
   color: $yom-cod;
   font-weight: 700;
+  font-size: 17px;
 }
 
 .card__project {
@@ -296,7 +283,7 @@ $card-br: 44%;
 }
 
 .card--ing {
-  height: 25%;
+  height: 30%;
 
   background-color: #999;
 
@@ -306,7 +293,7 @@ $card-br: 44%;
 }
 
 .card--ldd {
-  height: 20%;
+  height: 27%;
 
   background-color: #f0ece8;
 
@@ -331,31 +318,12 @@ $card-br: 44%;
 }
 
 .card--ultimaker {
-  height: 30%;
+  height: 43%;
 
   background-color: #2eb5e7;
 
   .card__background {
     background-position: center right;
-  }
-}
-
-.card--tags {
-  height: 25%;
-  padding: 8%;
-
-  background-color: $yom-cod;
-
-  @include media-query (portable) {
-    padding: 5%;
-  }
-
-  p {
-    margin-top: 0;
-    margin-bottom: 10px;
-
-    color: $yom-white;
-    font-size: 24px;
   }
 }
 

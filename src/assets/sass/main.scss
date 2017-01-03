@@ -30,13 +30,13 @@
  * OBJECTS
  * Wrappers.............Max-width wrappers.
  * Layout...............inuitcss’ layout tool.
+ * Layout extended......inuitcss’ layout tool extended.
  * List-bare............A simple object to remove bullets and indents from lists.
  * List-inline..........Displays a list as one horizontal row.
  * Lazy-image...........Lazy image tool classes.
  *
  * COMPONENTS
- * Button-icon
- * Buttons
+ * Button
  * Screens
  * Cards
  * Nav-list
@@ -100,6 +100,7 @@ $inuit-enable-layout--flush: true;
 $inuit-enable-layout--middle: true;
 $inuit-enable-layout--center: true;
 @import 'node_modules/inuit-layout/objects.layout';
+@import '_objects/objects.layout';
 @import 'node_modules/inuit-list-bare/objects.list-bare';
 @import 'node_modules/inuit-list-inline/objects.list-inline';
 @import '_objects/objects.lazy-image';
@@ -115,12 +116,10 @@ $inuit-enable-layout--center: true;
 @import '_components/components.footer';
 @import '_components/components.cards';
 @import '_components/components.anchors';
-@import '_components/components.button-icon';
-@import '_components/components.buttons';
+@import '_components/components.button';
 @import '_components/components.page-slogan';
 @import '_components/components.page-intro';
 @import '_components/components.agency-list';
-@import '_components/components.tag-list';
 @import '_components/components.scrollbox';
 @import '_components/components.project';
 @import '_components/components.lists';

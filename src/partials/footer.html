@@ -1,10 +1,16 @@
 <footer class="footer">
   <div class="layout">
-    <div class="layout__item u-1/1">
+    <div class="layout__item u-1/2">
+      <a ng-click="gotoTop()" class="btn btn--center">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" width="16" viewBox="148.6 -124.5 544.8 841.9"><path d="M419.7-124.5L419.7-124.5c-2.5 0-7.4 0-9.9 2.5l-257.5 272.4c-5 5-5 12.4 0 17.3 5 5 12.4 5 17.3 0l237.7-250.1v787.4c0 7.4 5 12.4 12.4 12.4s12.4-5 12.4-12.4V-82.4l240.2 252.6c5 5 12.4 5 17.3 0s5-12.4 0-17.3L432.1-119.6C427.1-124.5 424.7-124.5 419.7-124.5"/></svg>
+        <span class="btn__label">Top</span>
+      </a>
 
-      <a ng-click="gotoTop()" class="btn-icon btn-icon--center">
-        <svg class="btn-icon__svg" xmlns="http://www.w3.org/2000/svg" width="16" viewBox="148.6 -124.5 544.8 841.9"><path d="M419.7-124.5L419.7-124.5c-2.5 0-7.4 0-9.9 2.5l-257.5 272.4c-5 5-5 12.4 0 17.3 5 5 12.4 5 17.3 0l237.7-250.1v787.4c0 7.4 5 12.4 12.4 12.4s12.4-5 12.4-12.4V-82.4l240.2 252.6c5 5 12.4 5 17.3 0s5-12.4 0-17.3L432.1-119.6C427.1-124.5 424.7-124.5 419.7-124.5"/></svg>
-        <span class="btn-icon__label">Top</span>
+    </div><div class="layout__item layout__item--right u-1/2">
+
+      <a href="#/about" ng-hide="$location.path() == '/contact'" class="btn btn--center btn--primary">
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 841.9 595.3"><path d="M841.9 295.2L841.9 295.2c0-2.5 0-7.4-2.5-9.9L567 27.7c-5-5-12.4-5-17.3 0 -5 5-5 12.4 0 17.3l250.1 237.7H12.4c-7.4 0-12.4 5-12.4 12.4s5 12.4 12.4 12.4h787.4L547.2 547.7c-5 5-5 12.4 0 17.3s12.4 5 17.3 0l272.4-257.5C841.9 302.6 841.9 300.1 841.9 295.2"/></svg>
+        <span class="btn__label">Get in touch</span>
       </a>
 
     </div>
