@@ -12,7 +12,7 @@
       del = require('del'),
       filter = require('gulp-filter'),
       fs = require('fs'),
-      ftp = require('gulp-ftp'),
+      ftp = require('vinyl-ftp'),
       git = require('gulp-git'),
       gutil = require('gulp-util'),
       header = require('gulp-header'),
@@ -143,29 +143,35 @@
 
   // Copy assets task:
   gulp.task('copy-assets', 'Copys assets files to the build folder', function() {
-    gulp.src(config.src_dir + '/assets/images/**/*')
-        .pipe(gulp.dest(config.build_dir + '/assets/images/'));
+    return gulp.src(config.src_dir + '/assets/images/**/*')
+           .pipe(gulp.dest(config.build_dir + '/assets/images/'));
   });
 
   // app HTML task:
-  gulp.task('app-html', 'Copy app .html files to the build folder', function() {
-    gulp.src(config.dist_dir + '/index.html')
-        .pipe(gulp.dest(config.build_dir));
+  gulp.task('app-html', ['move-partials', 'move-templates'], function() {
+    return gulp.src([
+            config.dist_dir + '/index.html',
+            config.dist_dir + '/.htaccess',
+           ])
+           .pipe(gulp.dest(config.build_dir));
+  });
 
-    gulp.src(config.dist_dir + '/.htaccess')
-        .pipe(gulp.dest(config.build_dir));
+  // Move partials dir task:
+  gulp.task('move-partials', function() {
+    return gulp.src(config.src_dir + '/partials/*.html')
+           .pipe(gulp.dest(config.build_dir + '/partials/'));
+  });
 
-    gulp.src(config.src_dir + '/partials/*.html')
-        .pipe(gulp.dest(config.build_dir + '/partials/'));
-
-    gulp.src(config.src_dir + '/templates/*.html')
-        .pipe(gulp.dest(config.build_dir + '/templates/'));
+  // Move templates dir task:
+  gulp.task('move-templates', function() {
+    return gulp.src(config.src_dir + '/templates/*.html')
+           .pipe(gulp.dest(config.build_dir + '/templates/'));
   });
 
   // app JSON task:
   gulp.task('app-json', 'Copy app .json files to the build folder', function() {
-    gulp.src(config.src_dir + '/*.json')
-        .pipe(gulp.dest(config.build_dir));
+    return gulp.src(config.src_dir + '/*.json')
+           .pipe(gulp.dest(config.build_dir));
   });
 
 
@@ -215,29 +221,42 @@
   });
 
   // Pubish test task
-  gulp.task('publish-test', function () {
-    return gulp.src(config.build_dir + '/**/**/*')
-      .pipe(ftp({
-        host: cred.host,
-        user: cred.user,
-        pass: cred.pass,
-        remotePath: cred.test
-      }))
-      .pipe(gutil.noop());
+  gulp.task( 'publish-test', ['build'], function () {
+    var conn = ftp.create( {
+        host:     cred.host,
+        user:     cred.user,
+        password: cred.pass,
+        parallel: 10,
+        log:      gutil.log
+    } );
+
+    var globs = [
+        config.build_dir + '/**/*'
+    ];
+
+    return gulp.src( globs, { base: 'build', buffer: false } )
+        .pipe( conn.newer( cred.test) ) // only upload newer files
+        .pipe( conn.dest( cred.test ) );
   });
 
   // Pubish prod task
-  gulp.task('publish-prod', ['build'], function () {
-    return gulp.src([config.build_dir + '/**/**/*', config.build_dir + '/.htaccess'], {
-        dot: true
-      })
-      .pipe(ftp({
-        host: cred.host,
-        user: cred.user,
-        pass: cred.pass,
-        remotePath: cred.prod
-      }))
-      .pipe(gutil.noop());
+  gulp.task( 'publish-prod', ['build'], function () {
+    var conn = ftp.create( {
+        host:     cred.host,
+        user:     cred.user,
+        password: cred.pass,
+        parallel: 10,
+        log:      gutil.log
+    } );
+
+    var globs = [
+        config.build_dir + '/**/*',
+        config.build_dir + '/.htaccess'
+    ];
+
+    return gulp.src( globs, { base: 'build', buffer: false } )
+        .pipe( conn.newer( cred.prod) ) // only upload newer files
+        .pipe( conn.dest( cred.prod ) );
   });
 
 })();
