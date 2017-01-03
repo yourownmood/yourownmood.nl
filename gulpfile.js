@@ -239,6 +239,25 @@
         .pipe( conn.dest( cred.test ) );
   });
 
+  // Pubish feature task
+  gulp.task( 'publish-feature', ['build'], function () {
+    var conn = ftp.create( {
+        host:     cred.host,
+        user:     cred.user,
+        password: cred.pass,
+        parallel: 10,
+        log:      gutil.log
+    } );
+
+    var globs = [
+        config.build_dir + '/**/*'
+    ];
+
+    return gulp.src( globs, { base: 'build', buffer: false } )
+        .pipe( conn.newer( cred.feat) ) // only upload newer files
+        .pipe( conn.dest( cred.feat ) );
+  });
+
   // Pubish prod task
   gulp.task( 'publish-prod', ['build'], function () {
     var conn = ftp.create( {
