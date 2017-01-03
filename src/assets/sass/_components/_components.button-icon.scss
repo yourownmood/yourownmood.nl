@@ -12,6 +12,11 @@
 
 // LABEL
 
+// === OPTIONS ===
+// --------------------------------------------------
+
+// CENTER
+
 // === DOCS ===
 // --------------------------------------------------
 
@@ -28,26 +33,13 @@
 // BTN-ICON
 
 .btn-icon {
-  float: left;
-  margin-left: 95px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-
+  display: inline-block;
   text-decoration: none;
+
+  cursor: pointer;
 
   &:hover {
     text-decoration: underline;
-  }
-
-  @include media-query(portable) {
-    bottom: -20px;
-    margin-left: 30px;
-  }
-
-  @include media-query(phone) {
-    bottom: -110px;
-    margin-left: 15px;
   }
 }
 
@@ -57,16 +49,38 @@
 // ICON
 
 .btn-icon__svg {
-  display: block;
+  display: inline-block;
   max-width: 34px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 // LABEL
 
 .btn-icon__label {
+  display: block;
   font-size: 18px;
   color: $yom-cod;
+}
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// CENTER
+
+.btn-icon--left {
+  text-align: left;
+}
+
+// CENTER
+
+.btn-icon--center {
+  text-align: center;
+}
+
+// RIGHT
+
+.btn-icon--right {
+  text-align: right;
 }
 
 // === DOCS ===

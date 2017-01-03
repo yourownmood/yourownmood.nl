@@ -1,4 +1,4 @@
-<header>
+<header class="header" id="top">
   <nav id="js-scrollboxProjects" class="scrollbox scrollbox__projects overrule slideInOut" ng-show="visibleProjects">
     <div class="scrollbox__cards">
       <div class="scrollbox__card" ng-repeat="post in posts">
@@ -75,7 +75,7 @@
 
       <a href="#/" ng-click="visibleProjects = false" class="yom">YOM.</a>
 
-      <a href="#/" class="btn-icon" ng-if="$location.path() != '/'">
+      <a href="#/" class="btn-icon btn-icon--left" ng-if="$location.path() != '/'">
         <svg class="btn-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 22">
           <path d="M0 11 0 11c0 0.1 0 0.3 0.1 0.4l11 10.4c0.2 0.2 0.5 0.2 0.7 0 0.2-0.2 0.2-0.5 0-0.7L1.7 11.5h31.8c0.3 0 0.5-0.2 0.5-0.5 0-0.3-0.2-0.5-0.5-0.5H1.7l10.2-9.7c0.2-0.2 0.2-0.5 0-0.7 -0.2-0.2-0.5-0.2-0.7 0l-11 10.4C0 10.7 0 10.8 0 11"/>
         </svg>
