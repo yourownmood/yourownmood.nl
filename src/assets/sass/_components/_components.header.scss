@@ -7,17 +7,23 @@ header,
   position: relative;
 
   width: 100%;
-  min-height: 235px;
 }
 
 .site-navigation {
   position: relative;
 
   padding-top: 20px;
-  padding-bottom: 33px;
+  margin-bottom: 33px;
 
   @include media-query(phone) {
     padding-top: 0;
+    margin-bottom: 140px;
+  }
+}
+
+.site-navigation--home {
+  @include media-query(phone) {
+    margin-bottom: 33px;
   }
 }
 
@@ -40,39 +46,6 @@ header,
   }
 }
 
-.site-navigation__back {
-  float: left;
-  margin-left: 85px;
-  position: absolute;
-  bottom: 33px;
-
-  font-size: 18px;
-  color: $yom-dusty;
-  text-decoration: none;
-
-  padding-top: 28px;
-
-  background-image: url('../images/back-arrow-left.png');
-  background-repeat: no-repeat;
-  background-position: left top;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  @include media-query(portable) {
-    margin-left: 30px;
-    bottom: 52px;
-  }
-
-  @include media-query(phone) {
-    left: 15px;
-    bottom: 65px;
-
-    margin-left: 0;
-  }
-}
-
 .yom {
   color: $yom-cod;
   font-size: 53px;
@@ -92,7 +65,9 @@ header,
 
 .yom-slogan {
   display: none;
+}
 
+.yom-slogan--display {
   @include media-query(portable) {
     display: block;
     width: 100%;

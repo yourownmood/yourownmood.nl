@@ -35,6 +35,8 @@
  * Lazy-image...........Lazy image tool classes.
  *
  * COMPONENTS
+ * Button-icon
+ * Buttons
  * Screens
  * Cards
  * Nav-list
@@ -113,6 +115,7 @@ $inuit-enable-layout--center: true;
 @import '_components/components.footer';
 @import '_components/components.cards';
 @import '_components/components.anchors';
+@import '_components/components.button-icon';
 @import '_components/components.buttons';
 @import '_components/components.page-slogan';
 @import '_components/components.page-intro';

@@ -47,11 +47,9 @@
     </div>
   </nav>
 
-  <nav class="site-navigation wow fadeIn" data-wow-duration="2s">
-    <a href="#/" class="site-navigation__back" ng-if="$location.path() != '/'">
-      Back
-    </a>
-
+  <nav class="site-navigation wow fadeIn"
+       ng-class="{'site-navigation--home': $location.path() == '/'}"
+       data-wow-duration="2s">
     <div class="site-navigation__push">
       <ul class="nav-list-phone list-inline" ng-show="visibleNavigation">
           <li><a class="nav-list__link-phone" href="#/about" ng-click="visibleProjects = false; toggle('navigation')">About</a></li>
@@ -77,7 +75,15 @@
 
       <a href="#/" ng-click="visibleProjects = false" class="yom">YOM.</a>
 
-      <p class="yom-slogan">
+      <a href="#/" class="btn-icon" ng-if="$location.path() != '/'">
+        <svg class="btn-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 22">
+          <path d="M0 11 0 11c0 0.1 0 0.3 0.1 0.4l11 10.4c0.2 0.2 0.5 0.2 0.7 0 0.2-0.2 0.2-0.5 0-0.7L1.7 11.5h31.8c0.3 0 0.5-0.2 0.5-0.5 0-0.3-0.2-0.5-0.5-0.5H1.7l10.2-9.7c0.2-0.2 0.2-0.5 0-0.7 -0.2-0.2-0.5-0.2-0.7 0l-11 10.4C0 10.7 0 10.8 0 11"/>
+        </svg>
+        <span class="btn-icon__label">Go back</span>
+      </a>
+
+      <p class="yom-slogan"
+         ng-class="{'yom-slogan--display': $location.path() == '/'}">
           Guiding digital strategy into online experiences of today's standards
       </p>
     </div>

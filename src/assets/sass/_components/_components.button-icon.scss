@@ -1,0 +1,89 @@
+// --------------------------------------------------
+// +++ COMPONENT BUTTON-ICON +++
+// --------------------------------------------------
+
+// === BASE ===
+// --------------------------------------------------
+
+// BTN-ICON
+
+// === PARTS ===
+// --------------------------------------------------
+
+// LABEL
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === BASE ===
+// --------------------------------------------------
+
+// BTN-ICON
+
+.btn-icon {
+  float: left;
+  margin-left: 95px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include media-query(portable) {
+    bottom: -20px;
+    margin-left: 30px;
+  }
+
+  @include media-query(phone) {
+    bottom: -110px;
+    margin-left: 15px;
+  }
+}
+
+// === PARTS ===
+// --------------------------------------------------
+
+// ICON
+
+.btn-icon__svg {
+  display: block;
+  max-width: 34px;
+  margin-bottom: 10px;
+}
+
+// LABEL
+
+.btn-icon__label {
+  font-size: 18px;
+  color: $yom-cod;
+}
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+/*
+Button-icon
+
+Markup:
+<a href="#" class="btn-icon">
+  <svg class="btn-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 22">
+    <path d="M0 11 0 11c0 0.1 0 0.3 0.1 0.4l11 10.4c0.2 0.2 0.5 0.2 0.7 0 0.2-0.2 0.2-0.5 0-0.7L1.7 11.5h31.8c0.3 0 0.5-0.2 0.5-0.5 0-0.3-0.2-0.5-0.5-0.5H1.7l10.2-9.7c0.2-0.2 0.2-0.5 0-0.7 -0.2-0.2-0.5-0.2-0.7 0l-11 10.4C0 10.7 0 10.8 0 11"/>
+  </svg>
+  <span class="btn-icon__label">Go back</span>
+</a>
+
+Style guide: Base - Button-icon
+*/
