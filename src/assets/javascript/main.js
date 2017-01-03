@@ -180,6 +180,21 @@
     };
   });
 
+  app.directive('yomfooter', function() {
+    return {
+      restrict: 'E',
+      templateUrl: 'partials/footer.html',
+      controller:function($scope, $location, $anchorScroll){
+
+        $scope.gotoTop = function() {
+          $location.hash('top');
+          $anchorScroll();
+        };
+
+      }
+    };
+  });
+
   app.directive('lazy', function($timeout) {
     return {
       restrict: 'C',

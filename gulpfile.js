@@ -148,7 +148,7 @@
   });
 
   // app HTML task:
-  gulp.task('app-html', ['move-partials', 'move-templates'], function() {
+  gulp.task('app-html', ['move-partials'], function() {
     return gulp.src([
             config.dist_dir + '/index.html',
             config.dist_dir + '/.htaccess',
@@ -160,12 +160,6 @@
   gulp.task('move-partials', function() {
     return gulp.src(config.src_dir + '/partials/*.html')
            .pipe(gulp.dest(config.build_dir + '/partials/'));
-  });
-
-  // Move templates dir task:
-  gulp.task('move-templates', function() {
-    return gulp.src(config.src_dir + '/templates/*.html')
-           .pipe(gulp.dest(config.build_dir + '/templates/'));
   });
 
   // app JSON task:
