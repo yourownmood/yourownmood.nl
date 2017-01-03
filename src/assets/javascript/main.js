@@ -184,11 +184,10 @@
     return {
       restrict: 'E',
       templateUrl: 'partials/footer.html',
-      controller:function($scope, $location, $anchorScroll){
+      controller:function($scope, $window, $anchorScroll){
 
         $scope.gotoTop = function() {
-          $location.hash('top');
-          $anchorScroll();
+          $window.scrollTo(0, 0);
         };
 
       }
