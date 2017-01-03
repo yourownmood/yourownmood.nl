@@ -31,7 +31,7 @@
   }
 }
 
-$scherm-project-height: 110vh;
+$scherm-project-height: 150vh;
 
 .scherm-project {
   min-height: $scherm-project-height;
@@ -110,10 +110,11 @@ img.vh-align--img {
 }
 
 .worked-at {
-  padding: 60px 25% 60px 5%;
+  padding: 150px 25% 50px 5%;
 
   color: $yom-dusty;
-  font-size: 20px;
+  font-size: 17px;
+  line-height: 30px;
 
   @include media-query(phone) {
     padding-right: 5%;
@@ -123,6 +124,7 @@ img.vh-align--img {
     display: block;
     margin-bottom: 5px;
 
+    font-size: 26px;
     color: $yom-cod;
   }
 }

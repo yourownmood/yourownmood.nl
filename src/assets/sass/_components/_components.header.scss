@@ -19,7 +19,7 @@
     margin-bottom: 140px;
   }
 
-  .btn-icon {
+  .btn {
     float: left;
     margin-left: 95px;
     position: absolute;
@@ -92,7 +92,7 @@
 
     color: $yom-dusty;
     font-size: 20px;
-    line-height: 31px;
+    line-height: 33px;
   }
 
   @include media-query(phone) {
