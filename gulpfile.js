@@ -142,9 +142,15 @@
   });
 
   // Copy assets task:
-  gulp.task('copy-assets', 'Copys assets files to the build folder', function() {
+  gulp.task('copy-assets', ['copy-favicon'], function() {
     return gulp.src(config.src_dir + '/assets/images/**/*')
            .pipe(gulp.dest(config.build_dir + '/assets/images/'));
+  });
+
+  // Copy favicon task:
+  gulp.task('copy-favicon', 'Copys favicon files to the build folder', function() {
+    return gulp.src(config.src_dir + '/assets/favicon/**/*')
+           .pipe(gulp.dest(config.build_dir + '/assets/favicon/'));
   });
 
   // app HTML task:
