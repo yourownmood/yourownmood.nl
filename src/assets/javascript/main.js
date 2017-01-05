@@ -47,7 +47,7 @@
     $scope.$routeParams = $routeParams;
   }]);
 
-  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
+  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', '$window', '$rootScope', function($location, $scope, $http, $filter, $window, $rootScope){
 
     $scope.visibleProjects = false;
     $scope.pageClass = 'page-home';
@@ -65,10 +65,20 @@
     var cards = document.querySelectorAll('.card__project, .card__profile');
     angular.element(cards).on("touchstart", function (e) {});
 
+    angular.element($window).bind("scroll", function() {
+      var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+      var body = document.body, html = document.documentElement;
+      var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+      var windowBottom = windowHeight + window.pageYOffset;
+      if (windowBottom >= docHeight) {
+        $rootScope.$broadcast('afkl.lazyImage.destroyed');
+      }
+    });
+
   }]);
 
 
-  app.controller('projectCtrl', ['$rootScope', '$location', '$scope', '$http', '$filter', function($rootScope, $location, $scope, $http, $filter){
+  app.controller('projectCtrl', ['$rootScope', '$location', '$scope', '$http', '$filter', '$window', function($rootScope, $location, $scope, $http, $filter, $window){
 
     var get_url = $location;
     var project = this;
@@ -88,6 +98,16 @@
         window.dispatchEvent(new Event('resize'));
       }, 0);
     };
+
+    angular.element($window).bind("scroll", function() {
+      var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+      var body = document.body, html = document.documentElement;
+      var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+      var windowBottom = windowHeight + window.pageYOffset;
+      if (windowBottom >= docHeight) {
+        $rootScope.$broadcast('afkl.lazyImage.destroyed');
+      }
+    });
 
   }]);
 
