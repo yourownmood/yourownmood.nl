@@ -1,6 +1,6 @@
 {
   "name": "Yom",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Yom angular website",
   "devDependencies": {
     "browser-sync": "^2.10.0",
