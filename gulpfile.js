@@ -21,7 +21,6 @@
       rename = require('gulp-rename'),
       runSequence = require('run-sequence'),
       sass = require('gulp-sass'),
-      scsslint = require('gulp-scss-lint'),
       sourcemaps = require('gulp-sourcemaps'),
       tag_version = require('gulp-tag-version'),
       uglify = require('gulp-uglify');
@@ -57,19 +56,6 @@
     gulp.watch("src/assets/scss/**/*.scss", ['sass']);
     gulp.watch("src/assets/javascript/**/*.js", ['js']).on('change', browserSync.reload);
     gulp.watch(config.src_dir + "/**/*.html").on('change', browserSync.reload);
-  });
-
-  // SCSS-lint watch task:
-  gulp.task('scss-lint:watch', 'Watches the .scss files and starts linting', function() {
-    gulp.watch("src/assets/scss/**/*.scss", ['scss-lint']);
-  });
-
-  // SCSS-lint task:
-  gulp.task('scss-lint', 'Lints all the .scss files', function() {
-    return gulp.src(config.src_dir + '/assets/scss/**/*.scss')
-      .pipe(scsslint({
-        'config': 'scss-lint.yml'
-      }));
   });
 
 
