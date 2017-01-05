@@ -18,10 +18,9 @@
             </span>
 
             <div ng-if="post.projectLogo"
-                 alt="{{post.heroTitle}}"
                  class="scrollbox__logo"
                  afkl-lazy-image="{{post.projectLogo}} 480w, {{post.projectLogo}} 768w, {{post.projectLogo}}"
-                 afkl-lazy-image-options="{'offset': 250}"></div>
+                 afkl-lazy-image-options="{'offset': 250, 'imgAttrs': [{'alt': post.projectClient}]}"></div>
           </a>
 
           <a ng-if="!post.projectThumb"
@@ -36,10 +35,9 @@
             </span>
 
             <div ng-if="post.projectLogo"
-                 alt="{{post.heroTitle}}"
                  class="scrollbox__logo"
                  afkl-lazy-image="{{post.projectLogo}} 480w, {{post.projectLogo}} 768w, {{post.projectLogo}}"
-                 afkl-lazy-image-options="{'offset': 250}"></div>
+                 afkl-lazy-image-options="{'offset': 250, 'imgAttrs': [{'alt': post.projectClient}]}"></div>
           </a>
 
         </div>
