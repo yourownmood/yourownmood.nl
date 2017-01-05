@@ -54,19 +54,19 @@
       server: config.src_dir
     });
 
-    gulp.watch("src/assets/sass/**/*.scss", ['sass']);
+    gulp.watch("src/assets/scss/**/*.scss", ['sass']);
     gulp.watch("src/assets/javascript/**/*.js", ['js']).on('change', browserSync.reload);
     gulp.watch(config.src_dir + "/**/*.html").on('change', browserSync.reload);
   });
 
   // SCSS-lint watch task:
   gulp.task('scss-lint:watch', 'Watches the .scss files and starts linting', function() {
-    gulp.watch("src/assets/sass/**/*.scss", ['scss-lint']);
+    gulp.watch("src/assets/scss/**/*.scss", ['scss-lint']);
   });
 
   // SCSS-lint task:
   gulp.task('scss-lint', 'Lints all the .scss files', function() {
-    return gulp.src(config.src_dir + '/assets/sass/**/*.scss')
+    return gulp.src(config.src_dir + '/assets/scss/**/*.scss')
       .pipe(scsslint({
         'config': 'scss-lint.yml'
       }));
@@ -126,7 +126,7 @@
     var packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
     var banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n';
 
-    return gulp.src(config.src_dir + '/assets/sass/*.scss')
+    return gulp.src(config.src_dir + '/assets/scss/*.scss')
           .pipe(sourcemaps.init())
           .pipe(sass().on('error', sass.logError))
           .pipe(gulp.dest(config.src_dir + '/assets/css/'))
