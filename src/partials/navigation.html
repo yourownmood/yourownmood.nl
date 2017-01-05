@@ -9,7 +9,7 @@
              ng-click="toggle('projects'); toggle('navigation')"
              class=" [ card card__bg bg-{{post.projectThumbPosition}} ] afkl-lazy-wrapper"
              afkl-lazy-image="{{post.projectThumb}} 480w, {{post.projectThumb}} 768w, {{post.projectThumb}}"
-             afkl-lazy-image-options="{'background': true, 'offset': 250}">
+             afkl-lazy-image-options="{'background': true}">
 
             <span class="card--info card__animate">
                 <b>{{post.projectTitle}}</b>
@@ -20,7 +20,7 @@
             <div ng-if="post.projectLogo"
                  class="scrollbox__logo"
                  afkl-lazy-image="{{post.projectLogo}} 480w, {{post.projectLogo}} 768w, {{post.projectLogo}}"
-                 afkl-lazy-image-options="{'offset': 250, 'imgAttrs': [{'alt': post.projectClient}]}"></div>
+                 afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectClient}]}"></div>
           </a>
 
           <a ng-if="!post.projectThumb"
@@ -37,7 +37,7 @@
             <div ng-if="post.projectLogo"
                  class="scrollbox__logo"
                  afkl-lazy-image="{{post.projectLogo}} 480w, {{post.projectLogo}} 768w, {{post.projectLogo}}"
-                 afkl-lazy-image-options="{'offset': 250, 'imgAttrs': [{'alt': post.projectClient}]}"></div>
+                 afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectClient}]}"></div>
           </a>
 
         </div>
