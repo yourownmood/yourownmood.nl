@@ -283,7 +283,7 @@ $card-br: 44%;
 }
 
 .card--ing {
-  height: 30%;
+  height: 34%;
 
   background-color: #999;
 
@@ -293,9 +293,9 @@ $card-br: 44%;
 }
 
 .card--ldd {
-  height: 27%;
+  height: 33%;
 
-  background-color: #f0ece8;
+  background-color: #faf0c4;
 
   .overlay__name {
     @include media-query (desk) {
@@ -318,13 +318,9 @@ $card-br: 44%;
 }
 
 .card--ultimaker {
-  height: 43%;
+  height: 33%;
 
   background-color: #2eb5e7;
-
-  .card__background {
-    background-position: center right;
-  }
 }
 
 .card--ldd,
