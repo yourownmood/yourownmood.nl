@@ -201,6 +201,62 @@
         </div>
       </div>
 
+      <div class="layout u-mb [ wow fadeInUp ]"
+           data-wow-duration="0.7s"
+           ng-if="post.projectWorkImg9Full && post.projectWorkImg9Palm && post.projectWorkImg9Phone && post.projectWorkImg10Full && post.projectWorkImg10Palm && post.projectWorkImg10Phone">
+        <div class="layout__item u-1/2 u-1/1-palm u-mb-palm">
+
+          <div class="project-graphic" ng-class="post.projectWorkImg9Options" data-wow-duration="0.7s">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg9Caption">{{post.projectWorkImg9Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg9Phone}} 480w, {{post.projectWorkImg9Palm}} 768w, {{post.projectWorkImg9Full}}"
+                 afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectWorkImg9Caption}]}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+          </div>
+
+        </div><div class="layout__item u-1/2 u-1/1-palm">
+
+          <div class="project-graphic" ng-class="post.projectWorkImg10Options" data-wow-duration="0.7s">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg10Caption">{{post.projectWorkImg10Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg10Phone}} 480w, {{post.projectWorkImg10Palm}} 768w, {{post.projectWorkImg10Full}}"
+                 afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectWorkImg10Caption}]}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="layout u-mb [ wow fadeInUp ]"
+           data-wow-duration="0.7s"
+           ng-if="post.projectWorkImg11Full && post.projectWorkImg11Palm && post.projectWorkImg11Phone">
+        <div class="layout__item u-1/1">
+
+          <div class="project-graphic"
+                ng-class="post.projectWorkImg11Options">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg11Caption">{{post.projectWorkImg11Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg11Phone}} 480w, {{post.projectWorkImg11Palm}} 768w, {{post.projectWorkImg11Full}}"
+                 afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectWorkImg11Caption}]}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="layout u-mb [ wow fadeInUp ]"
+           data-wow-duration="0.7s"
+           ng-if="post.projectWorkImg12Full && post.projectWorkImg12Palm && post.projectWorkImg12Phone">
+        <div class="layout__item u-1/1">
+
+          <div class="project-graphic"
+                ng-class="post.projectWorkImg12Options">
+            <p class="project-graphic__caption" ng-if="post.projectWorkImg12Caption">{{post.projectWorkImg12Caption}}</p>
+            <div afkl-lazy-image="{{post.projectWorkImg12Phone}} 480w, {{post.projectWorkImg12Palm}} 768w, {{post.projectWorkImg12Full}}"
+                 afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectWorkImg12Caption}]}"
+                 class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
+          </div>
+
+        </div>
+      </div>
+
     </section>
 
   </div>
