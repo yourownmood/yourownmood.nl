@@ -46,6 +46,16 @@
             </p>
 
             <p class="project-intro__body">
+              <span class="project-intro__label">Role</span>
+              <strong class="project-intro__title" ng-if="post.projectRoleSteven">
+                {{post.projectRoleSteven}}
+              </strong>
+              <strong class="project-intro__title" ng-if="post.projectRoleGertjan">
+                {{post.projectRoleGertjan}}
+              </strong>
+            </p>
+
+            <p class="project-intro__body">
               <span class="project-intro__label">Agency</span>
               <strong class="project-intro__title">{{post.projectAgency}}</strong>
             </p>
