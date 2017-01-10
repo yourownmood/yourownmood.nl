@@ -207,8 +207,19 @@
       controller:function($scope, $window, $anchorScroll){
 
         $scope.gotoTop = function() {
-          $window.scrollTo(0, 0);
+          scrollTo(document.body, 0, 75);
         };
+
+        function scrollTo(element, to, duration) {
+          if (duration < 0) return;
+            var difference = to - element.scrollTop;
+            var perTick = difference / duration * 2;
+
+            setTimeout(function() {
+              element.scrollTop = element.scrollTop + perTick;
+              scrollTo(element, to, duration - 2);
+            }, 10);
+        }
 
       }
     };
