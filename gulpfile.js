@@ -35,6 +35,18 @@
       bower_dir: './bower_components'
   };
 
+  // JS include files
+  var jsIncludes = {
+    files: [
+      config.node_dir + '/wowjs/dist/wow.js',
+      config.node_dir + '/angular/angular.min.js',
+      config.node_dir + '/angular-route/angular-route.min.js',
+      config.node_dir + '/angular-animate/angular-animate.min.js',
+      config.node_dir + '/angular-lazy-image/release/lazy-image.js',
+      config.src_dir  + '/assets/javascript/main.js'
+    ]
+  };
+
   // Set the banner var
   var packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
   var banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n';
@@ -68,14 +80,7 @@
 
   // JS task:
   gulp.task('js', 'Concats and minify js files', function(callback) {
-    return gulp.src([
-      config.src_dir  + '/assets/javascript/libs/wow.js',
-      config.node_dir + '/angular/angular.min.js',
-      config.node_dir + '/angular-route/angular-route.min.js',
-      config.node_dir + '/angular-animate/angular-animate.min.js',
-      config.node_dir + '/angular-lazy-image/release/lazy-image.js',
-      config.src_dir  + '/assets/javascript/main.js'
-    ])
+    return gulp.src(jsIncludes.files)
     .pipe(ngAnnotate())
     .pipe(concat('bundle.js'))
     .pipe(gulp.dest(config.src_dir + '/assets/javascript/'))
@@ -88,17 +93,7 @@
     var packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
     var banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n';
 
-    return gulp.src([
-      config.src_dir  + '/assets/javascript/libs/jquery.min.js',
-      config.src_dir  + '/assets/javascript/libs/wow.js',
-
-      // Angular
-      config.node_dir + '/angular/angular.min.js',
-      config.node_dir + '/angular-route/angular-route.min.js',
-      config.node_dir + '/angular-animate/angular-animate.min.js',
-      config.node_dir + '/angular-lazy-image/release/lazy-image.js',
-      config.src_dir  + '/assets/javascript/main.js',
-    ])
+    return gulp.src(jsIncludes.files)
     .pipe(ngAnnotate())
     .pipe(concat('bundle.min.js'))
     .pipe(uglify())
