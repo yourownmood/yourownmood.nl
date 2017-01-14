@@ -48,12 +48,6 @@
         $rootScope.$broadcast('afkl.lazyImage.destroyed');
       }
     });
-  }]);
-
-  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
-
-    $scope.visibleProjects = false;
-    $scope.pageClass = 'page-home';
 
     $scope.loaded = function() {
       setTimeout(function(){
@@ -63,6 +57,13 @@
         window.dispatchEvent(new Event('resize'));
       }, 0);
     };
+
+  }]);
+
+  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
+
+    $scope.visibleProjects = false;
+    $scope.pageClass = 'page-home';
 
     // Disable touchstart for cards
     var cards = document.querySelectorAll('.card__project, .card__profile');
@@ -82,26 +83,19 @@
     $http.get('feeds/projects.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
 
+      // Check if the page-name is specified in the .json
       var found = false;
 
       for(var i = 0; i < data.length; i++) {
         if (data[i].url === $scope.lastPart) {
           found = true;
         }
+        // If not, send back to home
         if(i == (data.length - 1) && !found) {
           $location.path('/');
         }
       }
     });
-
-    $scope.loaded = function() {
-      setTimeout(function(){
-        var wow = new WOW();
-        wow.init();
-
-        window.dispatchEvent(new Event('resize'));
-      }, 0);
-    };
 
   }]);
 
@@ -116,26 +110,19 @@
     $http.get('feeds/profiles.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
 
+      // Check if the page-name is specified in the .json
       var found = false;
 
       for(var i = 0; i < data.length; i++) {
         if (data[i].url === $scope.lastPart) {
           found = true;
         }
+        // If not, send back to home
         if(i == (data.length - 1) && !found) {
           $location.path('/');
         }
       }
     });
-
-    $scope.loaded = function() {
-      setTimeout(function(){
-        var wow = new WOW();
-        wow.init();
-
-        window.dispatchEvent(new Event('resize'));
-      }, 0);
-    };
 
   }]);
 
@@ -246,15 +233,8 @@
   });
 
   app.run(['$rootScope', '$anchorScroll', function ($rootScope, $anchorScroll) {
-    // Create a new instance
-    var wow = new WOW();
-    wow.init();
-
     $rootScope.$on('$routeChangeSuccess', function (next, current) {
-      // When the view changes sync wow
-      wow.sync();
-
-      // And scroll to the top of the page
+      // Scroll to the top of the page on $routeChangeSuccess
       $anchorScroll();
     });
   }]);
