@@ -2,52 +2,55 @@
   'use strict';
 
   var app = angular.module('yomApp', [
+    'afkl.lazyImage',
     'ngRoute',
     'ngAnimate',
-    'afkl.lazyImage'
   ]);
 
   app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-
-    // home page
     .when('/', {
-      templateUrl: 'partials/home.html',
-      controller: 'homeCtrl'
+      templateUrl: 'partials/home.html'
     })
 
-    // project page
     .when('/project/:name*', {
-      templateUrl: 'partials/project.html',
-      controller: 'projectCtrl'
+      templateUrl: 'partials/project.html'
     })
 
-    // about page
     .when('/about', {
       templateUrl: 'partials/about.html',
     })
 
-    // profile page
     .when('/profile/:name*', {
-      templateUrl: 'partials/profile.html',
-      controller: 'profileCtrl'
+      templateUrl: 'partials/profile.html'
     })
 
-    // contact page
     .when('/contact', {
-      templateUrl: 'partials/contact.html',
-      controller: 'contactCtrl'
+      templateUrl: 'partials/contact.html'
     })
 
+    .otherwise({
+      redirectTo: '/'
+    });
   }]);
 
-  app.controller('mainController', ['$scope', '$route', '$routeParams', '$location', function($scope, $route, $routeParams, $location) {
+  app.controller('mainController', ['$scope', '$rootScope', '$route', '$routeParams', '$location', '$window', function($scope, $rootScope, $route, $routeParams, $location, $window) {
     $scope.$route = $route;
     $scope.$location = $location;
     $scope.$routeParams = $routeParams;
+
+    angular.element($window).bind("scroll", function() {
+      var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+      var body = document.body, html = document.documentElement;
+      var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+      var windowBottom = windowHeight + window.pageYOffset;
+      if (windowBottom >= docHeight) {
+        $rootScope.$broadcast('afkl.lazyImage.destroyed');
+      }
+    });
   }]);
 
-  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', '$window', '$rootScope', function($location, $scope, $http, $filter, $window, $rootScope){
+  app.controller('homeCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
 
     $scope.visibleProjects = false;
     $scope.pageClass = 'page-home';
@@ -65,20 +68,10 @@
     var cards = document.querySelectorAll('.card__project, .card__profile');
     angular.element(cards).on("touchstart", function (e) {});
 
-    angular.element($window).bind("scroll", function() {
-      var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-      var body = document.body, html = document.documentElement;
-      var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-      var windowBottom = windowHeight + window.pageYOffset;
-      if (windowBottom >= docHeight) {
-        $rootScope.$broadcast('afkl.lazyImage.destroyed');
-      }
-    });
-
   }]);
 
 
-  app.controller('projectCtrl', ['$rootScope', '$location', '$scope', '$http', '$filter', '$window', function($rootScope, $location, $scope, $http, $filter, $window){
+  app.controller('projectCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
 
     var get_url = $location;
     var project = this;
@@ -86,8 +79,19 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-project';
 
-    $http.get('projects.json', { cache: true}).success(function(data, status, headers, config) {
+    $http.get('feeds/projects.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
+
+      var found = false;
+
+      for(var i = 0; i < data.length; i++) {
+        if (data[i].url === $scope.lastPart) {
+          found = true;
+        }
+        if(i == (data.length - 1) && !found) {
+          $location.path('/');
+        }
+      }
     });
 
     $scope.loaded = function() {
@@ -99,16 +103,6 @@
       }, 0);
     };
 
-    angular.element($window).bind("scroll", function() {
-      var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-      var body = document.body, html = document.documentElement;
-      var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-      var windowBottom = windowHeight + window.pageYOffset;
-      if (windowBottom >= docHeight) {
-        $rootScope.$broadcast('afkl.lazyImage.destroyed');
-      }
-    });
-
   }]);
 
   app.controller('profileCtrl', ['$location', '$scope', '$http', '$filter', function($location, $scope, $http, $filter){
@@ -119,8 +113,19 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-profile';
 
-    $http.get('profiles.json', { cache: true}).success(function(data, status, headers, config) {
+    $http.get('feeds/profiles.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
+
+      var found = false;
+
+      for(var i = 0; i < data.length; i++) {
+        if (data[i].url === $scope.lastPart) {
+          found = true;
+        }
+        if(i == (data.length - 1) && !found) {
+          $location.path('/');
+        }
+      }
     });
 
     $scope.loaded = function() {
@@ -153,7 +158,7 @@
         $scope.visibleNavigation = false;
 
         // Dynamic load
-        $http.get('projects.json', { cache: true}).success(function(data, status, headers, config) {
+        $http.get('feeds/projects.json', { cache: true}).success(function(data, status, headers, config) {
           $scope.posts = data;
         });
 

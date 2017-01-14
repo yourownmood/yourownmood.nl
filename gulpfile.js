@@ -43,7 +43,7 @@
       config.node_dir + '/angular-route/angular-route.min.js',
       config.node_dir + '/angular-animate/angular-animate.min.js',
       config.node_dir + '/angular-lazy-image/release/lazy-image.js',
-      config.src_dir  + '/assets/javascript/main.js'
+      config.src_dir  + '/app.js'
     ]
   };
 
@@ -66,7 +66,7 @@
     });
 
     gulp.watch("src/assets/scss/**/*.scss", ['sass']);
-    gulp.watch("src/assets/javascript/**/*.js", ['js']).on('change', browserSync.reload);
+    gulp.watch("src/**/*.js", ['js']).on('change', browserSync.reload);
     gulp.watch(config.src_dir + "/**/*.html").on('change', browserSync.reload);
   });
 
@@ -151,8 +151,8 @@
 
   // app JSON task:
   gulp.task('app-json', 'Copy app .json files to the build folder', function() {
-    return gulp.src(config.src_dir + '/*.json')
-           .pipe(gulp.dest(config.build_dir));
+    return gulp.src(config.src_dir + '/feeds/*.json')
+           .pipe(gulp.dest(config.build_dir + '/feeds/'));
   });
 
 
