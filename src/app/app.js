@@ -10,23 +10,23 @@
   app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
     .when('/', {
-      templateUrl: 'partials/home.html'
+      templateUrl: 'app/partials/home.html'
     })
 
     .when('/project/:name*', {
-      templateUrl: 'partials/project.html'
+      templateUrl: 'app/partials/project.html'
     })
 
     .when('/about', {
-      templateUrl: 'partials/about.html',
+      templateUrl: 'app/partials/about.html',
     })
 
     .when('/profile/:name*', {
-      templateUrl: 'partials/profile.html'
+      templateUrl: 'app/partials/profile.html'
     })
 
     .when('/contact', {
-      templateUrl: 'partials/contact.html'
+      templateUrl: 'app/partials/contact.html'
     })
 
     .otherwise({
@@ -80,7 +80,7 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-project';
 
-    $http.get('feeds/projects.json', { cache: true}).success(function(data, status, headers, config) {
+    $http.get('app/feeds/projects.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
 
       // Check if the page-name is specified in the .json
@@ -107,7 +107,7 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-profile';
 
-    $http.get('feeds/profiles.json', { cache: true}).success(function(data, status, headers, config) {
+    $http.get('app/feeds/profiles.json', { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
 
       // Check if the page-name is specified in the .json
@@ -138,14 +138,14 @@
   app.directive('navigation', function() {
     return {
       restrict: 'E',
-      templateUrl: 'partials/navigation.html',
+      templateUrl: 'app/partials/navigation.html',
       controller:function($scope, $http, $anchorScroll){
 
         $scope.visibleProjects = false;
         $scope.visibleNavigation = false;
 
         // Dynamic load
-        $http.get('feeds/projects.json', { cache: true}).success(function(data, status, headers, config) {
+        $http.get('app/feeds/projects.json', { cache: true}).success(function(data, status, headers, config) {
           $scope.posts = data;
         });
 
@@ -195,7 +195,7 @@
   app.directive('yomfooter', function() {
     return {
       restrict: 'E',
-      templateUrl: 'partials/footer.html',
+      templateUrl: 'app/partials/footer.html',
       controller:function($scope, $window, $anchorScroll){
 
         $scope.gotoTop = function() {
