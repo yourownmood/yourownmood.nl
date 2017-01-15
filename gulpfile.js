@@ -28,7 +28,7 @@
   // Config variables
   var config = {
       root_dir: './',
-      src_dir: './src',
+      src_dir: './src/app',
       dist_dir: './src/dist',
       build_dir: './build',
       node_dir: './node_modules',
@@ -43,7 +43,7 @@
       config.node_dir + '/angular-route/angular-route.min.js',
       config.node_dir + '/angular-animate/angular-animate.min.js',
       config.node_dir + '/angular-lazy-image/release/lazy-image.js',
-      config.src_dir  + '/assets/javascript/main.js'
+      config.src_dir  + '/app.js'
     ]
   };
 
@@ -62,12 +62,12 @@
   // Serve
   gulp.task('serve', 'Serves the application', ['sass', 'js'], function(callback) {
     browserSync.init({
-      server: config.src_dir
+      server: 'src/'
     });
 
-    gulp.watch("src/assets/scss/**/*.scss", ['sass']);
-    gulp.watch("src/assets/javascript/**/*.js", ['js']).on('change', browserSync.reload);
-    gulp.watch(config.src_dir + "/**/*.html").on('change', browserSync.reload);
+    gulp.watch("src/app/assets/scss/**/*.scss", ['sass']);
+    gulp.watch("src/app/**/*.js", ['js']).on('change', browserSync.reload);
+    gulp.watch("src/**/*.html").on('change', browserSync.reload);
   });
 
 
@@ -98,7 +98,7 @@
     .pipe(concat('bundle.min.js'))
     .pipe(uglify())
     .pipe(header(banner))
-    .pipe(gulp.dest(config.build_dir + '/javascript/'));
+    .pipe(gulp.dest(config.build_dir + '/app/javascript/'));
   });
 
   // Sass task:
@@ -117,7 +117,7 @@
           .pipe(minifyCSS())
           .pipe(header(banner))
           .pipe(sourcemaps.write('./'))
-          .pipe(gulp.dest(config.build_dir + '/assets/css/'))
+          .pipe(gulp.dest(config.build_dir + '/app/assets/css/'))
 
           .pipe(browserSync.stream());
   });
@@ -125,13 +125,13 @@
   // Copy assets task:
   gulp.task('copy-assets', ['copy-favicon'], function() {
     return gulp.src(config.src_dir + '/assets/images/**/*')
-           .pipe(gulp.dest(config.build_dir + '/assets/images/'));
+           .pipe(gulp.dest(config.build_dir + '/app/assets/images/'));
   });
 
   // Copy favicon task:
   gulp.task('copy-favicon', 'Copys favicon files to the build folder', function() {
     return gulp.src(config.src_dir + '/assets/favicon/**/*')
-           .pipe(gulp.dest(config.build_dir + '/assets/favicon/'));
+           .pipe(gulp.dest(config.build_dir + '/app/assets/favicon/'));
   });
 
   // app HTML task:
@@ -146,13 +146,13 @@
   // Move partials dir task:
   gulp.task('move-partials', function() {
     return gulp.src(config.src_dir + '/partials/*.html')
-           .pipe(gulp.dest(config.build_dir + '/partials/'));
+           .pipe(gulp.dest(config.build_dir + '/app/partials/'));
   });
 
   // app JSON task:
   gulp.task('app-json', 'Copy app .json files to the build folder', function() {
-    return gulp.src(config.src_dir + '/*.json')
-           .pipe(gulp.dest(config.build_dir));
+    return gulp.src(config.src_dir + '/feeds/*.json')
+           .pipe(gulp.dest(config.build_dir + '/app/feeds/'));
   });
 
 

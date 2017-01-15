@@ -3,9 +3,6 @@
 /node_modules/
 /src/build/
 /build/
-/_assets/css/
-/old/
-/_assets/javascript/build/
-/src/assets/javascript/bundle.js
-/src/assets/css
+/src/app/assets/javascript/bundle.js
+/src/app/assets/css
 /cred.json
