@@ -16,6 +16,10 @@
 
   word-wrap: break-word;
 
+  @include media-query(palm) {
+    padding-top: 0px;
+  }
+
   @include media-query(phone) {
     font-size: 55px;
     line-height: 51px;
