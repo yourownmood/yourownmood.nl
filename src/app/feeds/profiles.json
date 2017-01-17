@@ -1,32 +1,32 @@
 [
     {
-        "url" : "yourownmood",
-        "name": "Yourownmood",
-
-        "profileThumb": "app/assets/images/profile_gertjandegoede.jpg",
-        "profileThumbPosition": "cc",
-
-        "function": "Creative web solutions",
-        "description": "Front-end development of the multi-language & multi-country website. ac semper lectus. Nulla ornare eros bibendum, finibus turpis egestas, vulputate enim. Sed elementum auctor rutrum. Nulla fermentum molestie nunc non cursus."
-    },
-    {
         "url" : "steven-bax",
         "name": "Steven Bax",
-
-        "profileThumb": "app/assets/images/profile_stevenbax.jpg",
-        "profileThumbPosition": "cc",
-
-        "function": "Front-end developer",
-        "description": "Front-end development of the multi-language & multi-country website. ac semper lectus. Nulla ornare eros bibendum, finibus turpis egestas, vulputate enim. Sed elementum auctor rutrum. Nulla fermentum molestie nunc non cursus."
+        "heroImgFull": "app/assets/images/profile/steven/profile_stevenbax-full.jpg",
+        "heroImgPalm": "app/assets/images/profile/steven/profile_stevenbax-768.jpg",
+        "heroImgPhone": "app/assets/images/profile/steven/profile_stevenbax-480.jpg",
+        "heroImgPosition": "tc",
+        "profileDescription": "I work on products and long-running projects as a Front-end developer. Specialised in CSS development and architecture. I focus on implementing design while setting up a scalable, maintainable and good performing CSS architecture and workflow.",
+        "role": "Front-end developer (CSS specialist)",
+        "roleHero": "Front-end developer",
+        "expertise": "HTML, SCSS, itcss, inuitcss, A11Y",
+        "projects": "FedEx, TNT, NEMO Science Museum, KRO, Sloop de Crisis, Budget Energie",
+        "email": "sbax@yourownmood.nl",
+        "linkedin": "linkedin.com/in/steven-bax"
     },
     {
         "url" : "gert-jan-de-goede",
         "name": "Gert-Jan de Goede",
-
-        "profileThumb": "app/assets/images/profile_gertjandegoede.jpg",
-        "profileThumbPosition": "cc",
-
-        "function": "Visual designer",
-        "description": "Front-end development of the multi-language & multi-country website. ac semper lectus. Nulla ornare eros bibendum, finibus turpis egestas, vulputate enim. Sed elementum auctor rutrum. Nulla fermentum molestie nunc non cursus."
+        "heroImgFull": "app/assets/images/profile/gertjan/profile_gertjandegoede-full.jpg",
+        "heroImgPalm": "app/assets/images/profile/gertjan/profile_gertjandegoede-768.jpg",
+        "heroImgPhone": "app/assets/images/profile/gertjan/profile_gertjandegoede-480.jpg",
+        "heroImgPosition": "tc",
+        "profileDescription": "Working as a User Experience and Visual Designer. Mainly for digital platforms and products. Big fan of scrum methodology. Started years ago in branding & identity and now translating and presenting those brands in an online environment.",
+        "role": "Visual Designer, Art Director",
+        "roleHero": "Visual Designer",
+        "expertise": "UX & UI design, Branding & Identity, Sketch, Scrum",
+        "projects": "FedEx, TNT, Allerhande, ING, Ultimaker, Liander, Sunweb",
+        "email": "gjdegoede@yourownmood.nl",
+        "linkedin": "linkedin.com/in/gert-jan-de-goede"
     }
 ]
