@@ -2,13 +2,13 @@
   #CARDS
 \*------------------------------------*/
 
-$card-tl: 63%;
-$card-bl: 37%;
-//$card-tl + $card-bl == 100%
+$card-tl: 70%;
+$card-bl: 34%;
+//$card-tl + $card-bl == 104%
 
-$card-tr: 56%;
+$card-tr: 60%;
 $card-br: 44%;
-//$card-tr + $card-br == 100%
+//$card-tr + $card-br == 104%
 
 
 /* CARD BASIC */
@@ -78,7 +78,7 @@ $card-br: 44%;
 }
 
 .card--sb {
-  background-position: right;
+  background-position: center;
 }
 
 .card--sb-project {
@@ -92,7 +92,7 @@ $card-br: 44%;
 }
 
 .card--gj {
-  background-position: 60% 15%;
+  background-position: center;
 }
 
 .card--gj-project {
