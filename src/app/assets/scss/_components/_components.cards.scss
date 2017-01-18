@@ -187,6 +187,17 @@ $card-br: 44%;
   font-size: 17px;
 }
 
+.project__year {
+  position: absolute;
+  right: 0;
+  bottom: 45px;
+
+  @include font-domine();
+  color: $yom-cod;
+  font-size: 14px;
+  transform: rotate(-90deg);
+}
+
 .card__project {
   img {
     position: absolute;

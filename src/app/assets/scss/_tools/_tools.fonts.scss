@@ -1,11 +1,12 @@
 // --------------------------------------------------
-// +++ BASE DOCUMENT +++
+// +++ GENERIC FONTS +++
 // --------------------------------------------------
 
 // === BASE ===
 // --------------------------------------------------
 
-// HTML + BODY
+// FONT OPEN-SANS
+// FONT DOMINE
 
 // --------------------------------------------------
 // +++ END +++
@@ -15,12 +16,14 @@
 // === BASE ===
 // --------------------------------------------------
 
-// HTML + BODY
+// FONT OPEN-SANS
 
-html,
-body {
-  @include font-open-sans();
-  font-weight: 300;
+@mixin font-open-sans() {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
 
-  width: 100%;
+// FONT DOMINE
+
+@mixin font-domine {
+  font-family: 'Domine', Times, Georgia, serif;
 }

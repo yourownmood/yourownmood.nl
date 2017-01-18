@@ -191,6 +191,39 @@
   animation-name: fadeInUp;
 }
 
+@-webkit-keyframes fadeInUpDouble {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 70%, 0);
+    transform: translate3d(0, 70%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUpDouble {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 70%, 0);
+    transform: translate3d(0, 70%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUpDouble {
+  -webkit-animation-name: fadeInUpDouble;
+  animation-name: fadeInUpDouble;
+}
+
 
 .slideInOut {
   max-height: 320px;
