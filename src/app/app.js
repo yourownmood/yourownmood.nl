@@ -233,6 +233,8 @@
   });
 
   app.run(['$rootScope', '$anchorScroll', function ($rootScope, $anchorScroll) {
+    new WOW().init();
+
     $rootScope.$on('$routeChangeSuccess', function (next, current) {
       // Scroll to the top of the page on $routeChangeSuccess
       $anchorScroll();
