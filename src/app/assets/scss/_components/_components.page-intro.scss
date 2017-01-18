@@ -52,7 +52,24 @@
 // SLOGAN
 
 .intro__slogan {
-  margin-bottom: 50px;
+  position: relative;
+  left: -61%;
+  top: -11.5%;
+
+  width: 161%;
+
+  @include font-domine();
+  color: $yom-cod;
+  font-size: 38px;
+  line-height: 45px;
+
+  text-shadow: 0 0 28px rgba(255,255,255,1);
+}
+
+.scherm-1 {
+  @include media-query(desk) {
+    margin-top: 130px;
+  }
 }
 
 // === DOCS ===
