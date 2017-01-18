@@ -83,8 +83,8 @@
 
 .project-graphic__caption {
   position: absolute;
-  bottom: 30px;
-  left: 30px;
+  bottom: 50px;
+  left: 50px;
 
   margin: 0;
   padding: 0;
@@ -116,8 +116,7 @@
 
 .project-graphic--shadow {
   .project-graphic__image img {
-    //box-shadow: 0px 0px 46px 0px rgba(207,205,205,.5);
-    box-shadow: 0 0 46px 0 rgba(107, 107, 107, .75);
+    box-shadow: 0px 0px 46px 0px rgba(217,215,215,.5);
   }
 }
 
@@ -125,7 +124,7 @@
   .project-graphic__image img {
     max-width: 80%;
 
-    margin: 80px 0;
+    margin: 135px 0;
 
     text-align: center;
   }
