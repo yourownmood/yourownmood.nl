@@ -1,0 +1,163 @@
+// ---------------------------------------------------
+// +++ COMPONENT TYPESET +++
+// --------------------------------------------------
+
+// === VARIABLES ===
+// --------------------------------------------------
+
+// TYPESET-VERTICAL-RHYTM
+
+// === BASE ===
+// --------------------------------------------------
+
+// TYPESET
+
+// === PARTS ===
+// --------------------------------------------------
+
+// TITLE
+// LABEL
+// HEADING
+// PARAGRAPH
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// TYPESET-PUSH
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === VARIABLES ===
+// --------------------------------------------------
+
+// TYPESET-VERTICAL-RHYTM
+
+$typeset-vertical-rhytm: 50px;
+
+// === BASE ===
+// --------------------------------------------------
+
+// TYPESET
+
+.typeset {
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+// === PARTS ===
+// --------------------------------------------------
+
+// TITLE
+
+.typeset__title {
+  margin-top: $typeset-vertical-rhytm;
+  margin-bottom: $typeset-vertical-rhytm;
+}
+
+// LABEL
+
+.typeset__label {
+  display: block;
+
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 30px;
+  color: $yom-dusty;
+}
+
+// HEADING
+
+.typeset__heading {
+  display: block;
+
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 30px;
+  color: $yom-cod;
+}
+
+// PARAGRAPH
+
+.typeset__paragraph {
+  margin-top: $typeset-vertical-rhytm / 2;
+  padding-top: 0;
+  margin-bottom: 0;
+
+  font-size: 17px;
+  line-height: 30px;
+  color: $yom-dusty;
+}
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// TYPESET-PUSH
+
+.typeset--push {
+  margin-bottom: $typeset-vertical-rhytm;
+}
+
+// === DOCS ===
+// --------------------------------------------------
+
+/*
+---
+name: Typeset
+components:
+  - Typeset
+---
+
+Typograhy structure
+
+```html
+<section class="typeset">
+  <h1 class="typeset__title">
+    <span class="typeset__label">
+      Client
+    </span>
+    <span class="typeset__heading">
+      TNT
+    </span>
+  </h1>
+  <p class="typeset__paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam.
+  </p>
+  <p class="typeset__paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam.
+  </p>
+  <h2 class="typeset__title">
+    <span class="typeset__label">
+      Client
+    </span>
+    <span class="typeset__heading">
+      TNT
+    </span>
+  </h2>
+  <p class="typeset__paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam.
+  </p>
+</section>
+```
+
+*/
