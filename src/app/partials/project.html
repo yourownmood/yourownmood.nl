@@ -30,42 +30,47 @@
 
         </div><div class="layout__item u-1/3-desk u-1/2 u-1/1-palm">
 
-          <div class="project-intro [ fadeInUp wow ] " data-wow-duration="1s">
-            <p class="project-intro__body">
-              <span class="project-intro__label">Project</span>
-              <strong class="project-intro__title">{{post.projectTitle}}</strong>
-            </p>
+          <div class="project-intro">
+            <section class="typeset [ fadeInUp wow ]" data-wow-duration="1s">
+              <h2 class="typeset__title">
+                <span class="typeset__label">Project</span>
+                <span class="typeset__heading">{{post.projectTitle}}</span>
+              </h2>
 
-            <p class="project-intro__body">
-              {{post.projectDescription}}
-            </p>
+              <p class="typeset__paragraph">
+                {{post.projectDescription}}
+              </p>
 
-            <p class="project-intro__body">
-              <span class="project-intro__label">Client</span>
-              <strong class="project-intro__title">{{post.projectClient}}</strong>
-            </p>
+              <h2 class="typeset__title">
+                <span class="typeset__label">Client</span>
+                <span class="typeset__heading">{{post.projectClient}}</span>
+              </h2>
 
-            <p class="project-intro__body">
-              <span class="project-intro__label">Role</span>
-              <strong class="project-intro__title" ng-if="post.projectRoleSteven">
-                {{post.projectRoleSteven}}
-              </strong>
-              <strong class="project-intro__title" ng-if="post.projectRoleGertjan">
-                {{post.projectRoleGertjan}}
-              </strong>
-            </p>
+              <h2 class="typeset__title">
+                <span class="typeset__label">Role</span>
+                <span class="typeset__heading" ng-if="post.projectRoleSteven">
+                  {{post.projectRoleSteven}}
+                </span>
+                <span class="typeset__heading" ng-if="post.projectRoleGertjan">
+                  {{post.projectRoleGertjan}}
+                </span>
+              </h2>
 
-            <p class="project-intro__body">
-              <span class="project-intro__label">Agency</span>
-              <strong class="project-intro__title">{{post.projectAgency}}</strong>
-            </p>
+              <h2 class="typeset__title">
+                <span class="typeset__label">Agency</span>
+                <span class="typeset__heading">{{post.projectAgency}}</span>
+              </h2>
 
-            <p class="project-intro__body">
-              <span class="project-intro__label">Visit website</span>
-              <a href="{{post.projectUrlHref}}" class="anchor anchor--arrow" target="_blank">
-                <strong>{{post.projectUrlLabel}}</strong>
-              </a>
-            </p>
+              <h2 class="typeset__title">
+                <span class="typeset__label">Visit website</span>
+                <span class="typeset__heading">
+                  <a href="{{post.projectUrlHref}}" class="anchor anchor--arrow" target="_blank">
+                    {{post.projectUrlLabel}}
+                  </a>
+                </span>
+              </h2>
+            </section>
+
           </div>
 
         </div>
@@ -78,10 +83,12 @@
       <div class="layout [ wow fadeInUp ]" ng-if="post.projectWorkTitle" data-wow-duration="0.7s">
         <div class="layout__item u-1/1">
 
-          <div class="project-graphic__title">
-            <span class="project-intro__label" ng-if="post.projectWorkTitleLabel">{{post.projectWorkTitleLabel}}</span>
-            <strong class="project-intro__title">{{post.projectWorkTitle}}</strong>
-          </div>
+          <section class="project-graphic__title">
+            <h2 class="typeset__title">
+              <span class="typeset__label" ng-if="post.projectWorkTitleLabel">{{post.projectWorkTitleLabel}}</span>
+              <span class="typeset__heading">{{post.projectWorkTitle}}</span>
+            </h2>
+          </section>
 
         </div>
       </div>
