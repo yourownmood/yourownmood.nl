@@ -55,7 +55,7 @@
         wow.init();
 
         window.dispatchEvent(new Event('resize'));
-      }, 0);
+      }, 100);
     };
 
   }]);
