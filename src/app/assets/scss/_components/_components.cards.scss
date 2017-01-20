@@ -93,6 +93,10 @@ $card-br: 44%;
 
 .card--gj {
   background-position: center;
+
+  @include media-query(phone) {
+    background-position: 0 63%;
+  }
 }
 
 .card--gj-project {
