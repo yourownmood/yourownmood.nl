@@ -19,7 +19,7 @@
 .scherm-2 {
   position: relative;
 
-  height: 120vh;
+  height: 135vh;
 
   @include media-query(portable) {
     height: auto;
