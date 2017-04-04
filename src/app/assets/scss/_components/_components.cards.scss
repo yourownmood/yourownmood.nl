@@ -90,6 +90,10 @@ $card-br: 44%;
   background-repeat: no-repeat;
   background-position: -20% bottom;
 
+  img {
+    max-width: 70% !important;
+  }
+
   @include media-query(phone) {
     min-height: 325px;
   }
@@ -111,6 +115,10 @@ $card-br: 44%;
   background-image: url('../images/project/leaseplan/energyline.png');
   background-repeat: no-repeat;
   background-position: 58.5% bottom;
+
+  img {
+    max-width: 70% !important;
+  }
 
   @include media-query(phone) {
     min-height: 325px;
