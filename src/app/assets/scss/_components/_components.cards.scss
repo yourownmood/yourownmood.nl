@@ -84,7 +84,15 @@ $card-br: 44%;
 .card--sb-project {
   height: $card-bl;
 
-  background-color: #f60;
+  background-color: #e7401e;
+
+  background-image: url('../images/project/leaseplan/energyline.png');
+  background-repeat: no-repeat;
+  background-position: -20% bottom;
+
+  img {
+    max-width: 70% !important;
+  }
 
   @include media-query(phone) {
     min-height: 325px;
@@ -102,7 +110,15 @@ $card-br: 44%;
 .card--gj-project {
   height: $card-br;
 
-  background-color: #4D148C;
+  background-color: #e7401e;
+
+  background-image: url('../images/project/leaseplan/energyline.png');
+  background-repeat: no-repeat;
+  background-position: 58.5% bottom;
+
+  img {
+    max-width: 70% !important;
+  }
 
   @include media-query(phone) {
     min-height: 325px;
@@ -225,17 +241,31 @@ $card-br: 44%;
 }
 
 .card--allerhande {
-  height: 34%;
+  height: 23%;
 
   background-color: #6cbc88;
 
   .card__bg {
     background-position: center right;
   }
+
+  img {
+    max-width: 40%;
+  }
+}
+
+.card--fedex {
+  height: 27%;
+
+  background-color: #4D148C;
+
+  img {
+    max-width: 60%;
+  }
 }
 
 .card--sunweb {
-  height: 33%;
+  height: 26%;
 
   background-color: #ff0;
 
@@ -245,7 +275,7 @@ $card-br: 44%;
 }
 
 .card--liander {
-  height: 33%;
+  height: 24%;
 
   background-color: #811d7d;
 
@@ -256,8 +286,18 @@ $card-br: 44%;
   img { max-width: 38%; }
 }
 
+.card--tnt {
+  height: 29%;
+
+  background-color: #f60;
+
+  img {
+    max-width: 60%;
+  }
+}
+
 .card--ecover {
-  height: 37%;
+  height: 27%;
 
   background-color: #85c300;
 
@@ -268,7 +308,7 @@ $card-br: 44%;
 }
 
 .card--sdc {
-  height: 26%;
+  height: 21%;
 
   background-color: #e01e3a;
 
@@ -290,7 +330,7 @@ $card-br: 44%;
 }
 
 .card--be {
-  height: 37%;
+  height: 23%;
 
   background-color: #f1f1f1;
 
