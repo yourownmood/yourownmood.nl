@@ -1,6 +1,6 @@
 {
   "name": "Yom",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Yom angular website",
   "scripts": {
     "styleguide": "./node_modules/.bin/aigis run -c ./aigis_config.yml"
