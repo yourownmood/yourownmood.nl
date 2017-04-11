@@ -29,10 +29,10 @@
     "vinyl-ftp": "^0.5.0"
   },
   "dependencies": {
-    "angular": "^1.4.8",
-    "angular-animate": "^1.4.8",
-    "angular-lazy-image": "^0.3.1",
-    "angular-route": "^1.4.8",
+    "angular": "1.4.8",
+    "angular-animate": "1.4.8",
+    "angular-lazy-image": "0.3.1",
+    "angular-route": "1.4.8",
     "inuit-box-sizing": "^0.2.0",
     "inuit-clearfix": "^0.2.2",
     "inuit-defaults": "^0.2.3",
