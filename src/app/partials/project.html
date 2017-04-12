@@ -13,17 +13,11 @@
                  afkl-lazy-image="{{post.heroImgPhone}} 480w, {{post.heroImgPalm}} 768w, {{post.heroImgFull}}"
                  afkl-lazy-image-options="{'background': true}"
                  class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper">
-              <h1 class="project-hero__title">
-                {{post.heroTitle}}
-              </h1>
             </div>
 
             <div ng-if="!post.heroImgFull"
                  class=" [ card card__bg ]"
                  ng-style="{'background-color': post.projectColor}">
-              <h1 class="project-hero__title">
-                {{post.heroTitle}}
-              </h1>
             </div>
 
           </div>
@@ -31,11 +25,12 @@
         </div><div class="layout__item u-1/3-desk u-1/2 u-1/1-palm">
 
           <div class="project-intro">
+
             <section class="typeset [ fadeInUp wow ]" data-wow-duration="1s">
-              <h2 class="typeset__title">
-                <span class="typeset__label">Project</span>
-                <span class="typeset__heading">{{post.projectTitle}}</span>
-              </h2>
+              <span class="typeset__label">Project</span>
+              <h1 class="title title--serif title--offset-left">
+                {{post.projectTitle}}
+              </h1>
 
               <p class="typeset__paragraph">
                 {{post.projectDescription}}
@@ -83,7 +78,7 @@
       <div class="layout [ wow fadeInUp ]" ng-if="post.projectWorkTitle" data-wow-duration="0.7s">
         <div class="layout__item u-1/1">
 
-          <section class="project-graphic__title">
+          <section class="typeset typeset--indent-h typeset--indent-v">
             <h2 class="typeset__title">
               <span class="typeset__label" ng-if="post.projectWorkTitleLabel">{{post.projectWorkTitleLabel}}</span>
               <span class="typeset__heading">{{post.projectWorkTitle}}</span>
@@ -97,7 +92,6 @@
            data-wow-duration="0.7s"
            ng-if="post.projectWorkImg1Full && post.projectWorkImg1Palm && post.projectWorkImg1Phone">
         <div class="layout__item u-1/1">
-
           <div class="project-graphic"
                ng-class="post.projectWorkImg1Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg1Caption">{{post.projectWorkImg1Caption}}</p>
@@ -105,7 +99,18 @@
                  afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectWorkImg1Caption}]}"
                  class="afkl-lazy-wrapper [ project-graphic__image ]"></div>
           </div>
-
+        </div>
+        <div class="layout__item u-1/2 u-1/1-palm"
+             ng-if="post.projectWorkImg1Heading || projectWorkImg1Body">
+          <section class="typeset typeset--indent-h typeset--indent-v typeset--squeeze">
+            <h1 class="typeset__title">
+              <span class="typeset__label" ng-if="post.projectWorkImg1Label">{{post.projectWorkImg1Label}}</span>
+              <span class="typeset__heading" ng-if="post.projectWorkImg1Heading">{{post.projectWorkImg1Heading}}</span>
+            </h1>
+            <p class="typeset__paragraph" ng-if="post.projectWorkImg1Body">
+              {{post.projectWorkImg1Body}}
+            </p>
+          </section>
         </div>
       </div>
 
@@ -113,7 +118,6 @@
            data-wow-duration="0.7s"
            ng-if="post.projectWorkImg2Full && post.projectWorkImg2Palm && post.projectWorkImg2Phone">
         <div class="layout__item u-1/1">
-
           <div class="project-graphic"
                 ng-class="post.projectWorkImg2Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg2Caption">{{post.projectWorkImg2Caption}}</p>
@@ -121,7 +125,18 @@
                  class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "
                  afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectWorkImg2Caption}]}"></div>
           </div>
-
+        </div>
+        <div class="layout__item u-1/2 u-1/1-palm"
+             ng-if="post.projectWorkImg2Heading || projectWorkImg2Body">
+          <section class="typeset typeset--indent-h typeset--indent-v typeset--squeeze">
+            <h1 class="typeset__title">
+              <span class="typeset__label" ng-if="post.projectWorkImg2Label">{{post.projectWorkImg2Label}}</span>
+              <span class="typeset__heading" ng-if="post.projectWorkImg2Heading">{{post.projectWorkImg2Heading}}</span>
+            </h1>
+            <p class="typeset__paragraph" ng-if="post.projectWorkImg2Body">
+              {{post.projectWorkImg2Body}}
+            </p>
+          </section>
         </div>
       </div>
 
@@ -150,6 +165,18 @@
                  class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
           </div>
 
+        </div>
+        <div class="layout__item u-1/2 u-1/1-palm"
+             ng-if="post.projectWorkImg3Heading || projectWorkImg3Body">
+          <section class="typeset typeset--indent-h typeset--indent-v typeset--squeeze">
+            <h1 class="typeset__title">
+              <span class="typeset__label" ng-if="post.projectWorkImg3Label">{{post.projectWorkImg3Label}}</span>
+              <span class="typeset__heading" ng-if="post.projectWorkImg3Heading">{{post.projectWorkImg3Heading}}</span>
+            </h1>
+            <p class="typeset__paragraph" ng-if="post.projectWorkImg3Body">
+              {{post.projectWorkImg3Body}}
+            </p>
+          </section>
         </div>
       </div>
 
@@ -221,14 +248,25 @@
           </div>
 
         </div><div class="layout__item u-1/2 u-1/1-palm">
-
           <div class="project-graphic" ng-class="post.projectWorkImg10Options" data-wow-duration="0.7s">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg10Caption">{{post.projectWorkImg10Caption}}</p>
             <div afkl-lazy-image="{{post.projectWorkImg10Phone}} 480w, {{post.projectWorkImg10Palm}} 768w, {{post.projectWorkImg10Full}}"
                  afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectWorkImg10Caption}]}"
                  class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
           </div>
+        </div>
 
+        <div class="layout__item u-1/2 u-1/1-palm"
+             ng-if="post.projectWorkImg10Heading || projectWorkImg10Body">
+          <section class="typeset typeset--indent-h typeset--indent-v typeset--squeeze">
+            <h1 class="typeset__title">
+              <span class="typeset__label" ng-if="post.projectWorkImg10Label">{{post.projectWorkImg10Label}}</span>
+              <span class="typeset__heading" ng-if="post.projectWorkImg10Heading">{{post.projectWorkImg10Heading}}</span>
+            </h1>
+            <p class="typeset__paragraph" ng-if="post.projectWorkImg10Body">
+              {{post.projectWorkImg10Body}}
+            </p>
+          </section>
         </div>
       </div>
 
@@ -236,7 +274,6 @@
            data-wow-duration="0.7s"
            ng-if="post.projectWorkImg11Full && post.projectWorkImg11Palm && post.projectWorkImg11Phone">
         <div class="layout__item u-1/1">
-
           <div class="project-graphic"
                 ng-class="post.projectWorkImg11Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg11Caption">{{post.projectWorkImg11Caption}}</p>
@@ -244,7 +281,18 @@
                  afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectWorkImg11Caption}]}"
                  class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
           </div>
-
+        </div>
+        <div class="layout__item u-1/2 u-1/1-palm"
+             ng-if="post.projectWorkImg11Heading || projectWorkImg11Body">
+          <section class="typeset typeset--indent-h typeset--indent-v typeset--squeeze">
+            <h1 class="typeset__title">
+              <span class="typeset__label" ng-if="post.projectWorkImg11Label">{{post.projectWorkImg11Label}}</span>
+              <span class="typeset__heading" ng-if="post.projectWorkImg11Heading">{{post.projectWorkImg11Heading}}</span>
+            </h1>
+            <p class="typeset__paragraph" ng-if="post.projectWorkImg11Body">
+              {{post.projectWorkImg11Body}}
+            </p>
+          </section>
         </div>
       </div>
 
@@ -252,7 +300,6 @@
            data-wow-duration="0.7s"
            ng-if="post.projectWorkImg12Full && post.projectWorkImg12Palm && post.projectWorkImg12Phone">
         <div class="layout__item u-1/1">
-
           <div class="project-graphic"
                 ng-class="post.projectWorkImg12Options">
             <p class="project-graphic__caption" ng-if="post.projectWorkImg12Caption">{{post.projectWorkImg12Caption}}</p>
@@ -260,7 +307,18 @@
                  afkl-lazy-image-options="{'imgAttrs': [{'alt': post.projectWorkImg12Caption}]}"
                  class="afkl-lazy-wrapper afkl-img-ratio-1-2 [ project-graphic__image ] "></div>
           </div>
-
+        </div>
+        <div class="layout__item u-1/2 u-1/1-palm"
+             ng-if="post.projectWorkImg12Heading || projectWorkImg12Body">
+          <section class="typeset typeset--indent-h typeset--indent-v typeset--squeeze">
+            <h1 class="typeset__title">
+              <span class="typeset__label" ng-if="post.projectWorkImg12Label">{{post.projectWorkImg12Label}}</span>
+              <span class="typeset__heading" ng-if="post.projectWorkImg12Heading">{{post.projectWorkImg12Heading}}</span>
+            </h1>
+            <p class="typeset__paragraph" ng-if="post.projectWorkImg12Body">
+              {{post.projectWorkImg12Body}}
+            </p>
+          </section>
         </div>
       </div>
 

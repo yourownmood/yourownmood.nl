@@ -64,14 +64,6 @@
   padding: 0;
 }
 
-.project-graphic__title {
-  margin: 0 55px 70px;
-
-  @include media-query(palm) {
-    margin: 0 16px 50px;
-  }
-}
-
 .project-graphic__image {
   img {
     width: 100%;
