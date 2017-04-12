@@ -80,7 +80,13 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-project';
 
-    $http.get('app/feeds/projects.json', { cache: true}).success(function(data, status, headers, config) {
+    if($scope.lastPart !== 'dummy') {
+      var feed = 'projects.json';
+    } else {
+      var feed = 'dummy.json';
+    }
+
+    $http.get('app/feeds/' + feed, { cache: true}).success(function(data, status, headers, config) {
       $scope.posts = data;
 
       // Check if the page-name is specified in the .json
