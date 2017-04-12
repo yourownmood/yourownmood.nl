@@ -41,6 +41,7 @@
  * Cards
  * Nav-list
  * Hamburger
+ * Title................Title component *[new]*
  * Typeset..............Typographical structure set *[new]*
  *
  * TRUMPS
@@ -127,6 +128,7 @@ $inuit-enable-layout--center: true;
 @import '_components/components.lists';
 @import '_components/components.nav-list';
 @import '_components/components.hamburger';
+@import '_components/components.title';
 @import '_components/components.typeset';
 
 
