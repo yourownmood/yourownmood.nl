@@ -151,7 +151,7 @@
 
   // app JSON task:
   gulp.task('app-json', 'Copy app .json files to the build folder', function() {
-    return gulp.src(config.src_dir + '/feeds/*.json')
+    return gulp.src([config.src_dir + '/feeds/*.json', '!' + config.src_dir + '/feeds/dummy.json'])
            .pipe(gulp.dest(config.build_dir + '/app/feeds/'));
   });
 
