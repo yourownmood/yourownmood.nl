@@ -59,6 +59,11 @@
     runSequence('clean', ['sass', 'js:build', 'copy-assets', 'app-html', 'app-json'], callback);
   });
 
+  // Build test
+  gulp.task('build:test', 'Standard build task', function(callback) {
+    runSequence('clean', ['sass', 'js:build', 'copy-assets', 'app-html', 'app-json:test'], callback);
+  });
+
   // Serve
   gulp.task('serve', 'Serves the application', ['sass', 'js'], function(callback) {
     browserSync.init({
@@ -149,7 +154,13 @@
            .pipe(gulp.dest(config.build_dir + '/app/partials/'));
   });
 
-  // app JSON task:
+  // app JSON dev task:
+  gulp.task('app-json:test', 'Copy app .json files to the build folder', function() {
+    return gulp.src(config.src_dir + '/feeds/*.json')
+           .pipe(gulp.dest(config.build_dir + '/app/feeds/'));
+  });
+
+  // app JSON prod task:
   gulp.task('app-json', 'Copy app .json files to the build folder', function() {
     return gulp.src([config.src_dir + '/feeds/*.json', '!' + config.src_dir + '/feeds/dummy.json'])
            .pipe(gulp.dest(config.build_dir + '/app/feeds/'));
@@ -202,7 +213,7 @@
   });
 
   // Pubish test task
-  gulp.task( 'publish-test', ['build'], function () {
+  gulp.task( 'publish-test', ['build:test'], function () {
     var conn = ftp.create( {
         host:     cred.host,
         user:     cred.user,
@@ -221,7 +232,7 @@
   });
 
   // Pubish feature task
-  gulp.task( 'publish-feature', ['build'], function () {
+  gulp.task( 'publish-feature', ['build:test'], function () {
     var conn = ftp.create( {
         host:     cred.host,
         user:     cred.user,
