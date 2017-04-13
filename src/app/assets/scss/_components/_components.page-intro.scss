@@ -10,8 +10,7 @@
 // === PARTS ===
 // --------------------------------------------------
 
-// HEADER
-// SLOGAN
+// SCHERM-1
 
 // === DOCS ===
 // --------------------------------------------------
@@ -35,34 +34,6 @@
 
 // === PARTS ===
 // --------------------------------------------------
-
-// HEADER
-
-.intro__header {
-  max-width: 270px;
-  height: 100%;
-  margin: -31px 0 55px;
-  padding: 0;
-
-  color: $yom-dusty;
-  font-size: 24px;
-  line-height: 36px;
-}
-
-// SLOGAN
-
-.intro__slogan {
-  position: relative;
-  left: -61%;
-  top: -93px;
-
-  width: 161%;
-
-  @include font-domine();
-  color: $yom-cod;
-  font-size: 38px;
-  line-height: 45px;
-}
 
 .scherm-1 {
   @include media-query(desk) {

@@ -23,7 +23,10 @@
 // === OPTIONS ===
 // --------------------------------------------------
 
-// TYPESET-PUSH
+// TYPESET-PUSH-BOTTOM
+// TYPESET-INDENT-HORIZONTAL
+// TYPESET-INDENT-VERTICAL
+// TYPESET-SQUEEZE
 
 // === DOCS ===
 // --------------------------------------------------
@@ -109,10 +112,42 @@ $typeset-vertical-rhytm: 50px;
 // === OPTIONS ===
 // --------------------------------------------------
 
-// TYPESET-PUSH
+// TYPESET-PUSH-BOTTOM
 
-.typeset--push {
+.typeset--push-bottom {
   margin-bottom: $typeset-vertical-rhytm;
+}
+
+// TYPESET-INDENT-HORIZONTAL
+
+.typeset--indent-h {
+  padding-right: 55px;
+  padding-left: 55px;
+
+  @include media-query(palm) {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+// TYPESET-INDENT-VERTICAL
+
+.typeset--indent-v {
+  padding-top: 70px;
+  padding-bottom: 70px;
+
+  @include media-query(palm) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+// TYPESET-SQUEEZE
+
+.typeset--squeeze {
+  .typeset__title {
+    margin-bottom: $typeset-vertical-rhytm / 2;
+  }
 }
 
 // === DOCS ===
@@ -125,7 +160,7 @@ components:
   - Typeset
 ---
 
-Typograhy structure
+*Base*
 
 ```html
 <section class="typeset">
@@ -157,6 +192,14 @@ Typograhy structure
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et magna aliqua. Ut enim ad minim veniam.
   </p>
+</section>
+```
+
+*Options*
+
+```html
+<section class="typeset typeset--[ push-bottom | indent-h | indent-v | squeeze ]">
+  ...
 </section>
 ```
 

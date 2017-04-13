@@ -1,0 +1,105 @@
+// ---------------------------------------------------
+// +++ COMPONENT TITLE +++
+// --------------------------------------------------
+
+// === VARIABLES ===
+// --------------------------------------------------
+
+// TITLE-OFFSET-LEFT
+
+// === BASE ===
+// --------------------------------------------------
+
+// TITLE
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// SERIF
+// OFFSET-TOP
+// OFFSET-LEFT
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === VARIABLES ===
+// --------------------------------------------------
+
+// TITLE-OFFSET-LEFT
+
+$title-offset-left: 57%;
+
+// === BASE ===
+// --------------------------------------------------
+
+// TYPESET
+
+.title {
+  position: relative;
+
+  margin: 0;
+
+  color: $yom-cod;
+  font-size: 38px;
+  line-height: 45px;
+}
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// TITLE-SERIF
+
+.title--serif {
+  @include font-domine();
+  font-weight: 400;
+}
+
+// TITLE-OFFSET-TOP
+
+.title--offset-top {
+  top: -85px;
+}
+
+// TITLE-OFFSET-LEFT
+
+.title--offset-left\@palm {
+  @include media-query(lap-and-up) {
+    width: 100% + $title-offset-left;
+
+    margin-left: -$title-offset-left;
+  }
+}
+
+// === DOCS ===
+// --------------------------------------------------
+
+/*
+---
+name: Title
+components:
+  - Title
+---
+
+*Base:*
+
+```html
+<h1 class="title title--serif">
+  Title
+</h1>
+```
+
+*Options:*
+
+```html
+<h1 class="title title--[ serif | offset-top | offset-left ]">...</h1>
+```
+
+
+*/
