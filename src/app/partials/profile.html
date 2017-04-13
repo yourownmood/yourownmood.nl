@@ -13,9 +13,6 @@
                  afkl-lazy-image="{{post.heroImgPhone}} 480w, {{post.heroImgPalm}} 768w, {{post.heroImgFull}}"
                  afkl-lazy-image-options="{'background': true}"
                  class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper">
-              <h1 class="project-hero__title">
-                {{post.roleHero}}
-              </h1>
             </div>
 
           </div>
@@ -24,10 +21,12 @@
 
           <div class="project-intro">
             <section class="typeset [ fadeInUp wow ]" data-wow-duration="1s">
-              <h2 class="typeset__title">
-                <span class="typeset__label">Name</span>
-                <span class="typeset__heading">{{post.name}}</span>
-              </h2>
+              <span class="typeset__label">Name</span>
+              <h1 class="title title--serif title--offset-left@palm title--highlight">
+                {{post.name}}
+                <br>
+                {{post.roleHero}}
+              </h1>
 
               <p class="typeset__paragraph">
                 {{post.profileDescription}}

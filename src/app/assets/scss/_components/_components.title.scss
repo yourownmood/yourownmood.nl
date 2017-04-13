@@ -18,6 +18,7 @@
 // SERIF
 // OFFSET-TOP
 // OFFSET-LEFT @ PALM
+// HIGHLIGHT
 
 // === DOCS ===
 // --------------------------------------------------
@@ -77,6 +78,12 @@ $title-offset-left: 57%;
   }
 }
 
+// HIGHLIGHT
+
+.title--highlight {
+  text-shadow: 0px 0px 130px rgba(255, 255, 255, 0.6);
+}
+
 // === DOCS ===
 // --------------------------------------------------
 
@@ -98,7 +105,7 @@ components:
 *Options:*
 
 ```html
-<h1 class="title title--[ serif | offset-top | offset-left@palm ]">...</h1>
+<h1 class="title title--[ serif | offset-top | offset-left@palm | highlight ]">...</h1>
 ```
 
 
