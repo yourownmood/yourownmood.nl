@@ -60,6 +60,9 @@
       "projectWorkImg5Palm": "#",
       "projectWorkImg5Phone": "#",
       "projectWorkImg5Caption": "Dummy projectWorkImg5Caption",
+      "projectWorkImg5Label": "Dummy projectWorkImg5Label",
+      "projectWorkImg5Heading": "Dummy projectWorkImg5Heading",
+      "projectWorkImg5Body": "Dummy projectWorkImg5Body",
 
       "projectWorkImg6Options": "project-graphic--center project-graphic--shadow",
       "projectWorkImg6Full": "#",
@@ -72,12 +75,18 @@
       "projectWorkImg7Palm": "#",
       "projectWorkImg7Phone": "#",
       "projectWorkImg7Caption": "Dummy projectWorkImg7Caption",
+      "projectWorkImg7Label": "Dummy projectWorkImg7Label",
+      "projectWorkImg7Heading": "Dummy projectWorkImg7Heading",
+      "projectWorkImg7Body": "Dummy projectWorkImg7Body",
 
       "projectWorkImg8Options": "project-graphic--fill",
       "projectWorkImg8Full": "#",
       "projectWorkImg8Palm": "#",
       "projectWorkImg8Phone": "#",
       "projectWorkImg8Caption": "Dummy projectWorkImg8Caption",
+      "projectWorkImg8Label": "Dummy projectWorkImg8Label",
+      "projectWorkImg8Heading": "Dummy projectWorkImg8Heading",
+      "projectWorkImg8Body": "Dummy projectWorkImg8Body",
 
       "projectWorkImg9Options": "",
       "projectWorkImg9Full": "#",

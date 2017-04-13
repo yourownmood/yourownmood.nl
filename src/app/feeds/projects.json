@@ -114,9 +114,6 @@
         "projectWorkImg3Palm":"app/assets/images/project/fedex/fedex-screen-left-1-full.jpg",
         "projectWorkImg3Phone":"app/assets/images/project/fedex/fedex-screen-left-1-full.jpg",
         "projectWorkImg3Caption":"",
-        "projectWorkImg3Label":"Clear colour coded overview of",
-        "projectWorkImg3Heading":"All your shipments",
-        "projectWorkImg3Body":"After logging in the user can see a clear overview of every shipment action that is currently happening: Picked up, In Transit, Delivering, Delivered, Possible issue. The icons and colours give you a quick update on what shipment needs attention and what not.",
 
         "projectWorkImg4Options": "project-graphic--center project-graphic--shadow",
         "projectWorkImg4Full":"app/assets/images/project/fedex/fedex-screen-right-1-full.jpg",
@@ -147,6 +144,9 @@
         "projectWorkImg10Palm":"app/assets/images/project/fedex/fedex-screen-right-3-full.jpg",
         "projectWorkImg10Phone":"app/assets/images/project/fedex/fedex-screen-right-3-full.jpg",
         "projectWorkImg10Caption":"",
+        "projectWorkImg10Label":"Clear colour coded overview of",
+        "projectWorkImg10Heading":"All your shipments",
+        "projectWorkImg10Body":"After logging in the user can see a clear overview of every shipment action that is currently happening: Picked up, In Transit, Delivering, Delivered, Possible issue. The icons and colours give you a quick update on what shipment needs attention and what not.",
 
         "projectWorkImg11Options": "project-graphic--center",
         "projectWorkImg11Full":"app/assets/images/project/fedex/fedex-screens-full.png",
