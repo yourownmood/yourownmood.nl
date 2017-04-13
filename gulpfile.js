@@ -21,6 +21,7 @@
       rename = require('gulp-rename'),
       runSequence = require('run-sequence'),
       sass = require('gulp-sass'),
+      shell = require('gulp-shell'),
       sourcemaps = require('gulp-sourcemaps'),
       tag_version = require('gulp-tag-version'),
       uglify = require('gulp-uglify');
@@ -56,12 +57,12 @@
 
   // Build
   gulp.task('build', 'Standard build task', function(callback) {
-    runSequence('clean', ['sass', 'js:build', 'copy-assets', 'app-html', 'app-json'], callback);
+    runSequence('clean', ['sass', 'js:build', 'copy-assets', 'app-html', 'app-json'], 'styleguide', callback);
   });
 
   // Build test
   gulp.task('build:test', 'Standard build task', function(callback) {
-    runSequence('clean', ['sass', 'js:build', 'copy-assets', 'app-html', 'app-json:test'], callback);
+    runSequence('clean', ['sass', 'js:build', 'copy-assets', 'app-html', 'app-json:test'], 'styleguide', callback);
   });
 
   // Serve
@@ -165,6 +166,14 @@
     return gulp.src([config.src_dir + '/feeds/*.json', '!' + config.src_dir + '/feeds/dummy.json'])
            .pipe(gulp.dest(config.build_dir + '/app/feeds/'));
   });
+
+  // npm run styleguide
+  gulp.task('styleguide', () => {
+    return gulp.src('')
+    .pipe(shell([
+      'npm run styleguide'
+    ]))
+  })
 
 
   /* Versioning and publishing */

@@ -40,3 +40,7 @@ Despite being open sourced, all yourownmood.nl code and content remain copyright
   gulp publish-prod
   ```
 * Verify the release on [yourownmood.nl](https://yourownmood.nl)
+
+## Styleguide
+
+The yourownmood styleguide (work in progress) can be found here: [yourownmood.nl/styleguide](https://yourownmood.nl/styleguide)
