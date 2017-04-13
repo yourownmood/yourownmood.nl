@@ -69,10 +69,12 @@ $title-offset-left: 57%;
 
 // TITLE-OFFSET-LEFT
 
-.title--offset-left {
-  width: 100% + $title-offset-left;
+.title--offset-left\@palm {
+  @include media-query(lap-and-up) {
+    width: 100% + $title-offset-left;
 
-  margin-left: -$title-offset-left;
+    margin-left: -$title-offset-left;
+  }
 }
 
 // === DOCS ===
