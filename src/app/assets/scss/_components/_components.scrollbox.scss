@@ -82,3 +82,26 @@
     margin: auto;
   }
 }
+
+// SLIDEINOUT
+
+.slideInOut {
+  max-height: 320px;
+  visibility: visible;
+}
+
+.slideInOut.ng-hide-add.ng-hide-add-active,
+.slideInOut.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+}
+
+.slideInOut.ng-hide {
+  overflow-y: hidden;
+  max-height: 20px;
+}
+
+.slideInOut.ng-hide {
+  display: block !important;
+  visibility: hidden;
+}

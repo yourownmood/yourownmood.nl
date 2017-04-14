@@ -1,6 +1,42 @@
-/*------------------------------------*\
-  #SHOW/HIDE HELPER
-\*------------------------------------*/
+// --------------------------------------------------
+// +++ TRUMPS HIDE +++
+// --------------------------------------------------
+
+// === TOOLS ===
+// --------------------------------------------------
+
+// HIDE MIXIN
+
+// === BASE ===
+// --------------------------------------------------
+
+// HIDE
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// PHONE
+// PHONE-PLUS
+// PALM
+// LAP
+// LAP-AND-UP
+// PORTABLE
+// DESK
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === TOOLS ===
+// --------------------------------------------------
+
+// HIDE MIXIN
 
 @mixin hide() {
   position: absolute !important;
@@ -13,32 +49,73 @@
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-.hide { @include hide(); }
+// === BASE ===
+// --------------------------------------------------
+
+// HIDE
+
+.u-hide { @include hide(); }
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// PHONE
 
 @include media-query(phone) {
-  .hide-phone { @include hide(); }
+  .u-hide--phone { @include hide(); }
 }
+
+// PHONE-PLUS
 
 @include media-query(phone-plus) {
-  .hide-phone-plus { @include hide(); }
+  .u-hide--phone-plus { @include hide(); }
 }
+
+// PALM
 
 @include media-query(palm) {
-  .hide-palm { @include hide(); }
+  .u-hide--palm { @include hide(); }
 }
+
+// LAP
 
 @include media-query(lap) {
-  .hide-lap { @include hide(); }
+  .u-hide--lap { @include hide(); }
 }
+
+// LAP-AND-UP
 
 @include media-query(lap-and-up) {
-  .hide-lap-and-up { @include hide(); }
+  .u-hide--lap-and-up { @include hide(); }
 }
+
+// PORTABLE
 
 @include media-query(portable) {
-  .hide-portable { @include hide(); }
+  .u-hide--portable { @include hide(); }
 }
 
+// DESK
+
 @include media-query(desk) {
-  .hide-desk { @include hide(); }
+  .u-hide--desk { @include hide(); }
 }
+
+// === DOCS ===
+// --------------------------------------------------
+
+/*
+---
+name: Hide
+utilities:
+  - Hide
+hidePreview: true
+---
+
+**Options:**
+
+```html
+<div class="u-hide--[ phone | phone-plus | palm | lap | lap-and-up | portable | desk ]">...</div>
+```
+
+*/

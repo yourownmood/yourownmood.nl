@@ -1,39 +1,102 @@
-/*------------------------------------*\
-    #BACKGROUND POSITION
-\*------------------------------------*/
+// --------------------------------------------------
+// +++ TRUMPS BACKGROUND POSITION +++
+// --------------------------------------------------
 
-.bg-tl {
+// === OPTIONS ===
+// --------------------------------------------------
+
+// TOP-LEFT
+// TOP-CENTER
+// TOP-RIGHT
+// CENTER-LEFT
+// CENTER-CENTER
+// CENTER-RIGHT
+// BOTTOM-LEFT
+// BOTTOM-CENTER
+// BOTTOM-RIGHT
+
+// === DOCS ===
+// --------------------------------------------------
+
+// DOCS
+
+// --------------------------------------------------
+// +++ END +++
+// --------------------------------------------------
+
+
+// === OPTIONS ===
+// --------------------------------------------------
+
+// TOP-LEFT
+
+.u-bg--tl {
   background-position: top left !important;
 }
 
-.bg-tc {
+// TOP-CENTER
+
+.u-bg--tc {
   background-position: top center !important;
 }
 
-.bg-tr {
+// TOP-RIGHT
+
+.u-bg--tr {
   background-position: top right !important;
 }
 
-.bg-cl {
+// CENTER-LEFT
+
+.u-bg--cl {
   background-position: center left !important;
 }
 
-.bg-cc {
+// CENTER-CENTER
+
+.u-bg--cc {
   background-position: center !important;
 }
 
-.bg-cr {
+// CENTER-RIGHT
+
+.u-bg--cr {
   background-position: center right !important;
 }
 
-.bg-bl {
+// BOTTOM-LEFT
+
+.u-bg--bl {
   background-position: bottom left !important;
 }
 
-.bg-bc {
+// BOTTOM-CENTER
+
+.u-bg--bc {
   background-position: bottom center !important;
 }
 
-.bg-br {
+// BOTTOM-RIGHT
+
+.u-bg--br {
   background-position: bottom right !important;
 }
+
+// === DOCS ===
+// --------------------------------------------------
+
+/*
+---
+name: Background-positions
+utilities:
+  - Background-positions
+hidePreview: true
+---
+
+**Options:**
+
+```html
+<div class="u-bg--[ tl | tc | tr | cl | cc | cr | bl | bc | br ]">...</div>
+```
+
+*/
