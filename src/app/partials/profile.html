@@ -12,7 +12,7 @@
             <div ng-if="post.heroImgFull && post.heroImgPalm && post.heroImgPhone"
                  afkl-lazy-image="{{post.heroImgPhone}} 480w, {{post.heroImgPalm}} 768w, {{post.heroImgFull}}"
                  afkl-lazy-image-options="{'background': true}"
-                 class=" [ card card__bg bg-{{post.heroImgPosition}} ] afkl-lazy-wrapper">
+                 class=" [ card card__bg u-bg--{{post.heroImgPosition}} ] afkl-lazy-wrapper">
             </div>
 
           </div>
@@ -50,7 +50,7 @@
               <h2 class="typeset__title">
                 <span class="typeset__label">Get in touch</span>
                 <span class="typeset__heading">
-                  <a href="mailto:{{post.email}}" class="anchor anchor--arrow txt--break-word">{{post.email}}</a>
+                  <a href="mailto:{{post.email}}" class="anchor anchor--arrow u-txt--break-word">{{post.email}}</a>
                   <br>
                   <a href="http://www.{{post.linkedin}}" class="anchor anchor--arrow">linkedIn</a>
                 </span>

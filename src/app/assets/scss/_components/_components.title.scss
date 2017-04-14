@@ -94,7 +94,7 @@ components:
   - Title
 ---
 
-*Base:*
+**Base:**
 
 ```html
 <h1 class="title title--serif">
@@ -102,11 +102,10 @@ components:
 </h1>
 ```
 
-*Options:*
+**Options:**
 
 ```html
 <h1 class="title title--[ serif | offset-top | offset-left@palm | highlight ]">...</h1>
 ```
-
 
 */

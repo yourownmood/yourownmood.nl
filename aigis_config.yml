@@ -21,12 +21,12 @@ template_engine: hbs
 
 output_collection:
   - components
+  - utilities
   # - elements
   # - generic
   # - objects
   # - settings
   # - tools
-  # - utilities
 
 component_dir: ./
 
