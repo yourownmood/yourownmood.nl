@@ -107,6 +107,14 @@ $typeset-vertical-rhytm: 50px;
   font-size: 17px;
   line-height: 30px;
   color: $yom-dusty;
+
+  a {
+    color: $yom-cod;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 // === OPTIONS ===
