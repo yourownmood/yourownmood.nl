@@ -5,6 +5,7 @@
     'afkl.lazyImage',
     'ngRoute',
     'ngAnimate',
+    'ngSanitize'
   ]);
 
   app.config(['$routeProvider', function ($routeProvider) {
