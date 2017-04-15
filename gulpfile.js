@@ -44,6 +44,7 @@
       config.node_dir + '/angular-route/angular-route.min.js',
       config.node_dir + '/angular-animate/angular-animate.min.js',
       config.node_dir + '/angular-lazy-image/release/lazy-image.js',
+      config.node_dir + '/angular-sanitize/angular-sanitize.min.js',
       config.src_dir  + '/app.js'
     ]
   };
