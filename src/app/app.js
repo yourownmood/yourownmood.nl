@@ -8,7 +8,9 @@
     'ngSanitize'
   ]);
 
-  app.config(['$routeProvider', function ($routeProvider) {
+  app.config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('');
+
     $routeProvider
     .when('/', {
       templateUrl: 'app/partials/home.html'
@@ -87,8 +89,9 @@
       var feed = 'dummy.json';
     }
 
-    $http.get('app/feeds/' + feed, { cache: true}).success(function(data, status, headers, config) {
-      $scope.posts = data;
+    $http.get('app/feeds/' + feed, { cache: true}).
+    then(function onSuccess(response) {
+      $scope.posts = response.data;
 
       // Check if the page-name is specified in the .json
       var found = false;
@@ -102,6 +105,9 @@
           $location.path('/');
         }
       }
+    }).
+    catch(function onError(response) {
+      // error
     });
 
   }]);
@@ -114,8 +120,9 @@
     $scope.lastPart = get_url.$$url.split("/").pop();
     $scope.pageClass = 'page-profile';
 
-    $http.get('app/feeds/profiles.json', { cache: true}).success(function(data, status, headers, config) {
-      $scope.posts = data;
+    $http.get('app/feeds/profiles.json', { cache: true}).
+    then(function onSuccess(response) {
+      $scope.posts = response.data;
 
       // Check if the page-name is specified in the .json
       var found = false;
@@ -129,6 +136,9 @@
           $location.path('/');
         }
       }
+    }).
+    catch(function onError(response) {
+      // error
     });
 
   }]);
@@ -152,9 +162,14 @@
         $scope.visibleNavigation = false;
 
         // Dynamic load
-        $http.get('app/feeds/projects.json', { cache: true}).success(function(data, status, headers, config) {
-          $scope.posts = data;
+        $http.get('app/feeds/projects.json', { cache: true}).
+        then(function onSuccess(response) {
+          $scope.posts = response.data;
+        }).
+        catch(function onError(response) {
+          // error
         });
+
 
         $scope.toggle = function(trigger) {
 
