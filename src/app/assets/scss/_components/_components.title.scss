@@ -12,6 +12,11 @@
 
 // TITLE
 
+// === PARTS ===
+// --------------------------------------------------
+
+// YEAR
+
 // === OPTIONS ===
 // --------------------------------------------------
 
@@ -50,6 +55,30 @@ $title-offset-left: 57%;
   color: $yom-cod;
   font-size: 38px;
   line-height: 45px;
+}
+
+// === PARTS ===
+// --------------------------------------------------
+
+// YEAR
+
+.title__year {
+  display: block;
+
+  margin-top: 20px;
+
+  font-size: 15px;
+  line-height: 18px;
+
+  @include media-query(lap-and-up) {
+    position: absolute;
+    top: 32px;
+    left: -75px;
+
+    margin-top: 0;
+
+    transform: rotate(-90deg);
+  }
 }
 
 // === OPTIONS ===
@@ -98,6 +127,7 @@ components:
 
 ```html
 <h1 class="title title--serif">
+  <span class="title__year">2014-2016</span>
   Title
 </h1>
 ```
