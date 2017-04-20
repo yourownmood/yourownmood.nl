@@ -17,8 +17,6 @@
         "projectUrlHref": "http://www.fedex.com/us/",
         "projectColor": "#4d148c",
         "projectLogo": "app/assets/images/project/fedex/fedex-logo@2x.png",
-        "projectThumb": "",
-        "projectThumbPosition": "br",
 
         "projectWorkTitleLabel": "Entering the booking tool let’s you:",
         "projectWorkTitle": "Get started sending around the globe!",
@@ -170,8 +168,6 @@
         "projectUrlHref": "http://tnt.com",
         "projectColor": "#FF6600",
         "projectLogo": "app/assets/images/project/tnt/tnt.svg",
-        "projectThumb": "",
-        "projectThumbPosition": "",
 
         "projectWorkTitleLabel": "Creating one platform for 200 country’s in 80 languages to",
         "projectWorkTitle": "Send, manage & track your shipments",
@@ -189,9 +185,6 @@
         "projectWorkImg2Phone": "app/assets/images/project/tnt/tnt-photo-phone-480.jpg",
         "projectWorkImg2ShowCaption": false,
         "projectWorkImg2Caption": "Track and Trace used on mobile and desktop",
-        "projectWorkImg2Label": "",
-        "projectWorkImg2Heading": "",
-        "projectWorkImg2Body": "",
 
         "projectWorkImg3Options": "project-graphic--fill",
         "projectWorkImg3Full": "app/assets/images/project/tnt/tnt-photo-left-full.jpg",
@@ -199,9 +192,6 @@
         "projectWorkImg3Phone": "app/assets/images/project/tnt/tnt-photo-left-palm.jpg",
         "projectWorkImg3ShowCaption": false,
         "projectWorkImg3Caption": "Sprint planning",
-        "projectWorkImg3Label": "",
-        "projectWorkImg3Heading": "",
-        "projectWorkImg3Body": "",
 
         "projectWorkImg4Options": "project-graphic--fill",
         "projectWorkImg4Full": "app/assets/images/project/tnt/tnt-photo-right-full.jpg",
