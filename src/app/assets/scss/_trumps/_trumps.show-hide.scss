@@ -11,6 +11,7 @@
 // --------------------------------------------------
 
 // HIDE
+// HIDDEN-VISUALLY
 
 // === OPTIONS ===
 // --------------------------------------------------
@@ -39,14 +40,7 @@
 // HIDE MIXIN
 
 @mixin hide() {
-  position: absolute !important;
-
-  height: 1px; width: 1px !important;
-  overflow: hidden;
-
-  // scss-lint:disable DuplicateProperty
-  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-  clip: rect(1px, 1px, 1px, 1px);
+  display: none !important;
 }
 
 // === BASE ===
@@ -55,6 +49,12 @@
 // HIDE
 
 .u-hide { @include hide(); }
+
+// HIDDEN-VISUALLY
+
+.u-hidden-visually {
+  @include hidden-visually();
+}
 
 // === OPTIONS ===
 // --------------------------------------------------

@@ -8,6 +8,7 @@
 // BORDER-RADIUS
 // TRANSFORM
 // TRANSITION
+// HIDDEN-VISUALLY
 
 // === DOCS ===
 // --------------------------------------------------
@@ -46,6 +47,21 @@
   -ms-transition: $transition-property $transition-time $method;
   -o-transition: $transition-property $transition-time $method;
   transition: $transition-property $transition-time $method;
+}
+
+// HIDDEN-VISUALLY
+
+@mixin hidden-visually() {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
 }
 // scss-lint:enable
 
