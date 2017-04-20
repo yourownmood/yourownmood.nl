@@ -1,5 +1,36 @@
 [
     {
+        "url": "leaseplan",
+        "heroTitle": "LeasePlan",
+        "heroImgFull": "app/assets/images/project/leaseplan/leaseplan-hero-full.jpg",
+        "heroImgPalm": "app/assets/images/project/leaseplan/leaseplan-hero-768.jpg",
+        "heroImgPhone": "app/assets/images/project/leaseplan/leaseplan-hero-480.jpg",
+        "heroImgPosition": "cc",
+        "projectYears": "2017-now",
+        "projectTitle": "What’s next?<br>A netflix for cars?",
+        "projectDescription": "Dummy projectDescription",
+        "projectClient": "LeasePlan",
+        "projectRoleSteven": "Front-end developer (Steven)",
+        "projectRoleGertjan": "Visual Designer (Gert-Jan)",
+        "projectAgency": "Jungleminds",
+        "projectUrlLabel": "leaseplan.com",
+        "projectUrlHref": "https://www.leaseplan.com",
+        "projectColor": "#e7401e",
+        "projectLogo": "app/assets/images/project/leaseplan/logo_LeasePlan.svg",
+        "projectThumb": "",
+        "projectThumbPosition": "",
+
+        "projectWorkTitleLabel": "Dummy projectWorkTitleLabel",
+        "projectWorkTitle": "Dummy projectWorkTitle",
+
+        "projectWorkImg1Options": "project-graphic--center project-graphic--shadow",
+        "projectWorkImg1Full":"app/assets/images/project/leaseplan/leaseplan-screen-home-full.jpg",
+        "projectWorkImg1Palm":"app/assets/images/project/leaseplan/leaseplan-screen-home-768.jpg",
+        "projectWorkImg1Phone":"app/assets/images/project/leaseplan/leaseplan-screen-home-480.jpg",
+        "projectWorkImg1ShowCaption": true,
+        "projectWorkImg1Caption":"Dummy projectWorkImg1Caption"
+    },
+    {
         "url": "fedex",
         "heroTitle": "FedEx",
         "heroImgFull": "app/assets/images/project/fedex/fedex-hero-full.jpg",

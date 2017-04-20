@@ -30,7 +30,7 @@
               <span class="typeset__label">Project</span>
               <h1 class="title title--serif title--offset-left@palm">
                 <span class="title__year" ng-if="post.projectYears">{{post.projectYears}}</span>
-                {{post.projectTitle}}
+                <span ng-bind-html="post.projectTitle"></span>
               </h1>
 
               <p class="typeset__paragraph">

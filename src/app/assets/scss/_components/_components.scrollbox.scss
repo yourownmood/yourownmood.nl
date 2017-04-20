@@ -18,7 +18,7 @@
 }
 
 .scrollbox__cards {
-  width: 1800px;
+  width: 2200px;
   height: 100%;
 
   @include media-query(phone) {
@@ -35,12 +35,12 @@
   position: relative;
 
   float: left;
-  width: 600px;
-  min-width: 33.333%;
+  width: 550px;
+  min-width: 25%;
   height: 100%;
 
   @include media-query(phone) {
-    width: 33.333%;
+    width: 25%;
   }
 
   &:hover {
