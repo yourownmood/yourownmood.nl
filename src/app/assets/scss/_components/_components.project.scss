@@ -95,12 +95,22 @@
 }
 
 .project-graphic--center {
+  padding: 0 12.5%;
+
   .project-graphic__image img {
-    max-width: 80%;
+    max-width: 814px;
 
     margin: 135px 0;
 
     text-align: center;
+  }
+}
+
+.u-1\/2 {
+  .project-graphic--center {
+    .project-graphic__image img {
+      max-width: 520px;
+    }
   }
 }
 
