@@ -16,6 +16,7 @@
       git = require('gulp-git'),
       gutil = require('gulp-util'),
       header = require('gulp-header'),
+      jsonminify = require('gulp-jsonminify'),
       minifyCSS = require('gulp-minify-css'),
       ngAnnotate = require('gulp-ng-annotate'),
       rename = require('gulp-rename'),
@@ -159,12 +160,14 @@
   // app JSON dev task:
   gulp.task('app-json:test', 'Copy app .json files to the build folder', function() {
     return gulp.src(config.src_dir + '/feeds/*.json')
+           .pipe(jsonminify())
            .pipe(gulp.dest(config.build_dir + '/app/feeds/'));
   });
 
   // app JSON prod task:
   gulp.task('app-json', 'Copy app .json files to the build folder', function() {
     return gulp.src([config.src_dir + '/feeds/*.json', '!' + config.src_dir + '/feeds/dummy.json'])
+           .pipe(jsonminify())
            .pipe(gulp.dest(config.build_dir + '/app/feeds/'));
   });
 
