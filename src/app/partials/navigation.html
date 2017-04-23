@@ -7,12 +7,13 @@
           <a ng-if="post.projectThumb"
              href="#/project/{{post.url}}"
              ng-click="toggle('projects'); toggle('navigation')"
+             ng-style="{'background-color': post.projectColor}"
              class=" [ card card__bg u-bg--{{post.projectThumbPosition}} ] afkl-lazy-wrapper"
              afkl-lazy-image="{{post.projectThumb}} 480w, {{post.projectThumb}} 768w, {{post.projectThumb}}"
              afkl-lazy-image-options="{'background': true}">
 
             <span class="card--info card__animate">
-              <b>{{post.projectTitle}}</b>
+              <b ng-bind-html="post.projectTitle"></b>
               <br>
               {{post.projectClient}}
             </span>
@@ -29,7 +30,7 @@
              class=" [ card card__bg u-bg--{{post.projectThumbPosition}} ] "
              ng-style="{'background-color': post.projectColor}">
             <span class="card--info card__animate">
-                <b>{{post.projectTitle}}</b>
+                <b ng-bind-html="post.projectTitle"></b>
                 <br>
                 {{post.projectClient}}
             </span>
