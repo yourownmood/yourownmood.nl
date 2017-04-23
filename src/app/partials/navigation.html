@@ -7,6 +7,7 @@
           <a ng-if="post.projectThumb"
              href="#/project/{{post.url}}"
              ng-click="toggle('projects'); toggle('navigation')"
+             ng-style="{'background-color': post.projectColor}"
              class=" [ card card__bg u-bg--{{post.projectThumbPosition}} ] afkl-lazy-wrapper"
              afkl-lazy-image="{{post.projectThumb}} 480w, {{post.projectThumb}} 768w, {{post.projectThumb}}"
              afkl-lazy-image-options="{'background': true}">
