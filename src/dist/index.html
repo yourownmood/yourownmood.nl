@@ -28,8 +28,9 @@
     ga('send', 'pageview');
   </script>
 </head>
-<body ng-app="yomApp">
+<body ng-app="yomApp" class="boot">
   <div ng-controller="mainController">
+    <div class="transition" aria-hidden="true"></div>
     <navigation></navigation>
     <div ng-view class="{{ pageClass }} page"></div>
     <yomfooter></yomfooter>

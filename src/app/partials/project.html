@@ -7,7 +7,7 @@
       <div class="layout layout--flush">
         <div class="layout__item u-2/3-desk u-1/2 u-1/1-palm">
 
-          <div class=" [ card ] wow fadeInUp" data-wow-duration="0.7s">
+          <div class=" [ card ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="1s">
 
             <div ng-if="post.heroImgFull && post.heroImgPalm && post.heroImgPhone"
                  afkl-lazy-image="{{post.heroImgPhone}} 480w, {{post.heroImgPalm}} 768w, {{post.heroImgFull}}"
@@ -26,7 +26,7 @@
 
           <div class="project-intro">
 
-            <section class="typeset [ fadeInUp wow ]" data-wow-duration="1s">
+            <section class="typeset [ fadeInUp wow ]" data-wow-duration="1s" data-wow-delay="1s">
               <span class="typeset__label">Project</span>
               <h1 class="title title--serif title--offset-left@palm">
                 <span class="title__year" ng-if="post.projectYears">{{post.projectYears}}</span>
@@ -76,7 +76,7 @@
 
     <section class="scherm">
 
-      <div class="layout [ wow fadeInUp ]" ng-if="post.projectWorkTitle" data-wow-duration="0.7s">
+      <div class="layout [ wow fadeInUp ]" ng-if="post.projectWorkTitle" data-wow-duration="0.7s" data-wow-delay="1s">
         <div class="layout__item u-1/1">
 
           <section class="typeset typeset--indent-h typeset--indent-v">
@@ -91,6 +91,7 @@
 
       <div class="layout u-mb [ wow fadeInUp ]"
            data-wow-duration="0.7s"
+           data-wow-delay="1s"
            ng-if="post.projectWorkImg1Full && post.projectWorkImg1Palm && post.projectWorkImg1Phone">
         <div class="layout__item u-1/1">
           <div class="project-graphic"
@@ -117,6 +118,7 @@
 
       <div class="layout u-mb [ wow fadeInUp ]"
            data-wow-duration="0.7s"
+           data-wow-delay="1s"
            ng-if="post.projectWorkImg2Full && post.projectWorkImg2Palm && post.projectWorkImg2Phone">
         <div class="layout__item u-1/1">
           <div class="project-graphic"
@@ -143,6 +145,7 @@
 
       <div class="layout u-mb [ wow fadeInUp ]"
            data-wow-duration="0.7s"
+           data-wow-delay="1s"
            ng-if="post.projectWorkImg3Full && post.projectWorkImg3Palm && post.projectWorkImg3Phone && post.projectWorkImg4Full && post.projectWorkImg4Palm && post.projectWorkImg4Phone">
         <div class="layout__item u-1/2 u-1/1-palm u-mb-palm">
 

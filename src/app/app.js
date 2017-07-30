@@ -1,4 +1,4 @@
-/* global angular, WOW, $, Event */
+/* global angular, WOW, Event, $ */
 
 (function () {
   'use strict'
@@ -55,7 +55,24 @@
       }
     })
 
+    $scope.$on('$routeChangeStart', function (event, toState, toParams, fromState, fromParams) {
+      var body = document.body
+      if (!document.body.classList.contains('boot')) {
+        body.className += ' animating'
+      }
+    })
+
+    $scope.$on('$routeChangeSuccess', function (event, toRoute, toParams, fromState, fromParams) {
+      var body = document.body
+      setTimeout(function () {
+        body.classList.remove('animating')
+      }, 1000)
+    })
+
     $scope.loaded = function () {
+      var body = document.body
+      body.classList.remove('boot')
+
       setTimeout(function () {
         const wow = new WOW()
         wow.init()
@@ -155,6 +172,17 @@
         $scope.visibleProjects = false
         $scope.visibleNavigation = false
 
+        function scrollElementToLeft (scrollDuration, element) {
+          var scrollStep = -element.scrollLeft / (scrollDuration / 15)
+          var scrollInterval = setInterval(function () {
+            if (element.scrollLeft !== 0) {
+              element.scrollLeft += scrollStep
+            } else {
+              clearInterval(scrollInterval)
+            }
+          }, 15)
+        }
+
         // Dynamic load
         $http.get('app/feeds/projects.json', {cache: true})
         .then(function onSuccess (response) {
@@ -164,13 +192,8 @@
           // error
         })
 
-        function scrollElementToLeft (scrollDuration, element) {
-          const scrollStep = -element.scrollLeft / (scrollDuration / 15)
-          const scrollInterval = setInterval(function () {
-            if (element.scrollLeft !== 0) {
-              element.scrollLeft += scrollStep
-            } else clearInterval(scrollInterval)
-          }, 15)
+        $scope.closeProjects = function () {
+          $scope.visibleProjects = false
         }
 
         $scope.toggle = function (trigger) {
@@ -178,12 +201,12 @@
             $scope.visibleProjects = !$scope.visibleProjects
 
             $anchorScroll()
-
             if ($scope.visibleProjects === true) {
               const scrollBox = document.getElementById('js-scrollboxProjects')
 
               // Scroll to the horizontal end of the element
               scrollBox.scrollLeft = scrollBox.scrollWidth
+
               scrollElementToLeft(750, scrollBox)
             }
           } else if (trigger === 'navigation') {
@@ -195,7 +218,6 @@
           }
         }
       }
-
     }
   })
 
