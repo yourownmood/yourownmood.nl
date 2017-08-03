@@ -3,7 +3,7 @@
   "version": "1.6.1",
   "description": "Yom angular website",
   "scripts": {
-    "prepush": "npm test",
+    "prepush": "yarn test",
     "styleguide": "./node_modules/.bin/aigis run -c ./aigis_config.yml",
     "test": "standard"
   },
