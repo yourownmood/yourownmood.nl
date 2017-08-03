@@ -168,11 +168,11 @@
            .pipe(gulp.dest(config.build_dir + '/app/feeds/'))
   })
 
-  // npm run styleguide
+  // yarn run styleguide
   gulp.task('styleguide', () => {
     return gulp.src('')
     .pipe(shell([
-      'npm run styleguide'
+      'yarn run styleguide'
     ]))
   })
 
