@@ -15,6 +15,9 @@
   z-index: 3;
   animation-duration: 1s;
   background: $yom-cod;
+  transition-timing-function: ease-in-out;
+  transform: translate3d(0,0,0);
+  will-change: width, height;
 }
 
 .animating {
