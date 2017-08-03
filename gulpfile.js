@@ -4,31 +4,31 @@
   /* Config */
 
   // Load plugins
-  var gulp = require('gulp-help')(require('gulp'))
-  var browserSync = require('browser-sync').create()
-  var bump = require('gulp-bump')
-  var concat = require('gulp-concat')
-  var cred = require('./cred.json')
-  var del = require('del')
-  var filter = require('gulp-filter')
-  var fs = require('fs')
-  var ftp = require('vinyl-ftp')
-  var git = require('gulp-git')
-  var gutil = require('gulp-util')
-  var header = require('gulp-header')
-  var jsonminify = require('gulp-jsonminify')
-  var minifyCSS = require('gulp-minify-css')
-  var ngAnnotate = require('gulp-ng-annotate')
-  var rename = require('gulp-rename')
-  var runSequence = require('run-sequence')
-  var sass = require('gulp-sass')
-  var shell = require('gulp-shell')
-  var sourcemaps = require('gulp-sourcemaps')
-  var tagVersion = require('gulp-tag-version')
-  var uglify = require('gulp-uglify')
+  const gulp = require('gulp-help')(require('gulp'))
+  const browserSync = require('browser-sync').create()
+  const bump = require('gulp-bump')
+  const concat = require('gulp-concat')
+  const cred = require('./cred.json')
+  const del = require('del')
+  const filter = require('gulp-filter')
+  const fs = require('fs')
+  const ftp = require('vinyl-ftp')
+  const git = require('gulp-git')
+  const gutil = require('gulp-util')
+  const header = require('gulp-header')
+  const jsonminify = require('gulp-jsonminify')
+  const minifyCSS = require('gulp-minify-css')
+  const ngAnnotate = require('gulp-ng-annotate')
+  const rename = require('gulp-rename')
+  const runSequence = require('run-sequence')
+  const sass = require('gulp-sass')
+  const shell = require('gulp-shell')
+  const sourcemaps = require('gulp-sourcemaps')
+  const tagVersion = require('gulp-tag-version')
+  const uglify = require('gulp-uglify')
 
   // Config variables
-  var config = {
+  const config = {
     root_dir: './',
     src_dir: './src/app',
     dist_dir: './src/dist',
@@ -38,7 +38,7 @@
   }
 
   // JS include files
-  var jsIncludes = {
+  const jsIncludes = {
     files: [
       config.node_dir + '/wowjs/dist/wow.js',
       config.node_dir + '/angular/angular.min.js',
@@ -96,8 +96,8 @@
   // JS build task:
   gulp.task('js:build', 'Concats and minify js files', function (callback) {
     // Update the banner var
-    var packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
-    var banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n'
+    const packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+    const banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n'
 
     return gulp.src(jsIncludes.files)
     .pipe(ngAnnotate())
@@ -110,8 +110,8 @@
   // Sass task:
   gulp.task('sass', 'Concats and minify scss files', function (callback) {
     // Update the banner var
-    var packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
-    var banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n'
+    const packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+    const banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n'
 
     return gulp.src(config.src_dir + '/assets/scss/*.scss')
           .pipe(sourcemaps.init())
@@ -223,7 +223,7 @@
 
   // Pubish test task
   gulp.task('publish-test', ['build:test'], function () {
-    var conn = ftp.create({
+    const conn = ftp.create({
       host: cred.host,
       user: cred.user,
       password: cred.pass,
@@ -231,7 +231,7 @@
       log: gutil.log
     })
 
-    var globs = [
+    const globs = [
       config.build_dir + '/**/*'
     ]
 
@@ -242,7 +242,7 @@
 
   // Pubish feature task
   gulp.task('publish-feature', ['build:test'], function () {
-    var conn = ftp.create({
+    const conn = ftp.create({
       host: cred.host,
       user: cred.user,
       password: cred.pass,
@@ -250,7 +250,7 @@
       log: gutil.log
     })
 
-    var globs = [
+    const globs = [
       config.build_dir + '/**/*'
     ]
 
@@ -261,7 +261,7 @@
 
   // Pubish prod task
   gulp.task('publish-prod', ['build'], function () {
-    var conn = ftp.create({
+    const conn = ftp.create({
       host: cred.host,
       user: cred.user,
       password: cred.pass,
@@ -269,7 +269,7 @@
       log: gutil.log
     })
 
-    var globs = [
+    const globs = [
       config.build_dir + '/**/*',
       config.build_dir + '/.htaccess'
     ]
