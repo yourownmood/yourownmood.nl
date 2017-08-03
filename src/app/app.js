@@ -3,7 +3,7 @@
 (function () {
   'use strict'
 
-  var app = angular.module('yomApp', [
+  const app = angular.module('yomApp', [
     'afkl.lazyImage',
     'ngRoute',
     'ngAnimate',
@@ -45,11 +45,11 @@
     $scope.$routeParams = $routeParams
 
     angular.element($window).bind('scroll', function () {
-      var windowHeight = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight
-      var body = document.body
-      var html = document.documentElement
-      var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
-      var windowBottom = windowHeight + window.pageYOffset
+      const windowHeight = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight
+      const body = document.body
+      const html = document.documentElement
+      const docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight)
+      const windowBottom = windowHeight + window.pageYOffset
       if (windowBottom >= docHeight) {
         $rootScope.$broadcast('afkl.lazyImage.destroyed')
       }
@@ -57,7 +57,7 @@
 
     $scope.loaded = function () {
       setTimeout(function () {
-        var wow = new WOW()
+        const wow = new WOW()
         wow.init()
 
         window.dispatchEvent(new Event('resize'))
@@ -70,31 +70,32 @@
     $scope.pageClass = 'page-home'
 
     // Disable touchstart for cards
-    var cards = document.querySelectorAll('.card__project, .card__profile')
+    const cards = document.querySelectorAll('.card__project, .card__profile')
     angular.element(cards).on('touchstart', function (e) {})
   }])
 
   app.controller('projectCtrl', ['$location', '$scope', '$http', '$filter', function ($location, $scope, $http, $filter) {
-    var getUrl = $location
+    let feed
+    const getUrl = $location
 
     $scope.lastPart = getUrl.$$url.split('/').pop()
     $scope.pageClass = 'page-project'
 
     if ($scope.lastPart !== 'dummy') {
-      var feed = 'projects.json'
+      feed = 'projects.json'
     } else {
       feed = 'dummy.json'
     }
 
     $http.get('app/feeds/' + feed, {cache: true})
     .then(function onSuccess (response) {
-      var data
+      let data
       $scope.posts = response.data
 
       // Check if the page-name is specified in the .json
-      var found = false
+      let found = false
 
-      for (var i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         if (data[i].url === $scope.lastPart) {
           found = true
         }
@@ -110,20 +111,20 @@
   }])
 
   app.controller('profileCtrl', ['$location', '$scope', '$http', '$filter', function ($location, $scope, $http, $filter) {
-    var getUrl = $location
+    const getUrl = $location
 
     $scope.lastPart = getUrl.$$url.split('/').pop()
     $scope.pageClass = 'page-profile'
 
     $http.get('app/feeds/profiles.json', {cache: true})
     .then(function onSuccess (response) {
-      var data
+      let data
       $scope.posts = response.data
 
       // Check if the page-name is specified in the .json
-      var found = false
+      let found = false
 
-      for (var i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         if (data[i].url === $scope.lastPart) {
           found = true
         }
@@ -164,8 +165,8 @@
         })
 
         function scrollElementToLeft (scrollDuration, element) {
-          var scrollStep = -element.scrollLeft / (scrollDuration / 15)
-          var scrollInterval = setInterval(function () {
+          const scrollStep = -element.scrollLeft / (scrollDuration / 15)
+          const scrollInterval = setInterval(function () {
             if (element.scrollLeft !== 0) {
               element.scrollLeft += scrollStep
             } else clearInterval(scrollInterval)
@@ -179,7 +180,7 @@
             $anchorScroll()
 
             if ($scope.visibleProjects === true) {
-              var scrollBox = document.getElementById('js-scrollboxProjects')
+              const scrollBox = document.getElementById('js-scrollboxProjects')
 
               // Scroll to the horizontal end of the element
               scrollBox.scrollLeft = scrollBox.scrollWidth
@@ -209,8 +210,8 @@
 
         function scrollTo (element, to, duration) {
           if (duration < 0) return
-          var difference = to - element.scrollTop
-          var perTick = difference / duration * 2
+          const difference = to - element.scrollTop
+          const perTick = difference / duration * 2
 
           setTimeout(function () {
             element.scrollTop = element.scrollTop + perTick
