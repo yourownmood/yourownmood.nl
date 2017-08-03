@@ -56,21 +56,25 @@
     })
 
     $scope.$on('$routeChangeStart', function (event, toState, toParams, fromState, fromParams) {
-      var body = document.body
+      const body = document.body
+      const toPath = toState.$$route.originalPath
+
       if (!document.body.classList.contains('boot')) {
-        body.className += ' animating'
+        if (toPath !== '/project/:name*') {
+          body.className += ' animating'
+        }
       }
     })
 
     $scope.$on('$routeChangeSuccess', function (event, toRoute, toParams, fromState, fromParams) {
-      var body = document.body
+      const body = document.body
       setTimeout(function () {
         body.classList.remove('animating')
       }, 1000)
     })
 
     $scope.loaded = function () {
-      var body = document.body
+      const body = document.body
       body.classList.remove('boot')
 
       setTimeout(function () {
@@ -173,8 +177,8 @@
         $scope.visibleNavigation = false
 
         function scrollElementToLeft (scrollDuration, element) {
-          var scrollStep = -element.scrollLeft / (scrollDuration / 15)
-          var scrollInterval = setInterval(function () {
+          const scrollStep = -element.scrollLeft / (scrollDuration / 15)
+          const scrollInterval = setInterval(function () {
             if (element.scrollLeft !== 0) {
               element.scrollLeft += scrollStep
             } else {
