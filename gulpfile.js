@@ -5,6 +5,7 @@
 
   // Load plugins
   const gulp = require('gulp-help')(require('gulp'))
+  const babel = require('gulp-babel')
   const browserSync = require('browser-sync').create()
   const bump = require('gulp-bump')
   const concat = require('gulp-concat')
@@ -101,6 +102,9 @@
 
     return gulp.src(jsIncludes.files)
     .pipe(ngAnnotate())
+    .pipe(babel({
+      presets: ['es2015', 'es2016']
+    }))
     .pipe(concat('bundle.min.js'))
     .pipe(uglify())
     .pipe(header(banner))
