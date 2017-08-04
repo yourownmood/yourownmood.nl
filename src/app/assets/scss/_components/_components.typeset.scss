@@ -80,10 +80,12 @@ $typeset-vertical-rhytm: 50px;
 .typeset__label {
   display: block;
 
+  color: $yom-dusty;
+
   font-size: 17px;
   font-weight: 300;
+
   line-height: 30px;
-  color: $yom-dusty;
 }
 
 // HEADING
@@ -91,26 +93,32 @@ $typeset-vertical-rhytm: 50px;
 .typeset__heading {
   display: block;
 
+  color: $yom-cod;
+
   font-size: 23px;
   font-weight: 700;
+
   line-height: 29px;
-  color: $yom-cod;
 }
 
 // PARAGRAPH
 
 .typeset__paragraph {
   margin-top: $typeset-vertical-rhytm / 2;
-  padding-top: 0;
   margin-bottom: 0;
+  padding-top: 0;
+
+  color: $yom-dusty;
 
   font-size: 17px;
+
   line-height: 30px;
-  color: $yom-dusty;
 
   a {
     color: $yom-cod;
+
     text-decoration: none;
+
     &:hover {
       text-decoration: underline;
     }

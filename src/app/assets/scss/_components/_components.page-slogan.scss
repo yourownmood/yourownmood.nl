@@ -1,21 +1,23 @@
-/*------------------------------------*\
+/* ------------------------------------ *\
   #PAGE SLOGAN
-\*------------------------------------*/
+\* ------------------------------------ */
 
 .card__slogan {
   position: absolute;
-  z-index: 1;
   top: 40px;
   left: 35px;
+  z-index: 1;
 
   margin: 0;
   padding: 0;
 
   color: $yom-white;
+
   font-size: 34px;
   font-weight: 700;
-  line-height: 40px;
+
   letter-spacing: -1.08px;
+  line-height: 40px;
 
   @include media-query(portable) {
     top: 25px;
@@ -23,6 +25,7 @@
 
   @include media-query(phone) {
     font-size: 28px;
+
     line-height: 30px;
 
     span {
@@ -34,6 +37,7 @@
     display: block;
 
     color: $yom-dusty;
+
     font-size: 28px;
     font-weight: 300;
   }

@@ -102,6 +102,7 @@
 $inuit-enable-layout--flush: true;
 $inuit-enable-layout--middle: true;
 $inuit-enable-layout--center: true;
+
 @import 'node_modules/inuit-layout/objects.layout';
 @import '_objects/objects.layout';
 @import 'node_modules/inuit-list-bare/objects.list-bare';
@@ -112,7 +113,6 @@ $inuit-enable-layout--center: true;
 /**
  * #COMPONENTS
  */
-/* Needs to be added to index */
 @import '_components/components.typography';
 @import '_components/components.screen';
 @import '_components/components.header';
@@ -141,9 +141,11 @@ $inuit-enable-layout--center: true;
 $inuit-enable-paddings: true;
 $inuit-enable-paddings--large: true;
 $inuit-enable-margins: true;
+
 @import 'node_modules/inuit-spacing/trumps.spacing';
 $inuit-enable-responsive-paddings: true;
 $inuit-enable-responsive-margins: true;
+
 @import 'node_modules/inuit-responsive-spacing/trumps.spacing-responsive';
 @import '_trumps/trumps.animation';
 @import '_trumps/trumps.show-hide';
