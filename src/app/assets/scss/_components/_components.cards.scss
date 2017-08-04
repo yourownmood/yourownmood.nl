@@ -1,6 +1,6 @@
-/*------------------------------------*\
+/* ------------------------------------ *\
   #CARDS
-\*------------------------------------*/
+\* ------------------------------------ */
 
 $card-tl: 70%;
 $card-bl: 34%;
@@ -16,18 +16,16 @@ $card-br: 44%;
   position: relative;
 
   display: block;
-  overflow: hidden;
   width: 100%;
   height: 100%;
 
   background-color: $yom-dusty;
+
+  overflow: hidden;
 }
 
 .card__animate {
-  -webkit-transition: all .3s cubic-bezier(.250, .460, .450, .940);
-  -moz-transition: all .3s cubic-bezier(.250, .460, .450, .940);
-  -o-transition: all .3s cubic-bezier(.250, .460, .450, .940);
-  transition: all .3s cubic-bezier(.250, .460, .450, .940);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* CARD BACKGROUND */
@@ -70,7 +68,6 @@ $card-br: 44%;
   .card--gj,
   .card--sb-project,
   .card--gj-project {
-
     @include media-query(phone) {
       min-height: 325px;
     }
@@ -142,7 +139,9 @@ $card-br: 44%;
   padding: 0 30px 0 0;
 
   color: $yom-white;
+
   font-size: 17px;
+
   line-height: 20px;
 }
 
@@ -152,8 +151,9 @@ $card-br: 44%;
 
   &:hover,
   &:focus {
+    background-color: rgba(255, 255, 255, 0.93);
+
     opacity: 1;
-    background-color: rgba(255, 255, 255, .93);
   }
 }
 
@@ -163,33 +163,41 @@ $card-br: 44%;
   padding: 0;
 
   color: $yom-dusty;
+
   font-size: 17px;
+
   line-height: 26px;
 
   b {
     display: block;
 
-    color: $yom-cod;
-    font-size: 26px;
     margin-bottom: 8px;
+
+    color: $yom-cod;
+
+    font-size: 26px;
   }
 }
 
 .profile__btns,
 .project__btns {
-  display: block;
   position: absolute;
   bottom: 50px;
 
+  display: block;
+
   .btn {
-    margin-right: 10px;
     float: left;
+
+    margin-right: 10px;
   }
 
   &:after {
-    content: '';
     display: table;
+
     clear: both;
+
+    content: '';
   }
 }
 
@@ -203,8 +211,9 @@ $card-br: 44%;
   padding: 0;
 
   color: $yom-cod;
-  font-weight: 700;
+
   font-size: 17px;
+  font-weight: 700;
 }
 
 .project__year {
@@ -212,10 +221,12 @@ $card-br: 44%;
   right: 0;
   bottom: 45px;
 
+  transform: rotate(-90deg);
+
   @include font-domine();
   color: $yom-cod;
+
   font-size: 14px;
-  transform: rotate(-90deg);
 }
 
 .card__project {
@@ -230,6 +241,7 @@ $card-br: 44%;
     max-width: 50%;
     height: auto;
     max-height: 50%;
+
     margin: auto;
   }
 }
@@ -257,7 +269,7 @@ $card-br: 44%;
 .card--fedex {
   height: 27%;
 
-  background-color: #4D148C;
+  background-color: #4d148c;
 
   img {
     max-width: 60%;

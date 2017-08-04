@@ -1,5 +1,6 @@
 .scherm {
   width: 100%;
+
   padding: 0 16px;
 }
 
@@ -35,6 +36,7 @@ $scherm-project-height: 150vh;
 
 .scherm-project {
   min-height: $scherm-project-height;
+
   margin-bottom: 120px;
 
   @include media-query(phone) {
@@ -57,6 +59,7 @@ $scherm-project-height: 150vh;
 
   @include media-query(palm) {
     min-height: 400px;
+
     margin-bottom: 60px;
 
     .card {
@@ -98,6 +101,7 @@ $scherm-project-height: 150vh;
   max-width: 50%;
   height: auto;
   max-height: 50%;
+
   margin: auto;
 
   @include media-query(portable) {
@@ -105,7 +109,7 @@ $scherm-project-height: 150vh;
   }
 }
 
-img.vh-align--img {
+.vh-align--img {
   min-height: auto !important;
 }
 
@@ -113,7 +117,9 @@ img.vh-align--img {
   padding: 150px 25% 50px 5%;
 
   color: $yom-dusty;
+
   font-size: 17px;
+
   line-height: 30px;
 
   @include media-query(phone) {
@@ -122,9 +128,11 @@ img.vh-align--img {
 
   b {
     display: block;
+
     margin-bottom: 5px;
 
-    font-size: 26px;
     color: $yom-cod;
+
+    font-size: 26px;
   }
 }

@@ -1,6 +1,6 @@
-/*------------------------------------*\
+/* ------------------------------------ *\
   #PROJECT
-\*------------------------------------*/
+\* ------------------------------------ */
 
 /* PROJECT */
 
@@ -11,17 +11,20 @@
   padding: 135px 25px 0 7.5%;
 
   color: $yom-white;
+
   font-size: 100px;
+
   line-height: 96px;
 
   word-wrap: break-word;
 
   @include media-query(palm) {
-    padding-top: 0px;
+    padding-top: 0;
   }
 
   @include media-query(phone) {
     font-size: 55px;
+
     line-height: 51px;
   }
 }
@@ -57,9 +60,9 @@
 
 .project-graphic__caption {
   position: absolute;
+  right: 0;
   bottom: 50px;
   left: 0;
-  right: 0;
   z-index: 1;
 
   margin: 0;
@@ -90,7 +93,7 @@
 
 .project-graphic--shadow {
   .project-graphic__image img {
-    box-shadow: 0px 0px 46px 0px rgba(217,215,215,.5);
+    box-shadow: 0 0 46px 0 rgba(217, 215, 215, 0.5);
   }
 }
 
@@ -125,6 +128,7 @@
 
   img {
     width: 100%;
+
     margin-bottom: 15px;
   }
 

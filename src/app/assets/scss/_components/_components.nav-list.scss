@@ -52,10 +52,12 @@
   @include media-query(phone) {
     display: block;
     width: 100%;
+
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 10px;
     padding-bottom: 28px;
+
     border-bottom: 1px solid $yom-dusty;
 
     text-align: center;
@@ -69,12 +71,15 @@
 
 .nav-list__link {
   color: $yom-dusty;
+
   font-size: 17px;
   font-weight: 500;
+
   text-decoration: none;
 
   &:hover {
     color: $yom-cod;
+
     text-decoration: underline;
   }
 }
@@ -85,12 +90,15 @@
   margin: 0 4px;
 
   color: $yom-dusty;
+
   font-size: 16px;
   font-weight: 500;
+
   text-decoration: none;
 
   &:hover {
     color: $yom-cod;
+
     text-decoration: underline;
   }
 }
@@ -119,6 +127,7 @@
     left: 12px;
 
     display: block;
+
     margin-top: 44px;
   }
 }

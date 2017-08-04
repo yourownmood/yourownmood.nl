@@ -8,6 +8,7 @@
   const babel = require('gulp-babel')
   const browserSync = require('browser-sync').create()
   const bump = require('gulp-bump')
+  const cleanCSS = require('gulp-clean-css')
   const concat = require('gulp-concat')
   const cred = require('./cred.json')
   const del = require('del')
@@ -18,7 +19,6 @@
   const gutil = require('gulp-util')
   const header = require('gulp-header')
   const jsonminify = require('gulp-jsonminify')
-  const minifyCSS = require('gulp-minify-css')
   const ngAnnotate = require('gulp-ng-annotate')
   const rename = require('gulp-rename')
   const runSequence = require('run-sequence')
@@ -124,7 +124,7 @@
 
           // Minified CSS
           .pipe(rename('main.min.css'))
-          .pipe(minifyCSS())
+          .pipe(cleanCSS({compatibility: 'ie9'}))
           .pipe(header(banner))
           .pipe(sourcemaps.write('./'))
           .pipe(gulp.dest(config.build_dir + '/app/assets/css/'))

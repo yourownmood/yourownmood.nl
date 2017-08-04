@@ -1,14 +1,14 @@
-/*------------------------------------*\
+/* ------------------------------------ *\
   #SCROLLBOX
-\*------------------------------------*/
+\* ------------------------------------ */
 
 .scrollbox {
-  overflow-y: hidden;
-  overflow-x: scroll;
   width: 100%;
 
+  overflow-x: scroll;
+  overflow-y: hidden;
+
   -webkit-overflow-scrolling: touch;
-  //width: auto;
 }
 
 .scrollbox__projects {
@@ -56,10 +56,13 @@
 
   width: 100%;
   height: 100%;
+
   padding: 30px 35px;
 
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(0, 0, 0, 0.4);
+
   color: $yom-white;
+
   font-size: 17px;
 }
 
@@ -71,6 +74,7 @@
   left: 0;
 
   width: 25%;
+
   margin: auto;
 
   img {
@@ -79,6 +83,7 @@
     bottom: 0;
 
     width: 100%;
+
     margin: auto;
   }
 }
@@ -87,21 +92,23 @@
 
 .slideInOut {
   max-height: 320px;
+
   visibility: visible;
 }
 
 .slideInOut.ng-hide-add.ng-hide-add-active,
 .slideInOut.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .slideInOut.ng-hide {
-  overflow-y: hidden;
   max-height: 20px;
+
+  overflow-y: hidden;
 }
 
 .slideInOut.ng-hide {
   display: block !important;
+
   visibility: hidden;
 }

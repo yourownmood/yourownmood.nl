@@ -38,12 +38,15 @@
 
 .btn {
   display: inline-block;
-  text-decoration: none;
+
+  border: 0;
+
+  background-color: transparent;
 
   color: $yom-cod;
 
-  background-color: transparent;
-  border: 0;
+  text-decoration: none;
+
   cursor: pointer;
 
   &:hover {
@@ -59,6 +62,7 @@
 .btn__icon {
   display: inline-block;
   max-width: 34px;
+
   margin-bottom: 5px;
 }
 
@@ -66,6 +70,7 @@
 
 .btn__label {
   display: block;
+
   font-size: 17px;
 }
 
@@ -77,6 +82,7 @@
   padding-right: 10px;
   padding-bottom: 15px;
   padding-left: 10px;
+
   border-bottom: 9px solid $yom-cod;
 }
 
