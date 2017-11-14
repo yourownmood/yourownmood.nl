@@ -5,10 +5,13 @@
 .scrollbox {
   width: 100%;
 
+  transform: translate3d(0, 0, 0);
+
   overflow-x: scroll;
   overflow-y: hidden;
 
   -webkit-overflow-scrolling: touch;
+  will-change: max-height;
 }
 
 .scrollbox__projects {
