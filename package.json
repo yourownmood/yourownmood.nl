@@ -1,6 +1,6 @@
 {
   "name": "Yom",
-  "version": "1.6.1",
+  "version": "1.7.0",
   "description": "Yom angular website",
   "scripts": {
     "prepush": "yarn test",
