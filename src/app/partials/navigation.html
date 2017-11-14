@@ -49,7 +49,7 @@
   <nav class="site-navigation wow fadeIn"
        ng-class="{'site-navigation--home': $location.path() == '/'}"
        data-wow-duration="2s"
-       data-wow-delay="1s">
+       data-wow-delay="{{animationDelay}}s">
     <div class="site-navigation__push">
       <ul class="nav-list-phone list-inline" ng-show="visibleNavigation">
           <li><a class="nav-list__link-phone" href="#/about" ng-click="closeProjects(); toggle('navigation')">About</a></li>
@@ -57,7 +57,7 @@
           <li><a class="nav-list__link-phone" href="#/contact" ng-click="closeProjects(); toggle('navigation')">Contact</a></li>
       </ul>
 
-      <p class="yom-open [ wow fadeIn ]" data-wow-duration="0.7s" data-wow-delay="1.2s">
+      <p class="yom-open [ wow fadeIn ]" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.2}}s">
         <b>Oh yes!</b>
         <span class="yom-open__indent">
           We're definitely ready for<br>

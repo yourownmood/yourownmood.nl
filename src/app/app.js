@@ -43,6 +43,7 @@
     $scope.$route = $route
     $scope.$location = $location
     $scope.$routeParams = $routeParams
+    $scope.animationDelay = 0
 
     angular.element($window).bind('scroll', function () {
       const windowHeight = 'innerHeight' in window ? window.innerHeight : document.documentElement.offsetHeight
@@ -62,6 +63,9 @@
       if (!document.body.classList.contains('boot')) {
         if (toPath !== '/project/:name*') {
           body.className += ' animating'
+          $scope.animationDelay = 1
+        } else {
+          $scope.animationDelay = 0
         }
       }
     })

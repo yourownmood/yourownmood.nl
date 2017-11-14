@@ -7,6 +7,7 @@
         <!-- Profile left -->
         <div class=" [ card card__profile card__bg card--sb ] wow fadeInUp"
              data-wow-duration="0.7s"
+             data-wow-delay="{{animationDelay}}s"
              afkl-lazy-image="app/assets/images/profile/steven/profile_stevenbax-home-768.jpg 480w, app/assets/images/profile/steven/profile_stevenbax-home-full.jpg"
              afkl-lazy-image-options="{'background': true}">
           <p class="profile__name">
@@ -28,7 +29,7 @@
           </div>
         </div>
 
-        <div class=" [ card card__project card--sb-project ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.2s">
+        <div class=" [ card card__project card--sb-project ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.2}}s">
           <p class="project__name">
             Currently working @
           </p>
@@ -59,6 +60,7 @@
 
         <div class=" [ card card__profile card__bg card--gj ] wow fadeInUp"
             data-wow-duration="0.7s"
+            data-wow-delay="{{animationDelay}}s"
             afkl-lazy-image="app/assets/images/profile/gertjan/profile_gertjandegoede-home-768.jpg 480w, app/assets/images/profile/gertjan/profile_gertjandegoede-home-full.jpg 1024w, app/assets/images/profile/gertjan/profile_gertjandegoede-home-full-spot.jpg"
             afkl-lazy-image-options="{'background': true}">
 
@@ -82,7 +84,7 @@
           </span>
         </div>
 
-        <div class=" [ card card__project card--gj-project ] wow fadeInUp " data-wow-duration="0.7s" data-wow-delay="0.35s">
+        <div class=" [ card card__project card--gj-project ] wow fadeInUp " data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.35}}s">
           <p class="project__name">
             Currently working @
           </p>
@@ -112,10 +114,10 @@
       </div><div class="layout__item u-1/3 u-hide--portable">
 
         <div class="intro">
-          <p class="title title--serif title--offset-left@palm title--offset-top [ wow fadeInUpDouble ]" data-wow-duration="1.3s" data-wow-delay="0.4s">
+          <p class="title title--serif title--offset-left@palm title--offset-top [ wow fadeInUpDouble ]" data-wow-duration="1.3s" data-wow-delay="{{animationDelay + 0.4}}s">
             Guiding digital strategy<br>into online experiences<br>of today's standards
           </p>
-          <a href="#/about" class="btn btn--primary btn--center [ wow fadeIn ] " data-wow-duration="0.7s" data-wow-delay="0.2s">
+          <a href="#/about" class="btn btn--primary btn--center [ wow fadeIn ] " data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.2}}s">
             <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 841.9 595.3"><path d="M841.9 295.2L841.9 295.2c0-2.5 0-7.4-2.5-9.9L567 27.7c-5-5-12.4-5-17.3 0 -5 5-5 12.4 0 17.3l250.1 237.7H12.4c-7.4 0-12.4 5-12.4 12.4s5 12.4 12.4 12.4h787.4L547.2 547.7c-5 5-5 12.4 0 17.3s12.4 5 17.3 0l272.4-257.5C841.9 302.6 841.9 300.1 841.9 295.2"/></svg>
             <span class="btn__label">Read more</span>
           </a>
@@ -127,7 +129,7 @@
 
   <!-- We worked @ -->
   <section class="scherm">
-    <p class="worked-at wow fadeIn" data-wow-duration="2s">
+    <p class="worked-at wow fadeIn" data-wow-duration="2s" data-wow-delay="{{animationDelay}}s">
       <b>We have worked @</b>
       FedEx, TNT, NEMO Science Museum, ING, Allerhande, Ultimaker, Sunweb, Budget Energie, Ruimtemakers, Sloop de Crisis, KRO, Quantore, Avero Achmea, Waterfootprint Network, Leukedingendoen, Van Nelle Ontwerpfabriek.
     </p>
@@ -138,7 +140,7 @@
     <div class="layout layout--flush">
       <div class="layout__item u-1/3 u-1/2-lap u-1/1-palm">
 
-        <div class=" [ card card__project card--fedex  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--fedex  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
 
           <div class="vh-align--img"
                afkl-lazy-image="app/assets/images/project/fedex/fedex-logo@2x.png"
@@ -162,7 +164,7 @@
           </div>
         </div>
 
-        <div class=" [ card card__project card--allerhande  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--allerhande  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
 
           <div afkl-lazy-image="app/assets/images/project/allerhande/allerhande.svg"
                afkl-lazy-image-options="{'imgAttrs': [{'alt': 'Allerhande'}]}"></div>
@@ -185,7 +187,7 @@
           </div>
         </div>
 
-        <div class=" [ card card__project card--sunweb  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--sunweb  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
           <div class=" [ card card__bg ]"
                afkl-lazy-image="app/assets/images/project/sunweb/sunweb-nav.jpg"
                afkl-lazy-image-options="{'background': true}">
@@ -212,7 +214,7 @@
           </div>
         </div>
 
-        <div class=" [ card card__project card--liander  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--liander  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
           <div class=" [ card card__bg ] "
                afkl-lazy-image="app/assets/images/project/liander/liander.jpg"
                afkl-lazy-image-options="{'background': true}">
@@ -241,7 +243,7 @@
 
       </div><div class="layout__item u-1/3 u-1/2-lap u-1/1-palm">
 
-        <div class=" [ card card__project card--tnt  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--tnt  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
 
           <div class="vh-align--img"
                afkl-lazy-image="app/assets/images/project/tnt/tnt.svg"
@@ -265,7 +267,7 @@
           </div>
         </div>
 
-        <div class=" [ card card__project card--ecover  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--ecover  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
 
           <div afkl-lazy-image="app/assets/images/project/ecover/ecover.png"
                afkl-lazy-image-options="{'imgAttrs': [{'alt': 'Ecover'}]}"></div>
@@ -288,7 +290,7 @@
           </div>
         </div>
 
-        <div class=" [ card card__project card--sdc  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--sdc  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
 
           <div afkl-lazy-image="app/assets/images/project/sloopdecrisis/sloopdecrisis.svg"
                afkl-lazy-image-options="{'imgAttrs': [{'alt': 'Sloopdecrisis.nl'}]}"></div>
@@ -311,7 +313,7 @@
           </div>
         </div>
 
-        <div class=" [ card card__project card--be  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--be  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
 
           <div afkl-lazy-image="app/assets/images/project/budgetenergie/budgetenergie.svg"
                afkl-lazy-image-options="{'imgAttrs': [{'alt': 'Budget Energie'}]}"></div>
@@ -336,7 +338,7 @@
 
       </div><div class="layout__item u-1/3 u-1/1-portable">
 
-        <div class=" [ card card__project card--ing  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--ing  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
           <div class=" [ card card__bg ]"
                afkl-lazy-image="app/assets/images/project/ing/ing.jpg"
                afkl-lazy-image-options="{'background': true}">
@@ -363,7 +365,7 @@
           </div>
         </div>
 
-        <div class=" [ card card__project card--ldd  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--ldd  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
 
           <div afkl-lazy-image="app/assets/images/project/leukedingendoen/leukedingendoen.svg"
                afkl-lazy-image-options="{'imgAttrs': [{'alt': 'Leukedingendoen'}]}"></div>
@@ -386,7 +388,7 @@
           </div>
         </div>
 
-        <div class=" [ card card__project card--ultimaker  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="0.3s">
+        <div class=" [ card card__project card--ultimaker  ] wow fadeInUp" data-wow-duration="0.7s" data-wow-delay="{{animationDelay + 0.3}}s">
           <div class=" [ card card__bg u-bg--cc ]"
                afkl-lazy-image="app/assets/images/project/ultimaker/ultimaker.jpg"
                afkl-lazy-image-options="{'background': true}">
@@ -421,14 +423,14 @@
 
     <div class="layout">
       <div class="layout__item u-1/1">
-        <p class="worked-at  wow fadeIn" data-wow-duration="2s">
+        <p class="worked-at  wow fadeIn" data-wow-duration="2s" data-wow-delay="{{animationDelay}}s">
           <b>We work with the following agencies:</b>
           Jungle Minds, Fabrique, Doornvogel brand intimacy, We Are Reasonable People, Branding &amp; more
         </p>
       </div>
     </div>
 
-    <div class=" [ layout layout--middle ] agency-list wow fadeIn" data-wow-duration="2s">
+    <div class=" [ layout layout--middle ] agency-list wow fadeIn" data-wow-duration="2s" data-wow-delay="{{animationDelay}}s">
       <div class="layout__item u-1/4-desk u-1/2-lap u-1/2-phone-and-up u-1/1-phone">
         <a href="http://www.jungleminds.nl/"
            target="_blank"
