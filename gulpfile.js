@@ -41,7 +41,7 @@
   // JS include files
   const jsIncludes = {
     files: [
-      config.node_dir + '/wowjs/dist/wow.js',
+      config.root_dir + 'src/vendor/wow.js',
       config.node_dir + '/angular/angular.min.js',
       config.node_dir + '/angular-route/angular-route.min.js',
       config.node_dir + '/angular-animate/angular-animate.min.js',
