@@ -1,4 +1,4 @@
-/* global angular, WOW, Event, $ */
+/* global angular, WOW, Event, zenscroll, $ */
 
 (function () {
   'use strict'
@@ -235,18 +235,7 @@
       templateUrl: 'app/partials/footer.html',
       controller: function ($scope, $window, $anchorScroll) {
         $scope.gotoTop = function () {
-          scrollTo(document.body, 0, 75)
-        }
-
-        function scrollTo (element, to, duration) {
-          if (duration < 0) return
-          const difference = to - element.scrollTop
-          const perTick = difference / duration * 2
-
-          setTimeout(function () {
-            element.scrollTop = element.scrollTop + perTick
-            scrollTo(element, to, duration - 2)
-          }, 10)
+          zenscroll.to(document.body)
         }
       }
     }
