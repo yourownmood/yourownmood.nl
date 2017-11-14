@@ -42,6 +42,7 @@
   const jsIncludes = {
     files: [
       config.root_dir + 'src/vendor/wow.js',
+      config.node_dir + '/zenscroll/zenscroll-min.js',
       config.node_dir + '/angular/angular.min.js',
       config.node_dir + '/angular-route/angular-route.min.js',
       config.node_dir + '/angular-animate/angular-animate.min.js',
