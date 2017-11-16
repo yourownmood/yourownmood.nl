@@ -40,9 +40,11 @@
 
   // JS include files
   const jsIncludes = {
-    files: [
-      config.root_dir + 'src/vendor/wow.js',
-      config.node_dir + '/zenscroll/zenscroll-min.js',
+    vendor: [
+      config.node_dir + '/wowjs/dist/wow.js',
+      config.node_dir + '/zenscroll/zenscroll.js'
+    ],
+    app: [
       config.node_dir + '/angular/angular.min.js',
       config.node_dir + '/angular-route/angular-route.min.js',
       config.node_dir + '/angular-animate/angular-animate.min.js',
@@ -52,20 +54,16 @@
     ]
   }
 
-  // Set the banner var
-  // var packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
-  // var banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n'
-
   /* Main tasks */
 
   // Build
   gulp.task('build', 'Standard build task', function (callback) {
-    runSequence('clean', ['sass', 'js:build', 'copy-assets', 'app-html', 'app-json'], 'styleguide', callback)
+    runSequence('clean', ['sass', 'js:build:vendor', 'js:build:app', 'copy-assets', 'app-html', 'app-json'], 'js:build:concat', 'styleguide', callback)
   })
 
   // Build test
   gulp.task('build:test', 'Standard build task', function (callback) {
-    runSequence('clean', ['sass', 'js:build', 'copy-assets', 'app-html', 'app-json:test'], 'styleguide', callback)
+    runSequence('clean', ['sass', 'js:build:vendor', 'js:build:app', 'copy-assets', 'app-html', 'app-json:test'], 'js:build:concat', 'styleguide', callback)
   })
 
   // Serve
@@ -88,27 +86,50 @@
 
   // JS task:
   gulp.task('js', 'Concats and minify js files', function (callback) {
-    return gulp.src(jsIncludes.files)
+    return gulp.src(jsIncludes.vendor.concat(jsIncludes.app))
     .pipe(ngAnnotate())
     .pipe(concat('bundle.js'))
     .pipe(gulp.dest(config.src_dir + '/assets/javascript/'))
     .pipe(browserSync.stream())
   })
 
-  // JS build task:
-  gulp.task('js:build', 'Concats and minify js files', function (callback) {
+  // JS build task vendor:
+  gulp.task('js:build:vendor', 'Concats and minify vendor js files', function (callback) {
     // Update the banner var
     const packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
     const banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n'
 
-    return gulp.src(jsIncludes.files)
+    return gulp.src(jsIncludes.vendor)
+    .pipe(concat('vendor.min.js'))
+    .pipe(uglify())
+    .pipe(header(banner))
+    .pipe(gulp.dest(config.build_dir + '/app/javascript/'))
+  })
+
+  // JS build task app:
+  gulp.task('js:build:app', 'Concats and minify app js files', function (callback) {
+    // Update the banner var
+    const packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+    const banner = '/*! Build: ' + packJson.version + ' - ' + new Date().toString() + ' */\n'
+
+    return gulp.src(jsIncludes.app)
     .pipe(ngAnnotate())
     .pipe(babel({
       presets: ['es2015', 'es2016']
     }))
-    .pipe(concat('bundle.min.js'))
+    .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(header(banner))
+    .pipe(gulp.dest(config.build_dir + '/app/javascript/'))
+  })
+
+  // JS build concat:
+  gulp.task('js:build:concat', 'Concats the build js files', function (callback) {
+    return gulp.src([
+      config.build_dir + '/app/javascript/vendor.min.js',
+      config.build_dir + '/app/javascript/app.min.js'
+    ])
+    .pipe(concat('bundle.min.js'))
     .pipe(gulp.dest(config.build_dir + '/app/javascript/'))
   })
 
