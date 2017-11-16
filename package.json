@@ -3,8 +3,15 @@
   "version": "1.9.0",
   "description": "Yom angular website",
   "scripts": {
+    "build": "yarn check; gulp build",
+    "create-patch": "yarn check; gulp create-patch",
+    "create-minor": "yarn check; gulp create-minor",
+    "create-major": "yarn check; gulp create-major",
     "prepush": "yarn test",
-    "start": "gulp serve",
+    "publish-test": "yarn check; gulp publish-test",
+    "publish-feature": "yarn check; gulp publish-feature",
+    "publish-prod": "yarn check; gulp publish-prod",
+    "start": "yarn check; gulp serve",
     "styleguide": "./node_modules/.bin/aigis run -c ./aigis_config.yml",
     "stylelint": "stylelint 'src/app/assets/scss/**/*.scss' --config .stylelintrc",
     "test": "yarn stylelint; standard"
