@@ -10,9 +10,9 @@ Despite being open sourced, all yourownmood.nl code and content remain copyright
 
 * Create a new version using the following command:
   ```
-  gulp create-patch
-  gulp create-minor
-  gulp create-major
+  yarn create-patch
+  yarn create-minor
+  yarn create-major
   ```
   * Where `create-patch` makes v0.1.0 → v0.1.1
   * Where `create-minor` makes v0.1.1 → v0.2.0
@@ -29,7 +29,7 @@ Despite being open sourced, all yourownmood.nl code and content remain copyright
 * Start a new release job via:
 
   ```
-  gulp publish-test
+  yarn publish-test
   ```
 
 * Wait. Get some coffee.
@@ -37,7 +37,7 @@ Despite being open sourced, all yourownmood.nl code and content remain copyright
 * If all lights are green and a release to production is okayed by the bosses, run:
 
   ```
-  gulp publish-prod
+  yarn publish-prod
   ```
 * Verify the release on [yourownmood.nl](https://yourownmood.nl)
 
