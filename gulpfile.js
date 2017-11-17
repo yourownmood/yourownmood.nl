@@ -240,8 +240,10 @@
 
   // Commit task
   gulp.task('commit', function () {
+    const packJson = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+
     return gulp.src(['./package.json'])
-      .pipe(git.commit('bumps package version'))
+      .pipe(git.commit('v' + packJson.version))
       // read only one file to get the version number
       .pipe(filter('package.json'))
       // tag it in the repository
