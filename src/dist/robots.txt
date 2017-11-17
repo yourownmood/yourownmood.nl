@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://yourownmood.nl/sitemap.xml
