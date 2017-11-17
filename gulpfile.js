@@ -10,7 +10,6 @@
   const bump = require('gulp-bump')
   const cleanCSS = require('gulp-clean-css')
   const concat = require('gulp-concat')
-  const cred = require('./cred.json')
   const del = require('del')
   const filter = require('gulp-filter')
   const fs = require('fs')
@@ -249,6 +248,8 @@
 
   // Pubish test task
   gulp.task('publish-test', ['build:test'], function () {
+    const cred = require('./cred.json')
+
     const conn = ftp.create({
       host: cred.host,
       user: cred.user,
@@ -268,6 +269,8 @@
 
   // Pubish feature task
   gulp.task('publish-feature', ['build:test'], function () {
+    const cred = require('./cred.json')
+
     const conn = ftp.create({
       host: cred.host,
       user: cred.user,
@@ -287,6 +290,8 @@
 
   // Pubish prod task
   gulp.task('publish-prod', ['build'], function () {
+    const cred = require('./cred.json')
+
     const conn = ftp.create({
       host: cred.host,
       user: cred.user,
