@@ -37,6 +37,8 @@
     .otherwise({
       redirectTo: '/'
     })
+
+    $locationProvider.html5Mode(true)
   }])
 
   app.controller('mainController', ['$scope', '$rootScope', '$route', '$routeParams', '$location', '$window', function ($scope, $rootScope, $route, $routeParams, $location, $window) {
