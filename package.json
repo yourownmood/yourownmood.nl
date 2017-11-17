@@ -1,6 +1,6 @@
 {
   "name": "Yom",
-  "version": "1.9.1",
+  "version": "1.10.0",
   "description": "Yom angular website",
   "scripts": {
     "build": "yarn check; gulp build",
