@@ -1,4 +1,5 @@
 # yourownmood.nl
+[![CircleCI](https://circleci.com/gh/yourownmood/yourownmood.nl/tree/master.svg?style=shield)](https://circleci.com/gh/yourownmood/yourownmood.nl/tree/master)
 
 This is yourownmood.nl uncompiled source code.
 
