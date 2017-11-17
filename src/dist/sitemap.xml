@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://yourownmood.nl/</loc>
+  </url>
+  <url>
+    <loc>https://yourownmood.nl/#/about</loc>
+  </url>
+  <url>
+    <loc>https://yourownmood.nl/#/profile/gert-jan-de-goede</loc>
+  </url>
+  <url>
+    <loc>https://yourownmood.nl/#/profile/steven-bax</loc>
+  </url>
+  <url>
+    <loc>https://yourownmood.nl/#/project/leaseplan</loc>
+  </url>
+  <url>
+    <loc>https://yourownmood.nl/#/project/fedex</loc>
+  </url>
+  <url>
+    <loc>https://yourownmood.nl/#/project/tnt</loc>
+  </url>
+  <url>
+    <loc>https://yourownmood.nl/#/project/sunweb</loc>
+  </url>
+  <url>
+    <loc>https://yourownmood.nl/#/contact</loc>
+  </url>
+</urlset>

@@ -168,7 +168,8 @@
   gulp.task('app-html', ['move-partials'], function () {
     return gulp.src([
       config.dist_dir + '/index.html',
-      config.dist_dir + '/.htaccess'
+      config.dist_dir + '/.htaccess',
+      config.dist_dir + '/sitemap.xml'
     ])
     .pipe(gulp.dest(config.build_dir))
   })
