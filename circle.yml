@@ -5,8 +5,3 @@ test:
   override:
     - yarn test
     - yarn build
-deployment:
-  staging:
-    branch: master
-    heroku:
-      appname: yom
