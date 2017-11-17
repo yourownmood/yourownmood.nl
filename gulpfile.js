@@ -169,7 +169,8 @@
     return gulp.src([
       config.dist_dir + '/index.html',
       config.dist_dir + '/.htaccess',
-      config.dist_dir + '/sitemap.xml'
+      config.dist_dir + '/sitemap.xml',
+      config.dist_dir + '/robots.txt'
     ])
     .pipe(gulp.dest(config.build_dir))
   })
