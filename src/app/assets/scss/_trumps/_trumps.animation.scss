@@ -28,7 +28,6 @@
 
 // ANIMATED
 
-// scss-lint:disable VendorPrefix
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -157,7 +156,6 @@
   -webkit-animation-name: fadeInUpDouble;
   animation-name: fadeInUpDouble;
 }
-// scss-lint:enable
 
 // === DOCS ===
 // --------------------------------------------------
