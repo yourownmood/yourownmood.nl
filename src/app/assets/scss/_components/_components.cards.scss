@@ -81,14 +81,21 @@ $card-br: 44%;
 .card--sb-project {
   height: $card-bl;
 
-  background-color: #e7401e;
+  /* stylelint-disable */
+  background: #eb4356;
+  background: -moz-linear-gradient(90deg, #eb4356 0%, #ef7a56 100%);
+  background: -webkit-linear-gradient(90deg, #eb4356 0%, #ef7a56 100%);
+  background: linear-gradient(90deg, #eb4356 0%, #ef7a56 100%);
+  background: linear-gradient(90deg, #eb4356, #ef7a56);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eb4356', endColorstr='#ef7a56',GradientType=1 );
+  /* stylelint-enable */
 
-  background-image: url('../images/project/leaseplan/energyline.png');
   background-repeat: no-repeat;
   background-position: -20% bottom;
 
   img {
-    max-width: 70% !important;
+    max-width: 75% !important;
+    max-height: 75% !important;
   }
 
   @include media-query(phone) {
@@ -309,7 +316,7 @@ $card-br: 44%;
 }
 
 .card--ecover {
-  height: 27%;
+  height: 25%;
 
   background-color: #85c300;
 
@@ -319,10 +326,16 @@ $card-br: 44%;
   }
 }
 
-.card--sdc {
-  height: 21%;
+.card--ls {
+  height: 23%;
 
-  background-color: #e01e3a;
+  /* stylelint-disable */
+  background: #f0f0f0;
+  background: -moz-linear-gradient(45deg, #f0f0f0 0%, #fff 69%);
+  background: -webkit-linear-gradient(45deg, #f0f0f0 0%, #fff 69%);
+  background: linear-gradient(45deg, #f0f0f0 0%, #fff 69%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#ffffff',GradientType=1 );
+  /* stylelint-enable */
 
   .overlay__name {
     @include media-query (desk) {

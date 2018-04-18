@@ -21,7 +21,6 @@
 
 // BORDER-RADIUS
 
-// scss-lint:disable VendorPrefix
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -69,7 +68,6 @@
 
   overflow: hidden !important;
 }
-// scss-lint:enable
 
 // === DOCS ===
 // --------------------------------------------------
