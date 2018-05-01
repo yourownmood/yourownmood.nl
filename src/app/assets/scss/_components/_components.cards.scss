@@ -114,11 +114,7 @@ $card-br: 44%;
 .card--gj-project {
   height: $card-br;
 
-  background-color: #e7401e;
-
-  background-image: url('../images/project/leaseplan/energyline.png');
-  background-repeat: no-repeat;
-  background-position: 58.5% bottom;
+  background-color: #000;
 
   img {
     max-width: 70% !important;
@@ -126,6 +122,11 @@ $card-br: 44%;
 
   @include media-query(phone) {
     min-height: 325px;
+  }
+
+  .project__name,
+  .project__year {
+    color: $yom-white;
   }
 }
 
@@ -225,8 +226,12 @@ $card-br: 44%;
 
 .project__year {
   position: absolute;
-  right: 0;
-  bottom: 45px;
+  right: -20px;
+  bottom: 80px;
+
+  width: 120px;
+
+  margin: 0;
 
   transform: rotate(-90deg);
 
@@ -259,6 +264,22 @@ $card-br: 44%;
   }
 }
 
+.card--lp {
+  height: 27%;
+
+  background-color: #e7401e;
+
+  .card__bg {
+    background-color: transparent !important;
+    background-position: 58.5% bottom;
+    background-size: 175%;
+  }
+
+  img {
+    max-width: 80%;
+  }
+}
+
 .card--allerhande {
   height: 23%;
 
@@ -274,7 +295,7 @@ $card-br: 44%;
 }
 
 .card--fedex {
-  height: 27%;
+  height: 30%;
 
   background-color: #4d148c;
 
@@ -306,7 +327,7 @@ $card-br: 44%;
 }
 
 .card--tnt {
-  height: 29%;
+  height: 26%;
 
   background-color: #f60;
 
@@ -316,7 +337,7 @@ $card-br: 44%;
 }
 
 .card--ecover {
-  height: 25%;
+  height: 24%;
 
   background-color: #85c300;
 
@@ -363,7 +384,7 @@ $card-br: 44%;
 }
 
 .card--ing {
-  height: 34%;
+  height: 25%;
 
   background-color: #999;
 
@@ -373,7 +394,7 @@ $card-br: 44%;
 }
 
 .card--ldd {
-  height: 33%;
+  height: 25%;
 
   background-color: #faf0c4;
 
@@ -398,7 +419,7 @@ $card-br: 44%;
 }
 
 .card--ultimaker {
-  height: 33%;
+  height: 24%;
 }
 
 .card--ldd,
