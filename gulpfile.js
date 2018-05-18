@@ -153,7 +153,7 @@
   })
 
   // Copy assets task:
-  gulp.task('copy-assets', ['copy-favicon'], function () {
+  gulp.task('copy-assets', ['copy-favicon', 'copy-fonts'], function () {
     return gulp.src(config.src_dir + '/assets/images/**/*')
            .pipe(gulp.dest(config.build_dir + '/app/assets/images/'))
   })
@@ -162,6 +162,12 @@
   gulp.task('copy-favicon', 'Copys favicon files to the build folder', function () {
     return gulp.src(config.src_dir + '/assets/favicon/**/*')
            .pipe(gulp.dest(config.build_dir + '/app/assets/favicon/'))
+  })
+
+  // Copy fonts task:
+  gulp.task('copy-fonts', 'Copys font files to the build folder', function () {
+    return gulp.src(config.src_dir + '/assets/fonts/**/*')
+           .pipe(gulp.dest(config.build_dir + '/app/assets/fonts/'))
   })
 
   // app HTML task:
