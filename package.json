@@ -1,6 +1,6 @@
 {
   "name": "Yom",
-  "version": "1.18.0",
+  "version": "1.19.0",
   "description": "Yom angular website",
   "scripts": {
     "build": "./runscripts/build.sh",
