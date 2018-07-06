@@ -138,7 +138,25 @@ $inuit-enable-layout--center: true;
  * #TRUMPS
  */
 @import 'node_modules/inuit-clearfix/trumps.clearfix';
+$inuit-widths-columns: (
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+);
+
 @import 'node_modules/inuit-widths/trumps.widths';
+$inuit-widths-columns-responsive: (
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+);
+
 @import 'node_modules/inuit-responsive-widths/trumps.widths-responsive';
 $inuit-enable-paddings: true;
 $inuit-enable-paddings--large: true;
