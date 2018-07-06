@@ -114,10 +114,10 @@ $card-br: 44%;
 .card--gj-project {
   height: $card-br;
 
-  background-color: #000;
+  background-color: #003c88;
 
   img {
-    max-width: 70% !important;
+    max-width: 80% !important;
   }
 
   @include media-query(phone) {
