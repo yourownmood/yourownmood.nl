@@ -7,6 +7,10 @@ yourownmood.nl is built on Angular and inuit.css.
 
 Despite being open sourced, all yourownmood.nl code and content remain copyright of yourownmood.
 
+## Development
+
+Start a local development environment by running `yarn start`.
+
 ## Creating a new release?
 
 * Create a new version using the following command:
