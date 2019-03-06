@@ -1,5 +1,26 @@
 [
     {
+      "url": "eneco",
+      "heroTitle": "",
+      "heroImgFull": "",
+      "heroImgPalm": "",
+      "heroImgPhone": "",
+      "heroImgPosition": "cc",
+      "projectYears": "2018-now",
+      "projectTitle": "",
+      "projectDescription": "",
+      "projectClient": "Eneco",
+      "projectRoleSteven": "Front-end developer (Steven)",
+      "projectRoleGertjan": "",
+      "projectAgency": "Dept Agency",
+      "projectUrlLabel": "eneco.nl",
+      "projectUrlHref": "https://www.eneco.nl/",
+      "projectColor": "#e9434c",
+      "projectLogo": "app/assets/images/project/eneco/eneco_logo.png",
+      "projectThumb": "",
+      "projectThumbPosition": "cc"
+    },
+    {
         "url": "leaseplan",
         "heroTitle": "LeasePlan",
         "heroImgFull": "app/assets/images/project/leaseplan/leaseplan-hero-full.jpg",
