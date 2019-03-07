@@ -31,7 +31,7 @@ Start a local development environment by running `yarn start`.
   git push --follow-tags
   ```
 
-* Start a new release job via:
+* Start a new release job via: (or by hand: `yarn publish-manual`)
 
   ```
   yarn publish-test

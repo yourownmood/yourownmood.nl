@@ -12,6 +12,7 @@
     "publish-test": "yarn check; yarn compare; gulp publish-test",
     "publish-feature": "yarn check; yarn compare; gulp publish-feature",
     "publish-prod": "yarn check; yarn compare; gulp publish-prod",
+    "publish-manual": "yarn check; yarn compare; gulp build",
     "start": "yarn check; gulp serve",
     "styleguide": "./node_modules/.bin/aigis run -c ./aigis_config.yml",
     "stylelint": "stylelint 'src/app/assets/scss/**/*.scss' --config .stylelintrc",
