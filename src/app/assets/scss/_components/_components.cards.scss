@@ -114,10 +114,11 @@ $card-br: 44%;
 .card--gj-project {
   height: $card-br;
 
-  background-color: #003c88;
+  background-color: #f7a100;
 
   img {
-    max-width: 80% !important;
+    max-width: 85% !important;
+    max-height: none !important;
   }
 
   @include media-query(phone) {
@@ -226,10 +227,10 @@ $card-br: 44%;
 
 .project__year {
   position: absolute;
-  right: -20px;
-  bottom: 80px;
+  right: -30px;
+  bottom: 90px;
 
-  width: 120px;
+  width: 140px;
 
   margin: 0;
 
@@ -265,7 +266,7 @@ $card-br: 44%;
 }
 
 .card--lp {
-  height: 27%;
+  height: 20%;
 
   background-color: #e7401e;
 
@@ -280,8 +281,18 @@ $card-br: 44%;
   }
 }
 
+.card--shell {
+  height: 25%;
+
+  background-color: #003c88;
+
+  img {
+    max-width: 80%;
+  }
+}
+
 .card--allerhande {
-  height: 23%;
+  height: 25%;
 
   background-color: #6cbc88;
 
@@ -295,7 +306,7 @@ $card-br: 44%;
 }
 
 .card--fedex {
-  height: 30%;
+  height: 25%;
 
   background-color: #4d148c;
 
@@ -305,7 +316,7 @@ $card-br: 44%;
 }
 
 .card--sunweb {
-  height: 26%;
+  height: 25%;
 
   background-color: #ff0;
 
@@ -315,7 +326,7 @@ $card-br: 44%;
 }
 
 .card--liander {
-  height: 24%;
+  height: 20%;
 
   background-color: #811d7d;
 
@@ -327,7 +338,7 @@ $card-br: 44%;
 }
 
 .card--tnt {
-  height: 26%;
+  height: 25%;
 
   background-color: #f60;
 
@@ -337,7 +348,7 @@ $card-br: 44%;
 }
 
 .card--ecover {
-  height: 24%;
+  height: 20%;
 
   background-color: #85c300;
 
@@ -348,7 +359,7 @@ $card-br: 44%;
 }
 
 .card--ls {
-  height: 23%;
+  height: 20%;
 
   /* stylelint-disable */
   background: #f0f0f0;
@@ -376,7 +387,7 @@ $card-br: 44%;
 }
 
 .card--be {
-  height: 23%;
+  height: 20%;
 
   background-color: #f1f1f1;
 
@@ -419,7 +430,7 @@ $card-br: 44%;
 }
 
 .card--ultimaker {
-  height: 24%;
+  height: 25%;
 }
 
 .card--ldd,
