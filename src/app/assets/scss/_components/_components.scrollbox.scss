@@ -21,7 +21,7 @@
 }
 
 .scrollbox__cards {
-  width: 2200px;
+  width: 2750px; // 3850px
   height: 100%;
 
   @include media-query(phone) {
@@ -39,7 +39,7 @@
 
   float: left;
   width: 550px;
-  min-width: 25%;
+  min-width: 14.28%;
   height: 100%;
 
   @include media-query(phone) {
